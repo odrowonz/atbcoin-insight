@@ -24,7 +24,9 @@ void Shutdown();
 //!Initialize the logging infrastructure
 void InitLogging();
 //!Parameter interaction: change current parameters depending on various rules
-void InitParameterInteraction();
+
+bool InitParameterInteraction();
+
 bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler);
 
 /** The help message mode determines what help message to show */

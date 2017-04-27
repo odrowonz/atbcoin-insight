@@ -160,6 +160,19 @@ public:
         return (nValue == -1);
     }
 
+    
+    void SetEmpty()
+    {
+        nValue = 0;
+        scriptPubKey.clear();
+    }
+
+    bool IsEmpty() const
+    {
+        return (nValue == 0 && scriptPubKey.empty());
+    }	
+    
+	
     uint256 GetHash() const;
 
     CAmount GetDustThreshold(const CFeeRate &minRelayTxFee) const
@@ -342,6 +355,9 @@ inline void SerializeTransaction(TxType& tx, Stream& s, Operation ser_action, in
         }
     }
     READWRITE(*const_cast<uint32_t*>(&tx.nLockTime));
+    
+    READWRITE(*const_cast<uint32_t*>(&tx.nTime));
+    
 }
 
 /** The basic transaction that is broadcasted on the network and contained in
@@ -373,6 +389,9 @@ public:
     const std::vector<CTxOut> vout;
     CTxWitness wit; // Not const: can change without invalidating the txid cache
     const uint32_t nLockTime;
+    
+    const uint32_t nTime;
+    
 
     /** Construct a CTransaction that qualifies as IsNull() */
     CTransaction();
@@ -413,11 +432,19 @@ public:
 
     // Compute modified tx size for priority calculation (optionally given tx size)
     unsigned int CalculateModifiedSize(unsigned int nTxSize=0) const;
-
+	
+    
     bool IsCoinBase() const
     {
-        return (vin.size() == 1 && vin[0].prevout.IsNull());
+        return (vin.size() == 1 && vin[0].prevout.IsNull() && vout.size() >= 1);
     }
+
+    bool IsCoinStake() const
+    {
+        // ppcoin: the coin stake transaction is marked with the first output empty
+        return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
+    }
+    
 
     friend bool operator==(const CTransaction& a, const CTransaction& b)
     {
@@ -442,6 +469,9 @@ struct CMutableTransaction
     std::vector<CTxOut> vout;
     CTxWitness wit;
     uint32_t nLockTime;
+    
+    uint32_t nTime;
+    
 
     CMutableTransaction();
     CMutableTransaction(const CTransaction& tx);

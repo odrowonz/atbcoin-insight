@@ -161,6 +161,11 @@ public:
 
     //! pointer to the index of the predecessor of this block
     CBlockIndex* pprev;
+	
+    
+    //! pointer to the index of the successor of this block
+    CBlockIndex* pnext;
+    
 
     //! pointer to the index of some further predecessor of this block
     CBlockIndex* pskip;
@@ -202,10 +207,35 @@ public:
     //! (memory only) Sequential id assigned to distinguish order in which blocks are received.
     uint32_t nSequenceId;
 
+    
+    // block signature - proof-of-stake protect the block by signing the block using a stake holder private key
+    std::vector<unsigned char> vchBlockSig;
+
+    unsigned int nFlags;  // ppcoin: block index flags
+    enum  
+    {
+        BLOCK_PROOF_OF_STAKE = (1 << 0), // is proof-of-stake block
+        BLOCK_STAKE_ENTROPY  = (1 << 1), // entropy bit for stake modifier
+        BLOCK_STAKE_MODIFIER = (1 << 2), // regenerated stake modifier
+    };
+
+    uint64_t nStakeModifier; // hash modifier for proof-of-stake
+    uint256 bnStakeModifierV2;
+
+    // proof-of-stake specific fields
+    COutPoint prevoutStake;
+    unsigned int nStakeTime;
+
+    uint256 hashProof;
+   
+	
     void SetNull()
     {
         phashBlock = NULL;
         pprev = NULL;
+        
+        pnext = NULL;
+        
         pskip = NULL;
         nHeight = 0;
         nFile = 0;
@@ -216,6 +246,15 @@ public:
         nChainTx = 0;
         nStatus = 0;
         nSequenceId = 0;
+        
+        vchBlockSig.clear();
+        nFlags = 0;
+        nStakeModifier = 0;
+        bnStakeModifierV2 = uint256();
+        hashProof = uint256();
+        prevoutStake.SetNull();
+        nStakeTime = 0;
+        
 
         nVersion       = 0;
         hashMerkleRoot = uint256();
@@ -233,6 +272,25 @@ public:
     {
         SetNull();
 
+        
+        nFlags = 0;
+        nStakeModifier = 0;
+        bnStakeModifierV2 = uint256();
+        hashProof = uint256(); 
+        if (block.IsProofOfStake())
+        {
+            SetProofOfStake();
+            prevoutStake = block.PrevoutStake();
+            nStakeTime = block.StakeTime();
+        }
+        else
+        {
+            prevoutStake.SetNull();
+            nStakeTime = 0;
+        }
+
+        vchBlockSig    = block.vchBlockSig;
+        
         nVersion       = block.nVersion;
         hashMerkleRoot = block.hashMerkleRoot;
         nTime          = block.nTime;
@@ -268,6 +326,12 @@ public:
         block.nTime          = nTime;
         block.nBits          = nBits;
         block.nNonce         = nNonce;
+        
+        block.vchBlockSig    = vchBlockSig;
+        block.fStake         = IsProofOfStake();
+        block.prevoutStake   = prevoutStake;
+        block.nStakeTime     = nStakeTime;
+        
         return block;
     }
 
@@ -297,10 +361,58 @@ public:
         return pbegin[(pend - pbegin)/2];
     }
 
+    
+    bool IsProofOfWork() const
+    {
+        return !(nFlags & BLOCK_PROOF_OF_STAKE);
+    }
+
+    bool IsProofOfStake() const
+    {
+        return (nFlags & BLOCK_PROOF_OF_STAKE);
+    }
+
+    void SetProofOfStake()
+    {
+        nFlags |= BLOCK_PROOF_OF_STAKE;
+    }
+
+    unsigned int GetStakeEntropyBit() const
+    {
+        return ((nFlags & BLOCK_STAKE_ENTROPY) >> 1);
+    }
+
+    bool SetStakeEntropyBit(unsigned int nEntropyBit)
+    {
+        if (nEntropyBit > 1)
+            return false;
+        nFlags |= (nEntropyBit? BLOCK_STAKE_ENTROPY : 0);
+        return true;
+    }
+
+    bool GeneratedStakeModifier() const
+    {
+        return (nFlags & BLOCK_STAKE_MODIFIER);
+    }
+
+    void SetStakeModifier(uint64_t nModifier, bool fGeneratedStakeModifier)
+    {
+        nStakeModifier = nModifier;
+        if (fGeneratedStakeModifier)
+            nFlags |= BLOCK_STAKE_MODIFIER;
+    }
+    
+	
     std::string ToString() const
     {
-        return strprintf("CBlockIndex(pprev=%p, nHeight=%d, merkle=%s, hashBlock=%s)",
-            pprev, nHeight,
+        
+        return strprintf("CBlockIndex(pprev=%p, pnext=%p, nHeight=%d, nFlags=(%s)(%d)(%s), nStakeModifier=%016x, hashProof=%s, prevoutStake=(%s), nStakeTime=%d, merkle=%s, hashBlock=%s)",
+            pprev, pnext, nHeight,
+            GeneratedStakeModifier() ? "MOD" : "-", GetStakeEntropyBit(), IsProofOfStake()? "PoS" : "PoW",
+            nStakeModifier,
+            hashProof.ToString(),
+            prevoutStake.ToString(), nStakeTime,
+        
             hashMerkleRoot.ToString(),
             GetBlockHash().ToString());
     }
@@ -370,7 +482,23 @@ public:
             READWRITE(VARINT(nDataPos));
         if (nStatus & BLOCK_HAVE_UNDO)
             READWRITE(VARINT(nUndoPos));
-
+        
+        READWRITE(nFlags);
+        READWRITE(nStakeModifier);
+        READWRITE(bnStakeModifierV2);
+        if (IsProofOfStake())
+        {
+            READWRITE(prevoutStake);
+            READWRITE(nStakeTime);
+        }
+        else if (ser_action.ForRead())
+        {
+            const_cast<CDiskBlockIndex*>(this)->prevoutStake.SetNull();
+            const_cast<CDiskBlockIndex*>(this)->nStakeTime = 0;
+        }
+        READWRITE(hashProof);
+        READWRITE(vchBlockSig);
+        
         // block header
         READWRITE(this->nVersion);
         READWRITE(hashPrev);
@@ -389,6 +517,12 @@ public:
         block.nTime           = nTime;
         block.nBits           = nBits;
         block.nNonce          = nNonce;
+        
+        block.vchBlockSig     = vchBlockSig;
+        block.fStake          = IsProofOfStake();
+        block.prevoutStake    = prevoutStake;
+        block.nStakeTime      = nStakeTime;
+        
         return block.GetHash();
     }
 

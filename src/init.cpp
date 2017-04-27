@@ -192,10 +192,16 @@ void Shutdown()
     StopREST();
     StopRPC();
     StopHTTPServer();
+    
 #ifdef ENABLE_WALLET
     if (pwalletMain)
+    {
+        StakeBitcoins(false, pwalletMain);
         pwalletMain->Flush(false);
+    }
 #endif
+    GenerateBitcoins(false, 0, Params());
+    
     StopNode();
     StopTorControl();
     UnregisterNodeSignals(GetNodeSignals());
@@ -418,6 +424,10 @@ std::string HelpMessage(HelpMessageMode mode)
         _("If <category> is not supplied or if <category> = 1, output all debugging information.") + _("<category> can be:") + " " + debugCategories + ".");
     if (showDebug)
         strUsage += HelpMessageOpt("-nodebug", "Turn off debugging messages, same as -debug=0");
+    
+    strUsage += HelpMessageOpt("-gen", strprintf(_("Generate coins (default: %u)"), DEFAULT_GENERATE));
+    strUsage += HelpMessageOpt("-genproclimit=<n>", strprintf(_("Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)"), DEFAULT_GENERATE_THREADS));
+    
     strUsage += HelpMessageOpt("-help-debug", _("Show all debugging options (usage: --help -help-debug)"));
     strUsage += HelpMessageOpt("-logips", strprintf(_("Include IP addresses in debug output (default: %u)"), DEFAULT_LOGIPS));
     strUsage += HelpMessageOpt("-logtimestamps", strprintf(_("Prepend debug output with timestamp (default: %u)"), DEFAULT_LOGTIMESTAMPS));
@@ -665,7 +675,9 @@ bool AppInitServers(boost::thread_group& threadGroup)
 }
 
 // Parameter interaction based on rules
-void InitParameterInteraction()
+
+bool InitParameterInteraction()
+
 {
     // when specifying an explicit binding address, you want to listen on it
     // even when -connect or -proxy is specified
@@ -715,6 +727,19 @@ void InitParameterInteraction()
             LogPrintf("%s: parameter interaction: -externalip set -> setting -discover=0\n", __func__);
     }
 
+
+#ifdef ENABLE_WALLET
+    if (mapArgs.count("-reservebalance")) // ppcoin: reserve balance amount
+    {
+        if (!ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
+        {
+            InitError(_("Invalid amount for -reservebalance=<amount>"));
+            return false;
+        }
+    }
+#endif
+
+
     if (GetBoolArg("-salvagewallet", false)) {
         // Rewrite just private keys: rescan to find transactions
         if (SoftSetBoolArg("-rescan", true))
@@ -742,6 +767,10 @@ void InitParameterInteraction()
         if (SoftSetBoolArg("-whitelistrelay", true))
             LogPrintf("%s: parameter interaction: -whitelistforcerelay=1 -> setting -whitelistrelay=1\n", __func__);
     }
+	
+    
+    return true;
+    
 }
 
 static std::string ResolveErrMsg(const char * const optname, const std::string& strBind)
@@ -836,6 +865,9 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         }
 #endif
     }
+    
+    nMinerSleep = GetArg("-minersleep", 500);
+    
 
     // Make sure enough file descriptors are available
     int nBind = std::max((int)mapArgs.count("-bind") + (int)mapArgs.count("-whitebind"), 1);
@@ -1448,6 +1480,19 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         StartTorControl(threadGroup, scheduler);
 
     StartNode(threadGroup, scheduler);
+
+    
+#ifdef ENABLE_WALLET
+    // Mine proof-of-stake blocks in the background
+    if (!GetBoolArg("-staking", DEFAULT_STAKE))
+        LogPrintf("Staking disabled\n");
+    else if (pwalletMain)
+        StakeBitcoins(true, pwalletMain);
+#endif
+
+    // Generate coins in the background
+    GenerateBitcoins(GetBoolArg("-gen", DEFAULT_GENERATE), GetArg("-genproclimit", DEFAULT_GENERATE_THREADS), chainparams);
+    
 
     // ********************************************************* Step 12: finished
 

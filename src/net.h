@@ -201,6 +201,9 @@ public:
     std::string cleanSubVer;
     bool fInbound;
     int nStartingHeight;
+    
+    int nMisbehavior;
+    
     uint64_t nSendBytes;
     mapMsgCmdSize mapSendBytesPerMsgCmd;
     uint64_t nRecvBytes;
@@ -376,6 +379,9 @@ protected:
     static banmap_t setBanned;
     static CCriticalSection cs_setBanned;
     static bool setBannedIsDirty;
+    
+    int nMisbehavior;
+    
 
     // Whitelisted ranges. Any node connecting from these is automatically
     // whitelisted (as well as those connecting to whitelisted binds).
@@ -769,6 +775,7 @@ public:
     static bool Unban(const CSubNet &ip);
     static void GetBanned(banmap_t &banmap);
     static void SetBanned(const banmap_t &banmap);
+    bool Misbehaving(int howmuch); // 1 == a little, 100 == a lot
 
     //!check is the banlist has unwritten changes
     static bool BannedSetIsDirty();

@@ -42,4 +42,10 @@ static const int FEEFILTER_VERSION = 70013;
 //! shord-id-based block download starts with this version
 static const int SHORT_IDS_BLOCKS_VERSION = 70014;
 
+
+//! reject blocks with non-canonical signatures starting from this version
+static const int CANONICAL_BLOCK_SIG_VERSION = 60016;
+static const int CANONICAL_BLOCK_SIG_LOW_S_VERSION = 60018;
+
+
 #endif // BITCOIN_VERSION_H

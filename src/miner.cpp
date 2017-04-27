@@ -17,6 +17,9 @@
 #include "net.h"
 #include "policy/policy.h"
 #include "pow.h"
+
+#include "pos.h"
+
 #include "primitives/transaction.h"
 #include "script/standard.h"
 #include "timedata.h"
@@ -24,6 +27,9 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "validationinterface.h"
+
+#include "wallet/wallet.h"
+
 
 #include <algorithm>
 #include <boost/thread.hpp>
@@ -47,6 +53,10 @@ uint64_t nLastBlockTx = 0;
 uint64_t nLastBlockSize = 0;
 uint64_t nLastBlockWeight = 0;
 
+int64_t nLastCoinStakeSearchInterval = 0;
+unsigned int nMinerSleep = 500;
+
+
 class ScoreCompare
 {
 public:
@@ -68,7 +78,9 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
 
     // Updating time can change work required on testnet:
     if (consensusParams.fPowAllowMinDifficultyBlocks)
-        pblock->nBits = GetNextWorkRequired(pindexPrev, pblock, consensusParams);
+        
+        pblock->nBits = GetNextTargetRequired(pindexPrev, pblock->IsProofOfStake());
+        
 
     return nNewTime - nOldTime;
 }
@@ -122,7 +134,7 @@ void BlockAssembler::resetBlock()
     blockFinished = false;
 }
 
-CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
+CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bool fProofOfStake, int64_t* pFees)
 {
     resetBlock();
 
@@ -175,22 +187,41 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn)
     coinbaseTx.vin.resize(1);
     coinbaseTx.vin[0].prevout.SetNull();
     coinbaseTx.vout.resize(1);
-    coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
-    coinbaseTx.vout[0].nValue = nFees + GetBlockSubsidy(nHeight, chainparams.GetConsensus());
+    
+    coinbaseTx.nTime = GetAdjustedTime();
+    if (!fProofOfStake)
+    {
+        coinbaseTx.vout[0].nValue = nFees + GetProofOfWorkReward();
+        coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
+    }
+    else
+    {
+        coinbaseTx.vout[0].SetEmpty();
+    }
+    
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
     pblock->vtx[0] = coinbaseTx;
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
+    
+    if (pFees)
+        *pFees = nFees;
+    
 
     // Fill in header
     pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
-    UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
-    pblock->nBits          = GetNextWorkRequired(pindexPrev, pblock, chainparams.GetConsensus());
+    
+    if (!fProofOfStake)
+        UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
+    pblock->nBits          = GetNextTargetRequired(pindexPrev, fProofOfStake);
+    
     pblock->nNonce         = 0;
     pblocktemplate->vTxSigOpsCost[0] = WITNESS_SCALE_FACTOR * GetLegacySigOpCount(pblock->vtx[0]);
 
     CValidationState state;
-    if (!TestBlockValidity(state, chainparams, *pblock, pindexPrev, false, false)) {
+    
+    if (!fProofOfStake && !TestBlockValidity(state, chainparams, *pblock, pindexPrev, false, false)) {
+    
         throw std::runtime_error(strprintf("%s: TestBlockValidity failed: %s", __func__, FormatStateMessage(state)));
     }
 
@@ -605,3 +636,389 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
     pblock->vtx[0] = txCoinbase;
     pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
 }
+
+
+bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+{
+    uint256 hashBlock = pblock->GetHash();
+    uint256 hashProof = pblock->GetPoWHash();
+    uint256 hashTarget = ArithToUint256(arith_uint256().SetCompact(pblock->nBits));
+
+    if(!pblock->IsProofOfWork())
+        return error("CheckWork() : %s is not a proof-of-work block", hashBlock.GetHex());
+
+    if (UintToArith256(hashProof) > UintToArith256(hashTarget))
+        return error("CheckWork() : proof-of-work not meeting target");
+
+    //// debug print
+    LogPrintf("CheckWork() : new proof-of-work block found  \n  proof hash: %s  \ntarget: %s\n", hashProof.GetHex(), hashTarget.GetHex());
+    LogPrintf("%s\n", pblock->ToString());
+    LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
+
+    // Found a solution
+    {
+        LOCK(cs_main);
+        if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
+            return error("CheckWork() : generated block is stale");
+
+        // Remove key from key pool
+        reservekey.KeepKey();
+
+        // Track how many getdata requests this block gets
+        {
+            LOCK(wallet.cs_wallet);
+            wallet.mapRequestCount[hashBlock] = 0;
+        }
+
+        // Process this block the same as if we had received it from another node
+        CValidationState state;
+        if (!ProcessNewBlock(state, Params(), NULL, pblock, true, NULL))
+            return error("CheckWork() : ProcessBlock, block not accepted");
+    }
+
+    return true;
+}
+
+bool CheckStake(CBlock* pblock, CWallet& wallet)
+{
+    uint256 proofHash, hashTarget;
+    uint256 hashBlock = pblock->GetHash();
+
+    if(!pblock->IsProofOfStake())
+        return error("CheckStake() : %s is not a proof-of-stake block", hashBlock.GetHex());
+
+    // verify hash target and signature of coinstake tx
+	CValidationState state;
+    if (!CheckProofOfStake(mapBlockIndex[pblock->hashPrevBlock], state, pblock->vtx[1], pblock->nBits, proofHash, hashTarget))
+        return error("CheckStake() : proof-of-stake checking failed");
+
+    //// debug print
+    LogPrintf("CheckStake() : new proof-of-stake block found  \n  hash: %s \nproofhash: %s  \ntarget: %s\n", hashBlock.GetHex(), proofHash.GetHex(), hashTarget.GetHex());
+    LogPrintf("%s\n", pblock->ToString());
+    LogPrintf("out %s\n", FormatMoney(pblock->vtx[1].GetValueOut()));
+
+    // Found a solution
+    {
+        LOCK(cs_main);
+        if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
+            return error("CheckStake() : generated block is stale");
+
+        // Track how many getdata requests this block gets
+        {
+            LOCK(wallet.cs_wallet);
+            wallet.mapRequestCount[hashBlock] = 0;
+        }
+
+        // Process this block the same as if we had received it from another node
+        CValidationState state;
+        if (!ProcessNewBlock(state, Params(), NULL, pblock, true, NULL))
+            return error("CheckStake() : ProcessBlock, block not accepted");
+    }
+
+    return true;
+}
+
+void ThreadStakeMiner(CWallet *pwallet)
+{
+    SetThreadPriority(THREAD_PRIORITY_LOWEST);
+
+    // Make this thread recognisable as the mining thread
+    RenameThread("bitcoin-staker");
+
+    CReserveKey reservekey(pwallet);
+
+    bool fTryToSync = true;
+
+    while (true)
+    {
+        while (pwallet->IsLocked())
+        {
+            nLastCoinStakeSearchInterval = 0;
+            MilliSleep(1000);
+        }
+
+        // while (vNodes.empty() || IsInitialBlockDownload())
+        // {
+        //     nLastCoinStakeSearchInterval = 0;
+        //     fTryToSync = true;
+        //     MilliSleep(1000);
+        // }
+
+        // if (fTryToSync)
+        // {
+        //     fTryToSync = false;
+        //     if (vNodes.size() < 3 || pindexBestHeader->GetBlockTime() < GetTime() - 10 * 60)
+        //     {
+        //         MilliSleep(60000);
+        //         continue;
+        //     }
+        // }
+
+        //check the next block height, wait for PoS
+        if (chainActive.Tip()->nHeight + 1 < Params().LastPOWBlock())
+        {
+            MilliSleep(60000);
+            continue;
+        }		
+
+        //
+        // Create new block
+        //
+        int64_t nFees;
+        
+        std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(Params()).CreateNewBlock(reservekey.reserveScript, true, &nFees));
+        
+        if (!pblocktemplate.get())
+            return;
+		CBlock *pblock = &pblocktemplate->block;
+
+        // Trying to sign a block
+        if (SignBlock(*pblock, *pwallet, nFees))
+        {
+            SetThreadPriority(THREAD_PRIORITY_NORMAL);
+            CheckStake(pblock, *pwallet);
+            SetThreadPriority(THREAD_PRIORITY_LOWEST);
+            MilliSleep(500);
+        }
+        else
+            MilliSleep(nMinerSleep);
+    }
+}
+
+void StakeBitcoins(bool fStake, CWallet *pwallet)
+{
+    static boost::thread_group* stakeThread = NULL;
+
+    if (stakeThread != NULL)
+    {
+        stakeThread->interrupt_all();
+        delete stakeThread;
+        stakeThread = NULL;
+    }
+
+	if(fStake)
+	{
+	    stakeThread = new boost::thread_group();
+	    stakeThread->create_thread(boost::bind(&ThreadStakeMiner, pwallet));
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Internal miner
+//
+
+//
+// ScanHash scans nonces looking for a hash with at least some zero bits.
+// The nonce is usually preserved between calls, but periodically or if the
+// nonce is 0xffff0000 or above, the block is rebuilt and nNonce starts over at
+// zero.
+//
+bool static ScanHash(const CBlockHeader *pblock, uint32_t& nNonce, uint256 *phash)
+{
+    // Write the first 76 bytes of the block header to a double-SHA256 state.
+    CHash256 hasher;
+    CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+    ss << *pblock;
+    //assert(ss.size() == 80);
+    hasher.Write((unsigned char*)&ss[0], 76);
+
+    while (true) {
+        nNonce++;
+
+        // Write the last 4 bytes of the block header (the nonce) to a copy of
+        // the double-SHA256 state, and compute the result.
+        CHash256(hasher).Write((unsigned char*)&nNonce, 4).Finalize((unsigned char*)phash);
+
+        // Return the nonce if the hash has at least some zero bits,
+        // caller will check if it has enough to reach the target
+        if (((uint16_t*)phash)[15] == 0)
+            return true;
+
+        // If nothing found after trying for a while, return -1
+        if ((nNonce & 0xfff) == 0)
+            return false;
+    }
+}
+
+static bool ProcessBlockFound(CBlock* pblock, const CChainParams& chainparams)
+{
+    LogPrintf("%s\n", pblock->ToString());
+    LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
+
+    // Found a solution
+    {
+        LOCK(cs_main);
+        if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
+            return error("BitcoinMiner: generated block is stale");
+    }
+
+    // Inform about the new block
+    GetMainSignals().BlockFound(pblock->GetHash());
+
+    // Process this block the same as if we had received it from another node
+    CValidationState state;
+    if (!ProcessNewBlock(state, chainparams, NULL, pblock, true, NULL))
+        return error("BitcoinMiner: ProcessNewBlock, block not accepted");
+
+    return true;
+}
+
+void static BitcoinMiner(const CChainParams& chainparams)
+{
+    LogPrintf("BitcoinMiner started\n");
+    SetThreadPriority(THREAD_PRIORITY_LOWEST);
+    RenameThread("bitcoin-miner");
+
+    unsigned int nExtraNonce = 0;
+
+    boost::shared_ptr<CReserveScript> coinbaseScript;
+    GetMainSignals().ScriptForMining(coinbaseScript);
+
+    try {
+        // Throw an error if no script was provided.  This can happen
+        // due to some internal error but also if the keypool is empty.
+        // In the latter case, already the pointer is NULL.
+        if (!coinbaseScript || coinbaseScript->reserveScript.empty())
+            throw std::runtime_error("No coinbase script available (mining requires a wallet)");
+
+        while (true) {
+            if (chainparams.MiningRequiresPeers()) {
+                // Busy-wait for the network to come online so we don't waste time mining
+                // on an obsolete chain. In regtest mode we expect to fly solo.
+                do {
+                    bool fvNodesEmpty;
+                    {
+                        LOCK(cs_vNodes);
+                        fvNodesEmpty = vNodes.empty();
+                    }
+                    if (!fvNodesEmpty && !IsInitialBlockDownload())
+                        break;
+                    MilliSleep(1000);
+                } while (true);
+            }
+
+            //check the block height
+            if (chainActive.Tip()->nHeight > Params().LastPOWBlock() + nStakeMinConfirmations)
+            {
+                // The stake is confirmed, stop the PoW miner
+                throw boost::thread_interrupted();
+            }
+            //check the next block height
+            else if (chainActive.Tip()->nHeight + 1 >= Params().LastPOWBlock())
+            {
+                // Wait for the stake to be confirmed
+                MilliSleep(60000);
+                continue;
+            }
+
+            //
+            // Create new block
+            //
+            unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
+            CBlockIndex* pindexPrev = chainActive.Tip();
+
+            
+            std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(Params()).CreateNewBlock(coinbaseScript->reserveScript));
+            
+            if (!pblocktemplate.get())
+            {
+                LogPrintf("Error in BitcoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                return;
+            }
+            CBlock *pblock = &pblocktemplate->block;
+            IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
+
+            LogPrintf("Running BitcoinMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+
+            //
+            // Search
+            //
+            int64_t nStart = GetTime();
+            arith_uint256 hashTarget = arith_uint256().SetCompact(pblock->nBits);
+            uint256 hash;
+            uint32_t nNonce = 0;
+            while (true) {
+                // Check if something found
+                if (ScanHash(pblock, nNonce, &hash))
+                {
+                    if (UintToArith256(hash) <= hashTarget)
+                    {
+                        // Found a solution
+                        pblock->nNonce = nNonce;
+                        assert(hash == pblock->GetHash());
+
+                        SetThreadPriority(THREAD_PRIORITY_NORMAL);
+                        LogPrintf("BitcoinMiner:\n");
+                        LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        ProcessBlockFound(pblock, chainparams);
+                        SetThreadPriority(THREAD_PRIORITY_LOWEST);
+                        coinbaseScript->KeepScript();
+
+                        // In regression test mode, stop mining after a block is found.
+                        if (chainparams.MineBlocksOnDemand())
+                            throw boost::thread_interrupted();
+
+                        break;
+                    }
+                }
+
+                // Check for stop or if block needs to be rebuilt
+                boost::this_thread::interruption_point();
+                // Regtest mode doesn't require peers
+                if (vNodes.empty() && chainparams.MiningRequiresPeers())
+                    break;
+                if (nNonce >= 0xffff0000)
+                    break;
+                if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
+                    break;
+                if (pindexPrev != chainActive.Tip())
+                    break;
+
+                // Update nTime every few seconds
+                if (UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev) < 0)
+                    break; // Recreate the block if the clock has run backwards,
+                           // so that we can use the correct time.
+                if (chainparams.GetConsensus().fPowAllowMinDifficultyBlocks)
+                {
+                    // Changing pblock->nTime can change work required on testnet:
+                    hashTarget.SetCompact(pblock->nBits);
+                }
+            }
+        }
+    }
+    catch (const boost::thread_interrupted&)
+    {
+        LogPrintf("BitcoinMiner terminated\n");
+        throw;
+    }
+    catch (const std::runtime_error &e)
+    {
+        LogPrintf("BitcoinMiner runtime error: %s\n", e.what());
+        return;
+    }
+}
+
+void GenerateBitcoins(bool fGenerate, int nThreads, const CChainParams& chainparams)
+{
+    static boost::thread_group* minerThreads = NULL;
+
+    if (nThreads < 0)
+        nThreads = GetNumCores();
+
+    if (minerThreads != NULL)
+    {
+        minerThreads->interrupt_all();
+        delete minerThreads;
+        minerThreads = NULL;
+    }
+
+    if (nThreads == 0 || !fGenerate)
+        return;
+
+    minerThreads = new boost::thread_group();
+    for (int i = 0; i < nThreads; i++)
+        minerThreads->create_thread(boost::bind(&BitcoinMiner, boost::cref(chainparams)));
+}
+

@@ -20,9 +20,20 @@ class CReserveKey;
 class CScript;
 class CWallet;
 
+class CBlock;
+
 namespace Consensus { struct Params; };
 
+
+static const bool DEFAULT_GENERATE = true;
+static const int DEFAULT_GENERATE_THREADS = 1;
+
+
 static const bool DEFAULT_PRINTPRIORITY = false;
+
+
+static const bool DEFAULT_STAKE = true;
+
 
 struct CBlockTemplate
 {
@@ -164,7 +175,9 @@ private:
 public:
     BlockAssembler(const CChainParams& chainparams);
     /** Construct a new block template with coinbase to scriptPubKeyIn */
-    CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn);
+    
+    CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, bool fProofOfStake=false, int64_t* pFees = 0);
+    
 
 private:
     // utility functions
@@ -205,8 +218,20 @@ private:
     void UpdatePackagesForAdded(const CTxMemPool::setEntries& alreadyAdded, indexed_modified_transaction_set &mapModifiedTx);
 };
 
+
+/** Run the miner threads */
+void GenerateBitcoins(bool fGenerate, int nThreads, const CChainParams& chainparams);
+/** Generate a new block, without valid proof-of-work */
+void StakeBitcoins(bool fStake, CWallet *pwallet);
+
 /** Modify the extranonce in a block */
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce);
 int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev);
+
+/** Check mined proof-of-work block */
+bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey);
+/** Check mined proof-of-stake block */
+bool CheckStake(CBlock* pblock, CWallet& wallet);
+
 
 #endif // BITCOIN_MINER_H

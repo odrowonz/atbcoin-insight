@@ -39,6 +39,10 @@ class CTxMemPool;
 class CValidationInterface;
 class CValidationState;
 
+class CDiskTxPos;
+class CWallet;
+
+
 struct CNodeStateStats;
 struct LockPoints;
 
@@ -118,6 +122,9 @@ static const int64_t BLOCK_DOWNLOAD_TIMEOUT_BASE = 1000000;
 /** Additional block download timeout per parallel downloading peer (i.e. 5 min) */
 static const int64_t BLOCK_DOWNLOAD_TIMEOUT_PER_PEER = 500000;
 
+static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 40;
+
+
 static const unsigned int DEFAULT_LIMITFREERELAY = 15;
 static const bool DEFAULT_RELAYPRIORITY = true;
 static const int64_t DEFAULT_MAX_TIP_AGE = 24 * 60 * 60;
@@ -125,7 +132,9 @@ static const int64_t DEFAULT_MAX_TIP_AGE = 24 * 60 * 60;
 /** Default for -permitbaremultisig */
 static const bool DEFAULT_PERMIT_BAREMULTISIG = true;
 static const bool DEFAULT_CHECKPOINTS_ENABLED = true;
-static const bool DEFAULT_TXINDEX = false;
+
+static const bool DEFAULT_TXINDEX = true;
+
 static const unsigned int DEFAULT_BANSCORE_THRESHOLD = 100;
 
 static const bool DEFAULT_TESTSAFEMODE = false;
@@ -142,6 +151,8 @@ static const int MAX_UNCONNECTING_HEADERS = 10;
 
 static const bool DEFAULT_PEERBLOOMFILTERS = true;
 
+static const int64_t COIN_YEAR_REWARD = 120 * CENT; // 1% per year
+
 struct BlockHasher
 {
     size_t operator()(const uint256& hash) const { return hash.GetCheapHash(); }
@@ -152,6 +163,12 @@ extern CCriticalSection cs_main;
 extern CTxMemPool mempool;
 typedef boost::unordered_map<uint256, CBlockIndex*, BlockHasher> BlockMap;
 extern BlockMap mapBlockIndex;
+
+extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
+extern int nStakeMinConfirmations;
+extern int64_t nLastCoinStakeSearchInterval;
+extern unsigned int nMinerSleep;
+
 extern uint64_t nLastBlockTx;
 extern uint64_t nLastBlockSize;
 extern uint64_t nLastBlockWeight;
@@ -174,6 +191,10 @@ extern CAmount maxTxFee;
 /** If the tip is older than this (in seconds), the node is considered to be in initial block download. */
 extern int64_t nMaxTipAge;
 extern bool fEnableReplacement;
+
+struct COrphanBlock;
+extern std::map<uint256, COrphanBlock*> mapOrphanBlocks;
+
 
 /** Best header we've seen so far (used for getheaders queries' starting points). */
 extern CBlockIndex *pindexBestHeader;
@@ -208,6 +229,10 @@ static const uint64_t MIN_DISK_SPACE_FOR_BLOCK_FILES = 550 * 1024 * 1024;
 void RegisterNodeSignals(CNodeSignals& nodeSignals);
 /** Unregister a network node */
 void UnregisterNodeSignals(CNodeSignals& nodeSignals);
+
+
+void PushGetBlocks(CNode* pnode, CBlockIndex* pindexBegin, uint256 hashEnd);
+
 
 /** 
  * Process an incoming block. This only returns after the best known valid
@@ -260,9 +285,16 @@ bool IsInitialBlockDownload();
 std::string GetWarnings(const std::string& strFor);
 /** Retrieve a transaction (from memory pool, or from disk, if possible) */
 bool GetTransaction(const uint256 &hash, CTransaction &tx, const Consensus::Params& params, uint256 &hashBlock, bool fAllowSlow = false);
+
+uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
+
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState& state, const CChainParams& chainparams, const CBlock* pblock = NULL);
-CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams);
+
+CAmount GetProofOfWorkReward();
+CAmount GetProofOfStakeReward();
+int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees);
+
 
 /**
  * Prune block and undo files (blk???.dat and undo???.dat) so that the disk space used is less than a user-defined target.
@@ -296,6 +328,9 @@ void Misbehaving(NodeId nodeid, int howmuch);
 void FlushStateToDisk();
 /** Prune block files and flush state to disk. */
 void PruneAndFlush();
+
+bool IsConfirmedInNPrevBlocks(const CDiskTxPos& txindex, const CBlockIndex* pindexFrom, int nMaxDepth, int& nActualDepth);
+
 
 /** (try to) add transaction to memory pool **/
 bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransaction &tx, bool fLimitFree,
@@ -354,6 +389,10 @@ void UpdateCoins(const CTransaction& tx, CCoinsViewCache& inputs, int nHeight);
 
 /** Context-independent validity checks */
 bool CheckTransaction(const CTransaction& tx, CValidationState& state);
+
+
+bool GetCoinAge(const CTransaction& tx, CBlockTreeDB& txdb, const CBlockIndex* pindexPrev, uint64_t& nCoinAge);
+
 
 /**
  * Check if transaction is final and can be included in a block with the
@@ -433,14 +472,25 @@ public:
 
 /** Functions for disk access for blocks */
 bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHeader::MessageStartChars& messageStart);
-bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus::Params& consensusParams);
+//Template function that read the whole block or the header only depending on the type (CBlock or CBlockHeader)
+
+template <typename Block>
+bool ReadBlockFromDisk(Block& block, const CDiskBlockPos& pos, const Consensus::Params& consensusParams);
+
 bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus::Params& consensusParams);
+
+bool ReadFromDisk(CBlockHeader& block, unsigned int nFile, unsigned int nBlockPos);
+bool ReadFromDisk(CTransaction& tx, CDiskTxPos& txindex, CBlockTreeDB& txdb, COutPoint prevout);
+
 
 /** Functions for validating blocks and updating the block tree */
 
 /** Context-independent validity checks */
+
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true);
-bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW = true, bool fCheckMerkleRoot = true);
+bool CheckBlock(const CBlock& block, CValidationState& state,const Consensus::Params& consensusParams,  bool fCheckPOW = true, bool fCheckMerkleRoot = true, bool fCheckSig=true);
+bool SignBlock(CBlock& block, CWallet& wallet, CAmount& nFees);
+
 
 /** Context-dependent validity checks.
  *  By "context", we mean only the previous block headers, but not the UTXO

@@ -16,11 +16,21 @@
 #include "miner.h"
 #include "net.h"
 #include "pow.h"
+
+#include "pos.h"
+
 #include "rpc/server.h"
 #include "txmempool.h"
 #include "util.h"
 #include "utilstrencodings.h"
 #include "validationinterface.h"
+
+#include "timedata.h"
+#ifdef ENABLE_WALLET
+#include "wallet/wallet.h"
+#include "wallet/walletdb.h"
+#endif
+
 
 #include <stdint.h>
 
@@ -214,6 +224,43 @@ UniValue generatetoaddress(const UniValue& params, bool fHelp)
     return generateBlocks(coinbaseScript, nGenerate, nMaxTries, false);
 }
 
+
+UniValue getsubsidy(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "getsubsidy [nTarget]\n"
+            "Returns proof-of-work subsidy value for the specified value of target.");
+
+    return (uint64_t)GetProofOfWorkReward();
+}
+
+UniValue getstakesubsidy(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getstakesubsidy <hex string>\n"
+            "Returns proof-of-stake subsidy value for the specified coinstake.");
+
+    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR));
+
+    vector<unsigned char> txData(ParseHex(params[0].get_str()));
+    CDataStream ssData(txData, SER_NETWORK, PROTOCOL_VERSION);
+    CTransaction tx;
+    try {
+        ssData >> tx;
+    }
+    catch (std::exception &e) {
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
+    }
+    uint64_t nCoinAge;
+    if (!GetCoinAge(tx, *pblocktree, pindexBestHeader, nCoinAge))
+        throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
+
+    return (uint64_t)GetProofOfStakeReward(chainActive.Tip(), nCoinAge, 0);
+}
+
+
 UniValue getmininginfo(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -241,17 +288,188 @@ UniValue getmininginfo(const UniValue& params, bool fHelp)
     LOCK(cs_main);
 
     UniValue obj(UniValue::VOBJ);
+    
+    UniValue diff(UniValue::VOBJ);
+    UniValue weight(UniValue::VOBJ);
+    
+	
     obj.push_back(Pair("blocks",           (int)chainActive.Height()));
     obj.push_back(Pair("currentblocksize", (uint64_t)nLastBlockSize));
     obj.push_back(Pair("currentblockweight", (uint64_t)nLastBlockWeight));
     obj.push_back(Pair("currentblocktx",   (uint64_t)nLastBlockTx));
-    obj.push_back(Pair("difficulty",       (double)GetDifficulty()));
-    obj.push_back(Pair("errors",           GetWarnings("statusbar")));
+	
+    
+    diff.push_back(Pair("proof-of-work",        GetDifficulty(GetLastBlockIndex(pindexBestHeader, false))));
+    diff.push_back(Pair("proof-of-stake",       GetDifficulty(GetLastBlockIndex(pindexBestHeader, true))));
+    diff.push_back(Pair("search-interval",      (int)nLastCoinStakeSearchInterval));
+    obj.push_back(Pair("difficulty",    diff));
+
+    obj.push_back(Pair("blockvalue",    (uint64_t)GetProofOfWorkReward()));
+    obj.push_back(Pair("netmhashps",     GetPoWMHashPS()));
+    obj.push_back(Pair("netstakeweight", GetPoSKernelPS()));
+    obj.push_back(Pair("errors",        GetWarnings("statusbar")));
+    
     obj.push_back(Pair("networkhashps",    getnetworkhashps(params, false)));
     obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));
+    
+    uint64_t nWeight = 0;
+#ifdef ENABLE_WALLET
+    if (pwalletMain)
+        nWeight = pwalletMain->GetStakeWeight();
+#endif
+    weight.push_back(Pair("minimum",    (uint64_t)nWeight));
+    weight.push_back(Pair("maximum",    (uint64_t)0));
+    weight.push_back(Pair("combined",  (uint64_t)nWeight));
+    obj.push_back(Pair("stakeweight", weight));
+    
     obj.push_back(Pair("testnet",          Params().TestnetToBeDeprecatedFieldRPC()));
     obj.push_back(Pair("chain",            Params().NetworkIDString()));
     return obj;
+}
+
+
+UniValue getstakinginfo(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "getstakinginfo\n"
+            "Returns an object containing staking-related information.");
+
+
+    LOCK(cs_main);
+
+    uint64_t nWeight = 0;
+#ifdef ENABLE_WALLET
+    if (pwalletMain)
+        nWeight = pwalletMain->GetStakeWeight();
+#endif
+
+    uint64_t nNetworkWeight = GetPoSKernelPS();
+    bool staking = nLastCoinStakeSearchInterval && nWeight;
+    const Consensus::Params& consensusParams = Params().GetConsensus();
+    int64_t nTargetSpacing = consensusParams.nTargetSpacing;
+    uint64_t nExpectedTime = staking ? (nTargetSpacing * nNetworkWeight / nWeight) : 0;
+
+    UniValue obj(UniValue::VOBJ);
+
+    obj.push_back(Pair("enabled", GetBoolArg("-staking", true)));
+    obj.push_back(Pair("staking", staking));
+    obj.push_back(Pair("errors", GetWarnings("statusbar")));
+
+    obj.push_back(Pair("currentblocksize", (uint64_t)nLastBlockSize));
+    obj.push_back(Pair("currentblocktx", (uint64_t)nLastBlockTx));
+    obj.push_back(Pair("pooledtx", (uint64_t)mempool.size()));
+
+    obj.push_back(Pair("difficulty", GetDifficulty(GetLastBlockIndex(pindexBestHeader, true))));
+    obj.push_back(Pair("search-interval", (int)nLastCoinStakeSearchInterval));
+
+    obj.push_back(Pair("weight", (uint64_t)nWeight));
+    obj.push_back(Pair("netstakeweight", (uint64_t)nNetworkWeight));
+
+    obj.push_back(Pair("expectedtime", nExpectedTime));
+
+    return obj;
+}
+
+UniValue checkkernel(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 2)
+        throw runtime_error(
+            "checkkernel [{\"txid\":txid,\"vout\":n},...] [createblocktemplate=false]\n"
+            "Check if one of given inputs is a kernel input at the moment.\n"
+        );
+
+    RPCTypeCheck(params, boost::assign::list_of(UniValue::VARR)(UniValue::VBOOL));
+
+    UniValue inputs = params[0].get_array();
+    bool fCreateBlockTemplate = params.size() > 1 ? params[1].get_bool() : false;
+
+    if (vNodes.empty())
+        throw JSONRPCError(-9, "Bitcoin is not connected!");
+
+    if (IsInitialBlockDownload())
+        throw JSONRPCError(-10, "Bitcoin is downloading blocks...");
+
+    COutPoint kernel;
+    CBlockIndex* pindexPrev = chainActive.Tip();
+    unsigned int nBits = GetNextTargetRequired(pindexPrev, true);
+    int64_t nTime = GetAdjustedTime();
+    nTime &= ~STAKE_TIMESTAMP_MASK;
+
+    for(unsigned i = 0; i < inputs.size(); i++)
+    {
+        UniValue input = inputs[i];
+        const UniValue& o = input.get_obj();
+
+        const UniValue& txid_v = find_value(o, "txid");
+        if (txid_v.type() != UniValue::VSTR)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing txid key");
+        string txid = txid_v.get_str();
+        if (!IsHex(txid))
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected hex txid");
+
+        const UniValue& vout_v = find_value(o, "vout");
+        if (vout_v.type() != UniValue::VNUM)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing vout key");
+        int nOutput = vout_v.get_int();
+        if (nOutput < 0)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, vout must be positive");
+
+        COutPoint cInput(uint256S(txid), nOutput);
+        if (CheckKernel(pindexPrev, nBits, nTime, cInput))
+        {
+            kernel = cInput;
+            break;
+        }
+    }
+
+    UniValue result;
+    result.push_back(Pair("found", !kernel.IsNull()));
+
+    if (kernel.IsNull())
+        return result;
+
+    UniValue oKernel;
+    oKernel.push_back(Pair("txid", kernel.hash.GetHex()));
+    oKernel.push_back(Pair("vout", (int64_t)kernel.n));
+    oKernel.push_back(Pair("time", nTime));
+    result.push_back(Pair("kernel", oKernel));
+
+    if (!fCreateBlockTemplate)
+        return result;
+
+    int64_t nFees;
+	boost::shared_ptr<CReserveScript> coinbaseScript;
+    GetMainSignals().ScriptForMining(coinbaseScript);
+
+    // If the keypool is exhausted, no script is returned at all.  Catch this.
+    if (!coinbaseScript)
+        throw JSONRPCError(RPC_WALLET_KEYPOOL_RAN_OUT, "Error: Keypool ran out, please call keypoolrefill first");
+
+    std::unique_ptr<CBlockTemplate> pblocktemplate(BlockAssembler(Params()).CreateNewBlock(coinbaseScript->reserveScript, true, &nFees));
+    if (!pblocktemplate.get())
+        throw JSONRPCError(RPC_INTERNAL_ERROR, "Couldn't create new block");
+    CBlock *pblock = &pblocktemplate->block;
+	
+	CMutableTransaction txCoinBase(pblock->vtx[0]);
+	txCoinBase.nTime = nTime;
+	pblock->vtx[0] = txCoinBase;
+    pblock->nTime = pblock->vtx[0].nTime;
+
+    CDataStream ss(SER_DISK, PROTOCOL_VERSION);
+    ss << *pblock;
+
+    result.push_back(Pair("blocktemplate", HexStr(ss.begin(), ss.end())));
+    result.push_back(Pair("blocktemplatefees", nFees));
+
+    CPubKey pubkey;
+	CReserveKey& reservekey = (CReserveKey&)(*coinbaseScript);
+    if (!reservekey.GetReservedKey(pubkey))
+        throw JSONRPCError(RPC_MISC_ERROR, "GetReservedKey failed");
+
+    result.push_back(Pair("blocktemplatesignkey", HexStr(pubkey)));
+
+    return result;
 }
 
 
@@ -461,6 +679,12 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
 
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Bitcoin is downloading blocks...");
+    
+    
+    if (chainActive.Tip()->nHeight >= Params().LastPOWBlock())
+        throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
+    
+        
 
     static unsigned int nTransactionsUpdatedLast;
 
@@ -558,7 +782,9 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
         uint256 txHash = tx.GetHash();
         setTxIndex[txHash] = i++;
 
-        if (tx.IsCoinBase())
+        
+        if (tx.IsCoinBase() || tx.IsCoinStake())
+        
             continue;
 
         UniValue entry(UniValue::VOBJ);
@@ -908,7 +1134,13 @@ static const CRPCCommand commands[] =
     { "mining",             "prioritisetransaction",  &prioritisetransaction,  true  },
     { "mining",             "getblocktemplate",       &getblocktemplate,       true  },
     { "mining",             "submitblock",            &submitblock,            true  },
-
+    
+    { "mining",             "getsubsidy",             &getsubsidy,             true  },
+    { "mining",             "getstakesubsidy",        &getstakesubsidy,        true  },
+    { "mining",             "getstakinginfo",         &getstakinginfo,         true  },
+    { "mining",             "checkkernel",            &checkkernel,            true  },
+    
+	
     { "generating",         "generate",               &generate,               true  },
     { "generating",         "generatetoaddress",      &generatetoaddress,      true  },
 

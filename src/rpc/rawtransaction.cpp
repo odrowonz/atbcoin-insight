@@ -33,6 +33,10 @@
 
 #include <univalue.h>
 
+
+#include "timedata.h"
+
+
 using namespace std;
 
 void ScriptPubKeyToJSON(const CScript& scriptPubKey, UniValue& out, bool fIncludeHex)
@@ -381,6 +385,10 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
     UniValue sendTo = params[1].get_obj();
 
     CMutableTransaction rawTx;
+
+    
+    rawTx.nTime = GetAdjustedTime();
+    
 
     if (params.size() > 2 && !params[2].isNull()) {
         int64_t nLockTime = params[2].get_int64();

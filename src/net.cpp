@@ -557,6 +557,27 @@ bool CNode::IsBanned(CSubNet subnet)
     return fResult;
 }
 
+
+bool CNode::Misbehaving(int howmuch)
+{
+    if (addr.IsLocal())
+    {
+        LogPrintf("Warning: Local node %s misbehaving (delta: %d)!\n", addrName, howmuch);
+        return false;
+    }
+
+    CSubNet subNet(addr);
+    nMisbehavior += howmuch;
+    if (nMisbehavior >= GetArg("-banscore", 100))
+    {
+        Ban(subNet, BanReasonNodeMisbehaving);
+        return true;
+    } else
+        LogPrintf("Misbehaving: %s (%d -> %d)\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
+    return false;
+}
+
+
 void CNode::Ban(const CNetAddr& addr, const BanReason &banReason, int64_t bantimeoffset, bool sinceUnixEpoch) {
     CSubNet subNet(addr);
     Ban(subNet, banReason, bantimeoffset, sinceUnixEpoch);

@@ -33,6 +33,10 @@ extern CWallet* pwalletMain;
 /**
  * Settings
  */
+
+extern CAmount nReserveBalance;
+extern CAmount nMinimumInputValue;
+
 extern CFeeRate payTxFee;
 extern unsigned int nTxConfirmTarget;
 extern bool bSpendZeroConfChange;
@@ -549,7 +553,10 @@ private:
      * all coins from coinControl are selected; Never select unconfirmed coins
      * if they are not ours
      */
-    bool SelectCoins(const std::vector<COutput>& vAvailableCoins, const CAmount& nTargetValue, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet, const CCoinControl *coinControl = NULL) const;
+    
+    bool SelectCoinsForStaking(CAmount& nTargetValue, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet) const;
+    bool SelectCoins(const std::vector<COutput>& vAvailableCoins, const CAmount& nTargetValue, unsigned int nSpendTime, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet, const CCoinControl *coinControl = NULL) const;
+    
 
     CWalletDB *pwalletdbEncryption;
 
@@ -571,7 +578,13 @@ private:
     typedef std::multimap<COutPoint, uint256> TxSpends;
     TxSpends mapTxSpends;
     void AddToSpends(const COutPoint& outpoint, const uint256& wtxid);
+    
+    void RemoveFromSpends(const COutPoint& outpoint, const uint256& wtxid);
+    
     void AddToSpends(const uint256& wtxid);
+    
+    void RemoveFromSpends(const uint256& wtxid);
+    
 
     /* Mark a transaction (and its in-wallet descendants) as conflicting with a particular block. */
     void MarkConflicted(const uint256& hashBlock, const uint256& hashTx);
@@ -660,6 +673,9 @@ public:
     /**
      * populate vCoins with vector of available COutputs.
      */
+    
+    void AvailableCoinsForStaking(std::vector<COutput>& vCoins) const;
+    
     void AvailableCoins(std::vector<COutput>& vCoins, bool fOnlyConfirmed=true, const CCoinControl *coinControl = NULL, bool fIncludeZeroValue=false) const;
 
     /**
@@ -668,7 +684,9 @@ public:
      * completion the coin set and corresponding actual target value is
      * assembled
      */
-    bool SelectCoinsMinConf(const CAmount& nTargetValue, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet) const;
+    
+    bool SelectCoinsMinConf(const CAmount& nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet) const;
+    
 
     bool IsSpent(const uint256& hash, unsigned int n) const;
 
@@ -742,6 +760,10 @@ public:
     CAmount GetWatchOnlyBalance() const;
     CAmount GetUnconfirmedWatchOnlyBalance() const;
     CAmount GetImmatureWatchOnlyBalance() const;
+    
+    CAmount GetStake() const;
+    CAmount GetWatchOnlyStake() const;
+    
 
     /**
      * Insert additional inputs into the transaction by
@@ -758,6 +780,11 @@ public:
                            std::string& strFailReason, const CCoinControl *coinControl = NULL, bool sign = true);
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey);
 
+    
+    uint64_t GetStakeWeight() const;
+    bool CreateCoinStake(const CKeyStore &keystore, unsigned int nBits, int64_t nSearchInterval, CAmount& nFeeRet, CMutableTransaction& tx, CKey& key);
+    
+    
     bool AddAccountingEntry(const CAccountingEntry&, CWalletDB & pwalletdb);
 
     static CFeeRate minTxFee;
@@ -846,7 +873,11 @@ public:
 
     //! get the current wallet format (the oldest client version guaranteed to understand this wallet)
     int GetVersion() { LOCK(cs_wallet); return nWalletVersion; }
-
+    
+    
+    void DisableTransaction(const CTransaction &tx);
+    
+    
     //! Get wallet transactions that conflict with given transaction (spend same outputs)
     std::set<uint256> GetConflicts(const uint256& txid) const;
 

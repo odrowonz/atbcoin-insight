@@ -10,6 +10,9 @@
 #include "pow.h"
 #include "uint256.h"
 
+#include "main.h"
+
+
 #include <stdint.h>
 
 #include <boost/thread.hpp>
@@ -186,21 +189,33 @@ bool CBlockTreeDB::LoadBlockIndexGuts(boost::function<CBlockIndex*(const uint256
             if (pcursor->GetValue(diskindex)) {
                 // Construct block index object
                 CBlockIndex* pindexNew = insertBlockIndex(diskindex.GetBlockHash());
-                pindexNew->pprev          = insertBlockIndex(diskindex.hashPrev);
-                pindexNew->nHeight        = diskindex.nHeight;
-                pindexNew->nFile          = diskindex.nFile;
-                pindexNew->nDataPos       = diskindex.nDataPos;
-                pindexNew->nUndoPos       = diskindex.nUndoPos;
-                pindexNew->nVersion       = diskindex.nVersion;
-                pindexNew->hashMerkleRoot = diskindex.hashMerkleRoot;
-                pindexNew->nTime          = diskindex.nTime;
-                pindexNew->nBits          = diskindex.nBits;
-                pindexNew->nNonce         = diskindex.nNonce;
-                pindexNew->nStatus        = diskindex.nStatus;
-                pindexNew->nTx            = diskindex.nTx;
+                pindexNew->pprev             = insertBlockIndex(diskindex.hashPrev);
+                pindexNew->nHeight           = diskindex.nHeight;
+                pindexNew->nFile             = diskindex.nFile;
+                pindexNew->nDataPos          = diskindex.nDataPos;
+                pindexNew->nUndoPos          = diskindex.nUndoPos;
+                pindexNew->nVersion          = diskindex.nVersion;
+                pindexNew->hashMerkleRoot    = diskindex.hashMerkleRoot;
+                pindexNew->nTime             = diskindex.nTime;
+                pindexNew->nBits             = diskindex.nBits;
+                pindexNew->nNonce            = diskindex.nNonce;
+                pindexNew->nStatus           = diskindex.nStatus;
+                pindexNew->nTx               = diskindex.nTx;
+                
+                pindexNew->nFlags            = diskindex.nFlags;
+                pindexNew->nStakeModifier    = diskindex.nStakeModifier;
+                pindexNew->bnStakeModifierV2 = diskindex.bnStakeModifierV2;
+                pindexNew->vchBlockSig       = diskindex.vchBlockSig;
+                pindexNew->prevoutStake      = diskindex.prevoutStake;
+                pindexNew->nStakeTime        = diskindex.nStakeTime;
 
-                if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, Params().GetConsensus()))
+                if (pindexNew->IsProofOfWork() && !CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, Params().GetConsensus()))
                     return error("LoadBlockIndex(): CheckProofOfWork failed: %s", pindexNew->ToString());
+
+                // NovaCoin: build setStakeSeen
+                if (pindexNew->IsProofOfStake())
+                    setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
+                
 
                 pcursor->Next();
             } else {
