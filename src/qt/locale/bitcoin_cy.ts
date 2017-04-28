@@ -457,7 +457,7 @@
         <translation>Opsiynau:</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
+        <source>ATBcoin Core</source>
         <translation>Craidd Bitcoin</translation>
     </message>
     <message>
