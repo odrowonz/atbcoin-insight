@@ -143,7 +143,7 @@
         <translation>Reindexando bloques en el disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a ATBcoin address</source>
         <translation>Envia monedas a una dirección Bitcoin</translation>
     </message>
     <message>
