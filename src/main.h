@@ -151,7 +151,7 @@ static const int MAX_UNCONNECTING_HEADERS = 10;
 
 static const bool DEFAULT_PEERBLOOMFILTERS = true;
 
-static const int64_t COIN_YEAR_REWARD = 120 * CENT; // 1% per year
+static const int64_t COIN_YEAR_REWARD = 120 * CENT; // 120% per year
 
 struct BlockHasher
 {
