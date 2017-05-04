@@ -1908,10 +1908,21 @@ CAmount GetProofOfStakeReward()
 int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees)
 {
     int64_t nSubsidy;
-    nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    int64_t nMutiplier = COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    const Consensus::Params& consensusParams = Params().GetConsensus();
+    int halvings = (pindexPrev->nHeight - Params().LastPOWBlock()) / consensusParams.nSubsidyHalvingInterval;
+    // Force block reward to zero when right shift is undefined.
+    if (halvings >= 64)
+        return 0;
+    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
+    nMutiplier >>= halvings;
+
+
+    nSubsidy = nCoinAge * nMutiplier;
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
 
+    
     return nSubsidy + nFees;
 }
 

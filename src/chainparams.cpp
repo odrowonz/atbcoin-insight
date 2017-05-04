@@ -102,7 +102,7 @@ public:
     CMainParams() {
         strNetworkID = "main";
         
-        //consensus.nSubsidyHalvingInterval = 210000;
+        consensus.nSubsidyHalvingInterval = 420480;
         
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
