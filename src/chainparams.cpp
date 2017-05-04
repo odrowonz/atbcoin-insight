@@ -247,9 +247,10 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         
-//        vSeeds.push_back(CDNSSeedData("bitcoin.petertodd.org", "testnet-seed.bitcoin.petertodd.org"));
-//        vSeeds.push_back(CDNSSeedData("bluematt.me", "testnet-seed.bluematt.me"));
-//        vSeeds.push_back(CDNSSeedData("bitcoin.schildbach.de", "testnet-seed.bitcoin.schildbach.de"));
+        vSeeds.push_back(CDNSSeedData("n1.aitibicoin.com", "n1.aitibicoin.com"));
+        vSeeds.push_back(CDNSSeedData("n2.aitibicoin.com", "n2.aitibicoin.com"));
+        vSeeds.push_back(CDNSSeedData("n3.aitibicoin.com", "n3.aitibicoin.com"));
+        
         
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
