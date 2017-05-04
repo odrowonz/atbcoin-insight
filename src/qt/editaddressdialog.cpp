@@ -107,11 +107,7 @@ void EditAddressDialog::accept()
             break;
         case AddressTableModel::INVALID_ADDRESS:
             QMessageBox::warning(this, windowTitle(),
-<<<<<<< HEAD
                 tr("The entered address \"%1\" is not a valid ATBcoin address.").arg(ui->addressEdit->text()),
-=======
-                tr("The entered address \"%1\" is not a validATBcoin address.").arg(ui->addressEdit->text()),
->>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
                 QMessageBox::Ok, QMessageBox::Ok);
             break;
         case AddressTableModel::DUPLICATE_ADDRESS:
