@@ -324,7 +324,11 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
+<<<<<<< HEAD
                   <string notr="true">0.00 ATB</string>
+=======
+                  <string notr="true">0.00 ATBC</string>
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -404,7 +408,11 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
+<<<<<<< HEAD
                   <string notr="true">0.00 ATB</string>
+=======
+                  <string notr="true">0.00 ATBC</string>
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -484,7 +492,11 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
+<<<<<<< HEAD
                   <string notr="true">0.00 ATB</string>
+=======
+                  <string notr="true">0.00 ATBC</string>
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -513,7 +525,11 @@
                   <enum>Qt::ActionsContextMenu</enum>
                  </property>
                  <property name="text">
+<<<<<<< HEAD
                   <string notr="true">0.00 ATB</string>
+=======
+                  <string notr="true">0.00 ATBC</string>
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -1299,7 +1315,11 @@
           <cursorShape>IBeamCursor</cursorShape>
          </property>
          <property name="text">
+<<<<<<< HEAD
           <string notr="true">123.456 ATB</string>
+=======
+          <string notr="true">123.456 ATBC</string>
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
          </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>

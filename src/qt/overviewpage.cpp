@@ -269,7 +269,11 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
+<<<<<<< HEAD
     // update the display unit, to not use the default ("ATB")
+=======
+    // update the display unit, to not use the default ("ATBC")
+>>>>>>> c3bf0241a0f8f0aded4ae015e6215c6d7fe2ee89
     updateDisplayUnit();
 }
 
