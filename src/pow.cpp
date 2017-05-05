@@ -5,7 +5,7 @@
 
 #include "pow.h"
 
-#include "arith_uint256.h"
+
 #include "chain.h"
 #include "primitives/block.h"
 #include "uint256.h"
@@ -23,37 +23,54 @@ const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfSta
 
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake)
 {
-    const Consensus::Params& consensusParams = Params().GetConsensus();
-    arith_uint256 bnTargetLimit = fProofOfStake ? UintToArith256(consensusParams.posLimit) : UintToArith256(consensusParams.powLimit);
+    auto params = Params().GetConsensus();
+    unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
+    // Genesis block
     if (pindexLast == NULL)
-        return bnTargetLimit.GetCompact(); // genesis block
+        return nProofOfWorkLimit;
 
-    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
-    if (pindexPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // first block
-    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
-    if (pindexPrevPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // second block
+    // Find the first block in the averaging interval
+    const CBlockIndex* pindexFirst = pindexLast;
+    arith_uint256 bnTot {0};
+    for (int i = 0; pindexFirst && i < params.nPowAveragingWindow; i++) {
+        arith_uint256 bnTmp;
+        bnTmp.SetCompact(pindexFirst->nBits);
+        bnTot += bnTmp;
+        pindexFirst = pindexFirst->pprev;
+    }
 
-    int64_t nTargetSpacing = consensusParams.nTargetSpacing;
-    int64_t nTargetTimespan = consensusParams.nTargetTimespan;
-    int64_t nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-    if (nActualSpacing < 0)
-        nActualSpacing = nTargetSpacing;
-    if (nActualSpacing > nTargetSpacing * 10)
-        nActualSpacing = nTargetSpacing * 10;
+    // Check we have enough blocks
+    if (pindexFirst == NULL)
+        return nProofOfWorkLimit;
 
-    // ppcoin: target change every block
-    // ppcoin: retarget with exponential moving toward target spacing
-    arith_uint256 bnNew;
-    bnNew.SetCompact(pindexPrev->nBits);
-    int64_t nInterval = nTargetTimespan / nTargetSpacing;
-    bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
-    bnNew /= ((nInterval + 1) * nTargetSpacing);
+    arith_uint256 bnAvg {bnTot / params.nPowAveragingWindow};
 
-    if (bnNew <= 0 || bnNew > bnTargetLimit)
-        bnNew = bnTargetLimit;
+    return CalculateNextWorkRequired(bnAvg, pindexLast->GetMedianTimePast(), pindexFirst->GetMedianTimePast(), params);
+}
+
+unsigned int CalculateNextWorkRequired(arith_uint256 bnAvg,
+                                       int64_t nLastBlockTime, int64_t nFirstBlockTime,
+                                       const Consensus::Params& params)
+{
+    // Limit adjustment step
+    // Use medians to prevent time-warp attacks
+    int64_t nActualTimespan = nLastBlockTime - nFirstBlockTime;
+    nActualTimespan = params.AveragingWindowTimespan() + (nActualTimespan - params.AveragingWindowTimespan())/4;
+
+    if (nActualTimespan < params.MinActualTimespan())
+        nActualTimespan = params.MinActualTimespan();
+    if (nActualTimespan > params.MaxActualTimespan())
+        nActualTimespan = params.MaxActualTimespan();
+
+    // Retarget
+    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+    arith_uint256 bnNew {bnAvg};
+    bnNew /= params.AveragingWindowTimespan();
+    bnNew *= nActualTimespan;
+
+    if (bnNew > bnPowLimit)
+        bnNew = bnPowLimit;
 
     return bnNew.GetCompact();
 }

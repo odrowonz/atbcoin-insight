@@ -60,12 +60,16 @@ struct Params {
     BIP9Deployment vDeployments[MAX_VERSION_BITS_DEPLOYMENTS];
     /** Proof of work parameters */
     uint256 powLimit;
-    
+    int64_t nPowAveragingWindow;
+    int64_t nPowMaxAdjustDown;
+    int64_t nPowMaxAdjustUp;
     uint256 posLimit;
+    int64_t AveragingWindowTimespan() const { return nPowAveragingWindow * nTargetSpacing; }
     
     bool fPowAllowMinDifficultyBlocks;
     bool fPowNoRetargeting;
-    
+    int64_t MinActualTimespan() const { return (AveragingWindowTimespan() * (100 - nPowMaxAdjustUp  )) / 100; }
+    int64_t MaxActualTimespan() const { return (AveragingWindowTimespan() * (100 + nPowMaxAdjustDown)) / 100; }
     int64_t nTargetSpacing;
     int64_t nTargetTimespan;
     int64_t DifficultyAdjustmentInterval() const { return nTargetTimespan / nTargetSpacing; }

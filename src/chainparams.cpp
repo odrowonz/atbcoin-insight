@@ -109,9 +109,11 @@ public:
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 227931;
         consensus.BIP34Hash = uint256S("00000009d63fc44412c2343a6754df3ed3089b25f654ff0bb472252558b41812");
-        
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.nPowAveragingWindow = 17;
+        consensus.nPowMaxAdjustDown = 32; // 32% adjustment down
+        consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
+        consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 150;  // 16 mins
         consensus.nTargetSpacing = 150;
         
@@ -201,6 +203,9 @@ public:
         consensus.nMajorityWindow = 100;
         consensus.BIP34Height = 21111;
         consensus.BIP34Hash = uint256S("3511552c6a68b62c7ba8ac6fd24ba1ec1ad615e38aa6b254f198d517f87205fc");
+        consensus.nPowAveragingWindow = 17;
+        consensus.nPowMaxAdjustDown = 32; // 32% adjustment down
+        consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
         
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -298,6 +303,9 @@ public:
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.nPowAveragingWindow = 17;
+        consensus.nPowMaxAdjustDown = 32; // 32% adjustment down
+        consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
         
         consensus.posLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60;  // 16 mins

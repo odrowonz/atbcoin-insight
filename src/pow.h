@@ -7,7 +7,7 @@
 #define BITCOIN_POW_H
 
 #include "consensus/params.h"
-
+#include "arith_uint256.h"
 #include <stdint.h>
 
 class CBlockHeader;
@@ -17,6 +17,9 @@ class uint256;
 
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
+unsigned int CalculateNextWorkRequired(arith_uint256 bnAvg,
+                                       int64_t nLastBlockTime, int64_t nFirstBlockTime,
+                                       const Consensus::Params&);
 
 
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
