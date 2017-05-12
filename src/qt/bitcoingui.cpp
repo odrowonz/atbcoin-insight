@@ -296,9 +296,17 @@ void BitcoinGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
+    BonusCodeTab= new QAction(platformStyle->TextColorIcon(":/icons/address-book"),tr("Bonus codes"),this);
+    BonusCodeTab->setStatusTip(tr("Browse bonus codes"));
+    BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
+    BonusCodeTab->setCheckable(true);
+    BonusCodeTab->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(BonusCodeTab);
+
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
+    connect(BonusCodeTab,SIGNAL(triggered(bool)),this,SLOT(gotoBonusCodes()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -443,6 +451,7 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
+        toolbar->addAction(BonusCodeTab);
         overviewAction->setChecked(true);
     }
 }
@@ -525,6 +534,7 @@ void BitcoinGUI::removeAllWallets()
 
 void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 {
+    BonusCodeTab->setEnabled(enabled);
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
     sendCoinsMenuAction->setEnabled(enabled);
@@ -649,6 +659,11 @@ void BitcoinGUI::openClicked()
     }
 }
 
+void BitcoinGUI::gotoBonusCodes()
+{
+    BonusCodeTab->setChecked(true);
+    if (walletFrame) walletFrame->gotoBonusCodes();
+}
 void BitcoinGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);

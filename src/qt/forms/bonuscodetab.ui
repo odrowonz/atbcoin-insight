@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BonusTab</class>
- <widget class="QDialog" name="BonusTab">
+ <class>BonusCodeTab</class>
+ <widget class="QWidget" name="BonusCodeTab">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,14 +11,17 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Bonus Code Tab</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTableView" name="Table">
-     <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
+    <widget class="QTableView" name="tableView">
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
      </property>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
     </widget>
    </item>
    <item>
@@ -37,7 +40,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="CreateBonus">
+      <widget class="QPushButton" name="BCreate">
        <property name="text">
         <string>Create</string>
        </property>

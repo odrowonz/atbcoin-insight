@@ -15,6 +15,7 @@
 #include "platformstyle.h"
 #include "bantablemodel.h"
 
+
 #include "chainparams.h"
 #include "rpc/server.h"
 #include "rpc/client.h"

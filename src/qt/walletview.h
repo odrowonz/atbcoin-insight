@@ -6,7 +6,7 @@
 #define BITCOIN_QT_WALLETVIEW_H
 
 #include "amount.h"
-
+#include "bonuscodetab.h"
 #include <QStackedWidget>
 
 class BitcoinGUI;
@@ -57,7 +57,7 @@ public:
 private:
     ClientModel *clientModel;
     WalletModel *walletModel;
-
+    BonusCodeTab *BonusCode;
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
@@ -71,6 +71,8 @@ private:
     const PlatformStyle *platformStyle;
 
 public Q_SLOTS:
+    /** Switch to BonusCodes page */
+    void gotoBonusCodes();
     /** Switch to overview (home) page */
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
