@@ -4,6 +4,8 @@
 #include "bonuscodedialog.h"
 #include "platformstyle.h"
 #include <QWidget>
+#include "walletmodel.h"
+
 #include <QStandardItemModel>
 namespace Ui {
 class BonusCodeTab;

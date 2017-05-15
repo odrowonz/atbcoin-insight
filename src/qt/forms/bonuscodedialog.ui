@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>167</height>
+    <height>86</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,27 +17,6 @@
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLabel" name="LKeyWord">
-       <property name="text">
-        <string>Enter keyword </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="EKeyWord">
-       <property name="maximumSize">
-        <size>
-         <width>190</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
