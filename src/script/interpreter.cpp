@@ -1118,6 +1118,8 @@ public:
              SerializeOutput(s, nOutput, nType, nVersion);
         // Serialize nLockTime
         ::Serialize(s, txTo.nLockTime, nType, nVersion);
+        // Serialize nTime
+        ::Serialize(s, txTo.nTime, nType, nVersion);
     }
 };
 
@@ -1175,6 +1177,8 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
         ss << hashOutputs;
         // Locktime
         ss << txTo.nLockTime;
+        // Time
+        ss << txTo.nTime;
         // Sighash type
         ss << nHashType;
 
