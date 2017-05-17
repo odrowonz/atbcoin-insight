@@ -29,6 +29,7 @@ class CWallet;
 class CWalletTx;
 class uint160;
 class uint256;
+class CBonusinfo;
 
 /** Error statuses for the wallet database */
 enum DBErrors
@@ -136,6 +137,8 @@ public:
     bool WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey);
 
     bool WriteCScript(const uint160& hash, const CScript& redeemScript);
+
+    bool WriteBonusKey(const uint160& hash, const CBonusinfo& Bonusinfo);
 
     bool WriteWatchOnly(const CScript &script);
     bool EraseWatchOnly(const CScript &script);

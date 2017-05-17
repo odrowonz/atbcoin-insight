@@ -4,14 +4,14 @@
 #include <iostream>
 #include <ctime>
 #include <fstream>
+#include <QMessageBox>
+
 #include "../primitives/transaction.h"
 #include "../crypto/ripemd160.h"
 #include "../script/interpreter.h"
 #include "../script/script.h"
 #include "../net.h"
 #include "../wallet/wallet.h"
-#include <QMessageBox>
-
 //#include "../script/script.h"
 //#define stacktop(i)  (stack.at(stack.size()+(i)))
 BonusCodeDialog::BonusCodeDialog(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -26,8 +26,9 @@ BonusCodeDialog::BonusCodeDialog(const PlatformStyle *platformStyle, QWidget *pa
     connect(ui->BCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
 }
 void BonusCodeDialog::CreateClick(){
-    CWallet wallet;
-    if(wallet.GetBalance()<ui->SCoins->value()*COIN){
+    CWallet::InitLoadWallet();
+    CWallet *wallet=pwalletMain;
+    if(wallet->GetBalance()<ui->SCoins->value()*COIN){
         QMessageBox::information(this,tr("Insufficient funds"),tr("You do not have the right amount in your account."));
         return ;
     }
@@ -46,7 +47,7 @@ void BonusCodeDialog::CreateClick(){
     tx.vout.push_back(CTxOut(ui->SCoins->value(),CScript()<<OP_RIPEMD160<<vchHash<<OP_EQUAL));
     std::vector<COutput> vCoins;
     std::vector<COutput>::iterator iter;
-    wallet.AvailableCoins(vCoins);
+    wallet->AvailableCoins(vCoins);
     CAmount sendCoints=0;
     iter=vCoins.begin();
     while(sendCoints<ui->SCoins->value()*COIN&&iter!=vCoins.end()){
@@ -55,11 +56,15 @@ void BonusCodeDialog::CreateClick(){
     }
     tx.vout.push_back(CTxOut((CAmount)sendCoints-ui->SCoins->value()*COIN,
                              CScript()<<OP_HASH160<<
-                                        wallet.GenerateNewKey().getvch()<<
+                                        wallet->GenerateNewKey().getvch()<<
                                         OP_EQUALVERIFY<<
                                         OP_CHECKSIG));
-    CTransaction result(tx);
-    RelayTransaction(result);
+    if(CWalletTx(wallet,CTransaction (tx)).RelayWalletTransaction()){
+        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended, Addwallet='%0'")
+        .arg(wallet->AddBonusKey(CBonusinfo(key.toStdString(),tx.GetHash(),0))));
+    }else{
+        QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));
+    }
     this->close();
 }
 BonusCodeDialog::~BonusCodeDialog()

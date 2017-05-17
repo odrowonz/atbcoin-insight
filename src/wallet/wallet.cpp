@@ -257,6 +257,21 @@ bool CWallet::LoadCScript(const CScript& redeemScript)
     return CCryptoKeyStore::AddCScript(redeemScript);
 }
 
+
+bool CWallet::AddBonusKey(const CBonusinfo& Bonusinfo)
+{
+    if (!CCryptoKeyStore::AddBonus(Bonusinfo))
+        return false;
+    return CWalletDB(strWalletFile).WriteBonusKey(Bonusinfo.getHash(), Bonusinfo);
+}
+void CWallet::GetListOfBonusCodes(Bonusinfoset*List){
+    List=&setBonusinfo;
+}
+bool CWallet::LoadBonusKey(const CBonusinfo& Bonusinfo)
+{
+    return CCryptoKeyStore::AddBonus(Bonusinfo);
+}
+
 bool CWallet::AddWatchOnly(const CScript &dest)
 {
     if (!CCryptoKeyStore::AddWatchOnly(dest))

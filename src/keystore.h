@@ -11,9 +11,59 @@
 #include "script/script.h"
 #include "script/standard.h"
 #include "sync.h"
-
+#include "serialize.h"
 #include <boost/signals2/signal.hpp>
 #include <boost/variant.hpp>
+
+class CBonusinfo{
+private:
+    uint160 hash;             //the hesh of the object 
+    void genHash(){
+        std::vector<unsigned char> vchHash(20);
+        CRIPEMD160().Write((unsigned char*)(key.c_str()), key.length()).Finalize(begin_ptr(vchHash));
+        hash=uint160(vchHash);
+    }
+public:
+    uint256 hashTx;           //the hash of transaction;
+    std::string key;          //the users sicret key;
+    int nVout;                //number of output;
+    explicit CBonusinfo(std::string Key,uint256 HashTx, int NVout){
+         hashTx=HashTx;
+         key=Key;
+         nVout=NVout;
+         genHash();
+    }
+    uint160 getHash()const{return hash;}
+    CBonusinfo& operator=(const CBonusinfo& right){
+        this->hash=right.hash;
+        this->key=right.key;
+        this->nVout=right.nVout;
+        this->hashTx=right.hashTx;
+        return *this;
+    }
+    bool operator==(const CBonusinfo& right)const{
+        return this->hash==right.hash;
+    }
+    bool operator>(const CBonusinfo& right)const{
+        return !(this->hash<right.hash);
+    }
+    bool operator<(const CBonusinfo& right)const{
+        return this->hash<right.hash;
+    }
+    template <typename Stream>
+    void Serialize(Stream& s, int nType, int nVersion)const{
+        s<<hashTx;
+        s<<nVout;
+        s<<key;
+    }
+        template <typename Stream>
+    void Unserialize(Stream& s, int nType, int nVersion){
+        s>>hashTx;
+        s>>nVout;
+        s>>key;
+        genHash();
+    }
+};
 
 /** A virtual base class for key stores */
 class CKeyStore
@@ -39,6 +89,9 @@ public:
     virtual bool HaveCScript(const CScriptID &hash) const =0;
     virtual bool GetCScript(const CScriptID &hash, CScript& redeemScriptOut) const =0;
 
+    // Same as the methods of working with CScript but for bonus codes, add to a separate map
+    virtual bool AddBonus(const CBonusinfo& Bonusinfo) =0;
+
     //! Support for Watch-only addresses
     virtual bool AddWatchOnly(const CScript &dest) =0;
     virtual bool RemoveWatchOnly(const CScript &dest) =0;
@@ -50,6 +103,7 @@ typedef std::map<CKeyID, CKey> KeyMap;
 typedef std::map<CKeyID, CPubKey> WatchKeyMap;
 typedef std::map<CScriptID, CScript > ScriptMap;
 typedef std::set<CScript> WatchOnlySet;
+typedef std::set<CBonusinfo> Bonusinfoset;
 
 /** Basic key store, that keeps keys in an address->secret map */
 class CBasicKeyStore : public CKeyStore
@@ -57,8 +111,9 @@ class CBasicKeyStore : public CKeyStore
 protected:
     KeyMap mapKeys;
     WatchKeyMap mapWatchKeys;
-    ScriptMap mapScripts;
+    ScriptMap mapScripts,mapBonus;
     WatchOnlySet setWatchOnly;
+    Bonusinfoset setBonusinfo;
 
 public:
     bool AddKeyPubKey(const CKey& key, const CPubKey &pubkey);
@@ -101,6 +156,8 @@ public:
     virtual bool AddCScript(const CScript& redeemScript);
     virtual bool HaveCScript(const CScriptID &hash) const;
     virtual bool GetCScript(const CScriptID &hash, CScript& redeemScriptOut) const;
+
+    virtual bool AddBonus(const CBonusinfo& Bonusinfo);
 
     virtual bool AddWatchOnly(const CScript &dest);
     virtual bool RemoveWatchOnly(const CScript &dest);
