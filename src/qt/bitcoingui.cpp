@@ -20,7 +20,6 @@
 #include "platformstyle.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
-
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
 #include "walletmodel.h"
@@ -108,6 +107,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     openRPCConsoleAction(0),
     openAction(0),
     showHelpMessageAction(0),
+    getBonus(0),
     trayIcon(0),
     trayIconMenu(0),
     notificator(0),
@@ -367,6 +367,11 @@ void BitcoinGUI::createActions()
     showHelpMessageAction->setMenuRole(QAction::NoRole);
     showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible ATBcoin command-line options").arg(tr(PACKAGE_NAME)));
 
+    getBonus = new QAction(platformStyle->TextColorIcon(":/icons/filesave"), tr("&Get Bonus"), this);
+    getBonus->setMenuRole(QAction::NoRole);
+    getBonus->setStatusTip(tr("You can receive cash by entering a bonus code."));
+
+    connect(getBonus, SIGNAL(triggered()), this, SLOT(GetBonusCode()));
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
@@ -411,6 +416,7 @@ void BitcoinGUI::createMenuBar()
     {
         file->addAction(openAction);
         file->addAction(backupWalletAction);
+        file->addAction(getBonus);
         file->addAction(signMessageAction);
         file->addAction(verifyMessageAction);
         file->addSeparator();
@@ -620,7 +626,9 @@ void BitcoinGUI::optionsClicked()
     dlg.setModel(clientModel->getOptionsModel());
     dlg.exec();
 }
-
+void BitcoinGUI::GetBonusCode(){
+    (new GetBonusDialog(this))->exec();
+}
 void BitcoinGUI::aboutClicked()
 {
     if(!clientModel)

@@ -10,6 +10,7 @@
 #endif
 
 #include "amount.h"
+#include "getbonusdialog.h"
 #include "bonuscodetab.h"
 #include <QLabel>
 #include <QMainWindow>
@@ -112,6 +113,7 @@ private:
     QAction *openAction;
     QAction *showHelpMessageAction;
     QAction *BonusCodeTab;
+    QAction *getBonus;
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     Notificator *notificator;
@@ -195,6 +197,8 @@ private Q_SLOTS:
 
     /** Show open dialog */
     void openClicked();
+    /** Show get bonus dialog dialog*/
+    void GetBonusCode();
 #endif // ENABLE_WALLET
     /** Show configuration dialog */
     void optionsClicked();

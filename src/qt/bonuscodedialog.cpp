@@ -1,9 +1,7 @@
 #include "bonuscodedialog.h"
 #include "ui_bonuscodedialog.h"
 #include <QCryptographicHash>
-#include <iostream>
 #include <ctime>
-#include <fstream>
 #include <QMessageBox>
 
 #include "../primitives/transaction.h"
@@ -35,10 +33,10 @@ void BonusCodeDialog::CreateClick(){
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp)
         key.push_back((i!='-')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
-    std::cout<<"sicret key ="<<key<<std::endl;
     valtype vchHash(20);
     CRIPEMD160().Write((unsigned char*)(key.data()), key.length()).Finalize(begin_ptr(vchHash));
     //std::cout<<"sicret hash ="<<std::string(vchHash.begin(),vchHash.end())<<std::endl;
+     std::cout<<"(generateget)hash of key ="<<HexStr(vchHash)<<std::endl;
 
 /********************create a new transaction*************************/
     std::vector<CRecipient> Recipient;
@@ -52,7 +50,7 @@ void BonusCodeDialog::CreateClick(){
     std::string fall;
     CAmount nFeeRet=1000;
     int nChangePosInOut=0;
-    std::cout<<"result create ="<<wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)<<std::endl;
+    wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall);
     if(wallet->CommitTransaction(wtx,Rkey)){
         QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended"));
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
