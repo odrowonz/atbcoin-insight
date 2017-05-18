@@ -12,8 +12,6 @@
 #include "../script/script.h"
 #include "../net.h"
 #include "../wallet/wallet.h"
-//#include "../script/script.h"
-//#define stacktop(i)  (stack.at(stack.size()+(i)))
 BonusCodeDialog::BonusCodeDialog(const PlatformStyle *platformStyle, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BonusCodeDialog)
@@ -33,35 +31,35 @@ void BonusCodeDialog::CreateClick(){
         return ;
     }
 /***********************generate a key ******************************/
-    QString key="ATB-";
-    QString temp=KEY_TEMPLATE;
-    for(QChar i:temp)
-        key.push_back((i!='-')?((rand()%5)?QChar(rand()%26+65):QChar(rand()%10+48)):i);
-    //std::cout<<"sicret key ="<<key.toStdString()<<std::endl;
+    std::string key="ATB-";
+    std::string temp=KEY_TEMPLATE;
+    for(unsigned char i:temp)
+        key.push_back((i!='-')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
+    std::cout<<"sicret key ="<<key<<std::endl;
     valtype vchHash(20);
-    CRIPEMD160().Write((unsigned char*)(key.toLatin1().data()), key.length()).Finalize(begin_ptr(vchHash));
+    CRIPEMD160().Write((unsigned char*)(key.data()), key.length()).Finalize(begin_ptr(vchHash));
     //std::cout<<"sicret hash ="<<std::string(vchHash.begin(),vchHash.end())<<std::endl;
 
 /********************create a new transaction*************************/
-    CMutableTransaction tx;
-    tx.vout.push_back(CTxOut(ui->SCoins->value(),CScript()<<OP_RIPEMD160<<vchHash<<OP_EQUAL));
-    std::vector<COutput> vCoins;
-    std::vector<COutput>::iterator iter;
-    wallet->AvailableCoins(vCoins);
-    CAmount sendCoints=0;
-    iter=vCoins.begin();
-    while(sendCoints<ui->SCoins->value()*COIN&&iter!=vCoins.end()){
-        sendCoints+=iter->tx->GetAvailableCredit();
-        tx.vin.push_back(CTxIn(iter->tx->vin[iter->i].prevout));
-    }
-    tx.vout.push_back(CTxOut((CAmount)sendCoints-ui->SCoins->value()*COIN,
-                             CScript()<<OP_HASH160<<
-                                        wallet->GenerateNewKey().getvch()<<
-                                        OP_EQUALVERIFY<<
-                                        OP_CHECKSIG));
-    if(CWalletTx(wallet,CTransaction (tx)).RelayWalletTransaction()){
-        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended, Addwallet='%0'")
-        .arg(wallet->AddBonusKey(CBonusinfo(key.toStdString(),tx.GetHash(),0))));
+    std::vector<CRecipient> Recipient;
+    CRecipient rec;
+    rec.scriptPubKey=CScript()<<OP_HASH160<<vchHash<<OP_EQUAL;
+    rec.nAmount=ui->SCoins->value()*COIN;
+    rec.fSubtractFeeFromAmount=false;
+    Recipient.push_back(rec);
+    CWalletTx wtx;
+    CReserveKey Rkey(wallet);
+    std::string fall;
+    CAmount nFeeRet=1000;
+    int nChangePosInOut=0;
+    std::cout<<"result create ="<<wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)<<std::endl;
+    if(wallet->CommitTransaction(wtx,Rkey)){
+        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended"));
+        int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
+        if(i==wtx.vout.size()){
+            QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));
+        }
+        wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
     }else{
         QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));
     }

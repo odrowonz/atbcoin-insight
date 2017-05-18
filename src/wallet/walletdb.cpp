@@ -618,11 +618,11 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             uint160 hash;
             ssKey >> hash;
-            CScript script;
-            ssValue >> *(CScriptBase*)(&script);
-            if (!pwallet->LoadCScript(script))
+            CBonusinfo Bonusinfo;
+            ssValue >> Bonusinfo;
+            if (!pwallet->LoadBonusKey(Bonusinfo))
             {
-                strErr = "Error reading wallet database: LoadCScript failed";
+                strErr = "Error reading wallet database: CBonusinfo failed";
                 return false;
             }
         }

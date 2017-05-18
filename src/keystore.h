@@ -27,7 +27,7 @@ public:
     uint256 hashTx;           //the hash of transaction;
     std::string key;          //the users sicret key;
     int nVout;                //number of output;
-    explicit CBonusinfo(std::string Key,uint256 HashTx, int NVout){
+    explicit CBonusinfo(std::string Key="",uint256 HashTx=uint256(), int NVout=0){
          hashTx=HashTx;
          key=Key;
          nVout=NVout;

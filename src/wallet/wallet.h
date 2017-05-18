@@ -720,7 +720,7 @@ public:
     //! Adds an encrypted key of bonus to the store, without saving it to disk (used by LoadWallet)
     bool AddBonusKey(const CBonusinfo& Bonusinfo);
     bool LoadBonusKey(const CBonusinfo& Bonusinfo);
-    void GetListOfBonusCodes(Bonusinfoset *List);
+    Bonusinfoset& GetListOfBonusCodes();
     //! Adds a destination data tuple to the store, and saves it to disk
     bool AddDestData(const CTxDestination &dest, const std::string &key, const std::string &value);
     //! Erases a destination data tuple in the store and on disk

@@ -264,8 +264,8 @@ bool CWallet::AddBonusKey(const CBonusinfo& Bonusinfo)
         return false;
     return CWalletDB(strWalletFile).WriteBonusKey(Bonusinfo.getHash(), Bonusinfo);
 }
-void CWallet::GetListOfBonusCodes(Bonusinfoset*List){
-    List=&setBonusinfo;
+Bonusinfoset& CWallet::GetListOfBonusCodes(){
+    return setBonusinfo;
 }
 bool CWallet::LoadBonusKey(const CBonusinfo& Bonusinfo)
 {
@@ -1534,9 +1534,9 @@ void CWallet::ReacceptWalletTransactions()
 bool CWalletTx::RelayWalletTransaction()
 {
     assert(pwallet->GetBroadcastTransactions());
-    
+
     if (!(IsCoinBase() || IsCoinStake()))
-    
+
     {
         if (GetDepthInMainChain() == 0 && !isAbandoned() && InMempool()) {
             LogPrintf("Relaying wtx %s\n", GetHash().ToString());
