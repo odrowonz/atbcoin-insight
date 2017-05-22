@@ -1,21 +1,22 @@
 #include "bonuscodetab.h"
 #include "ui_bonuscodetab.h"
 #include "walletmodel.h"
-
+#include "getbonusdialog.h"
 #include "../wallet/wallet.h"
-BonusCodeTab::BonusCodeTab(const PlatformStyle *platformStyle, QWidget *parent) :
+BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
 {
+    wmodel=wmodel_;
     this->platformStyle=platformStyle;
     ui->setupUi(this);
     ui->tableView->setModel(model=new QStandardItemModel(0,3));
     ui->tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
+    connect(ui->BGet,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     updateBonusList();
 }
 void BonusCodeTab::updateBonusList(){
-    CWallet::InitLoadWallet();
     CWallet *wallet=pwalletMain;
     model->clear();
     model->setHorizontalHeaderLabels(QStringList()<<tr("nVout")<<tr("Transaction hash")<<tr("KeyWord"));
@@ -30,8 +31,16 @@ void BonusCodeTab::updateBonusList(){
         model->setData(model->index(0,0),i->nVout);
     }
 }
+void BonusCodeTab::setWalletModel(WalletModel *wmodel){
+    this->wmodel=wmodel;
+}
+void BonusCodeTab::getBonusClick(bool){
+    (new GetBonusDialog(this))->exec();
+    wmodel->updateTransaction();
+    wmodel->pollBalanceChanged();
+}
 void BonusCodeTab::CreateClick(bool){
-     (new BonusCodeDialog(platformStyle,this))->exec();
+     (new BonusCodeDialog(this))->exec();
      updateBonusList();
 }
 BonusCodeTab::~BonusCodeTab()

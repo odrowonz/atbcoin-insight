@@ -188,7 +188,7 @@ UniValue generate(const UniValue& params, bool fHelp)
     if (coinbaseScript->reserveScript.empty())
         throw JSONRPCError(RPC_INTERNAL_ERROR, "No coinbase script available (mining requires a wallet)");
 
-    return generateBlocks(coinbaseScript, nGenerate, nMaxTries, true);
+    return generateBlocks(coinbaseScript, nGenerate, nMaxTries, false);
 }
 
 UniValue generatetoaddress(const UniValue& params, bool fHelp)

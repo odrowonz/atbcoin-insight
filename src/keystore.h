@@ -17,7 +17,7 @@
 
 class CBonusinfo{
 private:
-    uint160 hash;             //the hesh of the object 
+    uint160 hash;             //the hash of the object 
     void genHash(){
         std::vector<unsigned char> vchHash(20);
         CRIPEMD160().Write((unsigned char*)(key.c_str()), key.length()).Finalize(begin_ptr(vchHash));

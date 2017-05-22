@@ -40,6 +40,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="BGet">
+       <property name="text">
+        <string>Get bonus</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="BCreate">
        <property name="text">
         <string>Create</string>

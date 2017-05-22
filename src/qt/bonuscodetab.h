@@ -16,15 +16,18 @@ class BonusCodeTab : public QWidget
     Q_OBJECT
 
 public:
-    explicit BonusCodeTab(const PlatformStyle *platformStyle,QWidget *parent = 0);
+    explicit BonusCodeTab (WalletModel *wmodel, const PlatformStyle *platformStyle, QWidget *parent = 0);
+    void setWalletModel(WalletModel *wmodel);
     ~BonusCodeTab();
 
 private:
     Ui::BonusCodeTab *ui;
+    WalletModel *wmodel; 
     const PlatformStyle *platformStyle;
     QStandardItemModel *model;
 private Q_SLOTS:
     void updateBonusList();
+    void getBonusClick(bool);
     void CreateClick(bool);
 };
 

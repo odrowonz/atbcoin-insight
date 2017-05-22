@@ -66,7 +66,6 @@ isminetype IsMine(const CKeyStore &keystore, const CScript& scriptPubKey)
     {
         CScriptID scriptID = CScriptID(uint160(vSolutions[0]));
         CScript subscript;
-        std::cout<<"hash ="<<HexStr(scriptID)<<std::endl;
         if (keystore.GetCScript(scriptID, subscript)) {
             if(subscript.IsPushOnly(subscript.begin())){
                 return ISMINE_SPENDABLE;

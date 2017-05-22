@@ -58,7 +58,7 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
 
     usedSendingAddressesPage = new AddressBookPage(platformStyle, AddressBookPage::ForEditing, AddressBookPage::SendingTab, this);
     usedReceivingAddressesPage = new AddressBookPage(platformStyle, AddressBookPage::ForEditing, AddressBookPage::ReceivingTab, this);
-    BonusCode=new BonusCodeTab(platformStyle,this);
+    BonusCode=new BonusCodeTab(walletModel,platformStyle,this);
 
     addWidget(overviewPage);
     addWidget(transactionsPage);
@@ -117,6 +117,7 @@ void WalletView::setWalletModel(WalletModel *walletModel)
     this->walletModel = walletModel;
 
     // Put transaction list in tabs
+    BonusCode->setWalletModel(walletModel);
     transactionView->setModel(walletModel);
     overviewPage->setWalletModel(walletModel);
     receiveCoinsPage->setModel(walletModel);
