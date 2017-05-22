@@ -153,7 +153,10 @@ bool ProduceSignature(const BaseSignatureCreator& creator, const CScript& fromPu
         // the final scriptSig is the signatures from that
         // and then the serialized subscript:
         script = subscript = CScript(result[0].begin(), result[0].end());
-        solved = solved && SignStep(creator, script, result, whichType, SIGVERSION_BASE) && whichType != TX_SCRIPTHASH;
+        if(subscript.IsPushOnly(subscript.begin()))
+                solved=true;
+        else
+        	    solved = solved && SignStep(creator, script, result, whichType, SIGVERSION_BASE) && whichType != TX_SCRIPTHASH;
         P2SH = true;
     }
 
@@ -176,7 +179,7 @@ bool ProduceSignature(const BaseSignatureCreator& creator, const CScript& fromPu
         result.clear();
     }
 
-    if (P2SH) {
+    if (P2SH && !subscript.IsPushOnly(subscript.begin())) {
         result.push_back(std::vector<unsigned char>(subscript.begin(), subscript.end()));
     }
     sigdata.scriptSig = PushAll(result);

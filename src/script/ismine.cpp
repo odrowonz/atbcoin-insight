@@ -34,7 +34,7 @@ isminetype IsMine(const CKeyStore &keystore, const CTxDestination& dest)
     CScript script = GetScriptForDestination(dest);
     return IsMine(keystore, script);
 }
-
+#include "utilstrencodings.h"
 isminetype IsMine(const CKeyStore &keystore, const CScript& scriptPubKey)
 {
     vector<valtype> vSolutions;
@@ -66,7 +66,11 @@ isminetype IsMine(const CKeyStore &keystore, const CScript& scriptPubKey)
     {
         CScriptID scriptID = CScriptID(uint160(vSolutions[0]));
         CScript subscript;
+        std::cout<<"hash ="<<HexStr(scriptID)<<std::endl;
         if (keystore.GetCScript(scriptID, subscript)) {
+            if(subscript.IsPushOnly(subscript.begin())){
+                return ISMINE_SPENDABLE;
+            }
             isminetype ret = IsMine(keystore, subscript);
             if (ret == ISMINE_SPENDABLE)
                 return ret;
