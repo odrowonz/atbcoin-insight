@@ -3,7 +3,7 @@
 #include <QCryptographicHash>
 #include <ctime>
 #include <QMessageBox>
-
+#include "cmath"
 #include "../primitives/transaction.h"
 #include "../crypto/ripemd160.h"
 #include "../script/interpreter.h"
@@ -42,7 +42,7 @@ void BonusCodeDialog::CreateClick(){
     std::vector<CRecipient> Recipient;
     CRecipient rec;
     rec.scriptPubKey=CScript()<<OP_HASH160<<temp4<<OP_EQUAL;
-    rec.nAmount=ui->SCoins->value()*COIN;
+    rec.nAmount=round(ui->SCoins->value()*COIN);
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);
     CWalletTx wtx;
