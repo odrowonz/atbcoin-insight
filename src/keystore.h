@@ -19,14 +19,13 @@ class CBonusinfo{
 private:
     uint160 hash;             //the hash of the object 
     void genHash(){
-        std::vector<unsigned char> vchHash(20);
-        CRIPEMD160().Write((unsigned char*)(key.c_str()), key.length()).Finalize(begin_ptr(vchHash));
-        hash=uint160(vchHash);
+        std::vector<unsigned char> vchHash(key.begin(),key.end());        
+        hash=Hash160(vchHash);
     }
 public:
     uint256 hashTx;           //the hash of transaction;
     std::string key;          //the users sicret key;
-    int nVout;                //number of output;
+    int nVout;                //number of output;  
     explicit CBonusinfo(std::string Key="",uint256 HashTx=uint256(), int NVout=0){
          hashTx=HashTx;
          key=Key;
@@ -51,13 +50,13 @@ public:
         return this->hash<right.hash;
     }
     template <typename Stream>
-    void Serialize(Stream& s, int nType, int nVersion)const{
+    void Serialize(Stream& s, int , int )const{
         s<<hashTx;
         s<<nVout;
         s<<key;
     }
         template <typename Stream>
-    void Unserialize(Stream& s, int nType, int nVersion){
+    void Unserialize(Stream& s, int , int ){
         s>>hashTx;
         s>>nVout;
         s>>key;

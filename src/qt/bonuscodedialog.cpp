@@ -10,6 +10,7 @@
 #include "../script/script.h"
 #include "../net.h"
 #include "../wallet/wallet.h"
+#include <QDateTime>
 BonusCodeDialog::BonusCodeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BonusCodeDialog)
@@ -17,7 +18,7 @@ BonusCodeDialog::BonusCodeDialog(QWidget *parent) :
     srand(time(0));
     ui->setupUi(this);
     ui->SCoins->setMinimum(1/COIN);
-    ui->SCoins->setMaximum(999999999);
+    ui->SCoins->setMaximum(999999999*COIN);
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick()));
     connect(ui->BCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
 }
@@ -51,7 +52,7 @@ void BonusCodeDialog::CreateClick(){
     int nChangePosInOut=0;
     wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall);
     if(wallet->CommitTransaction(wtx,Rkey)){
-        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended"));
+        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended. The bonus will be available after it is added to the block."));
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
             QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));

@@ -3,6 +3,8 @@
 #include "walletmodel.h"
 #include "getbonusdialog.h"
 #include "../wallet/wallet.h"
+#include <QTime>
+#include "../main.h"
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -17,18 +19,27 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     updateBonusList();
 }
 void BonusCodeTab::updateBonusList(){
-    CWallet *wallet=pwalletMain;
     model->clear();
-    model->setHorizontalHeaderLabels(QStringList()<<tr("nVout")<<tr("Transaction hash")<<tr("KeyWord"));
+    model->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
     ui->tableView->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Stretch);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
-    ui->tableView->setColumnWidth(0,60);
-    for(Bonusinfoset::iterator i=wallet->GetListOfBonusCodes().begin();i!=wallet->GetListOfBonusCodes().end();i++){
-        model->insertRow(0);
-        model->setData(model->index(0,2),QString::fromStdString(i->key));
-        model->setData(model->index(0,1),QString::fromStdString(i->hashTx.ToString()));
-        model->setData(model->index(0,0),i->nVout);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Stretch);
+    ui->tableView->setColumnWidth(0,160);
+    ui->tableView->setColumnWidth(1,60);
+    ui->tableView->setColumnWidth(2,120);
+    for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
+        CTransaction tx;
+        uint256 hashBlock;
+        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
+            model->insertRow(0);
+            model->setData(model->index(0,4),QString::fromStdString(i->key));
+            model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
+            model->setData(model->index(0,2),(tx.vout[i->nVout].nValue/(double)COIN));
+            model->setData(model->index(0,1),i->nVout);
+            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString());
+        }
     }
 }
 void BonusCodeTab::setWalletModel(WalletModel *wmodel){
