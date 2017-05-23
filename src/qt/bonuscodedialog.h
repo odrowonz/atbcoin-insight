@@ -19,6 +19,7 @@ public:
 private:
     Ui::BonusCodeDialog *ui;
 private Q_SLOTS:
+    void currentIndexChanged(int);
     void CreateClick();
 };
 

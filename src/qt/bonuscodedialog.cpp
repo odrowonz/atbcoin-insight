@@ -3,6 +3,7 @@
 #include <QCryptographicHash>
 #include <ctime>
 #include <QMessageBox>
+#include <QDateTime>
 #include "cmath"
 #include "../primitives/transaction.h"
 #include "../crypto/ripemd160.h"
@@ -10,7 +11,7 @@
 #include "../script/script.h"
 #include "../net.h"
 #include "../wallet/wallet.h"
-#include <QDateTime>
+#include "bitcoinunits.h"
 BonusCodeDialog::BonusCodeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BonusCodeDialog)
@@ -19,8 +20,28 @@ BonusCodeDialog::BonusCodeDialog(QWidget *parent) :
     ui->setupUi(this);
     ui->SCoins->setMinimum(1/COIN);
     ui->SCoins->setMaximum(999999999*COIN);
+    ui->CCoins->addItem("ATB");
+    ui->CCoins->addItem("mATB");
+    ui->CCoins->addItem("μATB");
+    currentIndexChanged(BitcoinUnits::BTC);
+    connect(ui->CCoins,SIGNAL(currentIndexChanged(int)),this,SLOT(currentIndexChanged(int)));
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick()));
     connect(ui->BCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
+}
+void BonusCodeDialog::currentIndexChanged(int control){
+    switch (control) {
+    case BitcoinUnits::BTC:
+        ui->SCoins->setDecimals(8);
+        break;
+    case BitcoinUnits::mBTC:
+        ui->SCoins->setDecimals(5);
+        break;
+    case BitcoinUnits::uBTC:
+        ui->SCoins->setDecimals(2);
+        break;
+    default:
+        break;
+    }
 }
 void BonusCodeDialog::CreateClick(){
     CWallet *wallet=pwalletMain;
@@ -42,13 +63,25 @@ void BonusCodeDialog::CreateClick(){
     std::vector<CRecipient> Recipient;
     CRecipient rec;
     rec.scriptPubKey=CScript()<<OP_HASH160<<temp4<<OP_EQUAL;
-    rec.nAmount=round(ui->SCoins->value()*COIN);
+    switch (ui->CCoins->currentIndex()) {
+    case BitcoinUnits::BTC:
+        rec.nAmount=round(ui->SCoins->value()*COIN);
+        break;
+    case BitcoinUnits::mBTC:
+        rec.nAmount=round(ui->SCoins->value()*COIN/1000);
+        break;
+    case BitcoinUnits::uBTC:
+        rec.nAmount=round(ui->SCoins->value()*COIN/1000000);
+        break;
+    default:
+        break;
+    }
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);
     CWalletTx wtx;
     CReserveKey Rkey(wallet);
     std::string fall;
-    CAmount nFeeRet=1000;
+    CAmount nFeeRet=1;
     int nChangePosInOut=0;
     wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall);
     if(wallet->CommitTransaction(wtx,Rkey)){
