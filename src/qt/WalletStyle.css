@@ -1,0 +1,140 @@
+.QPushButton{
+	border-radius: 3px;
+	border: 0px ;
+	height: 35px;
+    font-size: 14px;
+	font: bold;
+	color:#B0B06B; 
+	border-bottom-width: 2px; 
+    border-bottom-style: solid;
+	background-color: #FFFFFF; 
+    border-bottom-color: #D3D3D3; 
+}
+.QPushButton:hover{
+	color:#FFFFFF; 
+	background-color: #5095FF; 
+}
+.QPushButton:focus{
+	color:#FFFFFF; 
+	background-color: #5095FF;
+	border: 2px dashed #FAEBD7;
+	font-color: 
+}
+.QPushButton:pressed{
+	background-color: #4199E1;
+	border-bottom-width: 0px;  
+}
+
+.QLabel{
+    font-size: 14px;
+	font: bold;
+	color:#B0B06B; 
+
+}
+.QLineEdit{
+	border-radius:6px;
+	height:30px;
+	border: 1px solid #DED89A;
+	color:#696969; 
+}
+.QValidatedLineEdit{
+	border-radius:6px;
+	height:30px;
+	border: 1px solid #DED89A;
+	color:#696969; 
+}
+.QCheckBox{
+	height:30px;
+	font-size: 14px;
+	font: bold;
+	color:#B0B06B;
+}
+.QFrame{
+	color:#F5F5DC;
+}
+.QRadioButton{
+	font-size: 14px;
+	font: bold;
+	color:#B0B06B;
+}
+.QSpinBox{
+	height:30px;
+	border-radius:6px;
+	border: 1px solid #DED89A;
+}
+.QDoubleSpinBox{
+	height:30px;
+	border-radius:6px;
+	border: 1px solid #DED89A;
+}
+.AmountSpinBox{
+	border: 1px solid #DED89A;
+	height:30px;
+	border-radius:6px;
+}
+.QComboBox{
+	border-radius:6px;
+	font-size: 14px;
+	font: bold;
+	height:30px;
+	color:#696969;
+}
+.QValueComboBox{
+	border-radius:6px;
+	font-size: 14px;
+	font: bold;
+	height:30px;
+	color:#696969;
+}
+
+.QProgressBar{
+	border-radius:30px;
+	border: 1px solid #DED89A;
+	font-size: 12px;
+	font: bold;
+    text-align: center;
+	background-color: #FFFFFF; 
+	color:#FFFFFF;
+}
+.QProgressBar::chunk {
+    background-color: #3CB371;
+    width: 2px;
+}
+
+.QMenuBar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                      stop:0 lightgray, stop:1 darkgray);
+}
+
+.QMenuBar::item {
+    spacing: 3px; 
+    padding: 1px 4px;
+    background: transparent;
+    border-radius: 6px;
+}
+
+.QMenuBar::item:selected { 
+    background: #F5F5DC;
+}
+
+.QMenuBar::item:pressed {
+    background: #D5F5DC;
+}
+.QToolButton{
+    border-radius: 30px;
+    background-color: transparent;
+}
+.QToolButton:pressed{
+    border-radius: 30px;
+    background-color: #3CB371;
+}
+
+.QTableView{
+	font-size: 14px;
+	font: bold;
+	color:#696969;
+}
+.QTableView QTableCornerButton::section {
+    background: red;
+}
+

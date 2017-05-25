@@ -30,6 +30,7 @@
 #include "scheduler.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "css.h"
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
@@ -356,7 +357,7 @@ void BitcoinApplication::createOptionsModel(bool resetSettings)
 void BitcoinApplication::createWindow(const NetworkStyle *networkStyle)
 {
     window = new BitcoinGUI(platformStyle, networkStyle, 0);
-
+    CSS::ReadCss(window,":/style/WalletStyle");
     pollShutdownTimer = new QTimer(window);
     connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
     pollShutdownTimer->start(200);
