@@ -32,6 +32,7 @@
 #include "init.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "css.h"
 
 #include <iostream>
 
@@ -147,6 +148,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
 #endif
 
     rpcConsole = new RPCConsole(platformStyle, 0);
+    CSS::ReadCss(rpcConsole,":/style/WalletStyle");
     helpMessageDialog = new HelpMessageDialog(this, false);
 #ifdef ENABLE_WALLET
     if(enableWallet)
