@@ -1895,7 +1895,7 @@ void static PruneOrphanBlocks()
 // miner's coin base reward (POW)
 CAmount GetProofOfWorkReward()
 {
-    CAmount nSubsidy = 330000 * COIN;
+    CAmount nSubsidy = 33000 * COIN;
 
     return nSubsidy;
 }
