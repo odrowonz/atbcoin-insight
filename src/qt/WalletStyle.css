@@ -1,34 +1,43 @@
 .QPushButton{
-  	min-width: 125px;
+    min-width: 120px;
+	border:none;
+	border-bottom:2px solid #dddddd;
+	border-radius:0px;
   	height: 31px;
-  	line-height: 31px;
   	font-size: 12px;
   	font-weight: 600;
   	text-transform: uppercase;
-  	box-shadow: 0 1px #cccaad;
-  	background: #ffffff;
+  	background-color: #ffffff;
   	color: #96946d;
 }
 .QPushButton:focus{
-	color: #ffffff;
-  	background: #2179F1;
+	color: #96946d;
+  	background-color: #eee;
 }
 .QPushButton:hover{
-  	min-width: 125px;
-  	height: 31px;
-  	line-height: 31px;
-  	font-size: 12px;
-  	font-weight: 600;
-  	text-transform: uppercase;
   	box-shadow: 0 2px #8c331e;
-  	background: #2179F1;
- 	color: #fff;
+  	background-color: #eee;
+ 	color: #96946d;
 }
 .QPushButton:pressed{
-  	background: #1169E1;
+  	background-color: #eee;
+}
+#labelWalletStatus,#labelTransactionsStatus{
+	background-color: transparent;
+	border-bottom:none;
+}
+#sendButton{
+	border:none;
+	border-bottom:2px solid #3f8fc1;
+	background-color:#4f9fd1;
+	color:#fff;
+}
+#sendButton:hover{
+	background-color:#3f8fe1;
+	color:#fff;
 }
 #buttonChooseFee , #buttonMinimizeFee{
-	background: #cccaa5;
+	background-color: #cccaa5;
   	color: #ffffff;
   	border-radius: 14px;
   	height: 29px;
@@ -38,15 +47,27 @@
 }
 #buttonChooseFee , #buttonMinimizeFee:focus{
 	color: #ffffff;
-  	background: #cccaa5;
+  	background-color: #cccaa5;
 }
 #buttonChooseFee , #buttonMinimizeFee:hover{
 	color: #ffffff;
-  	background: #dcdab5;
+  	background-color: #dcdab5;
 }
 #buttonChooseFee , #buttonMinimizeFee:pressed{
-	background: #bcba85;
+	background-color: #bcba85;
 }
+#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey{
+	background-color: #fff;
+	border-radius: 0px;
+	margin:5px;
+	height: 29px;
+  	width: 15px;
+}
+
+#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover,#BClearKey:hover{
+	background-color: #eee;
+}
+
 
 .QLabel{
   	font-size: 15px;
@@ -54,7 +75,18 @@
   	color: #96946d;
 
 }
+#InfoReceiveCoupon{
+  	font-size: 15px;
+  	font-weight: 500;
+  	color: #fff;
+}
+#CouponInfo{
+  	font-size: 15px;
+  	font-weight: 500;
+  	color: #fff;
+}
 .QLineEdit{
+
 	height: 29px;
 	font-size: 15px;
   	font-weight: 500;
@@ -62,12 +94,14 @@
   	border-radius: 2px;
   	background: #ffffff;
   	border: 2px solid #d8d6ba;
+	border-radius:3px;
   	cursor: pointer;
   	text-align: center;
   	vertical-align: middle;
   	margin: 5px;
 }
 .QValidatedLineEdit{
+
 	height: 29px;
 	font-size: 15px;
   	font-weight: 500;
@@ -75,6 +109,7 @@
   	border-radius: 2px;
   	background: #ffffff;
   	border: 2px solid #d8d6ba;
+	border-radius:3px;
   	cursor: pointer;
   	text-align: center;
   	vertical-align: middle;
@@ -93,7 +128,7 @@
 .QCheckBox::indicator{
   	height: 20px;
   	width: 20px;
-	border-radius: 2px;
+	border-radius: 4px;
   	background: #ffffff;
   	border: 2px solid #d8d6ba;
   	cursor: pointer;
@@ -121,10 +156,23 @@
   	background: #dddddd;
 }
 .QFrame{
+	margin:0px;
 	color:#F5F5DC;
+	border:none;
+	border-radius:2px;
+}
+#tabFrame{
+	background-color:#f0eedc;
+}
+#MainFrame{
+	background-color:#f0eedc;
 }
 #frameFee{
 	background: #e4e3dd;
+}
+#InfoFrame{
+	background: #4ba27e;
+	color: #eeeeee;
 }
 .QRadioButton{
 	font-size: 14px;
@@ -183,13 +231,19 @@
   	position: relative;
 }
 
-.QProgressBar {
-    border: 0px;
-    border-radius: 6px;
-}
+.QProgressBar { 
+	border: none; 
+	background: transparent;
+	border-radius: 15px; 
+	padding: 1px; 
+	color:#fff;
+	text-align: center; 
+} 
 .QProgressBar::chunk {
-  	background: #4ba27e;
+ 	background: #4ba27e;
+	border-radius: 7px; margin: 0px;
 }
+
 .QSlider::groove:horizontal {
     border: 1px solid #999999;
     height: 4px; 
@@ -218,11 +272,10 @@
     margin: -2px 0; 
     border-radius: 3px;
 }
-
 .QToolButton{
-  	height: 29px;
-  	line-height: 29px;
-  	padding: 0 20px;
+  	height: 27px;
+  	line-height: 27px;
+  	padding: 0 10px;
   	background: transparent;
   	border-radius: 14px;
   	color: #3d8065;
@@ -230,14 +283,13 @@
 }
 
 .QToolButton:hover{
+	border: 1px;
+}
+.QToolButton:checked{
 	color: #ffffff;
   	background: #4ba27e;
-	filter: brightness(1);
 }
 
-.QToolButton:pressed{
-	background: #40a070;
-}
 
 .QTableView{
   	font-size: 15px;
@@ -288,5 +340,25 @@
 
 .QTabBar::tab:!selected {
     margin-top: 2px;
+}
+.QWidget{
+	background-color: #f0eedc;
+	margin:0px;
+}
+#OverviewPage{
+	background-color: #f0eedc;
+}
+
+.QMainWindow {
+    background: #f0eedc;
+}
+.QActionGroup{
+	background: #e3e2cd;
+}
+
+.QStatusBar{
+	background: #fff;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 

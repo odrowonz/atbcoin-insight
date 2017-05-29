@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QMutex>
 #include <QThread>
+#include "css.h"
 
 static const bool DEFAULT_CHOOSE_DATADIR = false;
 

@@ -98,25 +98,25 @@ PlatformStyle::PlatformStyle(const QString &name, bool imagesOnButtons, bool col
     textColor = QColor(QApplication::palette().color(QPalette::WindowText));
 }
 
-QImage PlatformStyle::SingleColorImage(const QString& filename) const
+QImage PlatformStyle::SingleColorImage(const QString& filename,QColor color) const
 {
     if (!colorizeIcons)
         return QImage(filename);
-    return ColorizeImage(filename, SingleColor());
+    return ColorizeImage(filename, color);
 }
 
-QIcon PlatformStyle::SingleColorIcon(const QString& filename) const
+QIcon PlatformStyle::SingleColorIcon(const QString& filename,QColor color) const
 {
     if (!colorizeIcons)
         return QIcon(filename);
-    return ColorizeIcon(filename, SingleColor());
+    return ColorizeIcon(filename, color);
 }
 
-QIcon PlatformStyle::SingleColorIcon(const QIcon& icon) const
+QIcon PlatformStyle::SingleColorIcon(const QIcon& icon, QColor color) const
 {
     if (!colorizeIcons)
         return icon;
-    return ColorizeIcon(icon, SingleColor());
+    return ColorizeIcon(icon, color);
 }
 
 QIcon PlatformStyle::TextColorIcon(const QString& filename) const

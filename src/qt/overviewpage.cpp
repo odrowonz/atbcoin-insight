@@ -36,10 +36,15 @@ public:
                       const QModelIndex &index ) const
     {
         painter->save();
-
         QIcon icon = qvariant_cast<QIcon>(index.data(TransactionTableModel::RawDecorationRole));
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(DECORATION_SIZE, DECORATION_SIZE));
+        QPainterPath path;
+        path.addRoundedRect(mainRect, 2, 2);
+        painter->fillPath(path,Qt::white);
+        painter->setPen(Qt::white);
+        painter->drawPath(path);
+
         int xspace = DECORATION_SIZE + 8;
         int ypad = 6;
         int halfheight = (mainRect.height() - 2*ypad)/2;
@@ -59,7 +64,6 @@ public:
             QBrush brush = qvariant_cast<QBrush>(value);
             foreground = brush.color();
         }
-
         painter->setPen(foreground);
         QRect boundingRect;
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address, &boundingRect);

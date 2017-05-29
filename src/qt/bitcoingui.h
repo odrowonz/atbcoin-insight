@@ -10,7 +10,6 @@
 #endif
 
 #include "amount.h"
-#include "getbonusdialog.h"
 #include "bonuscodetab.h"
 #include <QLabel>
 #include <QMainWindow>
@@ -196,6 +195,7 @@ private Q_SLOTS:
 
     /** Show open dialog */
     void openClicked();
+    void checedTabChanged();
 #endif // ENABLE_WALLET
     /** Show configuration dialog */
     void optionsClicked();
