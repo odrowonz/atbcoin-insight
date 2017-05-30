@@ -38,7 +38,7 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *platformStyle, QWidg
     } else {
         ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove",QColor::fromRgb(157,154,121)));
         ui->receiveButton->setIcon(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(157,154,121)));
-        ui->showRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/edit",QColor::fromRgb(157,154,121)));
+        ui->showRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/eye",QColor::fromRgb(157,154,121)));
         ui->removeRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove",QColor::fromRgb(157,154,121)));
     }
 

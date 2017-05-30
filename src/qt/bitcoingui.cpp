@@ -296,7 +296,7 @@ void BitcoinGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/address-book",QColor::fromRgb(75,162,126)),tr("Bonus codes"),this);
+    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(75,162,126)),tr("Bonus codes"),this);
     BonusCodeTab->setStatusTip(tr("Browse bonus codes"));
     BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
     BonusCodeTab->setCheckable(true);

@@ -19,7 +19,10 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->SAmount->setMaximum(999999999*COIN);
     ui->SAmount->setDecimals(8);
     ui->SAmount->setSingleStep(1.0/COIN);
-
+    ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon"));
+    ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon"));
+    ui->BClearKey->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
+    ui->BClearAmount->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
@@ -40,7 +43,8 @@ void BonusCodeTab::updateBonusList(){
     for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
         CTransaction tx;
         uint256 hashBlock;
-        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
+        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)&&
+                !pwalletMain->mapWallet.find(tx.GetHash())->second.fDebitCached){
             model->insertRow(0);
             model->setData(model->index(0,4),QString::fromStdString(i->key));
             model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
