@@ -19,7 +19,7 @@
 #include "splashscreen.h"
 #include "utilitydialog.h"
 #include "winshutdownmonitor.h"
-
+#include <QFontDatabase>
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
 #include "walletmodel.h"
@@ -312,6 +312,12 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     // UI per-platform customization
     // This must be done inside the BitcoinApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
+    //QFontDatabase::addApplicationFont(":/icons/Bold");
+   // QFontDatabase::addApplicationFont(":/icons/Medium");
+   // QFontDatabase::addApplicationFont(":/icons/Regulyar");
+    int id = QFontDatabase::addApplicationFont(":/icons/Medium");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QApplication::setFont(QFont (family));
     std::string platformName;
     platformName = GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));

@@ -40,7 +40,7 @@ public:
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(DECORATION_SIZE, DECORATION_SIZE));
         QPainterPath path;
-        path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+4,mainRect.width()-1,mainRect.height()-4), 2, 2);
+        path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+2,mainRect.width()-1,mainRect.height()-2), 2, 2);
         painter->fillPath(path,Qt::white);
         painter->setPen(Qt::white);
         painter->drawPath(path);
@@ -50,7 +50,6 @@ public:
         int halfheight = (mainRect.height() - 2*ypad)/2;
         QRect amountRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
         QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
-        icon = platformStyle->SingleColorIcon(icon);
         icon.paint(painter, decorationRect);
 
         QDateTime date = index.data(TransactionTableModel::DateRole).toDateTime();

@@ -31,17 +31,17 @@
 	background-color: transparent;
 	border-bottom:none;
 }
-#sendButton{
+#sendButton,#openDebugLogfileButton{
 	border:none;
 	border-bottom:2px solid #3f8fc1;
 	background-color:#4e9fd2;
 	color:#fff;
 }
-#sendButton:hover{
+#sendButton,#openDebugLogfileButton:hover{
 	background-color:#6bbbed;
 	color:#fff;
 }
-#sendButton:pressed{
+#sendButton,#openDebugLogfileButton:pressed{
 	background-color:#336d92;
 	color:#fff;
 }
@@ -65,7 +65,7 @@
 #buttonChooseFee , #buttonMinimizeFee:pressed{
 	background-color: #bcba85;
 }
-#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey{
+#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey,#promptIcon,#fontSmallerButton,#fontBiggerButton,#clearButton{
 	background-color: #fff;
 	border-radius: 1px;
 	margin:5px;
@@ -73,7 +73,7 @@
   	width: 15px;
 }
 
-#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover,#BClearKey:hover{
+#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover,#BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover,#clearButton:hover{
 	background-color: #eee;
 }
 
@@ -84,15 +84,18 @@
   	color: #96946d;
 
 }
+#unitDisplayControl{
+  	color: #3d8065;
+}
 #InfoReceiveCoupon{
-  	font-size: 15px;
-  	font-weight: 500;
+  	font-size: 16px;
+  	font-weight: 700;
   	color: #fff;
 }
 #CouponInfo{
   	font-size: 15px;
   	font-weight: 500;
-  	color: #fff;
+  	color: #ddd;
 }
 .QLineEdit{
 
@@ -306,6 +309,7 @@ QComboBox QAbstractItemView{
   	height: 27px;
   	line-height: 27px;
   	padding: 0 10px;
+	margin-left: 10px;
 	margin-top: 10px;
 	margin-bottom: 10px;
   	background: transparent;
@@ -375,6 +379,7 @@ QHeaderView::section {
 
 .QTabBar::tab:!selected {
     margin-top: 2px;
+	background:	#efebe7;
 }
 
 .QWidget,.QDialog{
@@ -400,3 +405,23 @@ QHeaderView::section {
 #progressBarLabel{
 	color:#4ba27e;
 }
+
+QMenuBar {
+    background-color: #4ba27e;
+}
+
+QMenuBar::item {
+    spacing: 3px; /* spacing between menu bar items */
+    padding: 1px 4px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: #e0dfc5;
+}
+
+QMenuBar::item:pressed {
+    background: #e0dfc5;
+}
+

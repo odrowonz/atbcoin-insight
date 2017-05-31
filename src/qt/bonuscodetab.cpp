@@ -26,7 +26,8 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
     connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
-    updateBonusList();
+    connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
+    //updateBonusList();
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
@@ -47,8 +48,9 @@ void BonusCodeTab::updateBonusList(){
     for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
         CTransaction tx;
         uint256 hashBlock;
-        //&&pcoinsTip->HaveInputs(tx)
-        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
+        const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
+
+        if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)&&coins->IsAvailable(i->nVout)){
             model->insertRow(0);
             model->setData(model->index(0,4),QString::fromStdString(i->key));
             model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));

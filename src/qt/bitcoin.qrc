@@ -53,6 +53,9 @@
         <file alias="checkbox">res/icons/checkbox.png</file>
         <file alias="c_coupon">res/icons/create_coupon.png</file>
         <file alias="r_coupon">res/icons/receive_coupon.png</file>
+        <file alias="Bold">res/{Colophon} Aperçu Bold Typeface.otf</file>
+        <file alias="Medium">res/{Colophon} Aperçu Medium Typeface.otf</file>
+        <file alias="Regulyar">res/{Colophon} Aperçu Regular Typeface.otf</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="spinner-000">res/movies/spinner-000.png</file>
