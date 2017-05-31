@@ -24,6 +24,8 @@ private:
     Ui::BonusCodeTab *ui;
     WalletModel *wmodel; 
     const PlatformStyle *platformStyle;
+    bool keyCheck(const std::string &str);
+    CWalletTx* findTx(const CScript& script);
     QStandardItemModel *model;
 private Q_SLOTS:
     void updateBonusList();

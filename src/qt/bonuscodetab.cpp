@@ -1,6 +1,5 @@
 #include "bonuscodetab.h"
 #include "ui_bonuscodetab.h"
-#include "walletmodel.h"
 #include "../wallet/wallet.h"
 #include <QTime>
 #include "../main.h"
@@ -29,6 +28,11 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
     updateBonusList();
 }
+bool BonusCodeTab::keyCheck(const std::string &str){
+    std::string base(KEY_TEMPLATE);
+    return str.substr(0,4)=="ATB-"&&str.size()-4==base.size()&&
+            (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
+}
 void BonusCodeTab::updateBonusList(){
     model->clear();
     model->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
@@ -43,8 +47,8 @@ void BonusCodeTab::updateBonusList(){
     for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
         CTransaction tx;
         uint256 hashBlock;
-        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)&&
-                !pwalletMain->mapWallet.find(tx.GetHash())->second.fDebitCached){
+        //&&pcoinsTip->HaveInputs(tx)
+        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
             model->insertRow(0);
             model->setData(model->index(0,4),QString::fromStdString(i->key));
             model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
@@ -60,7 +64,12 @@ void BonusCodeTab::setWalletModel(WalletModel *wmodel){
 void BonusCodeTab::getBonusClick(bool){
     //(new GetBonusDialog(this))->exec();
     std::string key= ui->EKey->text().toStdString();
-/********************create a new transaction*************************/
+    if(!keyCheck(key)){
+        QMessageBox::information(this,tr("Invalid key"),tr("Check the key and try again."));
+        ui->EKey->clear();
+        return;
+    }
+    int numberOfKey=pwalletMain->mapWallet.size();
     valtype vch(key.begin(),key.end());
     CScript s= CScript()<<vch;
     pwalletMain->AddCScript(s);
@@ -68,6 +77,24 @@ void BonusCodeTab::getBonusClick(bool){
     pwalletMain->ReacceptWalletTransactions();
     wmodel->updateTransaction();
     wmodel->pollBalanceChanged();
+    if(numberOfKey==pwalletMain->mapWallet.size()){
+        ui->InfoReceiveCoupon->setText(QString(tr("This key is not valid")));
+        return;
+    }
+    std::map<uint256, CWalletTx>::iterator i=pwalletMain->mapWallet.begin();
+    while(i!=pwalletMain->mapWallet.end()){
+        if(i->second.IsTrusted()){
+            for(CTxOut vout:i->second.vout){
+                uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
+                valtype temp4(temp3.begin(),temp3.end());
+                if(vout.scriptPubKey==CScript()<<OP_HASH160<<temp4<<OP_EQUAL){
+                    ui->InfoReceiveCoupon->setText(QString(tr("You Received %0 ATB coins with this coupon")).arg((double)vout.nValue/COIN));
+                }
+            }
+        }
+        i++;
+    }
+    ui->EKey->clear();
 }
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;

@@ -19,7 +19,7 @@
 #include <QPainter>
 
 #define DECORATION_SIZE 54
-#define NUM_ITEMS 5
+#define NUM_ITEMS 7
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -40,7 +40,7 @@ public:
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(DECORATION_SIZE, DECORATION_SIZE));
         QPainterPath path;
-        path.addRoundedRect(mainRect, 2, 2);
+        path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+4,mainRect.width()-1,mainRect.height()-4), 2, 2);
         painter->fillPath(path,Qt::white);
         painter->setPen(Qt::white);
         painter->drawPath(path);
