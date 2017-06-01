@@ -11,8 +11,24 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     wmodel=wmodel_;
     this->platformStyle=platformStyle;
     ui->setupUi(this);
-    ui->CouponList->setModel(model=new QStandardItemModel(0,3));
+    ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::DoubleClicked);
+    QStandardItemModel *couponModel=new QStandardItemModel;
+    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
+    model->setSourceModel(couponModel);
+    model->setDynamicSortFilter(true);
+    model->setSortCaseSensitivity(Qt::CaseInsensitive);
+    model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    model->setSortRole(Qt::EditRole);
+
+    ui->CouponList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->CouponList->setAlternatingRowColors(true);
+    ui->CouponList->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->CouponList->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    ui->CouponList->setSortingEnabled(true);
+    ui->CouponList->sortByColumn(0, Qt::DescendingOrder);
+    ui->CouponList->verticalHeader()->hide();
 
     ui->SAmount->setMinimum(1/COIN);
     ui->SAmount->setMaximum(999999999*COIN);
@@ -36,7 +52,7 @@ bool BonusCodeTab::keyCheck(const std::string &str){
 }
 void BonusCodeTab::updateBonusList(){
     model->clear();
-    model->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
+    //model->
     ui->CouponList->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);

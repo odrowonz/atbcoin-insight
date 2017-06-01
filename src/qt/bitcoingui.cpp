@@ -183,6 +183,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
 
     // Create status bar
     statusBar();
+    statusBar()->setMaximumHeight(20);
 
     // Disable size grip because it looks ugly and nobody needs it
     statusBar()->setSizeGripEnabled(false);
@@ -262,21 +263,21 @@ BitcoinGUI::~BitcoinGUI()
 void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
-    overviewAction = new QAction(platformStyle->SingleColorIcon(":/icons/overview",Qt::white), tr("&Overview"), this);
+    overviewAction = new QAction(platformStyle->SingleColorIcon(":/icons/overview",QColor::fromRgb(0xe3,0xe2,0xcd)), tr("&Overview"), this);
     overviewAction->setStatusTip(tr("Show general overview of wallet"));
     overviewAction->setToolTip(overviewAction->statusTip());
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send",QColor::fromRgb(75,162,126)), tr("&Send"), this);
+    sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Send"), this);
     sendCoinsAction->setStatusTip(tr("Send coins to a ATBcoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
 
-    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(75,162,126)),tr("Bonus codes"),this);
+    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0x79,0xa6,0x90)),tr("Bonus codes"),this);
     BonusCodeTab->setStatusTip(tr("Browse cou codes"));
     BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
     BonusCodeTab->setCheckable(true);
@@ -287,7 +288,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setStatusTip(sendCoinsAction->statusTip());
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
-    receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(75,162,126)), tr("&Receive"), this);
+    receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Receive"), this);
     receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and bitcoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
@@ -298,7 +299,7 @@ void BitcoinGUI::createActions()
     receiveCoinsMenuAction->setStatusTip(receiveCoinsAction->statusTip());
     receiveCoinsMenuAction->setToolTip(receiveCoinsMenuAction->statusTip());
 
-    historyAction = new QAction(platformStyle->SingleColorIcon(":/icons/history",QColor::fromRgb(75,162,126)), tr("&Transactions"), this);
+    historyAction = new QAction(platformStyle->SingleColorIcon(":/icons/history",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Transactions"), this);
     historyAction->setStatusTip(tr("Browse transaction history"));
     historyAction->setToolTip(historyAction->statusTip());
     historyAction->setCheckable(true);
@@ -661,23 +662,23 @@ void BitcoinGUI::openClicked()
     }
 }
 void BitcoinGUI::checedTabChanged(){
-    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(75,162,126)));
-    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(75,162,126)));
-    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(75,162,126)));
-    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(75,162,126)));
-    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),QColor::fromRgb(75,162,126)));
+    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
+    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
+    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
+    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
+    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
 }
 void BitcoinGUI::gotoBonusCodes()
 {
     checedTabChanged();
-    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),Qt::white));
+    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0xe3,0xe2,0xcd)));
     BonusCodeTab->setChecked(true);
     if (walletFrame) walletFrame->gotoBonusCodes();
 }
 void BitcoinGUI::gotoOverviewPage()
 {
     checedTabChanged();
-    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),Qt::white));
+    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(0xe3,0xe2,0xcd)));
     overviewAction->setChecked(true);
     if (walletFrame) walletFrame->gotoOverviewPage();
 }
@@ -685,7 +686,7 @@ void BitcoinGUI::gotoOverviewPage()
 void BitcoinGUI::gotoHistoryPage()
 {
     checedTabChanged();
-    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),Qt::white));
+    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(0xe3,0xe2,0xcd)));
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
 }
@@ -693,7 +694,7 @@ void BitcoinGUI::gotoHistoryPage()
 void BitcoinGUI::gotoReceiveCoinsPage()
 {
     checedTabChanged();
-    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),Qt::white));
+    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(0xe3,0xe2,0xcd)));
     receiveCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
 }
@@ -701,7 +702,7 @@ void BitcoinGUI::gotoReceiveCoinsPage()
 void BitcoinGUI::gotoSendCoinsPage(QString addr)
 {
     checedTabChanged();
-    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),Qt::white));
+    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),QColor::fromRgb(0xe3,0xe2,0xcd)));
     sendCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoSendCoinsPage(addr);
 }

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>630</width>
+    <width>875</width>
     <height>342</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>875</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -80,9 +86,25 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
+              <spacer name="verticalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_4">
                <item>
-                <widget class="QLabel" name="label_5">
+                <widget class="QLabel" name="OverViewBalances">
                  <property name="font">
                   <font>
                    <weight>75</weight>
@@ -141,6 +163,22 @@
                 </spacer>
                </item>
               </layout>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item>
               <layout class="QGridLayout" name="gridLayout">
@@ -222,6 +260,19 @@
                  </property>
                 </widget>
                </item>
+               <item row="2" column="4">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item row="5" column="0" colspan="3">
                 <widget class="Line" name="line">
                  <property name="sizeIncrement">
@@ -235,6 +286,9 @@
                    <width>0</width>
                    <height>0</height>
                   </size>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>true</bool>
                  </property>
                  <property name="styleSheet">
                   <string notr="true"/>
@@ -505,19 +559,6 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="4">
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
                <item row="1" column="1">
                 <spacer name="horizontalSpacer_4">
                  <property name="orientation">
@@ -632,7 +673,7 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_2">
                   <item>
-                   <widget class="QLabel" name="label_4">
+                   <widget class="QLabel" name="RecenTransactions">
                     <property name="font">
                      <font>
                       <weight>75</weight>
