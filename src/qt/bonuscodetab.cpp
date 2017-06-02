@@ -29,7 +29,15 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->setSortingEnabled(true);
     ui->CouponList->sortByColumn(0, Qt::DescendingOrder);
     ui->CouponList->verticalHeader()->hide();
-
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Stretch);
+    ui->CouponList->setColumnWidth(0,160);
+    ui->CouponList->setColumnWidth(1,60);
+    ui->CouponList->setColumnWidth(2,120);
+    ui->tab1->setCurrentIndex(1);
     ui->SAmount->setMinimum(1/COIN);
     ui->SAmount->setMaximum(999999999*COIN);
     ui->SAmount->setDecimals(8);
@@ -51,16 +59,7 @@ bool BonusCodeTab::keyCheck(const std::string &str){
             (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
 }
 void BonusCodeTab::updateBonusList(){
-    model->clear();
-    //model->
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Stretch);
-    ui->CouponList->setColumnWidth(0,160);
-    ui->CouponList->setColumnWidth(1,60);
-    ui->CouponList->setColumnWidth(2,120);
+    model->removeRows(0,model->rowCount());
     for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
         CTransaction tx;
         uint256 hashBlock;
@@ -80,10 +79,9 @@ void BonusCodeTab::setWalletModel(WalletModel *wmodel){
     this->wmodel=wmodel;
 }
 void BonusCodeTab::getBonusClick(bool){
-    //(new GetBonusDialog(this))->exec();
     std::string key= ui->EKey->text().toStdString();
     if(!keyCheck(key)){
-        QMessageBox::information(this,tr("Invalid key"),tr("Check the key and try again."));
+        ui->InfoReceiveCoupon->setText(tr("Invalid key: Check the key and try again."));
         ui->EKey->clear();
         return;
     }
