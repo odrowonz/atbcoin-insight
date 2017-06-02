@@ -32,13 +32,13 @@
 	background-color: transparent;
 	border-bottom:none;
 }
-#sendButton,#showRequestButton,#openDebugLogfileButton{
+#sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton{
 	border:none;
 	border-bottom:2px solid #3f8fc1;
 	background-color:#4e9fd2;
 	color:#fff;
 }
-#sendButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover{
+#sendButton:hover,#ExportButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover{
 	background-color:#6bbbed;
 	color:#fff;
 }
@@ -416,15 +416,17 @@ QComboBox QAbstractItemView{
 QTableView{
     font-size: 13px;
     font-weight: 500;
-    border: 2px solid #e2e0c5;
+    border: 4px solid #e1e0c4;
     overflow: hidden;
     margin: 20px 0 25px;
     color: #696969;
+	background-color: #f0eedc;
     selection-background-color: #e1e0c4;
 }
 
 QHeaderView::section {
-    background: #e2e0c5;
+    background: #e1e0c4;
+	border: 6px solid #e1e0c4;
     text-transform: uppercase;
     alternate-background-color: #f0eedc;
     color: #96946d;

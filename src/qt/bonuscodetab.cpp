@@ -19,9 +19,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     model->setDynamicSortFilter(true);
     model->setSortCaseSensitivity(Qt::CaseInsensitive);
     model->setFilterCaseSensitivity(Qt::CaseInsensitive);
-
     model->setSortRole(Qt::EditRole);
-
     ui->CouponList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->CouponList->setAlternatingRowColors(true);
     ui->CouponList->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -51,7 +49,6 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
     connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
-    //updateBonusList();
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
@@ -114,7 +111,7 @@ void BonusCodeTab::getBonusClick(bool){
 }
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
-    if(wallet->GetBalance()<ui->SAmount->value()*COIN){
+    if(wallet->GetBalance()<=ui->SAmount->value()*COIN){
         QMessageBox::information(this,tr("Insufficient funds"),tr("You do not have the right amount in your account."));
         return ;
     }
