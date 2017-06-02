@@ -56,6 +56,10 @@
         <file alias="Bold">res/{Colophon} Aperçu Bold Typeface.otf</file>
         <file alias="Medium">res/{Colophon} Aperçu Medium Typeface.otf</file>
         <file alias="Regulyar">res/{Colophon} Aperçu Regular Typeface.otf</file>
+        <file alias="Down">res/icons/Down.png</file>
+        <file alias="Up">res/icons/Up.png</file>
+        <file alias="Down_d">res/icons/Down_disabled.png</file>
+        <file alias="Up_d">res/icons/Up_disabled.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="spinner-000">res/movies/spinner-000.png</file>
