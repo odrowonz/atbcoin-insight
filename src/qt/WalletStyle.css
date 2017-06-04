@@ -61,7 +61,7 @@
 #buttonChooseFee:pressed , #buttonMinimizeFee:pressed{
 	background-color: #bcba85;
 }
-#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton{
+#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton,#clearButton{
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 0px;
@@ -71,7 +71,7 @@
 	max-width: 28px;
 }
 
-#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover,#BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover,#clearButton:hover{
+#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover,#clearButton:hover, #promptIcon:hover{
 	background-color: #eee;
 }
 
@@ -437,7 +437,9 @@ QHeaderView::section {
 .QTabWidget::pane {
     border-top: 2px solid #4ba27e;
 }
-
+#trafficGraph{
+    background:#fff;
+}
 .QTabWidget::tab-bar {
     left: 5px; 
 }
@@ -470,7 +472,7 @@ QHeaderView::section {
 
 .QTabBar::tab:!selected {
     margin-top: 2px;
-	background:	#f0eedc;
+	background:	transparent;
 }
 
 QDialog, QMainWindow,#OverviewPage, #scrollAreaWidgetContents,#scrollArea, #SendCoinsDialog ,#SendCoinsEntry{
@@ -546,7 +548,7 @@ QMenu::icon:checked { /* appearance of a 'checked' icon */
 }
 
 QMenu::separator {
-    height: 2px;
+    height: 1px;
     background: lightblue;
     margin-left: 10px;
     margin-right: 5px;
