@@ -4,6 +4,7 @@
 #include <QTime>
 #include "../main.h"
 #include <QMessageBox>
+#include <ctime>
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -118,6 +119,13 @@ void BonusCodeTab::CreateClick(bool){
 /***********************generate a key ******************************/
 
     std::string key="ATB-";
+    unsigned int Entropy_source=0x0;
+    while (!Entropy_source){
+        void * temp =malloc(0x4);
+        Entropy_source= size_t(temp);
+        free(temp);
+    }
+    srand(Entropy_source);
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp)
         key.push_back((i!='-')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
