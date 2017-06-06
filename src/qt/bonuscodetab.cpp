@@ -147,14 +147,14 @@ void BonusCodeTab::CreateClick(bool){
     int nChangePosInOut=0;
     wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall);
     if(wallet->CommitTransaction(wtx,Rkey)){
-        QMessageBox::information(this,tr("Send Result"),tr("Your bonus is sended. The bonus will be available after it is added to the block."));
+        QMessageBox::information(this,tr("Send Result"),tr("Your coupon is created. The coupon will be available after it is added to the block."));
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
-            QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));
+            QMessageBox::information(this,tr("Send Result"),tr("coupon send fail"));
         }
         wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
     }else{
-        QMessageBox::information(this,tr("Send Result"),tr("Bonus send fail"));
+        QMessageBox::information(this,tr("Send Result"),tr("coupon send fail"));
     }
     updateBonusList();
 }

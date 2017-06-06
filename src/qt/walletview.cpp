@@ -169,6 +169,7 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
 
 void WalletView::gotoBonusCodes()
 {
+    BonusCode->updateBonusList();
     setCurrentWidget(BonusCode);
 }
 void WalletView::gotoOverviewPage()
