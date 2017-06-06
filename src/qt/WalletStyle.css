@@ -61,7 +61,7 @@
 #buttonChooseFee:pressed , #buttonMinimizeFee:pressed{
 	background-color: #bcba85;
 }
-#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton,#clearButton{
+#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton{
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 0px;
@@ -71,7 +71,7 @@
 	max-width: 28px;
 }
 
-#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover,#clearButton:hover, #promptIcon:hover{
+#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover{
 	background-color: #eee;
 }
 
@@ -365,7 +365,7 @@ QComboBox QAbstractItemView{
 .QSlider::groove:horizontal {
     border: 1px solid #999999;
     height: 4px; 
-    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4ba27e, stop:1 #5bb28e);
+    background: qlineargradient(x2:0, y2:0, x1:0, y1:2, stop:0 #4ba27e, stop:1 #5bb28e);
     margin: 2px 0;
 }
 
@@ -522,24 +522,27 @@ QMenuBar::item:pressed {
 
 
 QMenu {
-    background-color: white;
+    background-color: #f0eedc;
+	border-radius: 2px;
     color: #96946d;
     margin: 2px; /* some spacing around the menu */
 }
 
 QMenu::item {
-    padding: 2px 25px 2px 20px;
+    padding: 0px 25px 2px 20px;
+	border-radius: 2px;
+	background: #f0eedc;
     border: 0px solid transparent; /* reserve space for selection border */
 }
 
 QMenu::item:selected {
-    border-color: #96946d;
-    border: 1px solid;
+    border-color: #aba991;
+    border: 0px solid ;
     background: #f9f9f3;
 }
 
 QMenu::icon:checked { /* appearance of a 'checked' icon */
-    background: #f9f9f3;
+    background: #aba991;
     position: absolute;
     top: 1px;
     right: 1px;
@@ -549,7 +552,7 @@ QMenu::icon:checked { /* appearance of a 'checked' icon */
 
 QMenu::separator {
     height: 1px;
-    background: lightblue;
+    background: #aba991;
     margin-left: 10px;
     margin-right: 5px;
 }

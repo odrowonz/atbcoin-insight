@@ -263,16 +263,14 @@ RPCConsole::RPCConsole(const PlatformStyle *platformStyle, QWidget *parent) :
     /*if (platformStyle->getImagesOnButtons()) {
         ui->openDebugLogfileButton->setIcon(platformStyle->SingleColorIcon(":/icons/export"));
     }*/
-    ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/quit"));
+    ui->clear_Button->setIcon(platformStyle->SingleColorIcon(":/icons/quit"));
     //ui->fontBiggerButton->setIcon(platformStyle->SingleColorIcon(":/icons/fontbigger"));
     //ui->fontSmallerButton->setIcon(platformStyle->SingleColorIcon(":/icons/fontsmaller"));
-    ui->clearButton->setMaximumSize(28,28);
-    ui->promptIcon->setMaximumSize(28,28);
     // Install event filter for up and down arrow
     ui->lineEdit->installEventFilter(this);
     ui->messagesWidget->installEventFilter(this);
 
-    connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clear()));
+    connect(ui->clear_Button, SIGNAL(clicked()), this, SLOT(clear()));
    // connect(ui->fontBiggerButton, SIGNAL(clicked()), this, SLOT(fontBigger()));
    // connect(ui->fontSmallerButton, SIGNAL(clicked()), this, SLOT(fontSmaller()));
     connect(ui->btnClearTrafficGraph, SIGNAL(clicked()), ui->trafficGraph, SLOT(clear()));
