@@ -5,6 +5,8 @@
 #include "../main.h"
 #include <QMessageBox>
 #include <ctime>
+#include "transactiontablemodel.h"
+#include "transactiondescdialog.h"
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -13,7 +15,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     this->platformStyle=platformStyle;
     ui->setupUi(this);
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
-    ui->CouponList->setEditTriggers(QAbstractItemView::DoubleClicked);
+    ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStandardItemModel *couponModel=new QStandardItemModel;
     couponModel->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
     model->setSourceModel(couponModel);
@@ -36,11 +38,12 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->setColumnWidth(0,160);
     ui->CouponList->setColumnWidth(1,60);
     ui->CouponList->setColumnWidth(2,120);
+
     ui->tab1->setCurrentIndex(1);
-    ui->SAmount->setMinimum(1/COIN);
+    ui->SAmount->setMinimum(0.001);
     ui->SAmount->setMaximum(999999999*COIN);
-    ui->SAmount->setDecimals(8);
-    ui->SAmount->setSingleStep(1.0/COIN);
+    ui->SAmount->setDecimals(3);
+    ui->SAmount->setSingleStep(0.001);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon"));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon"));
     ui->BClearKey->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
@@ -50,11 +53,15 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
     connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
+    connect(ui->CouponList,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cliced(QModelIndex)));
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
     return str.substr(0,4)=="ATB-"&&str.size()-4==base.size()&&
             (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
+}
+void BonusCodeTab::cliced(QModelIndex i){
+    TransactionDescDialog(*model,i.row(),this).exec();
 }
 void BonusCodeTab::updateBonusList(){
     model->removeRows(0,model->rowCount());
@@ -62,7 +69,6 @@ void BonusCodeTab::updateBonusList(){
         CTransaction tx;
         uint256 hashBlock;
         const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
-
         if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)&&coins->IsAvailable(i->nVout)){
             model->insertRow(0);
             model->setData(model->index(0,4),QString::fromStdString(i->key));
@@ -76,25 +82,31 @@ void BonusCodeTab::updateBonusList(){
 void BonusCodeTab::setWalletModel(WalletModel *wmodel){
     this->wmodel=wmodel;
 }
+
+void BonusCodeTab::setClientModel(ClientModel *clientmodel){
+    clientModel=clientmodel;
+    connect(clientModel,SIGNAL(numBlocksChanged(int,QDateTime,double,bool)),this,SLOT(updateBonusList()));
+}
+
 void BonusCodeTab::getBonusClick(bool){
     std::string key= ui->EKey->text().toStdString();
+    key.erase(std::remove(key.begin(), key.end(), ' '), key.end());
     if(!keyCheck(key)){
         ui->InfoReceiveCoupon->setText(tr("Invalid key: Check the key and try again."));
         ui->EKey->clear();
         return;
     }
-    int numberOfKey=pwalletMain->mapWallet.size();
     valtype vch(key.begin(),key.end());
     CScript s= CScript()<<vch;
-    pwalletMain->AddCScript(s);
+    if(!pwalletMain->AddCScript(s)){
+        ui->InfoReceiveCoupon->setText(QString(tr("This key is not valid")));
+        return;
+    }
     pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
     pwalletMain->ReacceptWalletTransactions();
     wmodel->updateTransaction();
     wmodel->pollBalanceChanged();
-    if(numberOfKey==pwalletMain->mapWallet.size()){
-        ui->InfoReceiveCoupon->setText(QString(tr("This key is not valid")));
-        return;
-    }
+
     std::map<uint256, CWalletTx>::iterator i=pwalletMain->mapWallet.begin();
     while(i!=pwalletMain->mapWallet.end()){
         if(i->second.IsTrusted()){
@@ -103,6 +115,7 @@ void BonusCodeTab::getBonusClick(bool){
                 valtype temp4(temp3.begin(),temp3.end());
                 if(vout.scriptPubKey==CScript()<<OP_HASH160<<temp4<<OP_EQUAL){
                     ui->InfoReceiveCoupon->setText(QString(tr("You Received %0 ATB coins with this coupon")).arg((double)vout.nValue/COIN));
+                    wmodel->getTransactionTableModel()->updateDisplayUnit();
                 }
             }
         }
@@ -121,7 +134,7 @@ void BonusCodeTab::CreateClick(bool){
     std::string key="ATB-";
     unsigned int Entropy_source=0x0;
     while (!Entropy_source){
-        void * temp =malloc(0x4);
+        void * temp =malloc(0x1);
         Entropy_source= size_t(temp);
         free(temp);
     }

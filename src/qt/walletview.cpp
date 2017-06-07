@@ -108,7 +108,7 @@ void WalletView::setBitcoinGUI(BitcoinGUI *gui)
 void WalletView::setClientModel(ClientModel *clientModel)
 {
     this->clientModel = clientModel;
-
+    BonusCode->setClientModel(clientModel);
     overviewPage->setClientModel(clientModel);
     sendCoinsPage->setClientModel(clientModel);
 }

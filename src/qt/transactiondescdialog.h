@@ -6,7 +6,7 @@
 #define BITCOIN_QT_TRANSACTIONDESCDIALOG_H
 
 #include <QDialog>
-
+#include <QSortFilterProxyModel>
 namespace Ui {
     class TransactionDescDialog;
 }
@@ -21,7 +21,8 @@ class TransactionDescDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit TransactionDescDialog(const QModelIndex &idx, QWidget *parent = 0);
+    explicit TransactionDescDialog(const QModelIndex &idx, QWidget *parent = 0 );
+    explicit TransactionDescDialog(const QSortFilterProxyModel& idx, int row, QWidget *parent=0);
     ~TransactionDescDialog();
 
 private:
