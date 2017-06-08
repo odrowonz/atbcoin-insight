@@ -184,7 +184,7 @@ public:
             0  // * estimated number of transactions per day after checkpoint
         };
 		
-        nLastPOWBlock = 17000;
+        nLastPOWBlock = 17391;
         
     }
 };
@@ -211,8 +211,8 @@ public:
         
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nTargetTimespan = 16 * 60;  // 16 mins
-        consensus.nTargetSpacing = 64;
+        consensus.nTargetTimespan = 150;  // 16 mins
+        consensus.nTargetSpacing = 150;
         
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -284,7 +284,7 @@ public:
             0
         };
 		
-        nLastPOWBlock = 50;
+        nLastPOWBlock = 18391;
         
     }
 };
