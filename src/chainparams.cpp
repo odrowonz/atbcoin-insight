@@ -184,7 +184,7 @@ public:
             0  // * estimated number of transactions per day after checkpoint
         };
 		
-        nLastPOWBlock = 17391;
+        nLastPOWBlock = 18391;
         
     }
 };
