@@ -13,7 +13,7 @@
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QLineEdit>
-
+#include <cmath>
 /** QSpinBox that uses fixed-point numbers internally and uses our own
  * formatting/parsing functions.
  */
@@ -24,9 +24,9 @@ class AmountSpinBox: public QAbstractSpinBox
 public:
     explicit AmountSpinBox(QWidget *parent):
         QAbstractSpinBox(parent),
-        currentUnit(BitcoinUnits::BTC),
-        singleStep(100000) // satoshis
+        currentUnit(BitcoinUnits::BTC)
     {
+        singleStep=pow(10,STATIC_DECEMALS); // ATBCoin
         setAlignment(Qt::AlignRight);
 
         connect(lineEdit(), SIGNAL(textEdited(QString)), this, SIGNAL(valueChanged()));
@@ -201,9 +201,12 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(amount);
-    unit = new QValueComboBox(this);
-    unit->setModel(new BitcoinUnits(this));
-    layout->addWidget(unit);
+
+    if(DYNAMIC_COIN_MODE){
+        unit = new QValueComboBox(this);
+        unit->setModel(new BitcoinUnits(this));
+        layout->addWidget(unit);
+    }
     layout->addStretch(1);
     layout->setContentsMargins(0,0,0,0);
 
@@ -214,22 +217,26 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
 
     // If one if the widgets changes, the combined content changes as well
     connect(amount, SIGNAL(valueChanged()), this, SIGNAL(valueChanged()));
-    connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
+    if(DYNAMIC_COIN_MODE)
+        connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
 
     // Set default based on configuration
-    unitChanged(unit->currentIndex());
+    if(DYNAMIC_COIN_MODE)
+        unitChanged(unit->currentIndex());
 }
 
 void BitcoinAmountField::clear()
 {
     amount->clear();
-    unit->setCurrentIndex(0);
+    if(DYNAMIC_COIN_MODE)
+        unit->setCurrentIndex(0);
 }
 
 void BitcoinAmountField::setEnabled(bool fEnabled)
 {
     amount->setEnabled(fEnabled);
-    unit->setEnabled(fEnabled);
+    if(DYNAMIC_COIN_MODE)
+        unit->setEnabled(fEnabled);
 }
 
 bool BitcoinAmountField::validate()
@@ -261,8 +268,11 @@ bool BitcoinAmountField::eventFilter(QObject *object, QEvent *event)
 QWidget *BitcoinAmountField::setupTabChain(QWidget *prev)
 {
     QWidget::setTabOrder(prev, amount);
-    QWidget::setTabOrder(amount, unit);
-    return unit;
+    if(DYNAMIC_COIN_MODE){
+        QWidget::setTabOrder(amount, unit);
+        return unit;
+    }
+    return amount;
 }
 
 CAmount BitcoinAmountField::value(bool *valid_out) const
@@ -283,17 +293,21 @@ void BitcoinAmountField::setReadOnly(bool fReadOnly)
 void BitcoinAmountField::unitChanged(int idx)
 {
     // Use description tooltip for current unit for the combobox
-    unit->setToolTip(unit->itemData(idx, Qt::ToolTipRole).toString());
+    int newUnit = 0;
+    if(DYNAMIC_COIN_MODE){
+        unit->setToolTip(unit->itemData(idx, Qt::ToolTipRole).toString());
+        newUnit=unit->itemData(idx, BitcoinUnits::UnitRole).toInt();
+    }
 
     // Determine new unit ID
-    int newUnit = unit->itemData(idx, BitcoinUnits::UnitRole).toInt();
 
     amount->setDisplayUnit(newUnit);
 }
 
 void BitcoinAmountField::setDisplayUnit(int newUnit)
 {
-    unit->setValue(newUnit);
+    if(DYNAMIC_COIN_MODE)
+        unit->setValue(newUnit);
 }
 
 void BitcoinAmountField::setSingleStep(const CAmount& step)

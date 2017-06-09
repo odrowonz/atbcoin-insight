@@ -46,12 +46,12 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->SAmount->setSingleStep(0.001);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon"));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon"));
-    ui->BClearKey->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
-    ui->BClearAmount->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
+    //ui->BClearKey->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
+  //  ui->BClearAmount->setIcon(platformStyle->SingleColorIcon(":/icons/transaction_conflicted"));
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
-    connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
-    connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
+   // connect(ui->BClearAmount,SIGNAL(clicked(bool)),ui->SAmount,SLOT(clear()));
+ //   connect(ui->BClearKey,SIGNAL(clicked(bool)),ui->EKey,SLOT(clear()));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
     connect(ui->CouponList,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cliced(QModelIndex)));
 }

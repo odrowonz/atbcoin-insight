@@ -5,9 +5,9 @@
 #include "bitcoinunits.h"
 
 #include "primitives/transaction.h"
-
+#include "guiconstants.h"
 #include <QStringList>
-
+#include <cmath>
 BitcoinUnits::BitcoinUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
@@ -18,8 +18,11 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
     unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+
+    if(DYNAMIC_COIN_MODE){
+        unitlist.append(mBTC);
+        unitlist.append(uBTC);
+    }
     return unitlist;
 }
 
@@ -60,23 +63,33 @@ QString BitcoinUnits::description(int unit)
 
 qint64 BitcoinUnits::factor(int unit)
 {
-    switch(unit)
-    {
-    case BTC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
-    default:   return 100000000;
+    if(DYNAMIC_COIN_MODE){
+        switch(unit)
+        {
+        case BTC:  return 100000000;
+        case mBTC: return 100000;
+        case uBTC: return 100;
+        default:   return 100000000;
+        }
+    }else{
+        return pow(10,STATIC_DECEMALS);
     }
+
 }
 
 int BitcoinUnits::decimals(int unit)
 {
-    switch(unit)
-    {
-    case BTC: return 8;
-    case mBTC: return 5;
-    case uBTC: return 2;
-    default: return 0;
+
+    if(DYNAMIC_COIN_MODE){
+        switch(unit)
+        {
+        case BTC: return 8;
+        case mBTC: return 5;
+        case uBTC: return 2;
+        default: return 0;
+        }
+    }else{
+        return STATIC_DECEMALS;
     }
 }
 

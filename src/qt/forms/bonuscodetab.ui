@@ -76,19 +76,12 @@
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="BClearAmount">
-                <property name="text">
-                 <string>...</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <spacer name="horizontalSpacer_6">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::Expanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -223,13 +216,6 @@
               </item>
               <item>
                <widget class="QLineEdit" name="EKey"/>
-              </item>
-              <item>
-               <widget class="QToolButton" name="BClearKey">
-                <property name="text">
-                 <string>...</string>
-                </property>
-               </widget>
               </item>
               <item>
                <spacer name="horizontalSpacer">
