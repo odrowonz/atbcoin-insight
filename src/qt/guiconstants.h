@@ -27,7 +27,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define CUSTOM_FACTOR COIN      //Value of a unit of currency
 #define STATIC_DECEMALS 3       //Precision after the decimal point point in static and custom mode
 
-#define COIN_MODE DYNAMIC_COIN_MODE //Currency display mode.
+#define COIN_MODE STATIC_COIN_MODE //Currency display mode.
 
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)
