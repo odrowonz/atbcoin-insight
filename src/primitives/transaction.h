@@ -356,7 +356,10 @@ inline void SerializeTransaction(TxType& tx, Stream& s, Operation ser_action, in
     }
     READWRITE(*const_cast<uint32_t*>(&tx.nLockTime));
     
-    READWRITE(*const_cast<uint32_t*>(&tx.nTime));
+    if(!(nType & SER_GETHASH))
+    {
+        READWRITE(*const_cast<uint32_t*>(&tx.nTime));
+    }
     
 }
 

@@ -27,34 +27,34 @@ struct {
     unsigned char extranonce;
     unsigned int nonce;
 } blockinfo[] = {
-    {4, 0xa4a3e223}, {2, 0x15c32f9e}, {1, 0x0375b547}, {1, 0x7004a8a5},
-    {2, 0xce440296}, {2, 0x52cfe198}, {1, 0x77a72cd0}, {2, 0xbb5d6f84},
-    {2, 0x83f30c2c}, {1, 0x48a73d5b}, {1, 0xef7dcd01}, {2, 0x6809c6c4},
-    {2, 0x0883ab3c}, {1, 0x087bbbe2}, {2, 0x2104a814}, {2, 0xdffb6daa},
-    {1, 0xee8a0a08}, {2, 0xba4237c1}, {1, 0xa70349dc}, {1, 0x344722bb},
-    {3, 0xd6294733}, {2, 0xec9f5c94}, {2, 0xca2fbc28}, {1, 0x6ba4f406},
-    {2, 0x015d4532}, {1, 0x6e119b7c}, {2, 0x43e8f314}, {2, 0x27962f38},
-    {2, 0xb571b51b}, {2, 0xb36bee23}, {2, 0xd17924a8}, {2, 0x6bc212d9},
-    {1, 0x630d4948}, {2, 0x9a4c4ebb}, {2, 0x554be537}, {1, 0xd63ddfc7},
-    {2, 0xa10acc11}, {1, 0x759a8363}, {2, 0xfb73090d}, {1, 0xe82c6a34},
-    {1, 0xe33e92d7}, {3, 0x658ef5cb}, {2, 0xba32ff22}, {5, 0x0227a10c},
-    {1, 0xa9a70155}, {5, 0xd096d809}, {1, 0x37176174}, {1, 0x830b8d0f},
-    {1, 0xc6e3910e}, {2, 0x823f3ca8}, {1, 0x99850849}, {1, 0x7521fb81},
-    {1, 0xaacaabab}, {1, 0xd645a2eb}, {5, 0x7aea1781}, {5, 0x9d6e4b78},
-    {1, 0x4ce90fd8}, {1, 0xabdc832d}, {6, 0x4a34f32a}, {2, 0xf2524c1c},
-    {2, 0x1bbeb08a}, {1, 0xad47f480}, {1, 0x9f026aeb}, {1, 0x15a95049},
-    {2, 0xd1cb95b2}, {2, 0xf84bbda5}, {1, 0x0fa62cd1}, {1, 0xe05f9169},
-    {1, 0x78d194a9}, {5, 0x3e38147b}, {5, 0x737ba0d4}, {1, 0x63378e10},
-    {1, 0x6d5f91cf}, {2, 0x88612eb8}, {2, 0xe9639484}, {1, 0xb7fabc9d},
-    {2, 0x19b01592}, {1, 0x5a90dd31}, {2, 0x5bd7e028}, {2, 0x94d00323},
-    {1, 0xa9b9c01a}, {1, 0x3a40de61}, {1, 0x56e7eec7}, {5, 0x859f7ef6},
-    {1, 0xfd8e5630}, {1, 0x2b0c9f7f}, {1, 0xba700e26}, {1, 0x7170a408},
-    {1, 0x70de86a8}, {1, 0x74d64cd5}, {1, 0x49e738a1}, {2, 0x6910b602},
-    {0, 0x643c565f}, {1, 0x54264b3f}, {2, 0x97ea6396}, {2, 0x55174459},
-    {2, 0x03e8779a}, {1, 0x98f34d8f}, {1, 0xc07b2b07}, {1, 0xdfe29668},
-    {1, 0x3141c7c1}, {1, 0xb3b595f4}, {1, 0x735abf08}, {5, 0x623bfbce},
-    {2, 0xd351e722}, {1, 0xf4ca48c9}, {1, 0x5b19c670}, {1, 0xa164bf0e},
-    {2, 0xbbbeb305}, {2, 0xfe1c810a},
+    {4, 0x1e2b}, {2, 0x29769}, {1, 0x4cc5b}, {1, 0x551d3},
+    {2, 0x6990d}, {2, 0x71a15}, {1, 0x9b658}, {2, 0xb9aa2},
+    {2, 0xc6c24}, {1, 0xc99c8}, {1, 0xcbb15}, {2, 0xcbd59},
+    {2, 0xd9c73}, {1, 0xffd53}, {2, 0x100482}, {2, 0x108c62},
+    {1, 0x1176e7}, {2, 0x11f756}, {1, 0x1303bc}, {1, 0x152ef1},
+    {3, 0x160f8b}, {2, 0x177178}, {2, 0x1b1826}, {1, 0x1cc5b7},
+    {2, 0x1d2cdd}, {1, 0x1f32e4}, {2, 0x1f9f78}, {2, 0x203357},
+    {2, 0x2082d9}, {2, 0x24aaeb}, {2, 0x250715}, {2, 0x27a307},
+    {1, 0x27ac8d}, {2, 0x28b7d6}, {2, 0x2b7c0b}, {1, 0x2b7d17},
+    {2, 0x2bbfdb}, {1, 0x2cbc8c}, {2, 0x2d5d94}, {1, 0x2d9fe7},
+    {1, 0x2fea65}, {3, 0x30618e}, {2, 0x344499}, {5, 0x34dbf7},
+    {1, 0x36b6b1}, {5, 0x3705ee}, {1, 0x379195}, {1, 0x37ad78},
+    {1, 0x38c0c7}, {2, 0x39c99d}, {1, 0x3a5576}, {1, 0x3abbba},
+    {1, 0x3cad61}, {1, 0x3d19ed}, {5, 0x3f0243}, {5, 0x3f3209},
+    {1, 0x412434}, {1, 0x427284}, {6, 0x44b8cc}, {2, 0x44c414},
+    {2, 0x488cd1}, {1, 0x4ac056}, {1, 0x4ebffb}, {1, 0x504608},
+    {2, 0x555772}, {2, 0x568265}, {1, 0x5d1f3e}, {1, 0x5ed980},
+    {1, 0x612958}, {5, 0x61b359}, {5, 0x64d158}, {1, 0x69bb3d},
+    {1, 0x6c13ff}, {2, 0x6d1684}, {2, 0x6eafc7}, {1, 0x71529f},
+    {2, 0x73a0e9}, {1, 0x76b630}, {2, 0x7af448}, {2, 0x81997a},
+    {1, 0x885e36}, {1, 0x88dab5}, {1, 0x898b3c}, {5, 0x8cf2e6},
+    {1, 0x91d1b5}, {1, 0x9e784f}, {1, 0xa0afac}, {1, 0xa1402d},
+    {1, 0xa3d704}, {1, 0xa4b418}, {1, 0xa4ffed}, {2, 0xa88dc9},
+    {0, 0xb3df65}, {1, 0xb4fe84}, {2, 0xb6d9ed}, {2, 0xb9676f},
+    {2, 0xb998f1}, {1, 0xba0254}, {1, 0xbfb9fd}, {1, 0xc4d272},
+    {1, 0xc5bf40}, {1, 0xc698fd}, {1, 0xca81af}, {5, 0xcb75ad},
+    {2, 0xd0eb9f}, {1, 0xd2e0ea}, {1, 0xd78028}, {1, 0xdcefd1},
+    {2, 0xe37f2e}, {2, 0xf12a16},
 };
 
 CBlockIndex CreateBlockIndex(int nHeight)
@@ -210,6 +210,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         CBlock *pblock = &pblocktemplate->block; // pointer for convenience
         pblock->nVersion = 1;
         pblock->nTime = chainActive.Tip()->GetMedianTimePast()+1;
+        pblock->nBits = GetNextTargetRequired(chainActive.Tip(), false);
         CMutableTransaction txCoinbase(pblock->vtx[0]);
         txCoinbase.nVersion = 1;
         txCoinbase.vin[0].scriptSig = CScript();
@@ -229,6 +230,14 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         pblock->hashPrevBlock = pblock->GetHash();
     }
     delete pblocktemplate;
+
+    // for(size_t i = 1; i < 111; i++){
+    //     std::cout << "{" << (int)blockinfo[i-1].extranonce << ", " << afsdf[i-1] << "},";
+    //     if(i%4==0)
+    //         std::cout << std::endl;
+    //     else
+    //         std::cout << " ";
+    // }
 
     // Just to make sure we can still make simple blocks
     BOOST_CHECK(pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey));

@@ -1119,7 +1119,10 @@ public:
         // Serialize nLockTime
         ::Serialize(s, txTo.nLockTime, nType, nVersion);
         // Serialize nTime
-        ::Serialize(s, txTo.nTime, nType, nVersion);
+        if(!(nType & SER_GETHASH))
+        {
+            ::Serialize(s, txTo.nTime, nType, nVersion);
+        }
     }
 };
 
@@ -1178,7 +1181,7 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
         // Locktime
         ss << txTo.nLockTime;
         // Time
-        ss << txTo.nTime;
+        // ss << txTo.nTime;
         // Sighash type
         ss << nHashType;
 

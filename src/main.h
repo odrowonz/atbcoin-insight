@@ -293,7 +293,7 @@ bool ActivateBestChain(CValidationState& state, const CChainParams& chainparams,
 
 CAmount GetProofOfWorkReward();
 CAmount GetProofOfStakeReward();
-int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, int64_t nFees);
+int64_t GetProofOfStakeReward(const int, int64_t nCoinAge, int64_t nFees);
 
 
 /**

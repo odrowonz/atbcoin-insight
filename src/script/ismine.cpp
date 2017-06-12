@@ -76,6 +76,15 @@ isminetype IsMine(const CKeyStore &keystore, const CScript& scriptPubKey)
         }
         break;
     }
+    case TX_BONUS:
+    {
+        CScriptID scriptID = CScriptID(uint160(vSolutions[0]));
+        CScript subscript;
+        if (keystore.GetCScript(scriptID, subscript)) {
+            return ISMINE_SPENDABLE;
+        }
+        break;
+    }
     case TX_WITNESS_V0_SCRIPTHASH:
     {
         uint160 hash;

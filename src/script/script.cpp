@@ -210,6 +210,17 @@ bool CScript::IsPayToScriptHash() const
             (*this)[22] == OP_EQUAL);
 }
 
+bool CScript::IsPayToHash() const
+{
+    // Extra-fast test for pay-to-script-hash CScripts:
+    return (this->size() == 25 &&
+            (*this)[0] == OP_0 &&
+            (*this)[1] == OP_DROP &&
+            (*this)[2] == OP_HASH160 &&
+            (*this)[3] == 0x14 &&
+            (*this)[24] == OP_EQUAL);
+}
+
 bool CScript::IsPayToWitnessScriptHash() const
 {
     // Extra-fast test for pay-to-witness-script-hash CScripts:

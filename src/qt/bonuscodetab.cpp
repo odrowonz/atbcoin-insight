@@ -109,7 +109,7 @@ void BonusCodeTab::getBonusClick(bool){
             for(CTxOut vout:i->second.vout){
                 uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
                 valtype temp4(temp3.begin(),temp3.end());
-                if(vout.scriptPubKey==CScript()<<OP_HASH160<<temp4<<OP_EQUAL){
+                if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
                     ui->InfoReceiveCoupon->setText(QString(tr("You Received %0 ATB coins with this coupon")).arg((double)vout.nValue/COIN));
                     wmodel->getTransactionTableModel()->updateDisplayUnit();
                 }
@@ -145,7 +145,7 @@ void BonusCodeTab::CreateClick(bool){
 /********************create a new transaction*************************/
     std::vector<CRecipient> Recipient;
     CRecipient rec;
-    rec.scriptPubKey=CScript()<<OP_HASH160<<temp4<<OP_EQUAL;
+    rec.scriptPubKey=CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL;
     rec.nAmount=round(ui->SAmount->value()*COIN);
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);

@@ -22,7 +22,7 @@ BOOST_FIXTURE_TEST_SUITE(pow_tests, BasicTestingSetup)
      pindexLast.nHeight = 32255;
      pindexLast.nTime = 1262152739;  // Block #32255
      pindexLast.nBits = 0x1d00ffff;
-     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1d00d86a);
+     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1f00ffff);
  }
 
  /* Test the constraint on the upper bound for next work */
@@ -32,7 +32,7 @@ BOOST_FIXTURE_TEST_SUITE(pow_tests, BasicTestingSetup)
      pindexLast.nHeight = 2015;
      pindexLast.nTime = 1233061996;  // Block #2015
      pindexLast.nBits = 0x1d00ffff;
-     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1d00ffff);
+     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1f00ffff);
  }
 
  /* Test the constraint on the lower bound for actual time taken */
@@ -42,7 +42,7 @@ BOOST_FIXTURE_TEST_SUITE(pow_tests, BasicTestingSetup)
      pindexLast.nHeight = 68543;
      pindexLast.nTime = 1279297671;  // Block #68543
      pindexLast.nBits = 0x1c05a3f4;
-     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1c0168fd);
+     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1f00ffff);
  }
 
  /* Test the constraint on the upper bound for actual time taken */
@@ -52,7 +52,7 @@ BOOST_FIXTURE_TEST_SUITE(pow_tests, BasicTestingSetup)
      pindexLast.nHeight = 46367;
      pindexLast.nTime = 1269211443;  // Block #46367
      pindexLast.nBits = 0x1c387f6f;
-     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1d00e1fd);
+     BOOST_CHECK_EQUAL(GetNextTargetRequired(&pindexLast,pindexLast.IsProofOfStake()), 0x1f00ffff);
  }
 
  BOOST_AUTO_TEST_CASE(GetBlockProofEquivalentTime_test)
