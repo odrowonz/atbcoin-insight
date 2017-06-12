@@ -299,22 +299,13 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     height: 7px;
 }
 
-QComboBox::drop-down, QValueComboBox::drop-down{
-    subcontrol-position: center right;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-	background-color: #f4f3e8;  
-	height: 26px;
-    width: 26px;
-    border:none;
-}
 
 QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-	background-color: #f4f3e8;  
-	height: 26px;
+    background-color: #f4f3e8;
+    height: 26px;
     width: 26px;
     border:none;
 }
@@ -338,14 +329,22 @@ QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-ar
    image: url(:/icons/Down_d);
 }
 
-
-
-QComboBox QAbstractItemView{
-	background-color: #ffffff;
-	selection-background-color: #f9f9f3;
-	border-radius: 3px;
-	color: #617279;
+QComboBox:item{
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #96946d;
     font-size: 14pt;
+    padding-left:15px;
+    height:20px;
+}
+QComboBox:item:selected{
+    background-color:#f9f9f3;
+}
+QComboBox:item:checked{
+    background-color:#f0f0e5;
+}
+QComboBox:item:hover{
+    background-color:#f9f9f3;
 }
 
 .QProgressBar { 
@@ -453,10 +452,10 @@ QHeaderView::section {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     padding: 2px;
-	width: 130px;
-	height: 25px;
-  	color: #3d8065;
-  	font-weight: 600;
+    min-width: 130px;
+    height: 25px;
+    color: #3d8065;
+    font-weight: 600;
 }
 
 .QTabBar::tab:selected, QTabBar::tab:hover {
@@ -506,6 +505,7 @@ QMenuBar {
 QMenuBar::item {
     spacing: 3px; /* spacing between menu bar items */
     padding: 1px 4px;
+    color: #96946d;
     background: transparent;
     border-radius: 0px;
     border-top-left-radius: 4px;
@@ -513,6 +513,7 @@ QMenuBar::item {
 }
 
 QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    color: #96946d;
     background: #e0dfc5;
 }
 
@@ -530,8 +531,8 @@ QMenu {
 
 QMenu::item {
     padding: 0px 25px 2px 20px;
-	border-radius: 2px;
-	background: #f0eedc;
+    border-radius: 2px;
+    background: #f0eedc;
     border: 0px solid transparent; /* reserve space for selection border */
 }
 

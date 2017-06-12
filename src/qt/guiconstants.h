@@ -4,7 +4,7 @@
 
 #ifndef BITCOIN_QT_GUICONSTANTS_H
 #define BITCOIN_QT_GUICONSTANTS_H
-
+#include "../amount.h"
 /* Milliseconds between model updates */
 static const int MODEL_UPDATE_DELAY = 250;
 
@@ -19,8 +19,16 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Invalid field background style */
 #define STYLE_INVALID "background:#FF5040"
 
-#define DYNAMIC_COIN_MODE false //Choose "true" if you want the wallet to be able to choose the accuracy.
-#define STATIC_DECEMALS 3       //Precision after the decimal point point in static mode
+#define STATIC_COIN_MODE 0      //Mode in which all in one currency will be displayed with accuracy STATIC_DECEMALS.
+#define DYNAMIC_COIN_MODE 1     //Mode in which several display options will be offered.
+#define CUSTOM_COIN_MODE 2      //Mode in which the accuracy is determined by STATIC_DECEMALS, and the factor CUSTOM_FACTOR.
+
+
+#define CUSTOM_FACTOR COIN      //Value of a unit of currency
+#define STATIC_DECEMALS 3       //Precision after the decimal point point in static and custom mode
+
+#define COIN_MODE DYNAMIC_COIN_MODE //Currency display mode.
+
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)
 /* Transaction list -- negative amount */

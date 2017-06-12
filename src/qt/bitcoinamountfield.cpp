@@ -202,7 +202,7 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(amount);
 
-    if(DYNAMIC_COIN_MODE){
+    if(COIN_MODE==DYNAMIC_COIN_MODE){
         unit = new QValueComboBox(this);
         unit->setModel(new BitcoinUnits(this));
         layout->addWidget(unit);
@@ -217,25 +217,25 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
 
     // If one if the widgets changes, the combined content changes as well
     connect(amount, SIGNAL(valueChanged()), this, SIGNAL(valueChanged()));
-    if(DYNAMIC_COIN_MODE)
+    if(COIN_MODE==DYNAMIC_COIN_MODE)
         connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
 
     // Set default based on configuration
-    if(DYNAMIC_COIN_MODE)
+    if(COIN_MODE==DYNAMIC_COIN_MODE)
         unitChanged(unit->currentIndex());
 }
 
 void BitcoinAmountField::clear()
 {
     amount->clear();
-    if(DYNAMIC_COIN_MODE)
+    if(COIN_MODE==DYNAMIC_COIN_MODE)
         unit->setCurrentIndex(0);
 }
 
 void BitcoinAmountField::setEnabled(bool fEnabled)
 {
     amount->setEnabled(fEnabled);
-    if(DYNAMIC_COIN_MODE)
+    if(COIN_MODE==DYNAMIC_COIN_MODE)
         unit->setEnabled(fEnabled);
 }
 
@@ -268,7 +268,7 @@ bool BitcoinAmountField::eventFilter(QObject *object, QEvent *event)
 QWidget *BitcoinAmountField::setupTabChain(QWidget *prev)
 {
     QWidget::setTabOrder(prev, amount);
-    if(DYNAMIC_COIN_MODE){
+    if(COIN_MODE==DYNAMIC_COIN_MODE){
         QWidget::setTabOrder(amount, unit);
         return unit;
     }
@@ -294,7 +294,7 @@ void BitcoinAmountField::unitChanged(int idx)
 {
     // Use description tooltip for current unit for the combobox
     int newUnit = 0;
-    if(DYNAMIC_COIN_MODE){
+    if(COIN_MODE==DYNAMIC_COIN_MODE){
         unit->setToolTip(unit->itemData(idx, Qt::ToolTipRole).toString());
         newUnit=unit->itemData(idx, BitcoinUnits::UnitRole).toInt();
     }
@@ -306,7 +306,7 @@ void BitcoinAmountField::unitChanged(int idx)
 
 void BitcoinAmountField::setDisplayUnit(int newUnit)
 {
-    if(DYNAMIC_COIN_MODE)
+    if(COIN_MODE==DYNAMIC_COIN_MODE)
         unit->setValue(newUnit);
 }
 

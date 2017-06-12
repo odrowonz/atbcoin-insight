@@ -18,8 +18,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
     unitlist.append(BTC);
-
-    if(DYNAMIC_COIN_MODE){
+    if(COIN_MODE==DYNAMIC_COIN_MODE){
         unitlist.append(mBTC);
         unitlist.append(uBTC);
     }
@@ -63,7 +62,10 @@ QString BitcoinUnits::description(int unit)
 
 qint64 BitcoinUnits::factor(int unit)
 {
-    if(DYNAMIC_COIN_MODE){
+    switch (COIN_MODE) {
+    case STATIC_COIN_MODE:
+        return pow(10,STATIC_DECEMALS);
+    case DYNAMIC_COIN_MODE:
         switch(unit)
         {
         case BTC:  return 100000000;
@@ -71,16 +73,17 @@ qint64 BitcoinUnits::factor(int unit)
         case uBTC: return 100;
         default:   return 100000000;
         }
-    }else{
-        return pow(10,STATIC_DECEMALS);
+    case CUSTOM_COIN_MODE:{
+            return CUSTOM_FACTOR;
+        }
+    default: return 100000000;
     }
-
 }
 
 int BitcoinUnits::decimals(int unit)
 {
 
-    if(DYNAMIC_COIN_MODE){
+    if(COIN_MODE==DYNAMIC_COIN_MODE){
         switch(unit)
         {
         case BTC: return 8;
