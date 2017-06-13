@@ -35,16 +35,16 @@
 #sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton{
 	border:none;
 	border-bottom:2px solid #3f8fc1;
-	background-color:#4e9fd2;
+        background-color:#49a37f;
 	color:#fff;
 }
 #sendButton:hover,#ExportButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover{
-	background-color:#6bbbed;
+        background-color:#5fb895;
 	color:#fff;
 }
-#sendButton:pressed,#showRequestButton:presed,#openDebugLogfileButton:pressed{
-	background-color:#336d92;
-	color:#fff;
+#sendButton:pressed,#showRequestButton:presed,#openDebugLogfileButton:pressed,#showRequestButton:pressed{
+        background-color:#34745d;
+        color:#9cbbb0;
 }
 #buttonChooseFee , #buttonMinimizeFee{
 	background-color: #cccaa5;
@@ -299,7 +299,6 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     height: 7px;
 }
 
-
 QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
     border-bottom-left-radius: 2px;
@@ -310,6 +309,11 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     border:none;
 }
 
+QComboBox QAbstractItemView {
+    border: 2px solid darkgray;
+    border-radius:6px;
+    selection-background-color: lightgray;
+}
 QComboBox::down-arrow, QValueComboBox::down-arrow{
 	image: url(:/icons/Down);
     subcontrol-origin: border;
@@ -329,7 +333,7 @@ QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-ar
    image: url(:/icons/Down_d);
 }
 
-QComboBox:item{
+QComboBox:item,QValueComboBox:item{
     border-radius: 3px;
     background-color: #ffffff;
     color: #96946d;
@@ -337,13 +341,13 @@ QComboBox:item{
     padding-left:15px;
     height:20px;
 }
-QComboBox:item:selected{
+QComboBox:item:selected,QValueComboBox:item:selected{
     background-color:#f9f9f3;
 }
-QComboBox:item:checked{
+QComboBox:item:checked,QValueComboBox:item:checked{
     background-color:#f0f0e5;
 }
-QComboBox:item:hover{
+QComboBox:item:hover,QValueComboBox:item:hover{
     background-color:#f9f9f3;
 }
 

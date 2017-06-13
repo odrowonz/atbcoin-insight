@@ -17,7 +17,7 @@ static const int STATUSBAR_ICONSIZE = 16;
 static const bool DEFAULT_SPLASHSCREEN = true;
 
 /* Invalid field background style */
-#define STYLE_INVALID "background:#FF5040"
+#define STYLE_INVALID "background:#e87764"
 
 #define STATIC_COIN_MODE 0      //Mode in which all in one currency will be displayed with accuracy STATIC_DECEMALS.
 #define DYNAMIC_COIN_MODE 1     //Mode in which several display options will be offered.
@@ -27,7 +27,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define CUSTOM_FACTOR COIN      //Value of a unit of currency
 #define STATIC_DECEMALS 3       //Precision after the decimal point point in static and custom mode
 
-#define COIN_MODE STATIC_COIN_MODE //Currency display mode.
+#define COIN_MODE DYNAMIC_COIN_MODE //Currency display mode.
 
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)

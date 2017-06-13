@@ -7,6 +7,7 @@
 #include <ctime>
 #include "transactiontablemodel.h"
 #include "transactiondescdialog.h"
+#include "guiconstants.h"
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -41,7 +42,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
 
     ui->tab1->setCurrentIndex(1);
     ui->SAmount->setMinimum(0.001);
-    ui->SAmount->setMaximum(999999999*COIN);
+    ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
     ui->SAmount->setDecimals(3);
     ui->SAmount->setSingleStep(0.001);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon"));
