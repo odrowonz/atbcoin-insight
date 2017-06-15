@@ -18,7 +18,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStandardItemModel *couponModel=new QStandardItemModel;
-    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("time")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
+    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
     model->setSourceModel(couponModel);
     model->setDynamicSortFilter(true);
     model->setSortCaseSensitivity(Qt::CaseInsensitive);

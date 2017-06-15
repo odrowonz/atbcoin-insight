@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>873</width>
+    <width>813</width>
     <height>553</height>
    </rect>
   </property>
@@ -631,7 +631,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>871</width>
+        <width>811</width>
         <height>85</height>
        </rect>
       </property>
@@ -1031,6 +1031,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayoutFee12">
                  <item>
                   <widget class="QLabel" name="labelSmartFee">
+                   <property name="maximumSize">
+                    <size>
+                     <width>9999</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -1041,6 +1047,12 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="labelFeeEstimation">
+                   <property name="maximumSize">
+                    <size>
+                     <width>999999</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -1048,6 +1060,12 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="labelSmartFee2">
+                   <property name="maximumSize">
+                    <size>
+                     <width>9999999</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>(Smart fee not initialized yet. This usually takes a few blocks...)</string>
                    </property>
@@ -1357,7 +1375,7 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupFee"/>
   <buttongroup name="groupCustomFee"/>
+  <buttongroup name="groupFee"/>
  </buttongroups>
 </ui>

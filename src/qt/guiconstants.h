@@ -27,12 +27,14 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define CUSTOM_FACTOR COIN      //Value of a unit of currency
 #define STATIC_DECEMALS 8       //Precision after the decimal point point in static and custom mode
 
-#define COIN_MODE STATIC_COIN_MODE //Currency display mode.
+#define COIN_MODE STATIC_DECEMALS //Currency display mode.
 
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)
 /* Transaction list -- negative amount */
-#define COLOR_NEGATIVE QColor(255, 0, 0)
+#define COLOR_NEGATIVE QColor(0xe8,0x77,0x64)
+#define COLOR_POSITIVE QColor(0x4b,0xa2,0x7e)
+
 /* Transaction list -- bare address (without label) */
 #define COLOR_BAREADDRESS QColor(140, 140, 140)
 /* Transaction list -- TX status decoration - open until date */

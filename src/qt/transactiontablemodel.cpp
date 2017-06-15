@@ -362,7 +362,7 @@ QString TransactionTableModel::lookupAddress(const std::string &address, bool to
     }
     if(label.isEmpty() || tooltip)
     {
-        description += QString(" (") + QString::fromStdString(address) + QString(")");
+        description += QString::fromStdString(address);
     }
     return description;
 }
@@ -459,6 +459,7 @@ QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool
             str = QString("[") + str + QString("]");
         }
     }
+
     return QString(str);
 }
 
@@ -515,7 +516,7 @@ QString TransactionTableModel::formatTooltip(const TransactionRecord *rec) const
     if(rec->type==TransactionRecord::RecvFromOther || rec->type==TransactionRecord::SendToOther ||
        rec->type==TransactionRecord::SendToAddress || rec->type==TransactionRecord::RecvWithAddress)
     {
-        tooltip += QString(" ") + formatTxToAddress(rec, true);
+        tooltip += QString(" ") + formatTxToAddress(rec, false);
     }
     return tooltip;
 }
@@ -535,14 +536,17 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return txStatusDecoration(rec);
         case Watchonly:
             return txWatchonlyDecoration(rec);
-        case ToAddress:
+        case Type:
             return txAddressDecoration(rec);
         }
         break;
     case Qt::DecorationRole:
     {
         QIcon icon = qvariant_cast<QIcon>(index.data(RawDecorationRole));
-        return platformStyle->TextColorIcon(icon);
+        if(index.column()==0){
+            return platformStyle->SingleColorIcon(icon);
+        }
+        return icon;
     }
     case Qt::DisplayRole:
         switch(index.column())
@@ -570,7 +574,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case Watchonly:
             return (rec->involvesWatchAddress ? 1 : 0);
         case ToAddress:
-            return formatTxToAddress(rec, true);
+            return formatTxToAddress(rec, false);
         case Amount:
             return qint64(rec->credit + rec->debit);
         }
@@ -590,14 +594,17 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         {
             return COLOR_UNCONFIRMED;
         }
-        if(index.column() == Amount && (rec->credit+rec->debit) < 0)
-        {
-            return COLOR_NEGATIVE;
-        }
         if(index.column() == ToAddress)
         {
             return addressColor(rec);
         }
+        if(index.column() == Amount ){
+            if((rec->credit+rec->debit) < 0)
+                return COLOR_NEGATIVE;
+            else
+                return COLOR_POSITIVE;
+        }
+
         break;
     case TypeRole:
         return rec->type;
