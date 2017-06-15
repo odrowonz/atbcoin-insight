@@ -315,7 +315,7 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     //QFontDatabase::addApplicationFont(":/icons/Bold");
    // QFontDatabase::addApplicationFont(":/icons/Medium");
    // QFontDatabase::addApplicationFont(":/icons/Regulyar");
-    int id = QFontDatabase::addApplicationFont(":/icons/Regulyar");
+    int id = QFontDatabase::addApplicationFont(":/icons/regulyar_new");
     QString family = QFontDatabase::applicationFontFamilies(id).at(0);
     QApplication::setFont(QFont (family));
     std::string platformName;

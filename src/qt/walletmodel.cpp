@@ -34,10 +34,10 @@ WalletModel::WalletModel(const PlatformStyle *platformStyle, CWallet *wallet, Op
     cachedBalance(0), cachedUnconfirmedBalance(0), cachedImmatureBalance(0),
     cachedEncryptionStatus(Unencrypted),
     cachedNumBlocks(0),
-    
+
     cachedStake(0),
     cachedWatchOnlyStake(0)
-    
+
 {
     fHaveWatchOnly = wallet->HaveWatchOnly();
     fForceCheckBalanceChanged = false;
@@ -156,44 +156,44 @@ void WalletModel::checkBalanceChanged()
     CAmount newBalance = getBalance();
     CAmount newUnconfirmedBalance = getUnconfirmedBalance();
     CAmount newImmatureBalance = getImmatureBalance();
-    
+
     CAmount newStake = getStake();
-    
+
     CAmount newWatchOnlyBalance = 0;
     CAmount newWatchUnconfBalance = 0;
     CAmount newWatchImmatureBalance = 0;
-    
+
     CAmount newWatchOnlyStake = 0;
-    
+
     if (haveWatchOnly())
     {
         newWatchOnlyBalance = getWatchBalance();
         newWatchUnconfBalance = getWatchUnconfirmedBalance();
         newWatchImmatureBalance = getWatchImmatureBalance();
-        
+
         newWatchOnlyStake = getWatchStake();
-        
+
     }
 
     if(cachedBalance != newBalance || cachedUnconfirmedBalance != newUnconfirmedBalance || cachedImmatureBalance != newImmatureBalance ||
-        
+
         cachedWatchOnlyBalance != newWatchOnlyBalance || cachedWatchUnconfBalance != newWatchUnconfBalance || cachedWatchImmatureBalance != newWatchImmatureBalance || cachedStake != newStake || cachedWatchOnlyStake != newWatchOnlyStake)
-        
+
     {
         cachedBalance = newBalance;
         cachedUnconfirmedBalance = newUnconfirmedBalance;
         cachedImmatureBalance = newImmatureBalance;
-        
+
         cachedStake = newStake;
-        
+
         cachedWatchOnlyBalance = newWatchOnlyBalance;
         cachedWatchUnconfBalance = newWatchUnconfBalance;
         cachedWatchImmatureBalance = newWatchImmatureBalance;
-        
+
         cachedWatchOnlyStake = newWatchOnlyStake;
         Q_EMIT balanceChanged(newBalance, newUnconfirmedBalance, newImmatureBalance, newStake,
                             newWatchOnlyBalance, newWatchUnconfBalance, newWatchImmatureBalance, newWatchOnlyStake);
-        
+
     }
 }
 

@@ -70,7 +70,7 @@ void BonusCodeTab::updateBonusList(){
             model->insertRow(0);
             model->setData(model->index(0,4),QString::fromStdString(i->key));
             model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,2),(tx.vout[i->nVout].nValue/(double)COIN));
+            model->setData(model->index(0,2),(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR));
             model->setData(model->index(0,1),i->nVout);
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString());
         }
@@ -112,7 +112,8 @@ void BonusCodeTab::getBonusClick(bool){
                 valtype temp4(temp3.begin(),temp3.end());
                 if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
                     ui->InfoReceiveCoupon->setText(QString(tr("You Received %0 ATB coins with this coupon")).arg((double)vout.nValue/COIN));
-                    wmodel->getTransactionTableModel()->updateDisplayUnit();
+                   // wmodel->getTransactionTableModel()->updateTransaction(QString::fromStdString(i->second.GetHash().ToString()),0,true);
+                   Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
                 }
             }
         }
@@ -122,7 +123,7 @@ void BonusCodeTab::getBonusClick(bool){
 }
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
-    if(wallet->GetBalance()<=ui->SAmount->value()*COIN){
+    if(wallet->GetBalance()<=ui->SAmount->value()*CUSTOM_FACTOR){
         QMessageBox::information(this,tr("Insufficient funds"),tr("You do not have the right amount in your account."));
         return ;
     }
@@ -147,7 +148,7 @@ void BonusCodeTab::CreateClick(bool){
     std::vector<CRecipient> Recipient;
     CRecipient rec;
     rec.scriptPubKey=CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL;
-    rec.nAmount=round(ui->SAmount->value()*COIN);
+    rec.nAmount=round(ui->SAmount->value()*CUSTOM_FACTOR);
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);
     CWalletTx wtx;
@@ -155,8 +156,7 @@ void BonusCodeTab::CreateClick(bool){
     std::string fall;
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
-    wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall);
-    if(wallet->CommitTransaction(wtx,Rkey)){
+    if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
         QMessageBox::information(this,tr("Send Result"),tr("Your coupon is created. The coupon will be available after it is added to the block."));
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){

@@ -107,6 +107,7 @@ Q_SIGNALS:
     void message(const QString &title, const QString &message, unsigned int style);
 
 public Q_SLOTS:
+    void refreshList(const QString &);
     void chooseDate(int idx);
     void chooseType(int idx);
     void chooseWatchonly(int idx);

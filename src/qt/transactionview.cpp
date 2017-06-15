@@ -241,6 +241,12 @@ void TransactionView::setModel(WalletModel *model)
     }
 }
 
+void TransactionView::refreshList(const QString &hash){
+    model->getTransactionTableModel()->updateTransaction(hash,0,true);
+    model->getTransactionTableModel()->refresh_model();
+    transactionView->repaint();
+
+}
 void TransactionView::chooseDate(int idx)
 {
     if(!transactionProxyModel)

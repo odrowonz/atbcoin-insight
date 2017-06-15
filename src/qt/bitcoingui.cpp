@@ -197,6 +197,8 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     frameBlocksLayout->setSpacing(3);
     unitDisplayControl = new UnitDisplayStatusBarControl(platformStyle);
     unitDisplayControl->setObjectName("unitDisplayControl");
+    if(COIN_MODE!=DYNAMIC_COIN_MODE)
+        unitDisplayControl->hide();
     labelEncryptionIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
     labelBlocksIcon = new QLabel();

@@ -61,6 +61,7 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     usedReceivingAddressesPage = new AddressBookPage(platformStyle, AddressBookPage::ForEditing, AddressBookPage::ReceivingTab, this);
     BonusCode=new BonusCodeTab(walletModel,platformStyle,this);
 
+
     addWidget(overviewPage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);

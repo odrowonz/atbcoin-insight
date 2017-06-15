@@ -136,7 +136,7 @@
             <item>
              <widget class="QLabel" name="CreatedCoupons">
               <property name="text">
-               <string>Creatted Coupons</string>
+               <string>Created coupons</string>
               </property>
              </widget>
             </item>

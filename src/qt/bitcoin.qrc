@@ -60,6 +60,7 @@
         <file alias="Up">res/icons/Up.png</file>
         <file alias="Down_d">res/icons/Down_disabled.png</file>
         <file alias="Up_d">res/icons/Up_disabled.png</file>
+        <file alias="regulyar_new">res/ApercuPro-Regular.otf</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="spinner-000">res/movies/spinner-000.png</file>

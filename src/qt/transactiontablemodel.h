@@ -106,6 +106,7 @@ private:
 
 public Q_SLOTS:
     /* New transaction, or transaction changed status */
+    void refresh_model();
     void updateTransaction(const QString &hash, int status, bool showTransaction);
     void updateConfirmations();
     void updateDisplayUnit();
