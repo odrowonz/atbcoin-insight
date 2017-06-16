@@ -146,8 +146,16 @@ QToolTip{
   	font-weight: 700;
   	color: #fff;
 }
-#CreatedCoupons,#CouponId,#CouponId_2,#CouponInfo{
+#CouponId,#CouponId_2{
 	margin-left:30px;
+        font-size: 14px;
+        font-weight:700;
+}
+#CreatedCoupons{
+        margin-left:30px;
+        font-size: 14px;
+        font-weight:700;
+        color:#859090;
 }
 #RecenTransactions{
         margin-left:10px;

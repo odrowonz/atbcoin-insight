@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tab1">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -136,7 +136,7 @@
             <item>
              <widget class="QLabel" name="CreatedCoupons">
               <property name="text">
-               <string>Redeem code</string>
+               <string>Created codes:</string>
               </property>
              </widget>
             </item>
