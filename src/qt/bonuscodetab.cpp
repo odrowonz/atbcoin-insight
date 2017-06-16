@@ -8,6 +8,7 @@
 #include "transactiontablemodel.h"
 #include "transactiondescdialog.h"
 #include "guiconstants.h"
+#include "informationdialog.h"
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -18,7 +19,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStandardItemModel *couponModel=new QStandardItemModel;
-    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord"));
+    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord")<<tr("status"));
     model->setSourceModel(couponModel);
     model->setDynamicSortFilter(true);
     model->setSortCaseSensitivity(Qt::CaseInsensitive);
@@ -36,10 +37,11 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Stretch);
-    ui->CouponList->setColumnWidth(0,160);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(5,QHeaderView::Fixed);
+    ui->CouponList->setColumnWidth(0,110);
     ui->CouponList->setColumnWidth(1,60);
     ui->CouponList->setColumnWidth(2,120);
-
+    ui->CouponList->setColumnWidth(5,80);
     ui->tab1->setCurrentIndex(1);
     ui->SAmount->setMinimum(0.001);
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
@@ -66,13 +68,22 @@ void BonusCodeTab::updateBonusList(){
         CTransaction tx;
         uint256 hashBlock;
         const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
-        if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)&&coins->IsAvailable(i->nVout)){
+        if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
             model->insertRow(0);
+
+            if(coins->IsAvailable(i->nVout)){
+                model->setData(model->index(0,5), QIcon(":/icons/unused"), Qt::DecorationRole);
+                model->setData(model->index(0,5),tr("Unused"),Qt::DisplayRole);
+            }else{
+                model->setData(model->index(0,5), QIcon(":/icons/used"), Qt::DecorationRole);
+                model->setData(model->index(0,5),tr("Used"),Qt::DisplayRole);
+            }
             model->setData(model->index(0,4),QString::fromStdString(i->key));
             model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,2),(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR));
+            model->setData(model->index(0,2),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
             model->setData(model->index(0,1),i->nVout);
-            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString());
+            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
+
         }
     }
 }
@@ -89,14 +100,16 @@ void BonusCodeTab::getBonusClick(bool){
     std::string key= ui->EKey->text().toStdString();
     key.erase(std::remove(key.begin(), key.end(), ' '), key.end());
     if(!keyCheck(key)){
-        ui->InfoReceiveCoupon->setText(tr("Invalid key: Check the key and try again."));
+        InformationDialog msgBox(tr("Invalid key: Check the key and try again."),"","",this);
+        msgBox.exec();
         ui->EKey->clear();
         return;
     }
     valtype vch(key.begin(),key.end());
     CScript s= CScript()<<vch;
     if(!pwalletMain->AddCScript(s)){
-        ui->InfoReceiveCoupon->setText(QString(tr("This key is not valid")));
+        InformationDialog msgBox(tr("This key is not valid."),"","",this);
+        msgBox.exec();
         return;
     }
     pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
@@ -111,8 +124,8 @@ void BonusCodeTab::getBonusClick(bool){
                 uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
                 valtype temp4(temp3.begin(),temp3.end());
                 if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
-                    ui->InfoReceiveCoupon->setText(QString(tr("You Received %0 ATB coins with this coupon")).arg((double)vout.nValue/COIN));
-                   // wmodel->getTransactionTableModel()->updateTransaction(QString::fromStdString(i->second.GetHash().ToString()),0,true);
+                    InformationDialog msgBox(tr("ATB coins were received with this coupon"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
+                    msgBox.exec();
                    Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
                 }
             }
@@ -124,7 +137,8 @@ void BonusCodeTab::getBonusClick(bool){
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
     if(wallet->GetBalance()<=ui->SAmount->value()*CUSTOM_FACTOR){
-        QMessageBox::information(this,tr("Insufficient funds"),tr("You do not have the right amount in your account."));
+        InformationDialog msgBox(tr("You do not have the right amount in your account."),"","",this);
+        msgBox.exec();
         return ;
     }
 /***********************generate a key ******************************/
@@ -157,14 +171,15 @@ void BonusCodeTab::CreateClick(bool){
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
     if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
-        QMessageBox::information(this,tr("Send Result"),tr("Your coupon is created. The coupon will be available after it is added to the block."));
+        InformationDialog(tr("Your coupon is created. The coupon will be available after it is added to the block."),"","",this).exec();
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
-            QMessageBox::information(this,tr("Send Result"),tr("coupon send fail"));
+            InformationDialog(tr("coupon send fail"),"","",this).exec();
+            return;
         }
         wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
     }else{
-        QMessageBox::information(this,tr("Send Result"),tr("coupon send fail"));
+        InformationDialog(tr("coupon send fail"),"","",this).exec();
     }
     updateBonusList();
 }

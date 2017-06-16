@@ -107,6 +107,25 @@
         color: #a09e78;
 
 }
+#InfFon{
+    background:#304a3f;
+    border-radius:0px;
+}
+#InfAmmount{
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+#InfMessage{
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+#InfKey{
+    font-size: 14px;
+    font-weight: 600;
+    color: #49a37f;
+}
 #TableHeader{
     margin:0px;
 }
@@ -624,4 +643,8 @@ QMenu::indicator {
 }
 QStackedWidget{
     margin-top:5px;
+}
+QMessageBox {
+    color:#fff;
+    background-color: #304a3f;
 }
