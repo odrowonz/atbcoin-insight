@@ -104,7 +104,7 @@
 .QLabel{
         font-size: 13px;
   	font-weight: 500;
-  	color: #96946d;
+        color: #a09e78;
 
 }
 #TableHeader{
@@ -472,18 +472,19 @@ QComboBox:item:hover,QValueComboBox:item:hover{
 
 QTableView{
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 800;
     border: 4px solid #e1e0c4;
     overflow: hidden;
     margin: 20px 0 25px;
-    color: #696969;
-	background-color: #f0eedc;
+    color: #96946d;
+    background-color: #f0eedc;
+    alternate-background-color: #f7f7ea;
     selection-background-color: #e1e0c4;
 }
 
 QHeaderView::section {
     background: #e1e0c4;
-	border: 6px solid #e1e0c4;
+        border: 6px solid #e1e0c4;
     text-transform: uppercase;
     alternate-background-color: #f0eedc;
     color: #96946d;
