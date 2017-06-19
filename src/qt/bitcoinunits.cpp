@@ -32,6 +32,7 @@ bool BitcoinUnits::valid(int unit)
     case BTC:
     case mBTC:
     case uBTC:
+    case Dollar:
         return true;
     default:
         return false;
@@ -45,6 +46,7 @@ QString BitcoinUnits::name(int unit)
     case BTC: return QString("ATB");
     case mBTC: return QString("mATB");
     case uBTC: return QString::fromUtf8("μATB");
+    case Dollar: return QString("$");
     default: return QString("???");
     }
 }
@@ -54,6 +56,7 @@ QString BitcoinUnits::description(int unit)
     switch(unit)
     {
     case BTC: return QString("ATBcoins");
+    case Dollar: return QString("$");
     case mBTC: return QString("Milli-ATBcoins (1 / 1" THIN_SP_UTF8 "000)");
     case uBTC: return QString("Micro-ATBcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
