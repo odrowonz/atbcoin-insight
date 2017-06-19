@@ -36,7 +36,24 @@ public:
                       const QModelIndex &index ) const
     {
         painter->save();
-        QIcon icon = qvariant_cast<QIcon>(index.data(TransactionTableModel::RawDecorationRole));
+        QIcon icon;
+        int type=qvariant_cast<int>(index.data(TransactionTableModel::TypeRole));
+        switch (type) {
+        case 1:
+            icon=QIcon(":/icons/tx_mined");
+            break;
+        case 4:
+        case 5:
+            icon=QIcon(":/icons/tx_input");
+            break;
+        case 2:
+        case 3:
+            icon=QIcon(":/icons/tx_output");
+            break;
+        default:
+            icon=QIcon(":/icons/tx_inout");
+            break;
+        }
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(40, 33));
         QPainterPath path;

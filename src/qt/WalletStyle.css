@@ -76,8 +76,9 @@
   	color: #ffffff;
   	border-radius: 14px;
   	height: 29px;
+        width:60px;
   	line-height: 29px;
-  	padding: 0 15px;
+        padding: 0px;
 }
 #buttonChooseFee:hover , #buttonMinimizeFee:hover{
 	color: #ffffff;
@@ -91,9 +92,9 @@
 	border-radius: 4px;
 	padding: 0px;
         margin:1px;
-	height: 25px;
-  	width: 28px;
-	max-width: 28px;
+        height: 30px;
+        width: 30px;
+        max-width: 30px;
 }
 
 #addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover{
@@ -651,8 +652,4 @@ QMenu::indicator {
 }
 QStackedWidget{
     margin-top:5px;
-}
-QMessageBox {
-    color:#fff;
-    background-color: #304a3f;
 }

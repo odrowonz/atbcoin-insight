@@ -19,7 +19,7 @@ InformationDialog::InformationDialog(const QString& information,const QString &A
         ui->InfKey->setText(key);
     }
     ui->InfMessage->setText(information);
-    this->setGeometry(this->x(),this->y(),this->width(),0);
+    resize(this->width(),0);
 }
 
 InformationDialog::~InformationDialog()
