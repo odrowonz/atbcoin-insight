@@ -187,7 +187,6 @@ void TransactionView::setModel(WalletModel *model)
         transactionProxyModel->setDynamicSortFilter(true);
         transactionProxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
         transactionProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
-
         transactionProxyModel->setSortRole(Qt::EditRole);
 
         transactionView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -234,11 +233,9 @@ void TransactionView::setModel(WalletModel *model)
     }
 }
 
-void TransactionView::refreshList(const QString &hash){
-    model->getTransactionTableModel()->updateTransaction(hash,0,true);
+void TransactionView::refreshList(const QString &){
     model->getTransactionTableModel()->refresh_model();
     transactionView->repaint();
-
 }
 void TransactionView::chooseDate(int idx)
 {

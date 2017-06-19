@@ -83,7 +83,6 @@ void BonusCodeTab::updateBonusList(){
             model->setData(model->index(0,2),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
             model->setData(model->index(0,1),i->nVout);
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
-
         }
     }
 }
@@ -108,15 +107,20 @@ void BonusCodeTab::getBonusClick(bool){
     valtype vch(key.begin(),key.end());
     CScript s= CScript()<<vch;
     if(!pwalletMain->AddCScript(s)){
-        InformationDialog msgBox(tr("This key is not valid."),"","",this);
+        InformationDialog msgBox(tr("This key is added into your wallet."),"","",this);
         msgBox.exec();
         return;
     }
+    CAmount ammout=pwalletMain->GetBalance();
     pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
     pwalletMain->ReacceptWalletTransactions();
     wmodel->updateTransaction();
     wmodel->pollBalanceChanged();
-
+    if(ammout>=pwalletMain->GetBalance()){
+        InformationDialog msgBox(tr("This key is no longer valid."),"","",this);
+        msgBox.exec();
+        return;
+    }
     std::map<uint256, CWalletTx>::iterator i=pwalletMain->mapWallet.begin();
     while(i!=pwalletMain->mapWallet.end()){
         if(i->second.IsTrusted()){
