@@ -215,11 +215,11 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Pieprasīt maksājumus (izveido QR kodu un bitcoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Atvērt ATBcoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>

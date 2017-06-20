@@ -203,7 +203,7 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Pide pagos (genera codigos QR and bitcoin: URls)</translation>
     </message>
     <message>

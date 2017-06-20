@@ -171,7 +171,7 @@
         <translation>&amp;Help</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Versoek betalings (genereer QR-kodes en bitcoin: URI's)</translation>
     </message>
     <message>
@@ -183,7 +183,7 @@
         <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Skep 'n bitcoin: URI of betalingsversoek</translation>
     </message>
     </context>

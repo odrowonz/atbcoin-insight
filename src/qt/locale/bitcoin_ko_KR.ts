@@ -227,7 +227,7 @@
         <translation>툴바 색인표</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>지불 요청하기 (QR코드와 비트코인이 생성됩니다: URIs)</translation>
     </message>
     <message>
@@ -239,7 +239,7 @@
         <translation>한번 이상 사용된 받는 주소와 주소 제목의 목록을 보여줍니다.</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>bitcoin: URI 또는 지불요청 열기</translation>
     </message>
     <message>

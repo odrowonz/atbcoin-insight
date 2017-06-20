@@ -215,7 +215,7 @@
         <translation>ბარათების პანელი</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და bitcoin: ბმულები)</translation>
     </message>
     <message>
@@ -227,7 +227,7 @@
         <translation>გამოყენებული მიღების მისამართებისა და ნიშნულების სიის ჩვენება</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>bitcoin: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
     </message>
     <message>

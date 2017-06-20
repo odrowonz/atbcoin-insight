@@ -239,7 +239,7 @@
         <translation>Pasek zakładek</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Żądaj płatności (generuje kod QR oraz bitcoinowe URI)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Pokaż listę adresów i etykiet użytych do odbierania</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Otwórz URI bitcoin: lub żądanie zapłaty</translation>
     </message>
     <message>

@@ -227,7 +227,7 @@
         <translation>Barra d'eines de les pestanyes</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Sol·licita pagaments (genera codis QR i bitcoin: URI)</translation>
     </message>
     <message>
@@ -239,7 +239,7 @@
         <translation>Mostra la llista d'adreces de recepció i etiquetes utilitzades</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Obre una bitcoin: sol·licitud d'URI o pagament</translation>
     </message>
     <message>

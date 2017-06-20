@@ -239,8 +239,8 @@
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Request payments (generates QR codes and bitcoin: URIs)</translation>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
+        <translation>Request payments (generates QR codes and atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -251,8 +251,8 @@
         <translation>Show the list of used receiving addresses and labels</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Open a bitcoin: URI or payment request</translation>
+        <source>Open a atbcoin: URI or payment request</source>
+        <translation>Open a atbcoin: URI or payment request</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

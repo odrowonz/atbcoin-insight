@@ -235,7 +235,7 @@
         <translation>Barre d'outils des onglets</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Demander des paiements (générer QR codes et bitcoin: URIs)</translation>
     </message>
     <message>
@@ -243,7 +243,7 @@
         <translation>Montrer la liste des adresses d'envois utilisées et les étiquettes</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Ouvrir un bitcoin: URI ou demande de paiement</translation>
     </message>
     <message>

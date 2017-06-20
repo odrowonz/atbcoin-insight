@@ -239,7 +239,7 @@
         <translation>タブツールバー</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>支払いを要求する (QRコードとbitcoin:ではじまるURIを生成する)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>支払いを受け取るアドレスとラベルのリストを表示する</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>bitcoin: URIまたは支払いリクエストを開く</translation>
     </message>
     <message>

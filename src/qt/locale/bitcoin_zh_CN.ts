@@ -231,7 +231,7 @@
         <translation>分页工具栏</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>请求支付（生成二维码和 bitcoin: URI）</translation>
     </message>
     <message>
@@ -243,7 +243,7 @@
         <translation>显示用过的接收地址和标签的列表</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>打开一个比特币：URI 或支付请求</translation>
     </message>
     <message>

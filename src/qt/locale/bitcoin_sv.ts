@@ -239,7 +239,7 @@
         <translation>Verktygsfält för tabbar</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Begär betalning (genererar QR-koder och bitcoin-URI)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Visa listan av använda mottagningsadresser och etiketter</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Öppna en bitcoin: URI eller betalningsbegäran</translation>
     </message>
     <message>

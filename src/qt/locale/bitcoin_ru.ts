@@ -239,7 +239,7 @@
         <translation>Панель вкладок</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Запросить платежи (создаёт QR-коды и bitcoin: ссылки)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Показать список использованных адресов и меток получения</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Открыть bitcoin: URI или запрос платежа</translation>
     </message>
     <message>

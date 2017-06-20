@@ -231,7 +231,7 @@
         <translation>Välilehtipalkki</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Pyydä maksuja (Luo QR koodit ja bitcoin: URIt)</translation>
     </message>
     <message>
@@ -243,7 +243,7 @@
         <translation>Näytä vastaanottamiseen käytettyjen osoitteiden ja nimien lista</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Avaa bitcoin: URI tai maksupyyntö</translation>
     </message>
     <message>

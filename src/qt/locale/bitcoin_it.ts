@@ -239,7 +239,7 @@
         <translation>Barra degli strumenti</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Richiedi pagamenti (genera codici QR e bitcoin: URI)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Mostra la lista degli indirizzi di ricezione utilizzati</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Apri un bitcoin: URI o una richiesta di pagamento</translation>
     </message>
     <message>

@@ -203,7 +203,7 @@
         <translation>Barra de ferramentas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Solicitar pagos (xenera códigos QR e bitcoin: URIs)</translation>
     </message>
     <message>
@@ -215,7 +215,7 @@
         <translation>Amosar a listaxe de etiquetas e direccións para recibir empregadas</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Abrir un bitcoin: URI ou solicitude de pago</translation>
     </message>
     <message>

@@ -223,7 +223,7 @@
         <translation>Traka kartica</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Zatraži uplatu (stvara QR kod i bitcoin: URI adresu)</translation>
     </message>
     <message>
@@ -235,7 +235,7 @@
         <translation>Prikaži popis korištenih adresa i oznaka za primanje novca</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Otvori bitcoin: URI adresu ili zahtjev za uplatu</translation>
     </message>
     <message>

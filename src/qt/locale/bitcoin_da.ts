@@ -239,7 +239,7 @@
         <translation>Faneværktøjslinje</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Anmod om betalinger (genererer QR-koder og "bitcoin:"-URI'er)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Vis listen over brugte modtagelsesadresser og -mærkater</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Åbn en "bitcoin:"-URI eller betalingsanmodning</translation>
     </message>
     <message>

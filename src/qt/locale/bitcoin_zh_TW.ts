@@ -239,7 +239,7 @@
         <translation>分頁工具列</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>要求付款(產生 QR Code 和 ATBcoin 付款協議的資源識別碼: URI)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>顯示已使用過的收款位址和標記的清單</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>開啓 ATBcoin 協議的資源識別碼(URI)或付款要求</translation>
     </message>
     <message>

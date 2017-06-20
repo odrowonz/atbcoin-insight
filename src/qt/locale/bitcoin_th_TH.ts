@@ -239,7 +239,7 @@
         <translation>แถบเครื่องมือ</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>เรียกเก็บ การชำระเงิน (สร้าง QR codes และ bitcoin: URIs)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>แสดงรายการ ที่เก็บเงินที่จะรับ ATBcoin เข้า และป้ายชื่อ ที่ใช้ไปแล้ว</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>เปิด bitcoin: URI หรือ การเรียกเก็บเงิน (การเรียกให้ชำระเงิน)</translation>
     </message>
     <message>

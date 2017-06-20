@@ -227,7 +227,7 @@
         <translation>Baris tab</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Permintaan pembayaran (membuat kode QR dan bitcoin: URIs)</translation>
     </message>
     <message>
@@ -239,7 +239,7 @@
         <translation>Tampilkan daftar alamat dan label yang diterima</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Buka URI bitcoin: atau permintaan pembayaran</translation>
     </message>
     <message>

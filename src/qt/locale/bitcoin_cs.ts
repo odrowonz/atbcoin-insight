@@ -219,7 +219,7 @@
         <translation>Panel s listy</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Požaduj platby (generuje QR kódy a bitcoin: URI)</translation>
     </message>
     <message>
@@ -231,7 +231,7 @@
         <translation>Ukaž seznam použitých přijímacích adres a jejich označení</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Načti bitcoin: URI nebo platební požadavek</translation>
     </message>
     <message>

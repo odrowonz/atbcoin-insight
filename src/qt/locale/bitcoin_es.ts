@@ -239,7 +239,7 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Solicitar pagos (generando códigos QR e identificadores URI "bitcoin:")</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Abrir un identificador URI "bitcoin:" o una petición de pago</translation>
     </message>
     <message>

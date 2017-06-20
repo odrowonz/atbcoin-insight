@@ -239,7 +239,7 @@
         <translation>Tab-werkbalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and atbcoin: URIs)</source>
         <translation>Vraag betaling aan (genereert QR-codes en bitcoin: URI's)</translation>
     </message>
     <message>
@@ -251,7 +251,7 @@
         <translation>Toon de lijst met gebruikte ontvangst adressen en labels</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a atbcoin: URI or payment request</source>
         <translation>Open een bitcoin: URI of betalingsverzoek</translation>
     </message>
     <message>
