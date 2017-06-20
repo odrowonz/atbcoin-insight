@@ -40,8 +40,8 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setSectionResizeMode(5,QHeaderView::Fixed);
     ui->CouponList->setColumnWidth(0,110);
     ui->CouponList->setColumnWidth(1,60);
-    ui->CouponList->setColumnWidth(2,120);
-    ui->CouponList->setColumnWidth(5,80);
+    ui->CouponList->setColumnWidth(2,110);
+    ui->CouponList->setColumnWidth(5,100);
     ui->tab1->setCurrentIndex(1);
     ui->SAmount->setMinimum(0.001);
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
@@ -68,9 +68,8 @@ void BonusCodeTab::updateBonusList(){
         CTransaction tx;
         uint256 hashBlock;
         const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
+        model->insertRow(0);
         if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
-            model->insertRow(0);
-
             if(coins->IsAvailable(i->nVout)){
                 model->setData(model->index(0,5), QIcon(":/icons/unused"), Qt::DecorationRole);
                 model->setData(model->index(0,5),tr("Unused"),Qt::DisplayRole);
@@ -83,6 +82,14 @@ void BonusCodeTab::updateBonusList(){
             model->setData(model->index(0,2),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
             model->setData(model->index(0,1),i->nVout);
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
+        }else{
+            model->setData(model->index(0,5), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
+            model->setData(model->index(0,5),tr("in mempool"),Qt::DisplayRole);
+            model->setData(model->index(0,4),QString::fromStdString(i->key));
+            model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
+            model->setData(model->index(0,2),"(n/a)");
+            model->setData(model->index(0,1),"(n/a)");
+            model->setData(model->index(0,0),"(n/a)");
         }
     }
 }
