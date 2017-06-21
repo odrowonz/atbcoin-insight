@@ -67,7 +67,13 @@
         background-color:#5fb895;
 	color:#fff;
 }
-#sendButton:pressed,#showRequestButton:presed,#openDebugLogfileButton:pressed,#showRequestButton:pressed{
+#sendButton:disabled,#ExportButton:disabled,#showRequestButton:disabled,#openDebugLogfileButton:disabled{
+        background-color:#eee;
+        color:#fff;
+        border-bottom:0px solid #3f8fc1;
+
+}
+#sendButton:pressed,#showRequestButton:pressed,#openDebugLogfileButton:pressed,#showRequestButton:pressed{
         background-color:#34745d;
         color:#9cbbb0;
 }
@@ -129,6 +135,9 @@
 }
 #TableHeader{
     margin:0px;
+    color: #8c9591;
+    font-size: 13px;
+    font-weight: 800;
 }
 QToolTip{
         background-color: #f0eedc;

@@ -8,6 +8,15 @@ src/bitcoin-tx
 src/test/test_bitcoin
 src/qt/test/test_bitcoin-qt
 
+src/atbcoin
+src/atbcoind
+src/atbcoin-cli
+src/atbcoin-tx
+src/test/test_atbcoin
+src/qt/test/test_atbcoin-qt
+src/bench/bench_atbcoin
+
+
 # autoreconf
 Makefile.in
 aclocal.m4
@@ -75,7 +84,9 @@ src/qt/test/moc*.cpp
 *.qm
 Makefile
 bitcoin-qt
+atbcoin-qt
 Bitcoin-Qt.app
+Atbcoin-Qt.app
 
 # Unit-tests
 Makefile.test

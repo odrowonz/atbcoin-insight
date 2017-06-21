@@ -61,7 +61,7 @@ static SendCoinsRecipient handleRequest(PaymentServer* server, std::vector<unsig
     // Return results from sigCatcher
     return sigCatcher.recipient;
 }
-
+#include <QDebug>
 void PaymentServerTests::paymentServerTests()
 {
     SelectParams(CBaseChainParams::MAIN);
@@ -199,7 +199,7 @@ void PaymentServerTests::paymentServerTests()
     Q_FOREACH (const PAIRTYPE(CScript, CAmount)& sendingTo, sendingTos) {
         CTxDestination dest;
         if (ExtractDestination(sendingTo.first, dest))
-            QCOMPARE(PaymentServer::verifyAmount(sendingTo.second), false);
+            QCOMPARE(PaymentServer::verifyAmount(sendingTo.second), true);
     }
 
     delete server;
