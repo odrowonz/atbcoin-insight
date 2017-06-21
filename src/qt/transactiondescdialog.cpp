@@ -28,14 +28,11 @@ TransactionDescDialog::TransactionDescDialog(const QSortFilterProxyModel &idx, i
     ui->detailText->setHtml(QString (tr("<i><font color='#96946d'>  Key of coupon:</i> %0 <br>"
                                         "<i><font color='#96946d'>  Amount:</i> %1 <br>"
                                         "<i><font color='#96946d'>  Hash of transasction:</i> %2 <br>"
-                                        "<i><font color='#96946d'>  Time of creation:</i> %3 <br>"
-                                        "<i><font color='#96946d'>  nViout:</i> %4 ")).
-                                    arg(idx.data(idx.index(row,4)).toString()).
-                                    arg(idx.data(idx.index(row,2)).toString()).
+                                        "<i><font color='#96946d'>  Time of creation:</i> %3 <br>")).
                                     arg(idx.data(idx.index(row,3)).toString()).
-                                    arg(idx.data(idx.index(row,0)).toString()).
-                                    arg(idx.data(idx.index(row,1)).toString()));
-
+                                    arg(idx.data(idx.index(row,1)).toString()).
+                                    arg(idx.data(idx.index(row,2)).toString()).
+                                    arg(idx.data(idx.index(row,0)).toString()));
 }
 TransactionDescDialog::~TransactionDescDialog()
 {

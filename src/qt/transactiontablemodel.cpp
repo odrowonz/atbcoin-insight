@@ -19,6 +19,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "wallet/wallet.h"
+#include "cmath"
 
 #include <QColor>
 #include <QDateTime>

@@ -59,7 +59,7 @@
 }
 #sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton{
 	border:none;
-	border-bottom:2px solid #3f8fc1;
+        border-bottom:2px solid #38785e;
         background-color:#49a37f;
 	color:#fff;
 }
@@ -68,10 +68,9 @@
 	color:#fff;
 }
 #sendButton:disabled,#ExportButton:disabled,#showRequestButton:disabled,#openDebugLogfileButton:disabled{
-        background-color:#eee;
+        background-color:#6da38d;
         color:#fff;
-        border-bottom:0px solid #3f8fc1;
-
+        border-bottom:0px solid #38785e;
 }
 #sendButton:pressed,#showRequestButton:pressed,#openDebugLogfileButton:pressed,#showRequestButton:pressed{
         background-color:#34745d;
@@ -112,7 +111,15 @@
         font-size: 13px;
   	font-weight: 500;
         color: #a09e78;
-
+}
+#Receive_Head{
+    color: #a2b0aa;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align:center;
+}
+#reuseAddress{
+    font-weight: 650;
 }
 #InfFon{
     background:#304a3f;
@@ -317,7 +324,7 @@ QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox{
   	font-weight: 500;
 	padding-left: 10px;
 	text-indent:10px;
-  	color: #96946d;
+        color: #647078;
   	background: #ffffff;
   	border: 2px solid #d8d6ba;
 	border-radius:4px;
@@ -365,8 +372,8 @@ QSpinBox::up-button:disabled,QDoubleSpinBox::up-button:disabled,AmountSpinBox::u
     subcontrol-position: top right;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-        background-color: #d3d2bd;
-        height: 14px;
+    background-color: #d3d2bd;
+    height: 14px;
     width: 26px;
     border:none;
 }
@@ -375,8 +382,8 @@ QSpinBox::down-button:disabled,QDoubleSpinBox::down-button:disabled,AmountSpinBo
     subcontrol-position: bottom right;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-        background-color: #d3d2bd;
-        height: 14px;
+    background-color: #d3d2bd;
+    height: 14px;
     width: 26px;
     border:none;
 }
@@ -385,7 +392,7 @@ QSpinBox::up-button:hover,QSpinBox::up-button:pressed,QSpinBox::down-button:hove
 QDoubleSpinBox::up-button:hover,QDoubleSpinBox::up-button:pressed,QDoubleSpinBox::down-button:hover, QDoubleSpinBox::down-button:pressed,
 AmountSpinBox::up-button:hover,AmountSpinBox::up-button:pressed,AmountSpinBox::down-button:hover, AmountSpinBox::down-button:pressed
 {
-	background-color: #c2c0a5; 
+    background-color: #c2c0a5;
 }
 
 
@@ -393,8 +400,8 @@ QSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
     image: url(:/icons/Up);
     subcontrol-origin: border;
     subcontrol-position: top right;
- 	margin-right: 7px;
-	margin-top: 2px; 
+    margin-right: 7px;
+    margin-top: 2px;
     width: 12px;
     height: 7px;
 }
@@ -403,8 +410,8 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     image: url(:/icons/Down);
     subcontrol-origin: border;
     subcontrol-position: bottom right;
- 	margin-right: 7px;
-	margin-bottom: 2px; 
+    margin-right: 7px;
+    margin-bottom: 2px;
     width: 12px;
     height: 7px;
 }
@@ -416,12 +423,15 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     background-color: #f4f3e8;
     height: 26px;
     width: 26px;
+    font-weight:600;
     border:none;
 }
 
 QComboBox QAbstractItemView {
     border: 2px solid darkgray;
     border-radius:6px;
+    color: #60707c;
+    font-weight:200;
     selection-background-color: lightgray;
 }
 QComboBox::down-arrow, QValueComboBox::down-arrow{
@@ -521,7 +531,7 @@ QTableView{
 
 QHeaderView::section {
     background: #e1e0c4;
-        border: 6px solid #e1e0c4;
+    border: 6px solid #e1e0c4;
     text-transform: uppercase;
     alternate-background-color: #f0eedc;
     color: #96946d;
@@ -555,20 +565,21 @@ QHeaderView::section {
     font-weight: 600;
 }
 
-.QTabBar::tab:selected, QTabBar::tab:hover {
-  	color: #ffffff;
-	border-bottom: 2px solid #4ba27e;
+
+.QTabBar::tab:selected{
+    color: #ffffff;
+    border-bottom: 2px solid #4ba27e;
     background: #4ba27e;
 }
 
-.QTabBar::tab:selected {
-    border-color: #4ba27e;
-    border-bottom-color: #4ba27e; 
-}
-
 .QTabBar::tab:!selected {
+    color:#3d8065;
     margin-top: 2px;
-	background:	transparent;
+    background:	transparent;
+}
+.QTabBar::tab:!selected:hover{
+    color:      #fff;
+    background: #cdccb8;
 }
 
 QDialog, QMainWindow,#OverviewPage, #scrollAreaWidgetContents,#scrollArea, #SendCoinsDialog ,#SendCoinsEntry{
@@ -660,5 +671,5 @@ QMenu::indicator {
     height: 13px;
 }
 QStackedWidget{
-    margin-top:5px;
+    margin-top:0px;
 }

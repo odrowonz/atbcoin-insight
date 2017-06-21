@@ -19,7 +19,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStandardItemModel *couponModel=new QStandardItemModel;
-    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("nVout")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord")<<tr("status"));
+    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord")<<tr("status"));
     model->setSourceModel(couponModel);
     model->setDynamicSortFilter(true);
     model->setSortCaseSensitivity(Qt::CaseInsensitive);
@@ -34,15 +34,14 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->verticalHeader()->hide();
     ui->CouponList->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Stretch);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(5,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
     ui->CouponList->setColumnWidth(0,110);
-    ui->CouponList->setColumnWidth(1,60);
-    ui->CouponList->setColumnWidth(2,110);
-    ui->CouponList->setColumnWidth(5,100);
-    ui->tab1->setCurrentIndex(1);
+    ui->CouponList->setColumnWidth(1,110);
+    ui->CouponList->setColumnWidth(4,100);
+    ui->tab1->setCurrentIndex(0);
+
     ui->SAmount->setMinimum(0.001);
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
     ui->SAmount->setDecimals(3);
@@ -71,23 +70,21 @@ void BonusCodeTab::updateBonusList(){
         model->insertRow(0);
         if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
             if(coins->IsAvailable(i->nVout)){
-                model->setData(model->index(0,5), QIcon(":/icons/unused"), Qt::DecorationRole);
-                model->setData(model->index(0,5),tr("Unused"),Qt::DisplayRole);
+                model->setData(model->index(0,4), QIcon(":/icons/unused"), Qt::DecorationRole);
+                model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
             }else{
-                model->setData(model->index(0,5), QIcon(":/icons/used"), Qt::DecorationRole);
-                model->setData(model->index(0,5),tr("Used"),Qt::DisplayRole);
+                model->setData(model->index(0,4), QIcon(":/icons/used"), Qt::DecorationRole);
+                model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
             }
-            model->setData(model->index(0,4),QString::fromStdString(i->key));
-            model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,2),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
-            model->setData(model->index(0,1),i->nVout);
+            model->setData(model->index(0,3),QString::fromStdString(i->key));
+            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
+            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
         }else{
-            model->setData(model->index(0,5), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
-            model->setData(model->index(0,5),tr("in mempool"),Qt::DisplayRole);
-            model->setData(model->index(0,4),QString::fromStdString(i->key));
-            model->setData(model->index(0,3),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,2),"(n/a)");
+            model->setData(model->index(0,4), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
+            model->setData(model->index(0,4),tr("in mempool"),Qt::DisplayRole);
+            model->setData(model->index(0,3),QString::fromStdString(i->key));
+            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
             model->setData(model->index(0,1),"(n/a)");
             model->setData(model->index(0,0),"(n/a)");
         }
@@ -135,7 +132,7 @@ void BonusCodeTab::getBonusClick(bool){
                 uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
                 valtype temp4(temp3.begin(),temp3.end());
                 if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
-                    InformationDialog msgBox(tr("ATB coins were received with this coupon"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
+                    InformationDialog msgBox(tr("ATB coins were received with this code"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
                     msgBox.exec();
                    Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
                 }
@@ -182,15 +179,16 @@ void BonusCodeTab::CreateClick(bool){
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
     if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
-        InformationDialog(tr("Your coupon is created. The coupon will be available after it is added to the block."),"","",this).exec();
+        InformationDialog(tr("Your code is created. The code will be available after it is added to the block."),
+                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(key),this).exec();
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
-            InformationDialog(tr("coupon send fail"),"","",this).exec();
+            InformationDialog(tr("code send fail"),"","",this).exec();
             return;
         }
         wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
     }else{
-        InformationDialog(tr("coupon send fail"),"","",this).exec();
+        InformationDialog(tr("code send fail"),"","",this).exec();
     }
     updateBonusList();
 }

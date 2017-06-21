@@ -14,6 +14,9 @@
    <string>Bonus Code Tab</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="topMargin">
+    <number>15</number>
+   </property>
    <item>
     <widget class="QTabWidget" name="tab1">
      <property name="currentIndex">
@@ -114,7 +117,7 @@
               <item>
                <widget class="QPushButton" name="BCreate">
                 <property name="text">
-                 <string>Create a coupon</string>
+                 <string>Create a code</string>
                 </property>
                </widget>
               </item>
@@ -272,7 +275,7 @@
               <item>
                <widget class="QPushButton" name="BReceive">
                 <property name="text">
-                 <string>Receive coupon</string>
+                 <string>Redeem code</string>
                 </property>
                </widget>
               </item>
