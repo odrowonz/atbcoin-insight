@@ -62,6 +62,7 @@ void BonusCodeTab::cliced(QModelIndex i){
     TransactionDescDialog(*model,i.row(),this).exec();
 }
 void BonusCodeTab::updateBonusList(){
+    QStandardItemModel *model=static_cast<QStandardItemModel *>(this->model->sourceModel());
     model->removeRows(0,model->rowCount());
     for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
         CTransaction tx;
@@ -149,6 +150,14 @@ void BonusCodeTab::CreateClick(bool){
         msgBox.exec();
         return ;
     }
+
+    WalletModel::UnlockContext ctx(wmodel->requestUnlock());
+    if(!ctx.isValid())
+    {
+        // Unlock wallet was cancelled
+        return;
+    }
+
 /***********************generate a key ******************************/
 
     std::string key="ATB-";
@@ -179,18 +188,19 @@ void BonusCodeTab::CreateClick(bool){
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
     if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
-        InformationDialog(tr("Your code is created. The code will be available after it is added to the block."),
-                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(key),this).exec();
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
             InformationDialog(tr("code send fail"),"","",this).exec();
             return;
         }
         wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
+        updateBonusList();
+        InformationDialog(tr("Your code is created. The code will be available after it is added to the block."),
+                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(key),this).exec();
+
     }else{
         InformationDialog(tr("code send fail"),"","",this).exec();
     }
-    updateBonusList();
 }
 BonusCodeTab::~BonusCodeTab()
 {

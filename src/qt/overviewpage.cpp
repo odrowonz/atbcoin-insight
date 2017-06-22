@@ -82,6 +82,10 @@ public:
         }
         painter->setPen(QColor::fromRgb(0xb8,0xb8,0x9e));
         QRect boundingRect;
+        QFont font(painter->font());
+        font.setBold(true);
+        font.setPointSize(10);
+        painter->setFont(font);
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address, &boundingRect);
 
         if (index.data(TransactionTableModel::WatchonlyRole).toBool())

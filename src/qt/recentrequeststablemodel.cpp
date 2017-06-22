@@ -94,6 +94,16 @@ QVariant RecentRequestsTableModel::data(const QModelIndex &index, int role) cons
     {
         if (index.column() == Amount)
             return (int)(Qt::AlignRight|Qt::AlignVCenter);
+    }else if(role == Qt::TextColorRole){
+
+        if(index.column()==Date){
+            return QColor(0x97,0x98,0x73);
+
+        }else{
+            return QColor(0xd5,0xd3,0xc4);
+
+        }
+
     }
     return QVariant();
 }

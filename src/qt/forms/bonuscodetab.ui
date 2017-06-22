@@ -20,7 +20,7 @@
    <item>
     <widget class="QTabWidget" name="tab1">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -213,7 +213,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>Coupon Id</string>
+                 <string>Code Id</string>
                 </property>
                </widget>
               </item>

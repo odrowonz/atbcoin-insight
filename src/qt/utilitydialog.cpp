@@ -178,6 +178,8 @@ void ShutdownWindow::showShutdownWindow(BitcoinGUI *window)
 
     // Show a simple window indicating shutdown status
     QWidget *shutdownWindow = new ShutdownWindow();
+    shutdownWindow->setObjectName("shutdownWindow");
+    CSS::ReadCss(shutdownWindow,":/style/WalletStyle");
     // We don't hold a direct pointer to the shutdown window after creation, so use
     // Qt::WA_DeleteOnClose to make sure that the window will be deleted eventually.
     shutdownWindow->setAttribute(Qt::WA_DeleteOnClose);

@@ -29,7 +29,6 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
     tab(tab)
 {
     ui->setupUi(this);
-
     if (!platformStyle->getImagesOnButtons()) {
         ui->newAddress->setIcon(QIcon());
         ui->copyAddress->setIcon(QIcon());

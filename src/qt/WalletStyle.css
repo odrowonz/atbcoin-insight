@@ -527,6 +527,7 @@ QTableView{
     background-color: #f0eedc;
     alternate-background-color: #f7f7ea;
     selection-background-color: #e1e0c4;
+    selection-color:#fff;
 }
 
 QHeaderView::section {
@@ -672,4 +673,17 @@ QMenu::indicator {
 }
 QStackedWidget{
     margin-top:0px;
+}
+#shutdownWindow{
+    color:#fff;
+    background-color:#304a3f;
+}
+#shutdownWindow QLabel{
+    color:#fff;
+    font-weight:600;
+}
+#recentRequestsView{
+    margin:0px;
+    margin-top:5px;
+    margin-bottom:5px;
 }
