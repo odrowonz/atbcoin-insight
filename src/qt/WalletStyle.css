@@ -55,6 +55,8 @@
 }
 #labelWalletStatus,#labelTransactionsStatus{
 	background-color: transparent;
+        margin:0px;
+        padding:0px;
 	border-bottom:none;
 }
 #sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton{

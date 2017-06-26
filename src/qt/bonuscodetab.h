@@ -5,11 +5,13 @@
 #include <QWidget>
 #include "walletmodel.h"
 #include "clientmodel.h"
+#include "../txmempool.h"
 #include "transactionfilterproxy.h"
 #include <QStandardItemModel>
 #define KEY_TEMPLATE "3EIOPJ4A-JMWUIGPV-NR76TESB-UYWH1UJS-HWJOXSWK"
 namespace Ui {
 class BonusCodeTab;
+
 }
 
 class BonusCodeTab : public QWidget

@@ -9,6 +9,7 @@
 #include "transactiondescdialog.h"
 #include "guiconstants.h"
 #include "informationdialog.h"
+
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -69,10 +70,15 @@ void BonusCodeTab::updateBonusList(){
         uint256 hashBlock;
         const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
         model->insertRow(0);
-        if(coins!=NULL&&GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
-            if(coins->IsAvailable(i->nVout)){
-                model->setData(model->index(0,4), QIcon(":/icons/unused"), Qt::DecorationRole);
-                model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
+        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
+            if(coins!=NULL&&coins->IsAvailable(i->nVout)){
+                if(mempool.get(tx.GetHash())){
+                    model->setData(model->index(0,4), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
+                    model->setData(model->index(0,4),tr("in mempool"),Qt::DisplayRole);
+                }else{
+                    model->setData(model->index(0,4), QIcon(":/icons/unused"), Qt::DecorationRole);
+                    model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
+                }
             }else{
                 model->setData(model->index(0,4), QIcon(":/icons/used"), Qt::DecorationRole);
                 model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
@@ -81,13 +87,6 @@ void BonusCodeTab::updateBonusList(){
             model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
             model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
-        }else{
-            model->setData(model->index(0,4), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
-            model->setData(model->index(0,4),tr("in mempool"),Qt::DisplayRole);
-            model->setData(model->index(0,3),QString::fromStdString(i->key));
-            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,1),"(n/a)");
-            model->setData(model->index(0,0),"(n/a)");
         }
     }
 }
