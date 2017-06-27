@@ -338,7 +338,7 @@ void BitcoinGUI::createActions()
     toggleHideAction = new QAction(platformStyle->SingleColorIcon(":/icons/about"), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
-    encryptWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed",QColor(0x4b, 0xa2, 0x7e)), tr("&Encrypt Wallet..."), this);
+    encryptWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
     encryptWalletAction->setStatusTip(tr("Encrypt the private keys that belong to your wallet"));
     encryptWalletAction->setCheckable(true);
     backupWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/filesave"), tr("&Backup Wallet..."), this);

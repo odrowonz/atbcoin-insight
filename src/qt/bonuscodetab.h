@@ -8,7 +8,8 @@
 #include "../txmempool.h"
 #include "transactionfilterproxy.h"
 #include <QStandardItemModel>
-#define KEY_TEMPLATE "3EIOPJ4A-JMWUIGPV-NR76TESB-UYWH1UJS-HWJOXSWK"
+/*Random characters will be used instead of zeros.*/
+#define KEY_TEMPLATE "ATB-00000000-00000000-00000000-00000000-00000000"
 namespace Ui {
 class BonusCodeTab;
 

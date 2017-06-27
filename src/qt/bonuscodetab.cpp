@@ -39,8 +39,8 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
     ui->CouponList->setColumnWidth(0,110);
-    ui->CouponList->setColumnWidth(1,110);
-    ui->CouponList->setColumnWidth(4,100);
+    ui->CouponList->setColumnWidth(1,100);
+    ui->CouponList->setColumnWidth(4,110);
     ui->tab1->setCurrentIndex(0);
 
     ui->SAmount->setMinimum(0.001);
@@ -56,7 +56,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
-    return str.substr(0,4)=="ATB-"&&str.size()-4==base.size()&&
+    return str.substr(0,4)=="ATB-"&&str.size()==base.size()&&
             (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
 }
 void BonusCodeTab::cliced(QModelIndex i){
@@ -72,20 +72,20 @@ void BonusCodeTab::updateBonusList(){
         model->insertRow(0);
         if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
             if(coins!=NULL&&coins->IsAvailable(i->nVout)){
-                if(mempool.get(tx.GetHash())){
-                    model->setData(model->index(0,4), QIcon(":/icons/transaction_0"), Qt::DecorationRole);
-                    model->setData(model->index(0,4),tr("in mempool"),Qt::DisplayRole);
-                }else{
                     model->setData(model->index(0,4), QIcon(":/icons/unused"), Qt::DecorationRole);
                     model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
-                }
             }else{
-                model->setData(model->index(0,4), QIcon(":/icons/used"), Qt::DecorationRole);
-                model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
+                if(mempool.exists(tx.GetHash())){
+                    model->setData(model->index(0,4), platformStyle->SingleColorIcon(":/icons/transaction_0"), Qt::DecorationRole);
+                    model->setData(model->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
+                }else{
+                    model->setData(model->index(0,4), QIcon(":/icons/used"), Qt::DecorationRole);
+                    model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
+                }
             }
             model->setData(model->index(0,3),QString::fromStdString(i->key));
             model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f'));
+            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f',3));
             model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
         }
     }
@@ -159,7 +159,6 @@ void BonusCodeTab::CreateClick(bool){
 
 /***********************generate a key ******************************/
 
-    std::string key="ATB-";
     unsigned int Entropy_source=0x0;
     while (!Entropy_source){
         void * temp =malloc(0x1);
@@ -167,9 +166,10 @@ void BonusCodeTab::CreateClick(bool){
         free(temp);
     }
     srand(Entropy_source);
+    std::string key;
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp)
-        key.push_back((i!='-')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
+        key.push_back((i=='0')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
     uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
     valtype temp4(temp3.begin(),temp3.end());
 

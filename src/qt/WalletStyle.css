@@ -58,6 +58,8 @@
         margin:0px;
         padding:0px;
 	border-bottom:none;
+        height:15px;
+        width:15px;
 }
 #sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton{
 	border:none;
@@ -661,7 +663,12 @@ QMenu::icon:checked { /* appearance of a 'checked' icon */
     bottom: 1px;
     left: 1px;
 }
-
+QMenu::disabled{
+    color: #c0c0c0;
+}
+QMenu::icon:disabled { /* appearance of a 'checked' icon */
+    background: #e0dfd5;
+}
 QMenu::separator {
     height: 1px;
     background: #aba991;
@@ -676,11 +683,11 @@ QMenu::indicator {
 QStackedWidget{
     margin-top:0px;
 }
-#shutdownWindow{
+#shutdownWindow,#SignIn{
     color:#fff;
     background-color:#304a3f;
 }
-#shutdownWindow QLabel{
+#shutdownWindow QLabel,#SignIn QLabel{
     color:#fff;
     font-weight:600;
 }
