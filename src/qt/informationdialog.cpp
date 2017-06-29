@@ -6,7 +6,7 @@ InformationDialog::InformationDialog(const QString& information,const QString &A
     ui(new Ui::InformationDialog)
 {
     ui->setupUi(this);
-    this->setModal(true);
+    setModal(false);
     if(!key.size()){
         ui->InfKey->hide();
         ui->InfFon->layout()->removeItem(ui->verticalSpacer);
@@ -19,7 +19,7 @@ InformationDialog::InformationDialog(const QString& information,const QString &A
         ui->InfKey->setText(key);
     }
     ui->InfMessage->setText(information);
-    resize(this->width(),0);
+    resize(this->width(),this->minimumHeight());
 }
 
 InformationDialog::~InformationDialog()
