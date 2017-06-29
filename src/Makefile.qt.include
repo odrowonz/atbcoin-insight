@@ -107,7 +107,9 @@ QT_FORMS_UI = \
   qt/forms/signverifymessagedialog.ui \
   qt/forms/transactiondescdialog.ui \
   qt/forms/bonuscodetab.ui \
-  qt/forms/informationdialog.ui  
+  qt/forms/informationdialog.ui \
+  qt/forms/ShareDialog.ui 
+  
 
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
@@ -156,7 +158,8 @@ QT_MOC_CPP = \
   qt/moc_walletview.cpp \
   qt/moc_bonuscodetab.cpp \
   qt/moc_informationdialog.cpp \
-  qt/moc_css.cpp
+  qt/moc_css.cpp \
+  qt/moc_ShareDialog.cpp 
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
@@ -232,8 +235,8 @@ BITCOIN_QT_H = \
   qt/winshutdownmonitor.h \
   qt/bonuscodetab.h \
   qt/informationdialog.h \
-  qt/css.h 
-
+  qt/css.h \
+  qt/ShareDialog.h
 
 RES_ICONS = \
   qt/res/icons/add.png \
@@ -312,7 +315,8 @@ BITCOIN_QT_CPP = \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp \
   qt/bonuscodetab.cpp \
-  qt/informationdialog.cpp  
+  qt/informationdialog.cpp \
+  qt/ShareDialog.cpp
 
 if TARGET_WINDOWS
 BITCOIN_QT_CPP += qt/winshutdownmonitor.cpp

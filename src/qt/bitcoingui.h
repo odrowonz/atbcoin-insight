@@ -112,6 +112,7 @@ private:
     QAction *openAction;
     QAction *showHelpMessageAction;
     QAction *BonusCodeTab;
+    QAction *shareDialog;
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     Notificator *notificator;
@@ -197,6 +198,9 @@ private Q_SLOTS:
     void openClicked();
     void checedTabChanged();
 #endif // ENABLE_WALLET
+
+    /** show testDialogCliced*/
+    void shareDialogCliced();
     /** Show configuration dialog */
     void optionsClicked();
     /** Show about dialog */

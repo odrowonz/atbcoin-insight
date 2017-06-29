@@ -55,7 +55,7 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
-
+#include "ShareDialog.h"
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
 #include <QUrl>
@@ -366,6 +366,10 @@ void BitcoinGUI::createActions()
     showHelpMessageAction->setMenuRole(QAction::NoRole);
     showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible ATBcoin command-line options").arg(tr(PACKAGE_NAME)));
 
+    shareDialog=new QAction(platformStyle->SingleColorIcon(":/icons/new"), tr("&Money share"), this);
+
+    connect(shareDialog,SIGNAL(triggered(bool)),this,SLOT(shareDialogCliced()));
+
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
     connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
@@ -410,6 +414,7 @@ void BitcoinGUI::createMenuBar()
         file->addAction(backupWalletAction);
         file->addAction(signMessageAction);
         file->addAction(verifyMessageAction);
+        file->addAction(shareDialog);
         file->addSeparator();
         file->addAction(usedSendingAddressesAction);
         file->addAction(usedReceivingAddressesAction);
@@ -434,7 +439,9 @@ void BitcoinGUI::createMenuBar()
     help->addAction(showHelpMessageAction);
     help->addSeparator();
 }
-
+void BitcoinGUI::shareDialogCliced(){
+    (new ShareDialog(this))->show();
+}
 void BitcoinGUI::createToolBars()
 {
     if(walletFrame)
@@ -845,7 +852,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
 
 void BitcoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Bitcoin"); // default title
+    QString strTitle = tr("ATBcoin"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
