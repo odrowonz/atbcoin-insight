@@ -23,6 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -99,7 +100,7 @@
        x="0"
        y="114"
        id="text21"
-       style="font-size:86px;font-family:Tuffy;text-anchor:middle;fill:#808080">ATBcoint-Qt</text>
+       style="font-size:86px;font-family:Tuffy;text-anchor:middle;fill:#808080">ATBcoin-Qt</text>
   </g>
   <g
      transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)"
