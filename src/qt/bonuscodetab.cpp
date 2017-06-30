@@ -189,16 +189,16 @@ void BonusCodeTab::CreateClick(bool){
     if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
         int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
         if(i==wtx.vout.size()){
-            InformationDialog(tr("code send fail"),"","",this).exec();
+            InformationDialog(tr("Code create fail"),"","",this).exec();
             return;
         }
         wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
         updateBonusList();
-        InformationDialog(tr("Your code is created. The code will be available after it is added to the block."),
+        InformationDialog(tr("Your code is created. The code will be available after confirmation."),
                           QString::number(ui->SAmount->value(),'f'),QString::fromStdString(key),this).exec();
 
     }else{
-        InformationDialog(tr("code send fail"),"","",this).exec();
+        InformationDialog(tr("Code create fail"),"","",this).exec();
     }
 }
 BonusCodeTab::~BonusCodeTab()

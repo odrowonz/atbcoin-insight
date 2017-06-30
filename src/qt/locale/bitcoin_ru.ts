@@ -86,8 +86,32 @@
 <context>
     <name>BonusCodeTab</name>
     <message>
-        <source>Create a code</source>
-        <translation>Создать код</translation>
+        <source>Invalid key: Check the key and try again.</source>
+        <translation>Неверный ключ: проверьте ключ и повторите попытку.</translation>
+    </message>
+    <message>
+        <source>This key is added into your wallet.</source>
+        <translation>Этот ключ добавляется в ваш кошелек.</translation>
+    </message>
+    <message>
+        <source>This key is no longer valid.</source>
+        <translation>Этот ключ больше не действителен.</translation>
+    </message>
+    <message>
+        <source>ATB coins were received with this code</source>
+        <translation>Монеты ATB были получены с помощью этого кода</translation>
+    </message>
+    <message>
+        <source>You do not have the right amount in your account.</source>
+        <translation>У вас нет нужной суммы в вашем аккаунте.</translation>
+    </message>
+    <message>
+        <source>Code create fail</source>
+        <translation>Ошибка создания кода</translation>
+    </message>
+    <message>
+        <source>Your code is created. The code will be available after confirmation.</source>
+        <translation>Ваш код создан. Код будет доступен после подтверждения.</translation>
     </message>
     <message>
         <source>Created codes:</source>
