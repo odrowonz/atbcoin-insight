@@ -227,7 +227,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>ATBcoin Core</source>
         <translation>Биткойн ядро</translation>

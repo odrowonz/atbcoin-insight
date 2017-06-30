@@ -143,8 +143,8 @@
         <translation>&amp;Beripikan ing message...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -679,7 +679,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Pipamilian:</translation>
@@ -710,7 +710,7 @@
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Kapilubluban ning Bitcoin</translation>
+        <translation>Kapilubluban ning Atbcoin</translation>
     </message>
     <message>
         <source>Block creation options:</source>

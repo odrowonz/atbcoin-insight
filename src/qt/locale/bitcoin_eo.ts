@@ -167,7 +167,7 @@
         <translation>&amp;Kontroli mesaĝon...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>Bitmono</translation>
     </message>
     <message>
@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Peti pagon (kreas QR-kodojn kaj URI-ojn kun prefikso bitcoin:)</translation>
+        <translation>Peti pagon (kreas QR-kodojn kaj URI-ojn kun prefikso atbcoin:)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Malfermi bitcoin:-URI-on aŭ pagpeton</translation>
+        <translation>Malfermi atbcoin:-URI-on aŭ pagpeton</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1181,7 +1181,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Agordoj:</translation>

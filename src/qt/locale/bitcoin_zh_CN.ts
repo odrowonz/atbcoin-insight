@@ -179,7 +179,7 @@
         <translation>验证消息(&amp;V)...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>比特币</translation>
     </message>
     <message>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>请求支付（生成二维码和 bitcoin: URI）</translation>
+        <translation>请求支付（生成二维码和 atbcoin: URI）</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1502,8 +1502,8 @@
         <translation>请为此地址输入一个标签以将它加入用过的地址列表</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>bitcoin:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过比特币网络传输。</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>atbcoin:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过比特币网络传输。</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1637,7 +1637,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>选项：

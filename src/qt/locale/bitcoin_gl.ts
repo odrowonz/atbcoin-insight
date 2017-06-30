@@ -128,7 +128,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Enviar moedas a unha dirección Bitcoin</translation>
+        <translation>Enviar moedas a unha dirección Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -151,8 +151,8 @@
         <translation>&amp;Verificar mensaxe...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -204,7 +204,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Solicitar pagos (xenera códigos QR e bitcoin: URIs)</translation>
+        <translation>Solicitar pagos (xenera códigos QR e atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Abrir un bitcoin: URI ou solicitude de pago</translation>
+        <translation>Abrir un atbcoin: URI ou solicitude de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -915,7 +915,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Asina a mensaxe para probar que posees esta dirección Bitcoin</translation>
+        <translation>Asina a mensaxe para probar que posees esta dirección Atbcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -971,7 +971,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcións:</translation>
@@ -1002,7 +1002,7 @@
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Core de Bitcoin</translation>
+        <translation>Core de Atbcoin</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

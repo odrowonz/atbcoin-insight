@@ -99,7 +99,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>转账额度须为正数</translation>

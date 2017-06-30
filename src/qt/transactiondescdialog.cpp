@@ -25,14 +25,18 @@ TransactionDescDialog::TransactionDescDialog(const QSortFilterProxyModel &idx, i
     ui->setupUi(this);
     setMinimumWidth(750);
     setWindowTitle(tr("Details for coupon"));
-    ui->detailText->setHtml(QString (tr("<i><font color='#96946d'>  Key of coupon:</i> %0 <br>"
-                                        "<i><font color='#96946d'>  Amount:</i> %1 <br>"
-                                        "<i><font color='#96946d'>  Hash of transasction:</i> %2 <br>"
-                                        "<i><font color='#96946d'>  Time of creation:</i> %3 <br>")).
-                                    arg(idx.data(idx.index(row,3)).toString()).
-                                    arg(idx.data(idx.index(row,1)).toString()).
-                                    arg(idx.data(idx.index(row,2)).toString()).
-                                    arg(idx.data(idx.index(row,0)).toString()));
+    ui->detailText->setHtml(QString (tr("<i><font color='#96946d'>  %4:</i> %0 <br>"
+                                        "<i><font color='#96946d'>  %5:</i> %1 <br>"
+                                        "<i><font color='#96946d'>  %6:</i> %2 <br>"
+                                        "<i><font color='#96946d'>  %7:</i> %3 <br>")).
+                                        arg(idx.data(idx.index(row,3)).toString()).
+                                        arg(idx.data(idx.index(row,1)).toString()).
+                                        arg(idx.data(idx.index(row,2)).toString()).
+                                        arg(idx.data(idx.index(row,0)).toString()).
+                                        arg(idx.headerData(3,Qt::Horizontal).toString()).
+                                        arg(idx.headerData(1,Qt::Horizontal).toString()).
+                                        arg(idx.headerData(2,Qt::Horizontal).toString()).
+                                        arg(idx.headerData(0,Qt::Horizontal).toString()));
 }
 TransactionDescDialog::~TransactionDescDialog()
 {

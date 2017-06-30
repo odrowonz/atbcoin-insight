@@ -187,8 +187,8 @@
         <translation>メッセージの検証... (&amp;V)</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>支払いを要求する (QRコードとbitcoin:ではじまるURIを生成する)</translation>
+        <translation>支払いを要求する (QRコードとatatbcoin:ではじまるURIを生成する)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>bitcoin: URIまたは支払いリクエストを開く</translation>
+        <translation>atbcoin: URIまたは支払いリクエストを開く</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -731,7 +731,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a SOCKS5 proxy.</source>
-        <translation>SOCKS5 プロキシ経由でBitcoinネットワークに接続する</translation>
+        <translation>SOCKS5 プロキシ経由でAtbcoinネットワークに接続する</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -771,7 +771,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でBitcoinネットワークに接続する</translation>
+        <translation>Tor秘匿サービスを利用するため、独立なSOCKS5プロキシ経由でAtbcoinネットワークに接続する</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -960,7 +960,7 @@
     </message>
     <message>
         <source>Enter a ATBcoin address (e.g. %1)</source>
-        <translation>Bitcoinアドレスを入力してください (例 %1)</translation>
+        <translation>Atbcoinアドレスを入力してください (例 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1306,7 +1306,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはBitcoinネットワークを通じて、支払と共に送られるわけではありません。</translation>
+        <translation>支払リクエストが開始された時に表示される、支払リクエストに添える任意のメッセージです。注意：メッセージはAtbcoinネットワークを通じて、支払と共に送られるわけではありません。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1460,7 +1460,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for ATBcoin transactions than the network can process.</source>
-        <translation>ブロックの容量に比べてトランザクション流量が少ないうちは最小手数料のみの支払で十分です。しかしながらネットワークが処理しきれないほどbitcoinトランザクションの需要がひとたび生まれてしまった場合には、永遠に検証がされないトランザクションになってしまう可能性があることに注意してください。</translation>
+        <translation>ブロックの容量に比べてトランザクション流量が少ないうちは最小手数料のみの支払で十分です。しかしながらネットワークが処理しきれないほどatatbcoinトランザクションの需要がひとたび生まれてしまった場合には、永遠に検証がされないトランザクションになってしまう可能性があることに注意してください。</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1547,7 +1547,7 @@
     </message>
     <message>
         <source>The ATBcoin address to send the payment to</source>
-        <translation>支払の送金先Bitcoinアドレス</translation>
+        <translation>支払の送金先Atbcoinアドレス</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1590,8 +1590,8 @@
         <translation>このアドレスに対するラベルを入力することで、使用済みアドレスの一覧に追加することができます</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>bitcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはBitcoinネットワークを通して送信されるわけではありません。</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>atbcoin: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはAtbcoinネットワークを通して送信されるわけではありません。</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1629,7 +1629,7 @@
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
-        <translation>メッセージを署名するBitcoinアドレス</translation>
+        <translation>メッセージを署名するAtbcoinアドレス</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1685,7 +1685,7 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>メッセージの署名に使われたBitcoinアドレス</translation>
+        <translation>メッセージの署名に使われたAtbcoinアドレス</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
@@ -1729,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>オプション:</translation>

@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Invia fondi ad un indirizzo Bitcoin</translation>
+        <translation>Invia fondi ad un indirizzo Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +187,8 @@
         <translation>&amp;Verifica messaggio...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Richiedi pagamenti (genera codici QR e bitcoin: URI)</translation>
+        <translation>Richiedi pagamenti (genera codici QR e atbcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Apri un bitcoin: URI o una richiesta di pagamento</translation>
+        <translation>Apri un atbcoin: URI o una richiesta di pagamento</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n connessione attiva alla rete Bitcoin</numerusform><numerusform>%n connessioni alla rete ATBcoin attive</numerusform></translation>
+        <translation><numerusform>%n connessione attiva alla rete Atbcoin</numerusform><numerusform>%n connessioni alla rete ATBcoin attive</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -796,7 +796,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Scegli l'unità di suddivisione predefinita da utilizzare per l'interfaccia e per l'invio di bitcoin.</translation>
+        <translation>Scegli l'unità di suddivisione predefinita da utilizzare per l'interfaccia e per l'invio di atbcoin.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1263,7 +1263,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Bitcoin.</translation>
+        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Atbcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1333,7 +1333,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Invia Bitcoin</translation>
+        <translation>Invia Atbcoin</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1547,8 +1547,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Inserisci un'etichetta per questo indirizzo per aggiungerlo alla lista degli indirizzi utilizzati</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Messaggio incluso nel ATBcoin URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Messaggio incluso nel ATBcoin URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1614,7 +1614,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Bitcoin</translation>
+        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Atbcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1682,7 +1682,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opzioni:</translation>

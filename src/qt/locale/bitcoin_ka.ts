@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>მონეტების გაგზავნა Bitcoin-მისამართზე</translation>
+        <translation>მონეტების გაგზავნა Atbcoin-მისამართზე</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -163,8 +163,8 @@
         <translation>&amp;ვერიფიკაცია</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -192,11 +192,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>მესიჯებზე ხელმოწერა თქვენი Bitcoin-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
+        <translation>მესიჯებზე ხელმოწერა თქვენი Atbcoin-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული Bitcoin-მისამართით</translation>
+        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული Atbcoin-მისამართით</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და bitcoin: ბმულები)</translation>
+        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და atbcoin: ბმულები)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>bitcoin: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
+        <translation>atbcoin: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -509,7 +509,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>როუტერში Bitcoin-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
+        <translation>როუტერში Atbcoin-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -604,7 +604,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ATBcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება Bitcoin-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
+        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება Atbcoin-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1000,7 +1000,7 @@
         <translation>შეიყვანეთ ამ მისამართის ნიშნული გამოყენებული მისამართების სიაში დასამატებლად</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
         <translation>მესიჯი, რომელიც თან ერთვის მონეტებს:  URI, რომელიც შეინახება ტრანსაქციასთან ერთად თქვენთვის. შენიშვნა: მესიჯი არ გაყვება გადახდას ბითქოინის ქსელში.</translation>
     </message>
     <message>
@@ -1079,7 +1079,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული Bitcoin-მისამართით</translation>
+        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული Atbcoin-მისამართით</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1115,7 +1115,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>ოპციები:</translation>

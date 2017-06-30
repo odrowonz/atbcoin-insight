@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Gửi coins đến tài khoản Bitcoin</translation>
+        <translation>Gửi coins đến tài khoản Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -183,8 +183,8 @@
         <translation>&amp;Tin nhắn xác thực</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Bitcoin: URLs)</translation>
+        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Atbcoin: URLs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -248,7 +248,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Mở bitcoin:URL hoặc yêu cầu thanh toán</translation>
+        <translation>Mở atbcoin:URL hoặc yêu cầu thanh toán</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -713,7 +713,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Lựa chọn:</translation>

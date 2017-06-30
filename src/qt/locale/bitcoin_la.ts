@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Mitte nummos ad inscriptionem Bitcoin</translation>
+        <translation>Mitte nummos ad inscriptionem Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -135,8 +135,8 @@
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Bitcoin</translation>
+        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Atbcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -667,7 +667,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Bitcoin</translation>
+        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Atbcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -699,7 +699,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Optiones:</translation>

@@ -93,7 +93,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+341"/>
+        <location filename="../atatbcoingui.cpp" line="+341"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
@@ -234,8 +234,8 @@
     </message>
     <message>
         <location line="+481"/>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <location line="-693"/>
@@ -1213,7 +1213,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+176"/>
+        <location filename="../atatbcoinunits.cpp" line="+176"/>
         <source>Amount</source>
         <translation type="unfinished">Amount</translation>
     </message>
@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <location line="+47"/>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2218,15 +2218,15 @@
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+116"/>
+        <location filename="../atatbcoingui.cpp" line="+116"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
-        <location filename="../bitcoinstrings.cpp" line="+293"/>
+        <location filename="../atatbcoinstrings.cpp" line="+293"/>
         <source>Options:</source>
         <translation>Options:</translation>
     </message>

@@ -135,8 +135,8 @@
         <translation>Verander die wagwoord wat ek vir kodifikasie van my beursie gebruik</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -172,7 +172,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Versoek betalings (genereer QR-kodes en bitcoin: URI's)</translation>
+        <translation>Versoek betalings (genereer QR-kodes en atbcoin: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -184,7 +184,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Skep 'n bitcoin: URI of betalingsversoek</translation>
+        <translation>Skep 'n atbcoin: URI of betalingsversoek</translation>
     </message>
     </context>
 <context>
@@ -251,7 +251,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>ATBcoin Core</source>
         <translation>ATBcoin Kern</translation>

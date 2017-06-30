@@ -179,8 +179,8 @@
         <translation>Üzenet &amp;valódiságának ellenőrzése</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -208,11 +208,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Üzenetek aláírása a Bitcoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
+        <translation>Üzenetek aláírása a Atbcoin-címmeiddel, amivel bizonyítod, hogy a cím a sajátod</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Bitcoin-címekkel vannak-e aláírva</translation>
+        <translation>Üzenetek ellenőrzése, hogy valóban a megjelölt Atbcoin-címekkel vannak-e aláírva</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Fizetési kérelem (QR-kódot és "bitcoin:" URI azonosítót hoz létre)</translation>
+        <translation>Fizetési kérelem (QR-kódot és "atbcoin:" URI azonosítót hoz létre)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>"bitcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
+        <translation>"atbcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -607,7 +607,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>A Bitcoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+        <translation>A Atbcoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1341,7 +1341,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciók
@@ -1538,7 +1538,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nincs elég bitcoinod.</translation>
+        <translation>Nincs elég atatbcoinod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

@@ -91,8 +91,8 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -399,14 +399,14 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsionet:</translation>
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Berthama Bitcoin</translation>
+        <translation>Berthama Atbcoin</translation>
     </message>
     <message>
         <source>Information</source>

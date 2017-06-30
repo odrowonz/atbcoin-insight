@@ -167,7 +167,7 @@
         <translation>Праверыць паведамленне...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>Біткойн</translation>
     </message>
     <message>
@@ -236,7 +236,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n актыўнае злучэнне з сецівам Bitcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Bitcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Bitcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Bitcoin</numerusform></translation>
+        <translation><numerusform>%n актыўнае злучэнне з сецівам Atbcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Atbcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Atbcoin</numerusform><numerusform>%n актыўных злучэнняў з сецівам Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -685,7 +685,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Опцыі:</translation>

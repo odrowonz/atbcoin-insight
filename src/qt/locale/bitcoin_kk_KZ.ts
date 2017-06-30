@@ -67,7 +67,7 @@
         <translation>Құпия сөзді өзгерту</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -287,7 +287,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Information</source>
         <translation>Информация</translation>

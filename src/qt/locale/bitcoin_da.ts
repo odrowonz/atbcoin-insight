@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Send ATBcoins til en Bitcoin-adresse</translation>
+        <translation>Send ATBcoins til en Atbcoin-adresse</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +187,8 @@
         <translation>&amp;Verificér besked…</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -216,11 +216,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Underskriv beskeder med dine Bitcoin-adresser for at bevise, at de tilhører dig</translation>
+        <translation>Underskriv beskeder med dine Atbcoin-adresser for at bevise, at de tilhører dig</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Verificér beskeder for at sikre, at de er underskrevet med de angivne Bitcoin-adresser</translation>
+        <translation>Verificér beskeder for at sikre, at de er underskrevet med de angivne Atbcoin-adresser</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Anmod om betalinger (genererer QR-koder og "bitcoin:"-URI'er)</translation>
+        <translation>Anmod om betalinger (genererer QR-koder og "atbcoin:"-URI'er)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Åbn en "bitcoin:"-URI eller betalingsanmodning</translation>
+        <translation>Åbn en "atbcoin:"-URI eller betalingsanmodning</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n aktiv forbindelse til Bitcoin-netværket</numerusform><numerusform>%n aktive forbindelser til Bitcoin-netværket</numerusform></translation>
+        <translation><numerusform>%n aktiv forbindelse til Atbcoin-netværket</numerusform><numerusform>%n aktive forbindelser til Atbcoin-netværket</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -581,7 +581,7 @@
     </message>
     <message>
         <source>%1 will download and store a copy of the ATBcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 vil downloade og gemme et kopi af Bitcoin-blokkæden. Mindst %2 GB data vil blive gemt i denne mappe, og den vil vokse over tid. Tegnebogen vil også blive gemt i denne mappe.</translation>
+        <translation>%1 vil downloade og gemme et kopi af Atbcoin-blokkæden. Mindst %2 GB data vil blive gemt i denne mappe, og den vil vokse over tid. Tegnebogen vil også blive gemt i denne mappe.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -723,7 +723,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åbn automatisk Bitcoin-klientens port på routeren. Dette virker kun, når din router understøtter UPnP, og UPnP er aktiveret.</translation>
+        <translation>Åbn automatisk Atbcoin-klientens port på routeren. Dette virker kun, når din router understøtter UPnP, og UPnP er aktiveret.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -731,7 +731,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a SOCKS5 proxy.</source>
-        <translation>Forbind til Bitcoin-netværket gennem en SOCKS5-proxy.</translation>
+        <translation>Forbind til Atbcoin-netværket gennem en SOCKS5-proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -771,7 +771,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Forbind til Bitcoin-netværket gennem en separat SOCKS5-proxy for skjulte Tor-tjenester.</translation>
+        <translation>Forbind til Atbcoin-netværket gennem en separat SOCKS5-proxy for skjulte Tor-tjenester.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -819,7 +819,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Vælg standard for underopdeling af enhed, som skal vises i brugergrænsefladen og ved afsendelse af bitcoins.</translation>
+        <translation>Vælg standard for underopdeling af enhed, som skal vises i brugergrænsefladen og ved afsendelse af atatbcoins.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -870,7 +870,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ATBcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den viste information kan være forældet. Din tegnebog synkroniserer automatisk med Bitcoin-netværket, når en forbindelse etableres, men denne proces er ikke gennemført endnu.</translation>
+        <translation>Den viste information kan være forældet. Din tegnebog synkroniserer automatisk med Atbcoin-netværket, når en forbindelse etableres, men denne proces er ikke gennemført endnu.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -960,7 +960,7 @@
     </message>
     <message>
         <source>Enter a ATBcoin address (e.g. %1)</source>
-        <translation>Indtast en Bitcoin-adresse (fx %1)</translation>
+        <translation>Indtast en Atbcoin-adresse (fx %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1306,7 +1306,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>En valgfri besked, der føjes til betalingsanmodningen, og som vil vises, når anmodningen åbnes. Bemærk: Beskeden vil ikke sendes sammen med betalingen over Bitcoin-netværket.</translation>
+        <translation>En valgfri besked, der føjes til betalingsanmodningen, og som vil vises, når anmodningen åbnes. Bemærk: Beskeden vil ikke sendes sammen med betalingen over Atbcoin-netværket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1376,7 +1376,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send bitcoins</translation>
+        <translation>Send atatbcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1460,7 +1460,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for ATBcoin transactions than the network can process.</source>
-        <translation>Det er helt fint kun at betale det minimale gebyr, så længe den totale transaktionsvolumen er mindre end den plads, der er tilgængelig i blokkene. Men vær opmærksom på, at dette kan ende ud i transaktioner, der aldrig bliver bekræftet, når der bliver større forespørgsel efter bitcoin-transaktioner, end hvad netværket kan bearbejde.</translation>
+        <translation>Det er helt fint kun at betale det minimale gebyr, så længe den totale transaktionsvolumen er mindre end den plads, der er tilgængelig i blokkene. Men vær opmærksom på, at dette kan ende ud i transaktioner, der aldrig bliver bekræftet, når der bliver større forespørgsel efter atbcoin-transaktioner, end hvad netværket kan bearbejde.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1547,7 +1547,7 @@
     </message>
     <message>
         <source>The ATBcoin address to send the payment to</source>
-        <translation>Bitcoin-adresse, som betalingen skal sendes til</translation>
+        <translation>Atbcoin-adresse, som betalingen skal sendes til</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1567,7 +1567,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil blive trukket fra det sendte beløb. Modtageren vil modtage færre bitcoin, end du indtaster i beløbfeltet. Hvis flere modtagere vælges, vil gebyret deles ligeligt.</translation>
+        <translation>Gebyret vil blive trukket fra det sendte beløb. Modtageren vil modtage færre atbcoin, end du indtaster i beløbfeltet. Hvis flere modtagere vælges, vil gebyret deles ligeligt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -1590,8 +1590,8 @@
         <translation>Indtast et mærkat for denne adresse for at føje den til listen over brugte adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>En besked, som blev føjet til "bitcon:"-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Bitcoin-netværket.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>En besked, som blev føjet til "bitcon:"-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Atbcoin-netværket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1625,11 +1625,11 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive ATBcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere beskeder/aftaler med dine adresser for at bevise, at du kan modtage bitcoin, der bliver sendt til adresserne. Vær forsigtig med ikke at signere noget vagt eller tilfældigt, da eventuelle phishing-angreb kan snyde dig til at overlade din identitet til dem. Signér kun fuldt ud detaljerede udsagn, som du er enig i.</translation>
+        <translation>Du kan signere beskeder/aftaler med dine adresser for at bevise, at du kan modtage atbcoin, der bliver sendt til adresserne. Vær forsigtig med ikke at signere noget vagt eller tilfældigt, da eventuelle phishing-angreb kan snyde dig til at overlade din identitet til dem. Signér kun fuldt ud detaljerede udsagn, som du er enig i.</translation>
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
-        <translation>Bitcoin-adresse, som beskeden skal signeres med</translation>
+        <translation>Atbcoin-adresse, som beskeden skal signeres med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1661,7 +1661,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Underskriv denne besked for at bevise, at Bitcoin-adressen tilhører dig</translation>
+        <translation>Underskriv denne besked for at bevise, at Atbcoin-adressen tilhører dig</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1685,11 +1685,11 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Bitcoin-adressen, som beskeden blev signeret med</translation>
+        <translation>Atbcoin-adressen, som beskeden blev signeret med</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Verificér beskeden for at sikre, at den er underskrevet med den angivne Bitcoin-adresse</translation>
+        <translation>Verificér beskeden for at sikre, at den er underskrevet med den angivne Atbcoin-adresse</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1729,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Indstillinger:</translation>

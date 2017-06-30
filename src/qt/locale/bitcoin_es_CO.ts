@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Enviando monedas a una dirección de Bitcoin</translation>
+        <translation>Enviando monedas a una dirección de Atbcoin</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -143,8 +143,8 @@
         <translation>&amp;Verificar Mensaje...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -255,7 +255,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>ATBcoin Core</source>
         <translation>ATBcoin Core</translation>

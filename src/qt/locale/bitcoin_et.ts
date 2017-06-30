@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Saada münte Bitcoini aadressile</translation>
+        <translation>Saada münte Atbcoini aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -155,8 +155,8 @@
         <translation>&amp;Kontrolli sõnumit...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -184,11 +184,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Bitcoini aadressiga</translation>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Atbcoini aadressiga</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Bitcoini aadressiga</translation>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Atbcoini aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -435,7 +435,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Bitcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+        <translation>Atbcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -829,7 +829,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Allkirjasta sõnum Bitcoini aadressi sulle kuulumise tõestamiseks</translation>
+        <translation>Allkirjasta sõnum Atbcoini aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -849,7 +849,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Bitcoini aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Atbcoini aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -885,7 +885,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Valikud:</translation>
@@ -916,7 +916,7 @@
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Bitcoini tuumik</translation>
+        <translation>Atbcoini tuumik</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

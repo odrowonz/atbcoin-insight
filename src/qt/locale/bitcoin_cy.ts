@@ -111,8 +111,8 @@
         <translation>Newid y cyfrinymadrodd a ddefnyddiwyd ar gyfer amgryptio'r waled</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -451,14 +451,14 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsiynau:</translation>
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Craidd Bitcoin</translation>
+        <translation>Craidd Atbcoin</translation>
     </message>
     <message>
         <source>Information</source>

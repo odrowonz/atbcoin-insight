@@ -152,7 +152,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Kirim koin ke alamat Bitcoin</translation>
+        <translation>Kirim koin ke alamat Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -175,8 +175,8 @@
         <translation>&amp;Verifikasi pesan...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Permintaan pembayaran (membuat kode QR dan bitcoin: URIs)</translation>
+        <translation>Permintaan pembayaran (membuat kode QR dan atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Buka URI bitcoin: atau permintaan pembayaran</translation>
+        <translation>Buka URI atbcoin: atau permintaan pembayaran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -248,7 +248,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n koneksi aktif ke jaringan Bitcoin</numerusform></translation>
+        <translation><numerusform>%n koneksi aktif ke jaringan Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -1355,7 +1355,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Pilihan:</translation>

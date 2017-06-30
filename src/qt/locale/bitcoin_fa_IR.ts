@@ -131,8 +131,8 @@
         <translation>رمز مربوط به رمزگذاریِ wallet را تغییر دهید</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -463,7 +463,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>انتخابها:</translation>

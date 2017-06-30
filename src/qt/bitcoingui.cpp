@@ -280,7 +280,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(sendCoinsAction);
 
     BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0x79,0xa6,0x90)),tr("Redeem codes"),this);
-    BonusCodeTab->setStatusTip(tr("Browse cou coupons"));
+    BonusCodeTab->setStatusTip(tr("Browse page of bonus codes"));
     BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
     BonusCodeTab->setCheckable(true);
     BonusCodeTab->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));

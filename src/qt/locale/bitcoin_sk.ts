@@ -187,8 +187,8 @@
         <translation>O&amp;veriť správu...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Vyžiadať platby (vygeneruje QR kódy a bitcoin: URI)</translation>
+        <translation>Vyžiadať platby (vygeneruje QR kódy a atbcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n aktívne pripojenie do siete Bitcoin</numerusform><numerusform>%n aktívne pripojenia do siete Bitcoin</numerusform><numerusform>%n aktívnych pripojení do siete Bitcoin</numerusform></translation>
+        <translation><numerusform>%n aktívne pripojenie do siete Atbcoin</numerusform><numerusform>%n aktívne pripojenia do siete Atbcoin</numerusform><numerusform>%n aktívnych pripojení do siete Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -328,7 +328,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible ATBcoin command-line options</source>
-        <translation>Ukáž %1 zoznam možných nastavení Bitcoinu pomocou príkazového riadku</translation>
+        <translation>Ukáž %1 zoznam možných nastavení Atbcoinu pomocou príkazového riadku</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -767,7 +767,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Pripojiť k Bitcoinovej sieti cez separované SOCKS5 proxy pre skrytú službu Tor.</translation>
+        <translation>Pripojiť k Atbcoinovej sieti cez separované SOCKS5 proxy pre skrytú službu Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1291,7 +1291,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Pridať voliteľnú správu k výzve na zaplatenie, ktorá sa zobrazí keď bude výzva otvorená. Poznámka: Správa nebude poslaná s platbou cez sieť Bitcoin.</translation>
+        <translation>Pridať voliteľnú správu k výzve na zaplatenie, ktorá sa zobrazí keď bude výzva otvorená. Poznámka: Správa nebude poslaná s platbou cez sieť Atbcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1361,7 +1361,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Poslať Bitcoins</translation>
+        <translation>Poslať Atbcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1552,7 +1552,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Poplatok sa odpočíta od čiastky, ktorú odosielate. Príjemca dostane menej bitcoinov ako zadáte. Ak je vybraných viacero príjemcov, poplatok je rozdelený rovným dielom.</translation>
+        <translation>Poplatok sa odpočíta od čiastky, ktorú odosielate. Príjemca dostane menej atatbcoinov ako zadáte. Ak je vybraných viacero príjemcov, poplatok je rozdelený rovným dielom.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -1575,8 +1575,8 @@
         <translation>Vložte popis pre túto adresu aby sa uložila do zoznamu použitých adries</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Správa ktorá bola pripojená k bitcoin: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Správa ktorá bola pripojená k atbcoin: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1662,7 +1662,7 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Adresa Bitcoin, ktorou bola podpísaná správa</translation>
+        <translation>Adresa Atbcoin, ktorou bola podpísaná správa</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
@@ -1706,7 +1706,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Možnosti:</translation>
@@ -1761,7 +1761,7 @@
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>Jadro Bitcoin</translation>
+        <translation>Jadro Atbcoin</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

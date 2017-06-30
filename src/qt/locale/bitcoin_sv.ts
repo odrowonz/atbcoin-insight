@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Skicka ATBcoins till en Bitcoin-adress</translation>
+        <translation>Skicka ATBcoins till en Atbcoin-adress</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +187,8 @@
         <translation>&amp;Verifiera meddelande...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -216,11 +216,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Signera meddelanden med din Bitcoin-adress för att bevisa att du äger dem</translation>
+        <translation>Signera meddelanden med din Atbcoin-adress för att bevisa att du äger dem</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Verifiera meddelanden för att vara säker på att de var signerade med specificerade Bitcoin-adresser</translation>
+        <translation>Verifiera meddelanden för att vara säker på att de var signerade med specificerade Atbcoin-adresser</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Begär betalning (genererar QR-koder och bitcoin-URI)</translation>
+        <translation>Begär betalning (genererar QR-koder och atbcoin-URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Öppna en bitcoin: URI eller betalningsbegäran</translation>
+        <translation>Öppna en atbcoin: URI eller betalningsbegäran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n aktiva anslutningar till Bitcoin-nätverket.</numerusform><numerusform>%n aktiva anslutningar till Bitcoin-nätverket.</numerusform></translation>
+        <translation><numerusform>%n aktiva anslutningar till Atbcoin-nätverket.</numerusform><numerusform>%n aktiva anslutningar till Atbcoin-nätverket.</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -723,7 +723,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna automatiskt Bitcoin-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
+        <translation>Öppna automatiskt Atbcoin-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -731,7 +731,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a SOCKS5 proxy.</source>
-        <translation>Anslut till Bitcoin-nätverket genom en SOCKS5-proxy.</translation>
+        <translation>Anslut till Atbcoin-nätverket genom en SOCKS5-proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -771,7 +771,7 @@
     </message>
     <message>
         <source>Connect to the ATBcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Anslut till Bitcoin-nätverket genom en separat SOCKS5-proxy för dolda tjänster i Tor.</translation>
+        <translation>Anslut till Atbcoin-nätverket genom en separat SOCKS5-proxy för dolda tjänster i Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -870,7 +870,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ATBcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med Bitcoin-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
+        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med Atbcoin-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -960,7 +960,7 @@
     </message>
     <message>
         <source>Enter a ATBcoin address (e.g. %1)</source>
-        <translation>Ange en Bitcoin-adress (t.ex. %1)</translation>
+        <translation>Ange en Atbcoin-adress (t.ex. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1306,7 +1306,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Bitcoinnätverket.</translation>
+        <translation>Ett frivilligt meddelande att bifoga betalningsbegäran, vilket visas när begäran öppnas. NB: Meddelandet kommer inte att sändas med betalningen över Atbcoinnätverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1547,7 +1547,7 @@
     </message>
     <message>
         <source>The ATBcoin address to send the payment to</source>
-        <translation>Bitcoinadress att sända betalning till</translation>
+        <translation>Atbcoinadress att sända betalning till</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1590,8 +1590,8 @@
         <translation>Ange en etikett för denna adress att adderas till listan över använda adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Ett meddelande som bifogades bitcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Bitcoinnätverket.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Ett meddelande som bifogades atbcoin-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Atbcoinnätverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1629,7 +1629,7 @@
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
-        <translation>Bitcoinadress att signera meddelandet med</translation>
+        <translation>Atbcoinadress att signera meddelandet med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1685,11 +1685,11 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Bitcoinadressen som meddelandet signerades med</translation>
+        <translation>Atbcoinadressen som meddelandet signerades med</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna Bitcoin-adressen</translation>
+        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna Atbcoin-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1729,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Inställningar:</translation>
@@ -2552,7 +2552,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Otillräckligt med bitcoins</translation>
+        <translation>Otillräckligt med atatbcoins</translation>
     </message>
     <message>
         <source>Loading block index...</source>

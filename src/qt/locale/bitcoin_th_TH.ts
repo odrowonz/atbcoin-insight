@@ -148,11 +148,11 @@
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะส่ง bitcoin</translation>
+        <translation>&amp;ที่เก็บเงิน ที่จะส่ง atbcoin</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะรับ bitcoin</translation>
+        <translation>&amp;ที่เก็บเงิน ที่จะรับ atbcoin</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>ส่ง coins ไปยัง ที่เก็บ Bitcoin</translation>
+        <translation>ส่ง coins ไปยัง ที่เก็บ Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +187,8 @@
         <translation>&amp;ยืนยันข้อความ...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>เรียกเก็บ การชำระเงิน (สร้าง QR codes และ bitcoin: URIs)</translation>
+        <translation>เรียกเก็บ การชำระเงิน (สร้าง QR codes และ atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>เปิด bitcoin: URI หรือ การเรียกเก็บเงิน (การเรียกให้ชำระเงิน)</translation>
+        <translation>เปิด atbcoin: URI หรือ การเรียกเก็บเงิน (การเรียกให้ชำระเงิน)</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n ช่องการเชื่อมต่อที่ใช้งานได้ เพื่อเชื่อมกับเครือข่าย Bitcoin</numerusform></translation>
+        <translation><numerusform>%n ช่องการเชื่อมต่อที่ใช้งานได้ เพื่อเชื่อมกับเครือข่าย Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -889,7 +889,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>ตัวเลือก:</translation>

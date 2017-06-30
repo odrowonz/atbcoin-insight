@@ -187,8 +187,8 @@
         <translation>Mesaj &amp;kontrol et...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -252,7 +252,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Bir bitcoin: bağlantısı ya da ödeme talebi aç</translation>
+        <translation>Bir atbcoin: bağlantısı ya da ödeme talebi aç</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1590,8 +1590,8 @@
         <translation>Kullanılmış adres listesine eklemek için bu adrese bir etiket girin</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Bitcoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj ATBcoin şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Atbcoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj ATBcoin şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1625,7 +1625,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive ATBcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Adreslerinize yollanan bitcoinleri alabileceğiniz ispatlamak için adreslerinizle mesaj/anlaşma imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz ya da rastgele hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
+        <translation>Adreslerinize yollanan atatbcoinleri alabileceğiniz ispatlamak için adreslerinizle mesaj/anlaşma imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz ya da rastgele hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
@@ -1729,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Seçenekler:</translation>

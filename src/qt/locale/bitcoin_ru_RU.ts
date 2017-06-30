@@ -50,10 +50,89 @@
     </message>
 </context>
 <context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Pay only the required fee of %1</source>
+        <translation>Оплатить только требуемую плату в размере %1</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции биткойна будет больше, чем может обрабатывать сеть.</translation>
+    </message>
+</context>
+<context>
     <name>BanTableModel</name>
     </context>
-<context>
-    <name>BitcoinGUI</name>
+    <context>
+        <name>BonusCodeTab</name>
+        <message>
+            <source>Create a code</source>
+            <translation>Создать код</translation>
+        </message>
+        <message>
+            <source>Created codes:</source>
+            <translation>Созданные коды:</translation>
+        </message>
+        <message>
+            <source>Create code</source>
+            <translation>Создать код</translation>
+        </message>
+        <message>
+            <source>Redeem code</source>
+            <translation>Ввести код</translation>
+        </message>
+        <message>
+            <source>Code Id</source>
+            <translation>Id Кода</translation>
+        </message>
+        <message>
+            <source>Date</source>
+            <translation>Дата</translation>
+        </message>
+        <message>
+            <source>Amount</source>
+            <translation>Сумма</translation>
+        </message>
+        <message>
+            <source>Transaction hash</source>
+            <translation>Хеш транзакции</translation>
+        </message>
+        <message>
+            <source>KeyWord</source>
+            <translation>Код</translation>
+        </message>
+        <message>
+            <source>status</source>
+            <translation>статус</translation>
+        </message>
+        <message>
+            <source>Unused</source>
+            <translation>Не используется</translation>
+        </message>
+        <message>
+            <source>Used</source>
+            <translation>Используется</translation>
+        </message>
+        <message>
+            <source>Unconfirmed</source>
+            <translation>Неподтвержден</translation>
+        </message>
+        <message>
+            <source>Amount of ATB coins</source>
+            <translation>Сумма ATB монет</translation>
+        </message>
+    </context>
+    <context>
+        <name>BitcoinGUI</name>
+
+        <message>
+            <source>Redeem codes</source>
+            <translation>Ввести код</translation>
+        </message>
+        <message>
+            <source>Browse page of bonus codes</source>
+            <translation>Просмотр страницы бонусных кодов</translation>
+        </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Опции командной строки</translation>
@@ -179,7 +258,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>ATBcoin Core</source>
         <translation>ATBcoin Core</translation>

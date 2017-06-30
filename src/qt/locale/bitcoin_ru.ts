@@ -73,7 +73,86 @@
     </message>
 </context>
 <context>
+    <name>SendCoinsDialog</name>
+    <message>
+        <source>Pay only the required fee of %1</source>
+        <translation>Оплатить только требуемую плату в размере %1</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции биткойна будет больше, чем может обрабатывать сеть.</translation>
+    </message>
+</context>
+<context>
+    <name>BonusCodeTab</name>
+    <message>
+        <source>Create a code</source>
+        <translation>Создать код</translation>
+    </message>
+    <message>
+        <source>Created codes:</source>
+        <translation>Созданные коды:</translation>
+    </message>
+    <message>
+        <source>Create code</source>
+        <translation>Создать код</translation>
+    </message>
+    <message>
+        <source>Redeem code</source>
+        <translation>Ввести код</translation>
+    </message>
+    <message>
+        <source>Code Id</source>
+        <translation>Id Кода</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сумма</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Хеш транзакции</translation>
+    </message>
+    <message>
+        <source>KeyWord</source>
+        <translation>Код</translation>
+    </message>
+    <message>
+        <source>status</source>
+        <translation>статус</translation>
+    </message>
+    <message>
+        <source>Unused</source>
+        <translation>Не используется</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation>Используется</translation>
+    </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Неподтвержден</translation>
+    </message>
+    <message>
+        <source>Amount of ATB coins</source>
+        <translation>Сумма ATB монет</translation>
+    </message>
+</context>
+<context>
     <name>BitcoinGUI</name>
+
+    <message>
+        <source>Redeem codes</source>
+        <translation>Ввести код</translation>
+    </message>
+    <message>
+        <source>Browse page of bonus codes</source>
+        <translation>Просмотр страницы бонусных кодов</translation>
+    </message>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Подписать сообщение...</translation>
@@ -84,7 +163,7 @@
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>&amp;Обзор</translation>
+        <translation>&amp;Кошелек</translation>
     </message>
     <message>
         <source>Node</source>
@@ -164,7 +243,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Отправить монеты на указанный адрес Bitcoin</translation>
+        <translation>Отправить монеты на указанный адрес Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +266,8 @@
         <translation>&amp;Проверить сообщение...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -216,11 +295,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Подписать сообщения вашим адресом Bitcoin, чтобы доказать, что вы им владеете</translation>
+        <translation>Подписать сообщения вашим адресом Atbcoin, чтобы доказать, что вы им владеете</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определённым адресом Bitcoin</translation>
+        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определённым адресом Atbcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -240,7 +319,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Запросить платежи (создаёт QR-коды и bitcoin: ссылки)</translation>
+        <translation>Запросить платежи (создаёт QR-коды и atbcoin: ссылки)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -252,7 +331,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Открыть bitcoin: URI или запрос платежа</translation>
+        <translation>Открыть atbcoin: URI или запрос платежа</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -260,7 +339,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n активных соединений с сетью Bitcoin</numerusform><numerusform>%n активных соединений с сетью Bitcoin</numerusform><numerusform>%n активных соединений с сетью Bitcoin</numerusform><numerusform>%n активных соединений с сетью Bitcoin</numerusform></translation>
+        <translation><numerusform>%n активных соединений с сетью Atbcoin</numerusform><numerusform>%n активных соединений с сетью Atbcoin</numerusform><numerusform>%n активных соединений с сетью Atbcoin</numerusform><numerusform>%n активных соединений с сетью Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -719,7 +798,7 @@
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматически открыть порт для Bitcoin-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
+        <translation>Автоматически открыть порт для Atbcoin-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1302,7 +1381,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Заметьте: сообщение не будет отправлено вместе с платежом через сеть Bitcoin.</translation>
+        <translation>Необязательное сообщение для запроса платежа, которое будет показано при открытии запроса. Заметьте: сообщение не будет отправлено вместе с платежом через сеть Atbcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1543,7 +1622,7 @@
     </message>
     <message>
         <source>The ATBcoin address to send the payment to</source>
-        <translation>Адрес Bitcoin, на который отправить платёж</translation>
+        <translation>Адрес Atbcoin, на который отправить платёж</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1586,8 +1665,8 @@
         <translation>Введите метку для этого адреса, чтобы добавить его в список использованных</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>К bitcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Заметьте: сообщение не будет отправлено через сеть Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>К atbcoin: URI было прикреплено сообщение, которое будет сохранено вместе с транзакцией для вашего сведения. Заметьте: сообщение не будет отправлено через сеть Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1625,7 +1704,7 @@
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
-        <translation>Адрес Bitcoin, которым подписать сообщение</translation>
+        <translation>Адрес Atbcoin, которым подписать сообщение</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1657,7 +1736,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Bitcoin</translation>
+        <translation>Подписать сообщение, чтобы доказать владение адресом Atbcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1681,11 +1760,11 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Адрес Bitcoin, которым было подписано сообщение</translation>
+        <translation>Адрес Atbcoin, которым было подписано сообщение</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Bitcoin</translation>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Atbcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1725,7 +1804,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Параметры:</translation>

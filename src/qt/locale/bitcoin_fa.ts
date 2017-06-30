@@ -183,7 +183,7 @@
         <translation>با&amp;زبینی پیام...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>بیت‌کوین</translation>
     </message>
     <message>
@@ -1193,7 +1193,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>گزینه‌ها:</translation>

@@ -144,7 +144,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Envia monedas a una dirección Bitcoin</translation>
+        <translation>Envia monedas a una dirección Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -227,6 +227,6 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     </context>
 </TS>

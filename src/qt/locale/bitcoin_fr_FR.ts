@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Envoyer des pièces à une adresse Bitcoin</translation>
+        <translation>Envoyer des pièces à une adresse Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -187,8 +187,8 @@
         <translation>&amp;Vérification du message</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Demander des paiements (générer QR codes et bitcoin: URIs)</translation>
+        <translation>Demander des paiements (générer QR codes et atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Ouvrir un bitcoin: URI ou demande de paiement</translation>
+        <translation>Ouvrir un atbcoin: URI ou demande de paiement</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -252,7 +252,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n connexion active au réseau Bitcoin</numerusform><numerusform>%n connexions actives au réseau Bitcoin</numerusform></translation>
+        <translation><numerusform>%n connexion active au réseau Atbcoin</numerusform><numerusform>%n connexions actives au réseau Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -1321,7 +1321,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Options :</translation>

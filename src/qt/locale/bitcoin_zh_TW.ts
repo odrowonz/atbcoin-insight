@@ -187,8 +187,8 @@
         <translation>驗證訊息...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1567,7 +1567,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>手續費會從要付款出去的金額中扣掉。因此收款人會收到比輸入的金額還要少的 bitcoin。如果有多個收款人的話，手續費會平均分配來扣除。</translation>
+        <translation>手續費會從要付款出去的金額中扣掉。因此收款人會收到比輸入的金額還要少的 atbcoin。如果有多個收款人的話，手續費會平均分配來扣除。</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -1590,7 +1590,7 @@
         <translation>請輸入這個位址的標記，來把它加進去已使用過位址的清單。</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
         <translation>附加在 ATBcoin 付款協議的資源識別碼(URI)中的訊息，會和交易內容一起存起來，給你自己做參考。注意: 這個訊息不會送到 ATBcoin 網路上。</translation>
     </message>
     <message>
@@ -1729,7 +1729,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>選項:</translation>

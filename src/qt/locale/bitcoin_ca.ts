@@ -152,7 +152,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Envia monedes a una adreça Bitcoin</translation>
+        <translation>Envia monedes a una adreça Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -175,8 +175,8 @@
         <translation>&amp;Verifica el missatge...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Sol·licita pagaments (genera codis QR i bitcoin: URI)</translation>
+        <translation>Sol·licita pagaments (genera codis QR i atbcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Obre una bitcoin: sol·licitud d'URI o pagament</translation>
+        <translation>Obre una atbcoin: sol·licitud d'URI o pagament</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -248,7 +248,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n connexió activa a la xarxa Bitcoin</numerusform><numerusform>%n connexions actives a la xarxa Bitcoin</numerusform></translation>
+        <translation><numerusform>%n connexió activa a la xarxa Atbcoin</numerusform><numerusform>%n connexions actives a la xarxa Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -1218,7 +1218,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Un missatge opcional que s'adjuntarà a la sol·licitud de pagament, que es mostrarà quan s'obri la sol·licitud. Nota: El missatge no s'enviarà amb el pagament per la xarxa Bitcoin.</translation>
+        <translation>Un missatge opcional que s'adjuntarà a la sol·licitud de pagament, que es mostrarà quan s'obri la sol·licitud. Nota: El missatge no s'enviarà amb el pagament per la xarxa Atbcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1502,8 +1502,8 @@
         <translation>Introduïu una etiqueta per a aquesta adreça per afegir-la a la llista d'adreces utilitzades</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Un missatge que s'ha adjuntat al bitcoin: URI que s'emmagatzemarà amb la transacció per a la vostra referència. Nota: el missatge no s'enviarà a través de la xarxa Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Un missatge que s'ha adjuntat al atbcoin: URI que s'emmagatzemarà amb la transacció per a la vostra referència. Nota: el missatge no s'enviarà a través de la xarxa Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1569,7 +1569,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Signa el missatge per provar que ets propietari d'aquesta adreça Bitcoin</translation>
+        <translation>Signa el missatge per provar que ets propietari d'aquesta adreça Atbcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1637,7 +1637,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcions:</translation>

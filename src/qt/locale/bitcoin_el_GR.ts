@@ -148,7 +148,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Στείλε νομίσματα σε μια διεύθυνση bitcoin</translation>
+        <translation>Στείλε νομίσματα σε μια διεύθυνση atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -171,8 +171,8 @@
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -204,7 +204,7 @@
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Bitcoin</translation>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Atbcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -224,7 +224,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις bitcoin: )</translation>
+        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις atbcoin: )</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Άνοιγμα bitcoin: URI αίτησης πληρωμής</translation>
+        <translation>Άνοιγμα atbcoin: URI αίτησης πληρωμής</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1314,7 +1314,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this ATBcoin address</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Bitcoin</translation>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Atbcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1338,7 +1338,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως υπογραφθηκε απο μια συγκεκριμένη διεύθυνση Bitcoin</translation>
+        <translation>Υπογράψτε ένα μήνυμα για ν' αποδείξετε πως υπογραφθηκε απο μια συγκεκριμένη διεύθυνση Atbcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1378,7 +1378,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Επιλογές:</translation>

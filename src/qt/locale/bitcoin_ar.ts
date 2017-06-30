@@ -179,7 +179,7 @@
         <translation>&amp;التحقق من الرسالة...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>بت كوين</translation>
     </message>
     <message>
@@ -1109,7 +1109,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>خيارات: </translation>

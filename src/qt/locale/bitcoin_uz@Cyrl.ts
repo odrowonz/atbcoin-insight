@@ -167,8 +167,8 @@
         <translation>Хабарни &amp;тасдиқлаш...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Bitcoin’ни очиш: URI ёки тўлов сўрови</translation>
+        <translation>Atbcoin’ни очиш: URI ёки тўлов сўрови</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1183,7 +1183,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Танламалар:</translation>

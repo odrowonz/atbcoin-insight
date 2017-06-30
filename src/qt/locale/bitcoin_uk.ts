@@ -179,8 +179,8 @@
         <translation>П&amp;еревірити повідомлення...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -208,11 +208,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Bitcoin-адресою </translation>
+        <translation>Підтвердіть, що Ви є власником повідомлення підписавши його Вашою Atbcoin-адресою </translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Bitcoin-адресою</translation>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Atbcoin-адресою</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Створити запит платежу (генерує QR-код та bitcoin: URI)</translation>
+        <translation>Створити запит платежу (генерує QR-код та atbcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Відкрити bitcoin: URI чи запит платежу</translation>
+        <translation>Відкрити atbcoin: URI чи запит платежу</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -252,7 +252,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n активне з'єднання з мережею Bitcoin</numerusform><numerusform>%n активні з'єднання з мережею Bitcoin</numerusform><numerusform>%n активних з'єднань з мережею Bitcoin</numerusform></translation>
+        <translation><numerusform>%n активне з'єднання з мережею Atbcoin</numerusform><numerusform>%n активні з'єднання з мережею Atbcoin</numerusform><numerusform>%n активних з'єднань з мережею Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Bitcoin.</translation>
+        <translation>Необов'язкове повідомлення на додаток до запиту платежу, котре буде показане під час відкриття запиту. Примітка: Це повідомлення не буде відправлено з платежем через мережу Atbcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1506,8 +1506,8 @@
         <translation>Введіть мітку для цієї адреси для додавання її в список використаних адрес</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Повідомлення, що було додане до bitcoin:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Повідомлення, що було додане до atbcoin:URI та буде збережено разом з транзакцією для довідки. Примітка: Це повідомлення не буде відправлено в мережу Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1597,11 +1597,11 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Адреса Bitcoin, якою було підписано це повідомлення</translation>
+        <translation>Адреса Atbcoin, якою було підписано це повідомлення</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Bitcoin-адресою</translation>
+        <translation>Перевірте повідомлення для впевненості, що воно підписано вказаною Atbcoin-адресою</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1641,7 +1641,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Параметри:</translation>

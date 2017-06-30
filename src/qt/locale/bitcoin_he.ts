@@ -179,7 +179,7 @@
         <translation>&amp;אימות הודעה…</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
+        <source>Atbcoin</source>
         <translation>ביטקוין</translation>
     </message>
     <message>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>בקשת תשלומים (יצירה של קודים מסוג QR וסכימות כתובות משאב של :bitcoin)</translation>
+        <translation>בקשת תשלומים (יצירה של קודים מסוג QR וסכימות כתובות משאב של :atbcoin)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -1356,7 +1356,7 @@
         <translation>יש להזין תווית עבור כתובת זו כדי להוסיף אותה לרשימת הכתובות בשימוש</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
         <translation>הודעה שצורפה לביטקוין: כתובת שתאוחסן בהעברה לצורך מעקב מצדך. לתשומת לבך: הודעה זו לא תישלח ברשת הביטקוין.</translation>
     </message>
     <message>
@@ -1483,7 +1483,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>אפשרויות:</translation>

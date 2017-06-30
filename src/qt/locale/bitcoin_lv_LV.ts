@@ -163,8 +163,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un bitcoin: URIs)</translation>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un atbcoin: URIs)</translation>
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
@@ -1067,7 +1067,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Iespējas:</translation>

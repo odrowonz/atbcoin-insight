@@ -171,8 +171,8 @@
         <translation>&amp;Potvrdite poruku...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -224,7 +224,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Zatraži uplatu (stvara QR kod i bitcoin: URI adresu)</translation>
+        <translation>Zatraži uplatu (stvara QR kod i atbcoin: URI adresu)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Otvori bitcoin: URI adresu ili zahtjev za uplatu</translation>
+        <translation>Otvori atbcoin: URI adresu ili zahtjev za uplatu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -607,7 +607,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Izaberite željeni najmanji dio bitcoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
+        <translation>Izaberite željeni najmanji dio atatbcoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -965,7 +965,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Postavke:</translation>

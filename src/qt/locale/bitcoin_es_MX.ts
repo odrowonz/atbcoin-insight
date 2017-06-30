@@ -148,7 +148,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Enviar monedas a una dirección Bitcoin</translation>
+        <translation>Enviar monedas a una dirección Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -171,8 +171,8 @@
         <translation>&amp;Verificar mensaje...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -408,7 +408,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the ATBcoin network.</source>
-        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud este abierta. Nota: El mensaje no se manda con el pago a travéz de la red de Bitcoin.</translation>
+        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud este abierta. Nota: El mensaje no se manda con el pago a travéz de la red de Atbcoin.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -563,14 +563,14 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:</translation>
     </message>
     <message>
         <source>ATBcoin Core</source>
-        <translation>nucleo Bitcoin</translation>
+        <translation>nucleo Atbcoin</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

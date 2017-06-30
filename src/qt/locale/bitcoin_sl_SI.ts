@@ -144,7 +144,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Izvedite plačilo na naslov Bitcoin</translation>
+        <translation>Izvedite plačilo na naslov Atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -167,8 +167,8 @@
         <translation>&amp;Preveri sporočilo ...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -196,11 +196,11 @@
     </message>
     <message>
         <source>Sign messages with your ATBcoin addresses to prove you own them</source>
-        <translation>Podpišite poljubno sporočilo z enim svojih naslovov Bitcoin, da prejemniku sporočila dokažete, da je ta naslov v vaši lasti.</translation>
+        <translation>Podpišite poljubno sporočilo z enim svojih naslovov Atbcoin, da prejemniku sporočila dokažete, da je ta naslov v vaši lasti.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Preverite, če je bilo prejeto sporočilo podpisano z določenim naslovom Bitcoin</translation>
+        <translation>Preverite, če je bilo prejeto sporočilo podpisano z določenim naslovom Atbcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Zahtevajte plačilo (ustvarite zahtevek s kodo QR in URI tipa bitcoin:)</translation>
+        <translation>Zahtevajte plačilo (ustvarite zahtevek s kodo QR in URI tipa atbcoin:)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>Open a atbcoin: URI or payment request</source>
-        <translation>Izvedite plačilo iz zahtevka v datoteki ali iz URI tipa bitcoin:</translation>
+        <translation>Izvedite plačilo iz zahtevka v datoteki ali iz URI tipa atbcoin:</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -240,7 +240,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
-        <translation><numerusform>%n aktivna povezava v omrežje Bitcoin</numerusform><numerusform>%n aktivni povezavi v omrežje Bitcoin</numerusform><numerusform>%n aktivne povezave v omrežje Bitcoin</numerusform><numerusform>%n aktivnih povezav v omrežje Bitcoin</numerusform></translation>
+        <translation><numerusform>%n aktivna povezava v omrežje Atbcoin</numerusform><numerusform>%n aktivni povezavi v omrežje Atbcoin</numerusform><numerusform>%n aktivne povezave v omrežje Atbcoin</numerusform><numerusform>%n aktivnih povezav v omrežje Atbcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -746,7 +746,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ATBcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazani podatki so morda zastareli. Program ob vzpostavitvi povezave samodejno sinhronizira denarnico z omrežjem Bitcoin, a trenutno ta proces še ni zaključen.</translation>
+        <translation>Prikazani podatki so morda zastareli. Program ob vzpostavitvi povezave samodejno sinhronizira denarnico z omrežjem Atbcoin, a trenutno ta proces še ni zaključen.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1331,7 +1331,7 @@
     </message>
     <message>
         <source>The ATBcoin address to send the payment to</source>
-        <translation>Naslov Bitcoin, na katerega bo plačilo poslano</translation>
+        <translation>Naslov Atbcoin, na katerega bo plačilo poslano</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1374,8 +1374,8 @@
         <translation>Če vnesete oznako za zgornji naslov, se bo skupaj z naslovom shranila v imenk že uporabljenih naslovov</translation>
     </message>
     <message>
-        <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
-        <translation>Sporočilo, ki ste ga pripeli na URI tipa bitcoin:. Shranjeno bo skupaj s podatki o transakciji. Opomba: Sporočilo ne bo poslano preko omrežja Bitcoin.</translation>
+        <source>A message that was attached to the atbcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the ATBcoin network.</source>
+        <translation>Sporočilo, ki ste ga pripeli na URI tipa atbcoin:. Shranjeno bo skupaj s podatki o transakciji. Opomba: Sporočilo ne bo poslano preko omrežja Atbcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1409,7 +1409,7 @@
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
-        <translation>Naslov Bitcoin, s katerim podpisujete sporočilo</translation>
+        <translation>Naslov Atbcoin, s katerim podpisujete sporočilo</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1465,11 +1465,11 @@
     </message>
     <message>
         <source>The ATBcoin address the message was signed with</source>
-        <translation>Naslov Bitcoin, s katerim je bilo sporočilo podpisano</translation>
+        <translation>Naslov Atbcoin, s katerim je bilo sporočilo podpisano</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified ATBcoin address</source>
-        <translation>Preverite, ali je bilo sporočilo v resnici podpisano z navedenim naslovom Bitcoin.</translation>
+        <translation>Preverite, ali je bilo sporočilo v resnici podpisano z navedenim naslovom Atbcoin.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1509,7 +1509,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Možnosti:</translation>

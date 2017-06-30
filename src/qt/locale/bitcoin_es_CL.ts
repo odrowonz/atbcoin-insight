@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
-        <translation>Enviar monedas a una dirección bitcoin</translation>
+        <translation>Enviar monedas a una dirección atbcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -163,8 +163,8 @@
         <translation>Verificar mensaje....</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>Atbcoin</source>
+        <translation>Atbcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -204,7 +204,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Pide pagos (genera codigos QR and bitcoin: URls)</translation>
+        <translation>Pide pagos (genera codigos QR and atbcoin: URls)</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -719,7 +719,7 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>atbcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:
