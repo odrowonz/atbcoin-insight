@@ -67,6 +67,7 @@ private:
 
 private Q_SLOTS:
     void updateDisplayUnit();
+    //void resizeEvent(QResizeEvent *event);
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
     void updateWatchOnlyLabels(bool showWatchOnly);

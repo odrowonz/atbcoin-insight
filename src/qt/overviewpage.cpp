@@ -80,7 +80,7 @@ public:
             QBrush brush = qvariant_cast<QBrush>(value);
             foreground = brush.color();
         }
-        painter->setPen(QColor::fromRgb(0xb8,0xb8,0x9e));
+        painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
         QRect boundingRect;
         QFont font(painter->font());
         font.setBold(true);
@@ -114,12 +114,11 @@ public:
             amountText = QString("") + amountText + QString("");
         }
         if(amount>0)
-            painter->setPen(QColor::fromRgb(0x4c,0xa3,0x80));
+            painter->setPen(QColor::fromRgb(0x6c,0xba,0x07));
         else
-            painter->setPen(QColor::fromRgb(0xe8,0x78,0x59));
+            painter->setPen(QColor::fromRgb(0xe3,0x3b,0x19));
         painter->drawText(amountRect, Qt::AlignLeft |Qt::AlignVCenter, amountText);
-
-        painter->setPen(QColor::fromRgb(0xde,0xde,0xde));
+        painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
         amountRect.setWidth(amountRect.width()-15);
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
 
@@ -156,13 +155,16 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     filter(0)
 {
     ui->setupUi(this);
-
     // use a SingleColorIcon for the "out of sync warning" icon
     QIcon icon = platformStyle->SingleColorIcon(":/icons/warning");
     icon.addPixmap(icon.pixmap(QSize(64,64), QIcon::Normal), QIcon::Disabled); // also set the disabled icon because we are using a disabled QPushButton to work around missing HiDPI support of QLabel (https://bugreports.qt.io/browse/QTBUG-42503)
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
-
+    //ui->BackgroundImage->setPixmap();
+    ui->backgroundImage->setResizepolicy(BackgroundImage::fixed);
+    ui->backgroundImage->setFixedSize(QSize(300,300));
+    ui->backgroundImage->change(QPixmap(":/icons/bitcoin"));
+    ui->backgroundImage->setAlignment(Qt::AlignHCenter|Qt::AlignBottom);
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
@@ -170,11 +172,11 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
 
     connect(ui->listTransactions, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
-
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 }
-
+/*void OverviewPage::resizeEvent(QResizeEvent *event){
+}*/
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 {
     if(filter)

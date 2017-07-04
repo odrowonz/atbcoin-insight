@@ -159,7 +159,8 @@ QT_MOC_CPP = \
   qt/moc_bonuscodetab.cpp \
   qt/moc_informationdialog.cpp \
   qt/moc_css.cpp \
-  qt/moc_ShareDialog.cpp 
+  qt/moc_ShareDialog.cpp \
+  qt/moc_backgroundimage.cpp
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
@@ -236,7 +237,8 @@ BITCOIN_QT_H = \
   qt/bonuscodetab.h \
   qt/informationdialog.h \
   qt/css.h \
-  qt/ShareDialog.h
+  qt/ShareDialog.h \
+  qt/backgroundimage.h
 
 RES_ICONS = \
   qt/res/icons/add.png \
@@ -313,10 +315,7 @@ BITCOIN_QT_CPP = \
   qt/rpcconsole.cpp \
   qt/splashscreen.cpp \
   qt/trafficgraphwidget.cpp \
-  qt/utilitydialog.cpp \
-  qt/bonuscodetab.cpp \
-  qt/informationdialog.cpp \
-  qt/ShareDialog.cpp
+  qt/utilitydialog.cpp 
 
 if TARGET_WINDOWS
 BITCOIN_QT_CPP += qt/winshutdownmonitor.cpp
@@ -350,7 +349,11 @@ BITCOIN_QT_CPP += \
   qt/walletmodel.cpp \
   qt/walletmodeltransaction.cpp \
   qt/walletview.cpp \
-  qt/css.cpp 
+  qt/bonuscodetab.cpp \
+  qt/css.cpp \
+  qt/informationdialog.cpp \
+  qt/ShareDialog.cpp \
+  qt/backgroundimage.cpp 
 
 endif
 

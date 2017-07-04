@@ -27,7 +27,6 @@ RecentRequestsTableModel::RecentRequestsTableModel(CWallet *wallet, WalletModel 
 
     /* These columns must match the indices in the ColumnIndex enumeration */
     columns << tr("Date") << tr("Label") << tr("Message") << getAmountTitle();
-
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 }
 
@@ -97,10 +96,10 @@ QVariant RecentRequestsTableModel::data(const QModelIndex &index, int role) cons
     }else if(role == Qt::TextColorRole){
 
         if(index.column()==Date){
-            return QColor(0x97,0x98,0x73);
+            return QColor(0xff,0xff,0xff);
 
         }else{
-            return QColor(0xd5,0xd3,0xc4);
+            return QColor(0xff,0xff,0xff);
 
         }
 

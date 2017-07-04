@@ -20,6 +20,7 @@
 #include "platformstyle.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
+#include "backgroundimage.h"
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
 #include "walletmodel.h"
@@ -449,6 +450,11 @@ void BitcoinGUI::createToolBars()
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
         toolbar->setMovable(false);
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        BackgroundImage*logo= new BackgroundImage(":/icons/bitcoin",this);
+        logo->setFixedSize(QSize(50,50));
+        logo->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+        logo->setResizepolicy(BackgroundImage::fixed);
+        toolbar->addWidget(logo);
         toolbar->addAction(overviewAction);
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);

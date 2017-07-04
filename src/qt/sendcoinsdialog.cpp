@@ -46,8 +46,8 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *pa
         ui->clearButton->setIcon(QIcon());
         ui->sendButton->setIcon(QIcon());
     } else {
-        ui->addButton->setIcon(platformStyle->SingleColorIcon(":/icons/add",QColor::fromRgb(157,154,121)));
-        ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/quit",QColor::fromRgb(157,154,121)));
+        ui->addButton->setIcon(platformStyle->SingleColorIcon(":/icons/add",Qt::white));
+        ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/quit",Qt::white));
         ui->sendButton->setIcon(platformStyle->SingleColorIcon(":/icons/send",Qt::white));
     }
 

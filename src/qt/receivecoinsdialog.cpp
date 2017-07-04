@@ -36,10 +36,10 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *platformStyle, QWidg
         ui->showRequestButton->setIcon(QIcon());
         ui->removeRequestButton->setIcon(QIcon());
     } else {
-        ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove",QColor::fromRgb(157,154,121)));
-        ui->receiveButton->setIcon(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(157,154,121)));
+        ui->clearButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
+        ui->receiveButton->setIcon(platformStyle->SingleColorIcon(":/icons/receiving_addresses"));
         ui->showRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/eye",Qt::white));
-        ui->removeRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove",QColor::fromRgb(157,154,121)));
+        ui->removeRequestButton->setIcon(platformStyle->SingleColorIcon(":/icons/remove"));
     }
 
     // context menu actions
@@ -52,6 +52,7 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *platformStyle, QWidg
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyMessageAction);
     contextMenu->addAction(copyAmountAction);
+    ui->recentRequestsView->setShowGrid(false);
 
     // context menu signals
     connect(ui->recentRequestsView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showMenu(QPoint)));
