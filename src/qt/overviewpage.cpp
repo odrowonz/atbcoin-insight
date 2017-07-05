@@ -160,11 +160,8 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     icon.addPixmap(icon.pixmap(QSize(64,64), QIcon::Normal), QIcon::Disabled); // also set the disabled icon because we are using a disabled QPushButton to work around missing HiDPI support of QLabel (https://bugreports.qt.io/browse/QTBUG-42503)
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
-    //ui->BackgroundImage->setPixmap();
-    ui->backgroundImage->setResizepolicy(BackgroundImage::fixed);
-    ui->backgroundImage->setFixedSize(QSize(300,300));
-    ui->backgroundImage->change(QPixmap(":/icons/bitcoin"));
-    ui->backgroundImage->setAlignment(Qt::AlignHCenter|Qt::AlignBottom);
+    image=new BackgroundImage(":/icons/bitcoin",this);
+    image->resize(300,300);
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
@@ -304,7 +301,9 @@ void OverviewPage::setWalletModel(WalletModel *model)
     // update the display unit, to not use the default ("ATB")
     updateDisplayUnit();
 }
-
+void OverviewPage::resizeEvent(QResizeEvent *){
+    image->move(80,this->height()-300);
+}
 void OverviewPage::updateDisplayUnit()
 {
     if(walletModel && walletModel->getOptionsModel())

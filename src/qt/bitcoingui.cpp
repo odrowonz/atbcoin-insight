@@ -309,10 +309,14 @@ void BitcoinGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
+    mainMenu=new QPushButton(QIcon(":/icons/bitcoin"),"",this);
+    mainMenu->setObjectName("mainMenuButton");
+
 
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
+    connect(mainMenu,SIGNAL(clicked(bool)),this,SLOT(callMenu()));
     connect(BonusCodeTab,SIGNAL(triggered(bool)),this,SLOT(gotoBonusCodes()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
@@ -406,7 +410,7 @@ void BitcoinGUI::createMenuBar()
     // Get the main window's menu bar on other platforms
     appMenuBar = menuBar();
 #endif
-
+    appMenuBar->hide();
     // Configure the menus
     QMenu *file = appMenuBar->addMenu(tr("&File"));
     if(walletFrame)
@@ -422,7 +426,6 @@ void BitcoinGUI::createMenuBar()
         file->addSeparator();
     }
     file->addAction(quitAction);
-
     QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
     if(walletFrame)
     {
@@ -431,7 +434,6 @@ void BitcoinGUI::createMenuBar()
         settings->addSeparator();
     }
     settings->addAction(optionsAction);
-
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
     if(walletFrame)
     {
@@ -450,16 +452,46 @@ void BitcoinGUI::createToolBars()
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
         toolbar->setMovable(false);
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        BackgroundImage*logo= new BackgroundImage(":/icons/bitcoin",this);
-        logo->setFixedSize(QSize(50,50));
-        logo->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-        logo->setResizepolicy(BackgroundImage::fixed);
-        toolbar->addWidget(logo);
+        QWidget * space;
+        toolbar->addWidget(mainMenu);
+        QFrame *line=new QFrame();
+        line->setFrameShape(QFrame::VLine);
+        toolbar->addWidget(line);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+        toolbar->addWidget(space);
         toolbar->addAction(overviewAction);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+        toolbar->addWidget(space);
+        line=new QFrame();
+        line->setFrameShape(QFrame::VLine);
+        toolbar->addWidget(line);
         toolbar->addAction(sendCoinsAction);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+        toolbar->addWidget(space);
+        line=new QFrame();
+        line->setFrameShape(QFrame::VLine);
+        toolbar->addWidget(line);
         toolbar->addAction(receiveCoinsAction);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+        toolbar->addWidget(space);
+        line=new QFrame();
+        line->setFrameShape(QFrame::VLine);
+        toolbar->addWidget(line);
         toolbar->addAction(BonusCodeTab);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+        toolbar->addWidget(space);
+        line=new QFrame();
+        line->setFrameShape(QFrame::VLine);
+        toolbar->addWidget(line);
         toolbar->addAction(historyAction);
+        space=new QWidget(this);
+        space->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+        space->resize(25,25);
         overviewAction->setChecked(true);
     }
 }
@@ -1150,7 +1182,11 @@ void BitcoinGUI::unsubscribeFromCoreSignals()
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
     uiInterface.ThreadSafeQuestion.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _3, _4));
 }
-
+void BitcoinGUI::callMenu(){
+#ifndef Q_OS_MAC
+    appMenuBar->setHidden(!appMenuBar->isHidden());
+#endif
+}
 UnitDisplayStatusBarControl::UnitDisplayStatusBarControl(const PlatformStyle *platformStyle) :
     optionsModel(0),
     menu(0)

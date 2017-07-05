@@ -39,8 +39,9 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *pa
     fFeeMinimized(true),
     platformStyle(platformStyle)
 {
+    image=new BackgroundImage(":/icons/bitcoin",this);
     ui->setupUi(this);
-
+    image->resize(300,300);
     if (!platformStyle->getImagesOnButtons()) {
         ui->addButton->setIcon(QIcon());
         ui->clearButton->setIcon(QIcon());
@@ -575,7 +576,9 @@ void SendCoinsDialog::on_buttonMinimizeFee_clicked()
     updateFeeMinimizedLabel();
     minimizeFeeSection(true);
 }
-
+void SendCoinsDialog::resizeEvent(QResizeEvent *){
+    image->move(this->width()-300,this->height()-350);
+}
 void SendCoinsDialog::setMinimumFee()
 {
     ui->radioCustomPerKilobyte->setChecked(true);
@@ -632,9 +635,8 @@ void SendCoinsDialog::updateFeeMinimizedLabel()
 void SendCoinsDialog::updateMinFeeLabel()
 {
     if (model && model->getOptionsModel())
-        ui->checkBoxMinimumFee->setText(tr("Pay only the required fee of %1").arg(
-            BitcoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), CWallet::GetRequiredFee(1000)) + "/kB")
-        );
+        ui->labelMinFeeWarning->setText(tr("Pay only the required fee of %1").arg(
+                                            BitcoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), CWallet::GetRequiredFee(1000)) + "/kB"));
 }
 
 void SendCoinsDialog::updateSmartFeeLabel()

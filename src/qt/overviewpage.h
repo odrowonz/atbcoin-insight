@@ -6,7 +6,7 @@
 #define BITCOIN_QT_OVERVIEWPAGE_H
 
 #include "amount.h"
-
+#include "backgroundimage.h"
 #include <QWidget>
 
 class ClientModel;
@@ -47,12 +47,14 @@ Q_SIGNALS:
 
 private:
     Ui::OverviewPage *ui;
+    BackgroundImage *image;
+    void resizeEvent(QResizeEvent *);
     ClientModel *clientModel;
     WalletModel *walletModel;
     CAmount currentBalance;
     CAmount currentUnconfirmedBalance;
     CAmount currentImmatureBalance;
-    
+
     CAmount currentStake;
     
     CAmount currentWatchOnlyBalance;

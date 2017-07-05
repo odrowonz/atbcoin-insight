@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QString>
 #include <QTimer>
+#include "backgroundimage.h"
 
 class ClientModel;
 class OptionsModel;
@@ -66,7 +67,7 @@ private:
     bool fNewRecipientAllowed;
     bool fFeeMinimized;
     const PlatformStyle *platformStyle;
-
+    BackgroundImage *image;
     // Process WalletModel::SendCoinsReturn and generate a pair consisting
     // of a message and message flags for use in Q_EMIT message().
     // Additional parameter msgArg can be used via .arg(msgArg).
@@ -94,6 +95,7 @@ private Q_SLOTS:
     void coinControlClipboardLowOutput();
     void coinControlClipboardChange();
     void setMinimumFee();
+    void resizeEvent(QResizeEvent*);
     void updateFeeSectionControls();
     void updateMinFeeLabel();
     void updateSmartFeeLabel();

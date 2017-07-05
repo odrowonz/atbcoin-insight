@@ -13,6 +13,7 @@
 #include "bonuscodetab.h"
 #include <QLabel>
 #include <QMainWindow>
+#include <QPushButton>
 #include <QMap>
 #include <QMenu>
 #include <QPoint>
@@ -90,6 +91,7 @@ private:
     QProgressDialog *progressDialog;
 
     QMenuBar *appMenuBar;
+    QPushButton *mainMenu;
     QAction *overviewAction;
     QAction *historyAction;
     QAction *quitAction;
@@ -143,6 +145,7 @@ private:
     void subscribeToCoreSignals();
     /** Disconnect core signals from GUI client */
     void unsubscribeFromCoreSignals();
+
 
 Q_SIGNALS:
     /** Signal raised when a URI was entered or dragged to the GUI */
@@ -223,7 +226,10 @@ private Q_SLOTS:
 
     /** called by a timer to check if fRequestShutdown has been set **/
     void detectShutdown();
-
+    /**
+     * @brief callMenu show context menu;
+     */
+    void callMenu();
     /** Show progress dialog e.g. for verifychain */
     void showProgress(const QString &title, int nProgress);
     
