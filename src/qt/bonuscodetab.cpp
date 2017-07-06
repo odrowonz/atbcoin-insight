@@ -48,8 +48,8 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
     ui->SAmount->setDecimals(3);
     ui->SAmount->setSingleStep(0.001);
-    ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon"));
-    ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon"));
+    ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
+    ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
@@ -63,6 +63,9 @@ bool BonusCodeTab::keyCheck(const std::string &str){
 void BonusCodeTab::cliced(QModelIndex i){
     TransactionDescDialog(*model,i.row(),this).exec();
 }
+void BonusCodeTab::resizeEvent(QResizeEvent *){
+    ui->tab1->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/2.1));
+}
 void BonusCodeTab::updateBonusList(){
     QStandardItemModel *model=static_cast<QStandardItemModel *>(this->model->sourceModel());
     model->removeRows(0,model->rowCount());
@@ -73,14 +76,11 @@ void BonusCodeTab::updateBonusList(){
         model->insertRow(0);
         if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
             if(coins!=NULL&&coins->IsAvailable(i->nVout)){
-                    model->setData(model->index(0,4), QIcon(":/icons/unused"), Qt::DecorationRole);
                     model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
             }else{
                 if(mempool.exists(tx.GetHash())){
-                    model->setData(model->index(0,4), platformStyle->SingleColorIcon(":/icons/transaction_0"), Qt::DecorationRole);
                     model->setData(model->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
                 }else{
-                    model->setData(model->index(0,4), QIcon(":/icons/used"), Qt::DecorationRole);
                     model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
                 }
             }

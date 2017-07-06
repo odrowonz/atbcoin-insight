@@ -30,13 +30,13 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define COIN_MODE STATIC_DECEMALS //Currency display mode.
 
 /* Transaction list -- unconfirmed transaction */
-#define COLOR_UNCONFIRMED QColor(0xa0,0x9e,0x78)
+#define COLOR_UNCONFIRMED QColor(0xc5,0xec,0xe8)
 /* Transaction list -- negative amount */
-#define COLOR_NEGATIVE QColor(0xe8,0x77,0x64)
-#define COLOR_POSITIVE QColor(0x4b,0xa2,0x7e)
+#define COLOR_NEGATIVE QColor(0xf6,0xe3,0x95)
+#define COLOR_POSITIVE QColor(0xa4,0xf6,0x41)
 
 /* Transaction list -- bare address (without label) */
-#define COLOR_BAREADDRESS QColor(0xa0,0x9e,0x78)
+#define COLOR_BAREADDRESS QColor(0xc5,0xec,0xe8)
 /* Transaction list -- TX status decoration - open until date */
 #define COLOR_TX_STATUS_OPENUNTILDATE QColor(64, 64, 255)
 /* Transaction list -- TX status decoration - offline */

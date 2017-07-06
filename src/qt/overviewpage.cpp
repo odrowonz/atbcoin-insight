@@ -20,7 +20,6 @@
 
 #define DECORATION_SIZE 65
 #define NUM_ITEMS 7
-
 class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
@@ -35,25 +34,8 @@ public:
     inline void paint(QPainter *painter, const QStyleOptionViewItem &option,
                       const QModelIndex &index ) const
     {
+        int unit=static_cast<int>(BitcoinUnit::BTC);
         painter->save();
-        QIcon icon;
-        int type=qvariant_cast<int>(index.data(TransactionTableModel::TypeRole));
-        switch (type) {
-        case 1:
-            icon=QIcon(":/icons/tx_mined");
-            break;
-        case 4:
-        case 5:
-            icon=QIcon(":/icons/tx_input");
-            break;
-        case 2:
-        case 3:
-            icon=QIcon(":/icons/tx_output");
-            break;
-        default:
-            icon=QIcon(":/icons/tx_inout");
-            break;
-        }
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(40, 40));
         QPainterPath path;
@@ -66,8 +48,9 @@ public:
         int ypad = 10;
         int halfheight = (mainRect.height() - 2*ypad)/2;
         QRect amountRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
+        QRect atbRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
+
         QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
-        icon.paint(painter, decorationRect);
 
         QDateTime date = index.data(TransactionTableModel::DateRole).toDateTime();
         QString address = index.data(Qt::DisplayRole).toString();
@@ -88,12 +71,6 @@ public:
         painter->setFont(font);
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address, &boundingRect);
 
-        if (index.data(TransactionTableModel::WatchonlyRole).toBool())
-        {
-            QIcon iconWatchonly = qvariant_cast<QIcon>(index.data(TransactionTableModel::WatchonlyDecorationRole));
-            QRect watchonlyRect(boundingRect.right() + 5, mainRect.top()+ypad+halfheight, 16, halfheight);
-            iconWatchonly.paint(painter, watchonlyRect);
-        }
 
         if(amount < 0)
         {
@@ -113,11 +90,15 @@ public:
         {
             amountText = QString("") + amountText + QString("");
         }
+        amountText.remove("ATB");
         if(amount>0)
             painter->setPen(QColor::fromRgb(0x6c,0xba,0x07));
         else
             painter->setPen(QColor::fromRgb(0xe3,0x3b,0x19));
         painter->drawText(amountRect, Qt::AlignLeft |Qt::AlignVCenter, amountText);
+        painter->setPen(QColor::fromRgb(0x19, 0xa3, 0x7e));
+        atbRect.setX(atbRect.x()+amountText.size()*6+10);
+        painter->drawText(atbRect,Qt::AlignLeft |Qt::AlignVCenter,"ATB");
         painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
         amountRect.setWidth(amountRect.width()-15);
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
@@ -160,8 +141,8 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     icon.addPixmap(icon.pixmap(QSize(64,64), QIcon::Normal), QIcon::Disabled); // also set the disabled icon because we are using a disabled QPushButton to work around missing HiDPI support of QLabel (https://bugreports.qt.io/browse/QTBUG-42503)
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
-    image=new BackgroundImage(":/icons/bitcoin",this);
-    image->resize(300,300);
+    image=new BackgroundImage(":/icons/overviewImage",this);
+    image->resize(439,258);
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
@@ -202,22 +183,22 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     
     currentWatchOnlyStake = watchOnlyStake;
     
-    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance, false, BitcoinUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, balance, false, BitcoinUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, immatureBalance, false, BitcoinUnits::separatorAlways));
     
-    ui->labelStake->setText(BitcoinUnits::formatWithUnit(unit, stake, false, BitcoinUnits::separatorAlways));
-    ui->labelTotal->setText(BitcoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance + stake, false, BitcoinUnits::separatorAlways));
+    ui->labelStake->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, stake, false, BitcoinUnits::separatorAlways));
+    ui->labelTotal->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, balance + unconfirmedBalance + immatureBalance + stake, false, BitcoinUnits::separatorAlways));
     
-    ui->labelWatchAvailable->setText(BitcoinUnits::formatWithUnit(unit, watchOnlyBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelWatchPending->setText(BitcoinUnits::formatWithUnit(unit, watchUnconfBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelWatchImmature->setText(BitcoinUnits::formatWithUnit(unit, watchImmatureBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, watchOnlyBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchPending->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, watchUnconfBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchImmature->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, watchImmatureBalance, false, BitcoinUnits::separatorAlways));
     
-    ui->labelWatchStake->setText(BitcoinUnits::formatWithUnit(unit, watchOnlyStake, false, BitcoinUnits::separatorAlways));
-    ui->labelWatchTotal->setText(BitcoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance + watchOnlyStake, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchStake->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, watchOnlyStake, false, BitcoinUnits::separatorAlways));
+    ui->labelWatchTotal->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::BTC_HTML, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance + watchOnlyStake, false, BitcoinUnits::separatorAlways));
     
-    ui->LabelDollar_watchonly->setText(BitcoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance + watchOnlyStake, false, BitcoinUnits::separatorAlways));
-    ui->LabelDollar->setText(BitcoinUnits::formatWithUnit(3, balance + unconfirmedBalance + immatureBalance + stake, false, BitcoinUnits::separatorAlways));
+    ui->LabelDollar_watchonly->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::Dollar, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance + watchOnlyStake, false, BitcoinUnits::separatorAlways));
+    ui->LabelDollar->setText(BitcoinUnits::formatWithUnit(BitcoinUnit::Dollar, balance + unconfirmedBalance + immatureBalance + stake, false, BitcoinUnits::separatorAlways));
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
     bool showImmature = immatureBalance != 0;
@@ -302,7 +283,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
     updateDisplayUnit();
 }
 void OverviewPage::resizeEvent(QResizeEvent *){
-    image->move(80,this->height()-300);
+    image->move(0,this->height()-256);
 }
 void OverviewPage::updateDisplayUnit()
 {

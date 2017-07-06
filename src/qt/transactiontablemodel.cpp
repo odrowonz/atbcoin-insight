@@ -244,7 +244,7 @@ TransactionTableModel::TransactionTableModel(const PlatformStyle *platformStyle,
         fProcessingQueuedTransactions(false),
         platformStyle(platformStyle)
 {
-    columns << QString() << QString() << tr("Date") << tr("Type") << tr("Label") << BitcoinUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
+    columns << QString() << QString() << tr("Date") << tr("Type") << tr("Label") << BitcoinUnits::getAmountColumnTitle(BitcoinUnit::BTC);
     priv->refreshWallet();
 
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
@@ -393,15 +393,15 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord *wtx
     switch(wtx->type)
     {
     case TransactionRecord::Generated:
-        return QIcon(":/icons/tx_mined");
+        return platformStyle->SingleColorIcon(":/icons/tx_mined",QColor(0xa4,0xf6,0x41));
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::RecvFromOther:
-        return QIcon(":/icons/tx_input");
+        return platformStyle->SingleColorIcon(":/icons/tx_input,",QColor(0xa4,0xf6,0x41));
     case TransactionRecord::SendToAddress:
     case TransactionRecord::SendToOther:
-        return QIcon(":/icons/tx_output");
+        return platformStyle->SingleColorIcon(":/icons/tx_output",QColor(0xf6,0xe3,0x95));
     default:
-        return QIcon(":/icons/tx_inout");
+        return platformStyle->SingleColorIcon(":/icons/tx_inout",QColor(0xf6,0xe3,0x95));
     }
 }
 
@@ -545,7 +545,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
     {
         QIcon icon = qvariant_cast<QIcon>(index.data(RawDecorationRole));
         if(index.column()==0){
-            return platformStyle->SingleColorIcon(icon);
+            return platformStyle->SingleColorIcon(icon,Qt::white);
         }
         return icon;
     }
@@ -592,7 +592,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             else
                 return COLOR_POSITIVE;
         }
-        return QColor(0xa0,0x9e,0x78);
+        return QColor(0xc5,0xec,0xe8);
         break;
     case TypeRole:
         return rec->type;

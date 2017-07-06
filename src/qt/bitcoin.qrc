@@ -11,7 +11,7 @@
         <file alias="connect_4">res/icons/connect4.png</file>
         <file alias="transaction_0">res/icons/transaction0.png</file>
         <file alias="transaction_confirmed">res/icons/transaction2.png</file>
-        <file alias="transaction_conflicted">res/icons/transaction_conflicted.png</file>
+        <file alias="transaction_conflicted ">res/icons/transaction_conflicted.png</file>
         <file alias="transaction_1">res/icons/clock1.png</file>
         <file alias="transaction_2">res/icons/clock2.png</file>
         <file alias="transaction_3">res/icons/clock3.png</file>
@@ -61,8 +61,8 @@
         <file alias="Down_d">res/icons/Down_disabled.png</file>
         <file alias="Up_d">res/icons/Up_disabled.png</file>
         <file alias="regulyar_new">res/ApercuPro-Regular.otf</file>
-        <file alias="unused">res/icons/unused.png</file>
-        <file alias="used">res/icons/used.png</file>
+        <file alias="overviewImage">res/icons/overviewImage.png</file>
+        <file alias="sendImage">res/icons/sendImage.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="spinner-000">res/movies/spinner-000.png</file>

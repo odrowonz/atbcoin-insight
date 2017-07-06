@@ -187,7 +187,7 @@
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>&amp;Кошелек</translation>
+        <translation>&amp;Обзор</translation>
     </message>
     <message>
         <source>Node</source>

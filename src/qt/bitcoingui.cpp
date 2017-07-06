@@ -267,6 +267,7 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
     overviewAction = new QAction(platformStyle->SingleColorIcon(":/icons/overview",QColor::fromRgb(0xff,0xff,0xff)), tr("&Overview"), this);
+
     overviewAction->setStatusTip(tr("Show general overview of wallet"));
     overviewAction->setToolTip(overviewAction->statusTip());
     overviewAction->setCheckable(true);
@@ -309,7 +310,7 @@ void BitcoinGUI::createActions()
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    mainMenu=new QPushButton(QIcon(":/icons/bitcoin"),"",this);
+    mainMenu=new QPushButton(platformStyle->SingleColorIcon(":/icons/about",Qt::white),"",this);
     mainMenu->setObjectName("mainMenuButton");
 
 
@@ -450,8 +451,8 @@ void BitcoinGUI::createToolBars()
     if(walletFrame)
     {
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
-        toolbar->setMovable(false);
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        toolbar->setMovable(false);
         QWidget * space;
         toolbar->addWidget(mainMenu);
         QFrame *line=new QFrame();

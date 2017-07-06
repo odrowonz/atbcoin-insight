@@ -27,6 +27,7 @@ public:
 public Q_SLOTS:
     void updateBonusList();
 private:
+    void resizeEvent(QResizeEvent*);
     Ui::BonusCodeTab *ui;
     ClientModel *clientModel;
     WalletModel *wmodel;

@@ -33,6 +33,7 @@ bool BitcoinUnits::valid(int unit)
     case mBTC:
     case uBTC:
     case Dollar:
+    case BTC_HTML:
         return true;
     default:
         return false;
@@ -46,7 +47,8 @@ QString BitcoinUnits::name(int unit)
     case BTC: return QString("ATB");
     case mBTC: return QString("mATB");
     case uBTC: return QString::fromUtf8("μATB");
-    case Dollar: return QString("$");
+    case Dollar: return QString("<span style='color:#bdeae5;'>$</span>");
+    case BTC_HTML: return QString("<span style='color:#bdeae5;'>ATB</span>");
     default: return QString("???");
     }
 }
@@ -55,7 +57,7 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("ATBcoins");
+    case BTC_HTML:case BTC: return QString("ATBcoins");
     case Dollar: return QString("$");
     case mBTC: return QString("Milli-ATBcoins (1 / 1" THIN_SP_UTF8 "000)");
     case uBTC: return QString("Micro-ATBcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
@@ -71,7 +73,7 @@ qint64 BitcoinUnits::factor(int unit)
     case DYNAMIC_COIN_MODE:
         switch(unit)
         {
-        case BTC:  return 100000000;
+        case BTC_HTML:case BTC:  return 100000000;
         case mBTC: return 100000;
         case uBTC: return 100;
         default:   return 100000000;
@@ -89,7 +91,7 @@ int BitcoinUnits::decimals(int unit)
     if(COIN_MODE==DYNAMIC_COIN_MODE){
         switch(unit)
         {
-        case BTC: return 8;
+        case BTC_HTML:case BTC: return 8;
         case mBTC: return 5;
         case uBTC: return 2;
         default: return 0;

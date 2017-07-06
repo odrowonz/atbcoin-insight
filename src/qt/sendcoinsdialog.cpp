@@ -39,9 +39,9 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *pa
     fFeeMinimized(true),
     platformStyle(platformStyle)
 {
-    image=new BackgroundImage(":/icons/bitcoin",this);
+    image=new BackgroundImage(":/icons/sendImage",this);
     ui->setupUi(this);
-    image->resize(300,300);
+    image->resize(251,389);
     if (!platformStyle->getImagesOnButtons()) {
         ui->addButton->setIcon(QIcon());
         ui->clearButton->setIcon(QIcon());
@@ -577,7 +577,7 @@ void SendCoinsDialog::on_buttonMinimizeFee_clicked()
     minimizeFeeSection(true);
 }
 void SendCoinsDialog::resizeEvent(QResizeEvent *){
-    image->move(this->width()-300,this->height()-350);
+    image->move(this->width()-251,this->height()-389);
 }
 void SendCoinsDialog::setMinimumFee()
 {
