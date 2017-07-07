@@ -18,8 +18,8 @@
 #include <QAbstractItemDelegate>
 #include <QPainter>
 
-#define DECORATION_SIZE 65
-#define NUM_ITEMS 7
+#define DECORATION_SIZE 85
+#define NUM_ITEMS 5
 class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
@@ -36,21 +36,40 @@ public:
     {
         int unit=static_cast<int>(BitcoinUnit::BTC);
         painter->save();
+        QIcon icon;
+        int type=qvariant_cast<int>(index.data(TransactionTableModel::TypeRole));
+        switch (type) {
+        case 1:
+            icon=platformStyle->SingleColorIcon(":/icons/tx_mined",QColor::fromRgb(0x6c,0xba,0x07));
+            break;
+        case 4:
+        case 5:
+            icon=platformStyle->SingleColorIcon(":/icons/tx_input,",QColor::fromRgb(0x6c,0xba,0x07));
+            break;
+        case 2:
+        case 3:
+            icon=platformStyle->SingleColorIcon(":/icons/tx_output",QColor::fromRgb(0xe3,0x3b,0x19));
+            break;
+        default:
+            icon=platformStyle->SingleColorIcon(":/icons/tx_inout",QColor::fromRgb(0xe3,0x3b,0x19));
+            break;
+        }
         QRect mainRect = option.rect;
-        QRect decorationRect(mainRect.topLeft(), QSize(40, 40));
+        QRect decorationRect(mainRect.topLeft()+QPoint(25,18), QSize(20, 20));
         QPainterPath path;
-        path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+3,mainRect.width()-1,mainRect.height()-3), 2, 2);
+        path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+3,mainRect.width()-1,mainRect.height()-3), 10, 10);
         painter->fillPath(path,Qt::white);
         painter->setPen(Qt::white);
         painter->drawPath(path);
 
         int xspace = DECORATION_SIZE -20;
-        int ypad = 10;
+        int ypad = 14;
         int halfheight = (mainRect.height() - 2*ypad)/2;
         QRect amountRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
         QRect atbRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
 
         QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
+        icon.paint(painter, decorationRect);
 
         QDateTime date = index.data(TransactionTableModel::DateRole).toDateTime();
         QString address = index.data(Qt::DisplayRole).toString();
@@ -128,7 +147,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     currentWatchOnlyBalance(-1),
     currentWatchUnconfBalance(-1),
     currentWatchImmatureBalance(-1),
-    
+    image(0),
     currentStake(-1),
     currentWatchOnlyStake(-1),
     
@@ -170,7 +189,6 @@ OverviewPage::~OverviewPage()
 void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& stake, const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance, const CAmount& watchOnlyStake)
 
 {
-    int unit = walletModel->getOptionsModel()->getDisplayUnit();
     currentBalance = balance;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
@@ -283,7 +301,8 @@ void OverviewPage::setWalletModel(WalletModel *model)
     updateDisplayUnit();
 }
 void OverviewPage::resizeEvent(QResizeEvent *){
-    image->move(0,this->height()-256);
+    if(image)
+        image->move(20,this->height()-256);
 }
 void OverviewPage::updateDisplayUnit()
 {

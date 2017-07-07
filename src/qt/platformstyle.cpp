@@ -98,6 +98,28 @@ PlatformStyle::PlatformStyle(const QString &name, bool imagesOnButtons, bool col
     textColor = QColor(QApplication::palette().color(QPalette::WindowText));
 }
 
+QIcon PlatformStyle::redraw(const QIcon &ico, QColor colorbase){
+    QIcon new_ico;
+    QSize sz;
+    Q_FOREACH(sz, ico.availableSizes())
+    {
+        QImage img(ico.pixmap(sz).toImage());
+        img = img.convertToFormat(QImage::Format_ARGB32);
+        for (int x = img.width(); x--; )
+        {
+            for (int y = img.height(); y--; )
+            {
+                const QRgb rgb = img.pixel(x, y);
+                img.setPixel(x, y, qRgba(colorbase.red(), colorbase.green(), colorbase.blue(), qAlpha(rgb)));
+            }
+        }
+        new_ico.addPixmap(QPixmap::fromImage(img));
+    }
+    return new_ico;
+}
+QIcon PlatformStyle::redraw(const QString &name, QColor color){
+    return redraw(QIcon(name),color);
+}
 QImage PlatformStyle::SingleColorImage(const QString& filename,QColor color) const
 {
     if (!colorizeIcons)

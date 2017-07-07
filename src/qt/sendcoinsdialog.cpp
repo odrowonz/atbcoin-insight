@@ -35,6 +35,7 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *pa
     ui(new Ui::SendCoinsDialog),
     clientModel(0),
     model(0),
+    image(0),
     fNewRecipientAllowed(true),
     fFeeMinimized(true),
     platformStyle(platformStyle)
@@ -577,7 +578,8 @@ void SendCoinsDialog::on_buttonMinimizeFee_clicked()
     minimizeFeeSection(true);
 }
 void SendCoinsDialog::resizeEvent(QResizeEvent *){
-    image->move(this->width()-251,this->height()-389);
+    if(image)
+        image->move(this->width()-251,this->height()-389);
 }
 void SendCoinsDialog::setMinimumFee()
 {

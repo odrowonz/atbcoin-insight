@@ -15,6 +15,8 @@ class PlatformStyle
 public:
     /** Get style associated with provided platform name, or 0 if not known */
     static const PlatformStyle *instantiate(const QString &platformId);
+    static QIcon redraw(const QString&,QColor color=QColor::fromRgb(0x90,0xc4,0xc2));
+    static QIcon redraw(const QIcon&,QColor color=QColor::fromRgb(0x90,0xc4,0xc2));
 
     const QString &getName() const { return name; }
 

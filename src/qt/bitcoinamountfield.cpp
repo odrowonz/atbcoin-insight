@@ -27,7 +27,7 @@ public:
         currentUnit(BitcoinUnits::BTC)
     {
         singleStep=pow(10,STATIC_DECEMALS); // ATBCoin
-        setAlignment(Qt::AlignRight);
+        setAlignment(Qt::AlignCenter);
 
         connect(lineEdit(), SIGNAL(textEdited(QString)), this, SIGNAL(valueChanged()));
     }

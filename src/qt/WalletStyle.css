@@ -334,6 +334,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 QLineEdit::text,QValidatedLineEdit::text,QSpinBox::text,QDoubleSpinBox::text, AmountSpinBox::text,QComboBox::text,QValueComboBox::text,#labelFeeHeadline{
 	margin-left: 10px;
 }
+
 QLineEdit,QValidatedLineEdit{
 
         height: 40px;
@@ -372,6 +373,10 @@ QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QComboBox,QValueC
   	display: inline-block;
   	position: relative;
 }
+QSpinBox,QDoubleSpinBox, AmountSpinBox{
+    min-width:100px;
+    text-align: center;
+}
 QComboBox,QValueComboBox{
         border-radius:2px;
         width: 60px;
@@ -400,9 +405,10 @@ QSpinBox::down-button,QDoubleSpinBox::down-button,AmountSpinBox::down-button{
     border:none;
 }
 
+
 QSpinBox::up-button:disabled,QDoubleSpinBox::up-button:disabled,AmountSpinBox::up-button:disabled,
 QSpinBox::down-button:disabled,QDoubleSpinBox::down-button:disabled,AmountSpinBox::down-button:disabled{
-    background-color: #158786;
+    background-color: #5ec8bd;
 }
 
 QSpinBox::up-button:hover,QSpinBox::up-button:pressed,QSpinBox::down-button:hover, QSpinBox::down-button:pressed, 
@@ -414,30 +420,32 @@ AmountSpinBox::up-button:hover,AmountSpinBox::up-button:pressed,AmountSpinBox::d
 
 
 QSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
-    image: url(:/icons/Up);
+    image: url(:/icons/spinUp);
     subcontrol-origin: border;
-    subcontrol-position: top right;
-    margin-right: 7px;
-    margin-top: 2px;
+    subcontrol-position: center center;
+    margin-right: 0px;
+    margin-top: 0px;
     width: 12px;
-    height: 7px;
+    height: 12px;
 }
 
 QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
-    image: url(:/icons/Down);
+    image: url(:/icons/spinDown);
     subcontrol-origin: border;
-    subcontrol-position: bottom right;
-    margin-right: 7px;
-    margin-bottom: 2px;
-    width: 12px;
-    height: 7px;
+    subcontrol-position: center center;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    width: 10px;
+    height:10px;
 }
 
 #customFee AmountSpinBox{
-    width:40px;
+    min-width:0px;
+    width:35px;
     border-radius:4px;
 }
 #customFee AmountSpinBox::up-arrow{
+    image: url(:/icons/Up);
     margin: 0px;
     margin-bottom:4px;
     padding:0px;
@@ -456,6 +464,7 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
 }
 
 #customFee AmountSpinBox::down-arrow{
+    image: url(:/icons/Down);
     margin: 0px;
     margin-top:4px;
     padding:0px;
@@ -514,12 +523,12 @@ QComboBox::down-arrow, QValueComboBox::down-arrow{
 }
 
 
-QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off, QDoubleSpinBox::up-arrow:disabled, QDoubleSpinBox::up-arrow:off, AmountSpinBox::up-arrow:disabled, AmountSpinBox::up-arrow:off{ 
-   image: url(:/icons/Up_d);
+QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off, QDoubleSpinBox::up-arrow:disabled, QDoubleSpinBox::up-arrow:off, AmountSpinBox::up-arrow:disabled, AmountSpinBox::up-arrow:off{
+   image: url(:/icons/spinUp);
 }
 
-QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-arrow:disabled, QDoubleSpinBox::down-arrow:off, AmountSpinBox::down-arrow:disabled, AmountSpinBox::down-arrow:off,QComboBox::down-arrow:disabled, QValueComboBox::down-arrow:disabled, QComboBox::down-arrow:off, QValueComboBox::down-arrow:off{ 
-   image: url(:/icons/Down_d);
+QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-arrow:disabled, QDoubleSpinBox::down-arrow:off, AmountSpinBox::down-arrow:disabled, AmountSpinBox::down-arrow:off,QComboBox::down-arrow:disabled, QValueComboBox::down-arrow:disabled, QComboBox::down-arrow:off, QValueComboBox::down-arrow:off{
+   image: url(:/icons/spinDown);
 }
 
 QComboBox:item,QValueComboBox:item{
@@ -548,10 +557,10 @@ QComboBox:item:hover,QValueComboBox:item:hover{
 	margin: 0px; 
 	color:#fff;
         max-width:240px;
-	text-align: center; 
+        text-align: center;
 } 
 .QProgressBar::chunk {
- 	background: #4ba27e;
+        background: #60bac1;
         border-radius: 7px; margin: 0px;
 }
 
@@ -673,14 +682,14 @@ QToolBar{
 
 .QStatusBar{
 	border-top: 1px solid #4ba27e;
-	height:15px;
+        height:20px;
 	color:#4ba27e;
 	background: #fff;
 	margin-left: 0px;
-	margin-right: 0px;
+        margin-right: 0px;
 }
 #progressBarLabel{
-	color:#4ba27e;
+        color:#60bac1;
 }
 
 QMenuBar {
@@ -769,4 +778,7 @@ TransactionDescDialog{
 TransactionDescDialog #detailText{
     color: #fff;
     background:#38a196;
+}
+#ReceiveCoinsDialog{
+    background: transparent;
 }
