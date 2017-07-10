@@ -27,8 +27,8 @@
 	color:#bbbbbb
 }
 .QToolButton{
-        height: 27px;
-        line-height: 27px;
+        height: 40px;
+        line-height: 40px;
         padding: 0 10px;
         margin-left: 10px;
         margin-top: 10px;
@@ -334,7 +334,10 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 QLineEdit::text,QValidatedLineEdit::text,QSpinBox::text,QDoubleSpinBox::text, AmountSpinBox::text,QComboBox::text,QValueComboBox::text,#labelFeeHeadline{
 	margin-left: 10px;
 }
-
+QSpinBox::text,QDoubleSpinBox::text, AmountSpinBox::text{
+        margin-left: 40px;
+        margin-right: 40px;
+}
 QLineEdit,QValidatedLineEdit{
 
         height: 40px;
@@ -348,7 +351,7 @@ QLineEdit,QValidatedLineEdit{
         min-width:120px;
   	text-align: center;
   	vertical-align: middle;
-  	margin: 5px;
+        margin: 1px;
 }
 #amountWidget, #addressWidget{
         border-radius:2px;
@@ -374,7 +377,8 @@ QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QComboBox,QValueC
   	position: relative;
 }
 QSpinBox,QDoubleSpinBox, AmountSpinBox{
-    min-width:100px;
+    min-width:140px;
+    width:140px;
     text-align: center;
 }
 QComboBox,QValueComboBox{
@@ -425,8 +429,8 @@ QSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
     subcontrol-position: center center;
     margin-right: 0px;
     margin-top: 0px;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
 }
 
 QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
@@ -435,8 +439,8 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     subcontrol-position: center center;
     margin-right: 0px;
     margin-bottom: 0px;
-    width: 10px;
-    height:10px;
+    width: 8px;
+    height:8px;
 }
 
 #customFee AmountSpinBox{
@@ -676,7 +680,7 @@ QDialog, QMainWindow,RPCConsole{
 QToolBar{
         background-color: transparent;
 	margin:0px;
-        margin-top:20px;
+        margin-top:10px;
         border: none
 }
 

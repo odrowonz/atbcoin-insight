@@ -302,7 +302,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
 }
 void OverviewPage::resizeEvent(QResizeEvent *){
     if(image)
-        image->move(20,this->height()-256);
+        image->move(this->width()*0.03,this->height()-256);
 }
 void OverviewPage::updateDisplayUnit()
 {
