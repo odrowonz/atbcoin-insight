@@ -44,7 +44,7 @@ public:
             break;
         case 4:
         case 5:
-            icon=platformStyle->SingleColorIcon(":/icons/tx_input,",QColor::fromRgb(0x6c,0xba,0x07));
+            icon=platformStyle->SingleColorIcon(":/icons/tx_input",QColor::fromRgb(0x6c,0xba,0x07));
             break;
         case 2:
         case 3:
