@@ -18,6 +18,8 @@ public Q_SLOTS:
     void sendClickedByEmail();
 private:
     Ui::ShareDialog *ui;
+    void resizeEvent(QResizeEvent*);
+
 };
 
 #endif // DIALOG_H

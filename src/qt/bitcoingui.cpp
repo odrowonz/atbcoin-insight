@@ -275,14 +275,14 @@ void BitcoinGUI::createActions()
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Send"), this);
+    sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send",QColor::fromRgb(0xbc,0xe8,0xe5)), tr("&Send"), this);
     sendCoinsAction->setStatusTip(tr("Send coins to a ATBcoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
 
-    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0x79,0xa6,0x90)),tr("Redeem codes"),this);
+    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0xbc,0xe8,0xe5)),tr("Redeem codes"),this);
     BonusCodeTab->setStatusTip(tr("Browse page of bonus codes"));
     BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
     BonusCodeTab->setCheckable(true);
@@ -293,7 +293,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setStatusTip(sendCoinsAction->statusTip());
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
-    receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Receive"), this);
+    receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses",QColor::fromRgb(0xbc,0xe8,0xe5)), tr("&Receive"), this);
     receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and atbcoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
@@ -304,7 +304,7 @@ void BitcoinGUI::createActions()
     receiveCoinsMenuAction->setStatusTip(receiveCoinsAction->statusTip());
     receiveCoinsMenuAction->setToolTip(receiveCoinsMenuAction->statusTip());
 
-    historyAction = new QAction(platformStyle->SingleColorIcon(":/icons/history",QColor::fromRgb(0x79,0xa6,0x90)), tr("&Transactions"), this);
+    historyAction = new QAction(platformStyle->SingleColorIcon(":/icons/history",QColor::fromRgb(0xbc,0xe8,0xe5)), tr("&Transactions"), this);
     historyAction->setStatusTip(tr("Browse transaction history"));
     historyAction->setToolTip(historyAction->statusTip());
     historyAction->setCheckable(true);
@@ -697,11 +697,11 @@ void BitcoinGUI::openClicked()
     }
 }
 void BitcoinGUI::checedTabChanged(){
-    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
-    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
-    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
-    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
-    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),QColor::fromRgb(0x79,0xa6,0x90)));
+    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
+    overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
+    historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
+    receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
+    sendCoinsAction->setIcon(platformStyle->SingleColorIcon(sendCoinsAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
 }
 void BitcoinGUI::gotoBonusCodes()
 {
