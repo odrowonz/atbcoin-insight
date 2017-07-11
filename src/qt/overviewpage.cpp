@@ -14,6 +14,7 @@
 #include "transactionfilterproxy.h"
 #include "transactiontablemodel.h"
 #include "walletmodel.h"
+#include <QFontDatabase>
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
@@ -55,6 +56,8 @@ public:
             break;
         }
         QRect mainRect = option.rect;
+        mainRect.setWidth(mainRect.width()-40);
+
         QRect decorationRect(mainRect.topLeft()+QPoint(25,18), QSize(20, 20));
         QPainterPath path;
         path.addRoundedRect(QRect(mainRect.left(),mainRect.top()+3,mainRect.width()-1,mainRect.height()-3), 10, 10);
@@ -86,7 +89,15 @@ public:
         QRect boundingRect;
         QFont font(painter->font());
         font.setBold(true);
+#ifdef Q_OS_MAC
+        font.setPointSize(13);
+#endif
+#ifdef Q_OS_WIN
+        font.setPointSize(11);
+#endif
+#ifdef Q_OS_UNIX
         font.setPointSize(10);
+#endif
         painter->setFont(font);
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address, &boundingRect);
 

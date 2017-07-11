@@ -46,7 +46,6 @@ void ShareDialog::sendClickedByEmail(){
     ui->ResponceByEmail->setVisible(true);
     ui->ResponceByEmail->setText("Response");
 }
-
 ShareDialog::~ShareDialog()
 {
     delete ui;

@@ -56,6 +56,8 @@ QVariant RecentRequestsTableModel::data(const QModelIndex &index, int role) cons
 
     const RecentRequestEntry *rec = &list[index.row()];
 
+    if (role == Qt::TextAlignmentRole)
+            return Qt::AlignCenter;
     if(role == Qt::DisplayRole || role == Qt::EditRole)
     {
         switch(index.column())

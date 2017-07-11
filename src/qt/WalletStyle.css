@@ -178,7 +178,7 @@ QToolTip{
 }
 #RecenTransactions{
         margin-left:10px;
-        font: 9px;
+        font: 12px;
         font-weight:bold;
         text-transform: uppercase;
         letter-spacing:2px;
@@ -803,4 +803,11 @@ TransactionDescDialog #detailText{
 }
 #ReceiveCoinsDialog{
     background: transparent;
+}
+#OverViewHead{
+    background-color: rgb(77,165,158);
+    margin-right:40px;
+    border-radius:6px;
+    margin-top:12px;
+    min-height:50px;
 }
