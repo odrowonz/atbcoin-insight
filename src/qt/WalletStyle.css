@@ -10,6 +10,7 @@
   	font-weight: 600;
   	text-transform: uppercase;
         background-color: transparent;
+        qproperty-iconSize: 20px;
         color: #fff;
 }
 .QPushButton:focus{
@@ -29,7 +30,7 @@
 .QToolButton{
         height: 40px;
         line-height: 40px;
-        padding: 0 10px;
+        padding: 0 0px;
         margin-left: 10px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -107,9 +108,12 @@
 }
 
 .QLabel{
-        font-size: 13px;
+        font-size: 14px;
   	font-weight: 500;
         color: #fff;
+}
+#labelBalanceText, #labelPendingText,#labelImmatureText,#labelStakeText,#labelTotalText{
+    font-weight: 700;
 }
 #Receive_Head{
     color: #fff;
@@ -234,13 +238,13 @@ QToolTip{
 
 QFrame[frameShape="4"]{
     border-radius: 0px;
-    border-top:  2px dashed #fff;
+    border-top:  1px dashed #fff;
     background: transparent;
 }
 QFrame[frameShape="5"]
 {
-    margin-top:18px;
-    margin-bottom:18px;
+    margin-top:22px;
+    margin-bottom:22px;
     border-radius: 0px;
     border-left:  1px solid #fff;
     background: transparent;
@@ -377,8 +381,8 @@ QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QComboBox,QValueC
   	position: relative;
 }
 QSpinBox,QDoubleSpinBox, AmountSpinBox{
-    min-width:140px;
-    width:140px;
+    min-width:190px;
+    width:190px;
     text-align: center;
 }
 QComboBox,QValueComboBox{
@@ -443,19 +447,22 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     height:8px;
 }
 
-#customFee AmountSpinBox{
-    min-width:0px;
-    width:35px;
+#customFee AmountSpinBox,QSpinBox
+{
+    min-width:145px;
+    width:145px;
     border-radius:4px;
 }
-#customFee AmountSpinBox::up-arrow{
+#customFee AmountSpinBox::up-arrow,
+QSpinBox::up-arrow{
     image: url(:/icons/Up);
     margin: 0px;
     margin-bottom:4px;
     padding:0px;
     subcontrol-position: center center;
 }
-#customFee AmountSpinBox::up-button{
+#customFee AmountSpinBox::up-button,
+QSpinBox::up-button{
     border-radius:0px;
     background: #4ea69d;
     border: 4px solid #118381;
@@ -467,14 +474,16 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     subcontrol-position: top right;
 }
 
-#customFee AmountSpinBox::down-arrow{
+#customFee AmountSpinBox::down-arrow,
+QSpinBox::down-arrow{
     image: url(:/icons/Down);
     margin: 0px;
     margin-top:4px;
     padding:0px;
     subcontrol-position: center center;
 }
-#customFee AmountSpinBox::down-button{
+#customFee AmountSpinBox::down-button,
+QSpinBox::down-button{
     border-radius:px;
     background: #4ea69d;
     border: 4px solid #118381;
@@ -485,16 +494,25 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     height:17px;
     subcontrol-position: bottom right;
 }
+QSpinBox::down-button,QSpinBox::up-button{
+    border: none;
+}
 #customFee AmountSpinBox::up-button:hover,
-#customFee AmountSpinBox::down-button:hover{
+#customFee AmountSpinBox::down-button:hover,
+QSpinBox::up-button:hover,
+QSpinBox::down-button:hover{
     background: #168986;
 }
 #customFee AmountSpinBox::up-button:pressed,
-#customFee AmountSpinBox::down-button:pressed{
+#customFee AmountSpinBox::down-button:pressed,
+QSpinBox::up-button:pressed,
+QSpinBox::down-button:pressed{
     background: #3e968d;
 }
 #customFee AmountSpinBox::up-button:disabled,
-#customFee AmountSpinBox::down-button:disabled{
+#customFee AmountSpinBox::down-button:disabled,
+QSpinBox::up-button:disabled,
+QSpinBox::down-button:disabled{
     background: #158785;
 }
 QComboBox:editable {

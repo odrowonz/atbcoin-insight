@@ -205,6 +205,12 @@
                </item>
                <item row="8" column="0">
                 <widget class="QLabel" name="labelTotalText">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Total:</string>
                  </property>
@@ -237,6 +243,12 @@
                </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="labelImmatureText">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Immature:</string>
                  </property>
@@ -304,6 +316,12 @@
                </item>
                <item row="3" column="0">
                 <widget class="QLabel" name="labelBalanceText">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Available:</string>
                  </property>
@@ -361,6 +379,12 @@
                </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="labelPendingText">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Pending:</string>
                  </property>
@@ -409,6 +433,12 @@
                </item>
                <item row="6" column="0">
                 <widget class="QLabel" name="labelStakeText">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Stake:</string>
                  </property>

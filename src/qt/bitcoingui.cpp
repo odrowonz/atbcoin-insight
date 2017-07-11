@@ -459,9 +459,6 @@ void BitcoinGUI::createToolBars()
         QFrame *line=new QFrame();
         line->setFrameShape(QFrame::VLine);
         toolbar->addWidget(line);
-        space=new QWidget(this);
-        space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-        toolbar->addWidget(space);
         toolbar->addAction(overviewAction);
         space=new QWidget(this);
         space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);

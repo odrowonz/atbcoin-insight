@@ -197,8 +197,8 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent) :
     amount = new AmountSpinBox(this);
     amount->setLocale(QLocale::c());
     amount->installEventFilter(this);
-    amount->setMaximumWidth(170);
-    amount->setMinimumWidth(150);
+    amount->setMaximumWidth(190);
+    amount->setMinimumWidth(190);
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(amount);

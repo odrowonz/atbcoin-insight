@@ -90,6 +90,10 @@
         <translation>Неверный ключ: проверьте ключ и повторите попытку.</translation>
     </message>
     <message>
+        <source>Create a code</source>
+        <translation>Создать код</translation>
+    </message>
+    <message>
         <source>This key is added into your wallet.</source>
         <translation>Этот ключ добавляется в ваш кошелек.</translation>
     </message>
