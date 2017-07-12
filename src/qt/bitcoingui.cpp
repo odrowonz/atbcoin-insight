@@ -185,7 +185,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
 
     // Create status bar
     statusBar();
-    statusBar()->setMaximumHeight(20);
+    statusBar()->setMaximumHeight(30);
 
     // Disable size grip because it looks ugly and nobody needs it
     statusBar()->setSizeGripEnabled(false);

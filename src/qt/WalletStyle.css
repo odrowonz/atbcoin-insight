@@ -15,7 +15,8 @@
 }
 .QPushButton:focus{
         color: #fff;
-        background-color: #4da59e;
+        background-color: transparent;
+        border:none;
 }
 .QPushButton:hover{
         background-color: #4da59e;
@@ -93,22 +94,25 @@
         background-color:#17bf9b;
         color:#9cbbb0;
 }
-#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton{
+#addressBookButton,#deleteButton,#pasteButton,#toolButton,#BClearAmount,#BClearKey, #promptIcon,#fontSmallerButton,#fontBiggerButton,
+#clear_Button{
         background-color: transparent;
 	border-radius: 4px;
 	padding: 0px;
         margin:1px;
         height: 30px;
         width: 30px;
+        qproperty-iconSize: 20px;
         max-width: 30px;
 }
 
-#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover{
+#addressBookButton:hover,#deleteButton:hover,#pasteButton:hover,#BClearAmount:hover, #BClearKey:hover,#fontSmallerButton:hover,#fontBiggerButton:hover,
+#clear_Button:hover{
         background-color: #39d2ae;
 }
 
 .QLabel{
-        font-size: 14px;
+        font-size: 13px;
   	font-weight: 500;
         color: #fff;
 }
@@ -116,13 +120,14 @@
     font-weight: 700;
 }
 #Receive_Head{
-    color: #fff;
+    color: #bce9e4;
     text-transform: uppercase;
     font-weight: 700;
     text-align:center;
 }
 #reuseAddress{
-    font-weight: 650;
+    font-size:12px;
+    font-weight: 550;
 }
 #InfFon{
     background:#304a3f;
@@ -357,8 +362,13 @@ QLineEdit,QValidatedLineEdit{
   	vertical-align: middle;
         margin: 1px;
 }
-#amountWidget, #addressWidget{
-        border-radius:2px;
+#amountWidget, #addressWidget,#rpclineEdit{
+        border-radius:6px;
+        margin-left:5px;
+}
+#rpclineEdit{
+    margin: 10px;
+    margin-bottom: 0px;
 }
 #EKey{
     margin-bottom:5px;

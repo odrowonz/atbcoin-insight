@@ -268,6 +268,7 @@ RPCConsole::RPCConsole(const PlatformStyle *platformStyle, QWidget *parent) :
     //ui->fontSmallerButton->setIcon(platformStyle->SingleColorIcon(":/icons/fontsmaller"));
     // Install event filter for up and down arrow
     ui->lineEdit->installEventFilter(this);
+    ui->lineEdit->setObjectName("rpclineEdit");
     ui->messagesWidget->installEventFilter(this);
 
     connect(ui->clear_Button, SIGNAL(clicked()), this, SLOT(clear()));

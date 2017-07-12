@@ -42,7 +42,7 @@ SendCoinsDialog::SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *pa
 {
     image=new BackgroundImage(":/icons/sendImage",this);
     ui->setupUi(this);
-    image->resize(270,418);
+    image->resize(251,389);
     if (!platformStyle->getImagesOnButtons()) {
         ui->addButton->setIcon(QIcon());
         ui->clearButton->setIcon(QIcon());

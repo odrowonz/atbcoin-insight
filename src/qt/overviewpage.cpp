@@ -91,11 +91,7 @@ public:
         font.setBold(true);
 #ifdef Q_OS_MAC
         font.setPointSize(13);
-#endif
-#ifdef Q_OS_WIN
-        font.setPointSize(11);
-#endif
-#ifdef Q_OS_UNIX
+#else
         font.setPointSize(10);
 #endif
         painter->setFont(font);
@@ -127,7 +123,7 @@ public:
             painter->setPen(QColor::fromRgb(0xe3,0x3b,0x19));
         painter->drawText(amountRect, Qt::AlignLeft |Qt::AlignVCenter, amountText);
         painter->setPen(QColor::fromRgb(0x19, 0xa3, 0x7e));
-        atbRect.setX(atbRect.x()+amountText.size()*6+10);
+        atbRect.setX(atbRect.x()+amountText.size()*7+10);
         painter->drawText(atbRect,Qt::AlignLeft |Qt::AlignVCenter,"ATB");
         painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
         amountRect.setWidth(amountRect.width()-15);
@@ -172,8 +168,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->labelTransactionsStatus->setIcon(icon);
     ui->labelWalletStatus->setIcon(icon);
     image=new BackgroundImage(":/icons/overviewImage",this);
-    image->resize(460,270);
-    // Recent transactions
+    image->resize(439,258);
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
     ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
