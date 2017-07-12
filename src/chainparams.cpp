@@ -149,11 +149,11 @@ public:
         
         nPruneAfterHeight = 100000;
         
-        genesis = CreateGenesisBlock(1495784004, 158528623, 0x1f00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1499854447, 158657912, 0x1f00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        // ComputeGenesis(genesis, consensus.powLimit);
-        assert(consensus.hashGenesisBlock == uint256S("0000f166350e195d1a321b0ad27a624cb69f2e25e95004be52d631977126c35b"));
+       // ComputeGenesis(genesis, consensus.powLimit);
+        assert(consensus.hashGenesisBlock == uint256S("0000731f3d7ed6aa5c4039434b6886cc4bf3c5ef333b78ffb637565ae513bed6"));
         assert(genesis.hashMerkleRoot == uint256S("4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
         
 
@@ -164,7 +164,6 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
         vSeeds.push_back(CDNSSeedData("78.46.248.224", "78.46.248.224"));
-        vSeeds.push_back(CDNSSeedData("192.168.1.155 ", "192.168.1.155 "));
         vSeeds.push_back(CDNSSeedData("n1.aitibicoin.com", "n1.aitibicoin.com"));
         vSeeds.push_back(CDNSSeedData("n2.aitibicoin.com", "n2.aitibicoin.com"));
         vSeeds.push_back(CDNSSeedData("n3.aitibicoin.com", "n3.aitibicoin.com"));
@@ -243,11 +242,11 @@ public:
         nPruneAfterHeight = 1000;
 
         
-        genesis = CreateGenesisBlock(1495784004, 344425, 0x1f00ffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1499854447, 377151, 0x1f00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // ComputeGenesis(genesis, consensus.powLimit);
-        assert(consensus.hashGenesisBlock == uint256S("0000762a0f6b4694b360ec07a24cefc498b019299791c2bd635b9d9bf4f82410"));
+        assert(consensus.hashGenesisBlock == uint256S("00009e1877d4fb4ef345ee18059abc972106ef4c8c83387f8fe7c2935cd95a2b"));
         assert(genesis.hashMerkleRoot == uint256S("4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
         
 
@@ -256,7 +255,6 @@ public:
         
         
         vSeeds.push_back(CDNSSeedData("78.46.248.224", "78.46.248.224"));
-        vSeeds.push_back(CDNSSeedData("192.168.1.155 ", "192.168.1.155 "));
         vSeeds.push_back(CDNSSeedData("n1.aitibicoin.com", "n1.aitibicoin.com"));
         vSeeds.push_back(CDNSSeedData("n2.aitibicoin.com", "n2.aitibicoin.com"));
         vSeeds.push_back(CDNSSeedData("n3.aitibicoin.com", "n3.aitibicoin.com"));
@@ -342,12 +340,12 @@ public:
         nPruneAfterHeight = 1000;
 
         
-        genesis = CreateGenesisBlock(1495784004, 1, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1499854447, 3, 0x207fffff, 1, 50 * COIN);
         
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        // ComputeGenesis(genesis, consensus.powLimit);
-        assert(consensus.hashGenesisBlock == uint256S("0990e0bae97f9fb0b9ad3d0282165ea4bcd7ed85308a15e31e15eefad15956aa"));
+        //ComputeGenesis(genesis, consensus.powLimit);
+        assert(consensus.hashGenesisBlock == uint256S("227f041157d79ef0f8b66f429575639a75dafdee6522e0dfeff8d58093d1e60a"));
         assert(genesis.hashMerkleRoot == uint256S("4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
         
 
