@@ -123,7 +123,17 @@ public:
             painter->setPen(QColor::fromRgb(0xe3,0x3b,0x19));
         painter->drawText(amountRect, Qt::AlignLeft |Qt::AlignVCenter, amountText);
         painter->setPen(QColor::fromRgb(0x19, 0xa3, 0x7e));
-        atbRect.setX(atbRect.x()+amountText.size()*7+10);
+        int space;
+#ifdef Q_OS_UNIX
+        space=-10;
+#endif
+#ifdef Q_OS_WIN
+        space=20;
+#endif
+#ifdef Q_OS_MAC
+        space=00;
+#endif
+        atbRect.setX(atbRect.x()+amountText.size()*7+space);
         painter->drawText(atbRect,Qt::AlignLeft |Qt::AlignVCenter,"ATB");
         painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
         amountRect.setWidth(amountRect.width()-15);

@@ -405,7 +405,9 @@ QLineEdit,QValidatedLineEdit{
     margin-bottom:5px;
 }
 
-QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QComboBox,QValueComboBox{
+
+
+QDateTimeEdit,QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QComboBox,QValueComboBox{
 	margin-left:5px;
         height: 40px;
         font-size: 13px;
@@ -426,7 +428,7 @@ QSpinBox,QDoubleSpinBox, AmountSpinBox{
     width:190px;
     text-align: center;
 }
-QComboBox,QValueComboBox{
+QDateTimeEdit,QComboBox,QValueComboBox{
         border-radius:6px;
         width: 60px;
 }
@@ -556,10 +558,13 @@ QSpinBox::up-button:disabled,
 QSpinBox::down-button:disabled{
     background: #158785;
 }
-QComboBox:editable {
+QDateTimeEdit:editable,QComboBox:editable {
     background: #46a799;
 }
-QComboBox::drop-down, QValueComboBox::drop-down{
+QDateTimeEdit{
+    margin-bottom: 40px;
+}
+QDateTimeEdit,QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
@@ -571,11 +576,11 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     border:none;
 }
 
-QComboBox QListView{
+QDateTimeEdit QListView,QComboBox QListView{
     background: #46a799;
     width: 60px;
 }
-QComboBox::down-arrow, QValueComboBox::down-arrow{
+QDateTimeEdit::down-arrow,QComboBox::down-arrow, QValueComboBox::down-arrow{
     image: url(:/icons/Down);
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -594,7 +599,7 @@ QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-ar
    image: url(:/icons/spinDown);
 }
 
-QComboBox:item,QValueComboBox:item{
+QDateTimeEdit,QComboBox:item,QValueComboBox:item{
     border-radius: 3px;
     background-color: transparent;
     color: #fff;
@@ -854,24 +859,4 @@ TransactionDescDialog #detailText{
 }
 
 
-QDateEdit
-{
-    background-color: white;
-    border-style: solid;
-    border-width: 4px;
-    border-color: rgb(100,100,100);
-    spacing: 5px;
-}
 
-
-QDateEdit::drop-down {
-    width:50px;
-    height:15px;
-    subcontrol-position: right top;
-    subcontrol-origin:margin;
-    background-color: white;
-    border-style: solid;
-    border-width: 4px;
-    border-color: rgb(100,100,100);
-   spacing: 5px;
-}
