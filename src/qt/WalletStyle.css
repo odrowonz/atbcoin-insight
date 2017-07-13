@@ -562,7 +562,10 @@ QDateTimeEdit:editable,QComboBox:editable {
     background: #46a799;
 }
 QDateTimeEdit{
-    margin-bottom: 40px;
+    font-size:12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
 }
 QDateTimeEdit,QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
