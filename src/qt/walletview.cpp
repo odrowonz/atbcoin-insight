@@ -43,16 +43,6 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
     transactionView = new TransactionView(platformStyle, this);
     vbox->addWidget(transactionView);
-    QPushButton *exportButton = new QPushButton(tr("&Export"), this);
-    exportButton->setObjectName("ExportButton");
-    exportButton->setToolTip(tr("Export the data in the current tab to a file"));
-    if (platformStyle->getImagesOnButtons()) {
-        exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/export",Qt::white));
-        exportButton->setIconSize(QSize(22,22));
-    }
-    hbox_buttons->addStretch();
-    hbox_buttons->addWidget(exportButton);
-    hbox_buttons->addSpacerItem(new QSpacerItem(50,0,QSizePolicy::Fixed,QSizePolicy::Fixed));
     vbox->addLayout(hbox_buttons);
     transactionsPage->setLayout(vbox);
 
@@ -78,8 +68,6 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     // Double-clicking on a transaction on the transaction history page shows details
     connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
 
-    // Clicking on "Export" allows to export the transaction list
-    connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
 
     // Pass through messages from sendCoinsPage
     connect(sendCoinsPage, SIGNAL(message(QString,QString,unsigned int)), this, SIGNAL(message(QString,QString,unsigned int)));
@@ -168,7 +156,7 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
     QString address = ttm->data(index, TransactionTableModel::AddressRole).toString();
     QString label = ttm->data(index, TransactionTableModel::LabelRole).toString();
 
-    Q_EMIT incomingTransaction(date, walletModel->getOptionsModel()->getDisplayUnit(), amount, type, address, label);
+    Q_EMIT incomingTransaction(date, BitcoinUnits::BTC, amount, type, address, label);
 }
 
 void WalletView::gotoBonusCodes()

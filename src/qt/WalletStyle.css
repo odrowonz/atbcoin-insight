@@ -77,9 +77,14 @@
         width:15px;
 }
 #sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton,#BCreate,#receiveButton{
-	border:none;
+        border:none;
         background-color:#27cfab;
 	color:#fff;
+}
+#ExportButton{
+    border-radius: 6px;
+    margin:0px;
+    margin-left:5px;
 }
 #sendButton:hover,#ExportButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover,#BCreate:hover,
 #receiveButton:hover{
@@ -131,6 +136,7 @@
 #reuseAddress{
     font-size:12px;
     font-weight: 550;
+    margin:1px;
 }
 #InfFon{
     background:#304a3f;
@@ -243,7 +249,6 @@ QToolTip{
 {
         background: #208b7d;
 }
-
 QFrame[frameShape="4"]{
     border-radius: 0px;
     border-top:  1px dashed #fff;
@@ -263,6 +268,7 @@ QFrame[frameShape="5"]
         margin-left: 30px;
         margin-right: 300px;
         margin-bottom: 20px;
+        margin-top:0px;
         min-width:100px;
         padding:5px;
         border-radius:6px;
@@ -294,6 +300,21 @@ QFrame[frameShape="5"]
 	border-radius:0px;
         background: transparent;
 } 
+#buttonMinimizeFee,#buttonChooseFee{
+        margin:0px;
+        border-radius:6px;
+        padding:0px;
+        font-size:11px;
+        height:15px;
+        min-width:0px;
+        max-width:40px;
+        width:70px;
+
+}
+#buttonMinimizeFee::text,#buttonChooseFee::text{
+    margin:0px;
+    padding:0px;
+}
 .QRadioButton{
 	font-size: 14px;
         font-weight: 600;
@@ -365,8 +386,13 @@ QLineEdit,QValidatedLineEdit{
   	vertical-align: middle;
         margin: 1px;
 }
+#payTo,#addAsLabel{
+    margin-right: 50px;
+}
+
 #amountWidget, #addressWidget,#rpclineEdit{
         border-radius:6px;
+        margin:0px;
         margin-left:5px;
 }
 #rpclineEdit{
@@ -399,7 +425,7 @@ QSpinBox,QDoubleSpinBox, AmountSpinBox{
     text-align: center;
 }
 QComboBox,QValueComboBox{
-        border-radius:2px;
+        border-radius:6px;
         width: 60px;
 }
 QSpinBox:disabled,QDoubleSpinBox:disabled,AmountSpinBox:disabled,QComboBox:disabled,QValueComboBox:disabled{

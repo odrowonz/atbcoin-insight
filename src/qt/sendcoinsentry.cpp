@@ -13,6 +13,7 @@
 #include "walletmodel.h"
 
 #include <QApplication>
+#include <QFontDatabase>
 #include <QClipboard>
 
 SendCoinsEntry::SendCoinsEntry(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -96,9 +97,9 @@ void SendCoinsEntry::clear()
     ui->addAsLabel->clear();
     ui->payAmount->clear();
     ui->checkboxSubtractFeeFromAmount->setCheckState(Qt::Unchecked);
-    ui->messageTextLabel->clear();
-    ui->messageTextLabel->hide();
-    ui->messageLabel->hide();
+//    ui->messageTextLabel->clear();
+//    ui->messageTextLabel->hide();
+//    ui->messageLabel->hide();
     // clear UI elements for unauthenticated payment request
     ui->payTo_is->clear();
     ui->memoTextLabel_is->clear();
@@ -166,7 +167,7 @@ SendCoinsRecipient SendCoinsEntry::getValue()
     recipient.address = ui->payTo->text();
     recipient.label = ui->addAsLabel->text();
     recipient.amount = ui->payAmount->value();
-    recipient.message = ui->messageTextLabel->text();
+//    recipient.message = ui->messageTextLabel->text();
     recipient.fSubtractFeeFromAmount = (ui->checkboxSubtractFeeFromAmount->checkState() == Qt::Checked);
 
     return recipient;
@@ -210,9 +211,9 @@ void SendCoinsEntry::setValue(const SendCoinsRecipient &value)
     else // normal payment
     {
         // message
-        ui->messageTextLabel->setText(recipient.message);
-        ui->messageTextLabel->setVisible(!recipient.message.isEmpty());
-        ui->messageLabel->setVisible(!recipient.message.isEmpty());
+//        ui->messageTextLabel->setText(recipient.message);
+//        ui->messageTextLabel->setVisible(!recipient.message.isEmpty());
+//        ui->messageLabel->setVisible(!recipient.message.isEmpty());
 
         ui->addAsLabel->clear();
         ui->payTo->setText(recipient.address); // this may set a label from addressbook

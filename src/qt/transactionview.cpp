@@ -20,6 +20,7 @@
 #include "ui_interface.h"
 
 #include <QComboBox>
+#include <QPushButton>
 #include <QDateTimeEdit>
 #include <QDesktopServices>
 #include <QDoubleValidator>
@@ -37,7 +38,7 @@
 
 TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent), model(0), transactionProxyModel(0),
-    transactionView(0), abandonAction(0)
+    transactionView(0), abandonAction(0),exportButton(0)
 {
     // Build filter row
     setContentsMargins(0,0,0,0);
@@ -104,8 +105,19 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     } else {
         amountWidget->setFixedWidth(100);
     }
-    amountWidget->setValidator(new QDoubleValidator(0, 1e20, 8, this));
+    amountWidget->setValidator(new QDoubleValidator(0,1e20, 8, this));
     hlayout->addWidget(amountWidget);
+
+    exportButton = new QPushButton(tr("&Export"), this);
+    exportButton->setObjectName("ExportButton");
+    exportButton->setToolTip(tr("Export the data in the current tab to a file"));
+    if (platformStyle->getImagesOnButtons()) {
+        exportButton->setIcon(platformStyle->SingleColorIcon(":/icons/export",Qt::white));
+        exportButton->setIconSize(QSize(22,22));
+    }
+
+
+    hlayout->addWidget(exportButton);
 
     QVBoxLayout *vlayout = new QVBoxLayout(this);
     vlayout->setContentsMargins(30,0,30,0);
@@ -116,19 +128,21 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     vlayout->addWidget(createDateRangeWidget());
     vlayout->addWidget(view);
     vlayout->setSpacing(0);
-    int width = view->verticalScrollBar()->sizeHint().width();
-    // Cover scroll bar width with spacing
-    if (platformStyle->getUseExtraSpacing()) {
-        hlayout->addSpacing(width+2);
-    } else {
-        hlayout->addSpacing(width);
-    }
-    // Always show scroll bar
+//    int width = view->verticalScrollBar()->sizeHint().width();
+//    // Cover scroll bar width with spacing
+//    if (platformStyle->getUseExtraSpacing()) {
+//        hlayout->addSpacing(width+2);
+//    } else {
+//        hlayout->addSpacing(width);
+//    }
+//    // Always show scroll bar
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     view->setTabKeyNavigation(false);
     view->setContextMenuPolicy(Qt::CustomContextMenu);
 
     view->installEventFilter(this);
+
+
 
     transactionView = view;
     transactionView->setShowGrid(false);
@@ -165,6 +179,10 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     connect(watchOnlyWidget, SIGNAL(activated(int)), this, SLOT(chooseWatchonly(int)));
     connect(addressWidget, SIGNAL(textChanged(QString)), this, SLOT(changedPrefix(QString)));
     connect(amountWidget, SIGNAL(textChanged(QString)), this, SLOT(changedAmount(QString)));
+
+    // Clicking on "Export" allows to export the transaction list
+    connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
+
 
     connect(view, SIGNAL(doubleClicked(QModelIndex)), this, SIGNAL(doubleClicked(QModelIndex)));
     connect(view, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
