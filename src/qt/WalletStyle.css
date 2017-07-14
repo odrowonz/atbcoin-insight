@@ -2,7 +2,6 @@
     border:none;
 }
 .QPushButton{
-        display: inline-block;
         min-width: 120px;
 	margin:5px;
 	border:none;
@@ -562,9 +561,10 @@ QDateTimeEdit:editable,QComboBox:editable {
     background: #46a799;
 }
 QDateTimeEdit{
-    font-size:12px;
+    font-size:10px;
     margin-bottom: 10px;
     margin-top: 10px;
+    font-weight:500;
 
 }
 QDateTimeEdit,QComboBox::drop-down, QValueComboBox::drop-down{

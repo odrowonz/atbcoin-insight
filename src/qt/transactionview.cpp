@@ -523,17 +523,18 @@ QWidget *TransactionView::createDateRangeWidget()
     layout->addWidget(new QLabel(tr("Range:")));
 
     dateFrom = new QDateTimeEdit(this);
-    dateFrom->setDisplayFormat("dd/MM/yy");
+    QLocale l(QLocale::system());
+    dateFrom->setDisplayFormat(l.dateFormat(QLocale::NarrowFormat));
     dateFrom->setCalendarPopup(false);
-    dateFrom->setMinimumWidth(100);
+    dateFrom->setMinimumWidth(150);
     dateFrom->setDate(QDate::currentDate().addDays(-7));
     layout->addWidget(dateFrom);
     layout->addWidget(new QLabel(tr("to")));
 
     dateTo = new QDateTimeEdit(this);
-    dateTo->setDisplayFormat("dd/MM/yy");
+    dateTo->setDisplayFormat(l.dateFormat(QLocale::NarrowFormat));
     dateTo->setCalendarPopup(false);
-    dateTo->setMinimumWidth(100);
+    dateTo->setMinimumWidth(150);
     dateTo->setDate(QDate::currentDate());
     layout->addWidget(dateTo);
     layout->addStretch();
