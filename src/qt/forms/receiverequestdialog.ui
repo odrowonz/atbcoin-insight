@@ -98,7 +98,7 @@
      <item>
       <widget class="QPushButton" name="btnSaveAs">
        <property name="text">
-        <string>&amp;Save Image...</string>
+        <string>&amp;Save Image</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>

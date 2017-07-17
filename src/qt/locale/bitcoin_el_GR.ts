@@ -1592,7 +1592,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Αποθήκευση εικόνας...</translation>
     </message>
     <message>
@@ -1989,7 +1989,7 @@
         <translation>Αντιγραφή &amp;Διεύθυνσης</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Αποθήκευση εικόνας...</translation>
     </message>
     <message>
@@ -2349,7 +2349,7 @@
         <translation>Αυτή είναι μια απλή πληρωμή.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Η διεύθυνση ATBcoin που θα σταλεί η πληρωμή</translation>
     </message>
     <message>

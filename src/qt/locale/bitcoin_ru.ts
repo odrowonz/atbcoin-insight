@@ -313,7 +313,7 @@
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
-        <translation>Идёт переиндексация блоков на диске...</translation>
+        <translation>Идет переиндексация блоков на диске...</translation>
     </message>
     <message>
         <source>Send coins to a ATBcoin address</source>
@@ -369,7 +369,7 @@
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified ATBcoin addresses</source>
-        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определённым адресом Atbcoin</translation>
+        <translation>Проверить сообщения, чтобы удостовериться, что они были подписаны определенным адресом Atbcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -389,7 +389,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and atbcoin: URIs)</source>
-        <translation>Запросить платежи (создаёт QR-коды и atbcoin: ссылки)</translation>
+        <translation>Запросить платежи (создает QR-коды и atbcoin: ссылки)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -586,7 +586,7 @@
     </message>
     <message>
         <source>This key is added into your wallet.</source>
-        <translation>Этот ключ добавляется в ваш кошелек.</translation>
+        <translation>Этот ключ добавлен в ваш кошелек.</translation>
     </message>
     <message>
         <source>This key is no longer valid.</source>
@@ -904,7 +904,7 @@
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>Адрес, связанный с этой записью списка адресов. Он может быть изменён только для адресов отправки.</translation>
+        <translation>Адрес, связанный с этой записью списка адресов. Он может быть изменен только для адресов отправки.</translation>
     </message>
     <message>
         <source>&amp;Address</source>
@@ -963,7 +963,7 @@
     </message>
     <message>
         <source>Cannot create data directory here.</source>
-        <translation>Не удаётся создать здесь каталог данных.</translation>
+        <translation>Не удается создать здесь каталог данных.</translation>
     </message>
 </context>
 <context>
@@ -1006,7 +1006,7 @@
     </message>
     <message>
         <source>Start minimized</source>
-        <translation>Запускать свёрнутым</translation>
+        <translation>Запускать свернутым</translation>
     </message>
     <message>
         <source>Set SSL root certificates for payment request (default: -system-)</source>
@@ -1194,11 +1194,11 @@
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>При отключении траты неподтверждённой сдачи, сдача от транзакции не может быть использована до тех пор пока у этой транзакции не будет хотя бы одно подтверждение. Это также влияет как ваш баланс рассчитывается.</translation>
+        <translation>При отключении траты неподтвержденной сдачи, сдача от транзакции не может быть использована до тех пор пока у этой транзакции не будет хотя бы одно подтверждение. Это также влияет как ваш баланс рассчитывается.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-        <translation>&amp;Тратить неподтверждённую сдачу</translation>
+        <translation>&amp;Тратить неподтвержденную сдачу</translation>
     </message>
     <message>
         <source>Automatically open the ATBcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1349,7 +1349,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ATBcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью ATBcoin после подключения, но этот процесс пока не завершён.</translation>
+        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью ATBcoin после подключения, но этот процесс пока не завершен.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1377,7 +1377,7 @@
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
-        <translation>Баланс добытых монет, который ещё не созрел</translation>
+        <translation>Баланс добытых монет, который еще не созрел</translation>
     </message>
     <message>
         <source>Balances</source>
@@ -1405,11 +1405,11 @@
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
-        <translation>Неподтверждённые транзакции на адреса наблюдения</translation>
+        <translation>Неподтвержденные транзакции на адреса наблюдения</translation>
     </message>
     <message>
         <source>Mined balance in watch-only addresses that has not yet matured</source>
-        <translation>Баланс добытых монет на адресах наблюдения, который ещё не созрел</translation>
+        <translation>Баланс добытых монет на адресах наблюдения, который еще не созрел</translation>
     </message>
     <message>
         <source>Current total balance in watch-only addresses</source>
@@ -1599,8 +1599,8 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
-        <translation type="unfinished">&amp;Сохранить изображение...</translation>
+        <source>&amp;Save Image</source>
+        <translation type="unfinished">&amp;Сохранить изображение</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
@@ -1914,7 +1914,7 @@
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
-        <translation>Повторно использовать один из ранее использованных адресов. Повторное использование адресов несёт риски безопасности и приватности. Не используйте эту опцию, если вы не создаёте повторно ранее сделанный запрос платежа.</translation>
+        <translation>Повторно использовать один из ранее использованных адресов. Повторное использование адресов несет риски безопасности и приватности. Не используйте эту опцию, если вы не создаете повторно ранее сделанный запрос платежа.</translation>
     </message>
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
@@ -1934,7 +1934,7 @@
     </message>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
-        <translation>Необязательная сумма для запроса. Оставьте пустым или укажите ноль, чтобы запросить неопределённую сумму.</translation>
+        <translation>Необязательная сумма для запроса. Оставьте пустым или укажите ноль, чтобы запросить неопределенную сумму.</translation>
     </message>
     <message>
         <source>Clear all fields of the form.</source>
@@ -1942,7 +1942,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation>Очистить</translation>
+        <translation>Очистить все</translation>
     </message>
     <message>
         <source>Requested payments history</source>
@@ -1950,7 +1950,7 @@
     </message>
     <message>
         <source>&amp;Request payment</source>
-        <translation>&amp;Запросить платёж</translation>
+        <translation>&amp;Запросить платеж</translation>
     </message>
     <message>
         <source>Show the selected request (does the same as double clicking an entry)</source>
@@ -1996,8 +1996,8 @@
         <translation>Копировать &amp;адрес</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Сохранить изображение...</translation>
+        <source>&amp;Save Image</source>
+        <translation>&amp;Сохранить изображение</translation>
     </message>
     <message>
         <source>Request payment to %1</source>
@@ -2151,7 +2151,7 @@
     </message>
     <message>
         <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 satoshis in fee, while &quot;total at least&quot; pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Если комиссия установлена в 1000 сатоши, а транзакция составляет лишь 250 байт, тогда комиссия &quot;на килобайт&quot; составит 250 сатоши, а &quot;всего как минимум&quot; — 1000 сатоши. Для транзакций крупнее килобайта в обоих случаях будет использоваться платёж &quot;на килобайт&quot;.</translation>
+        <translation>Если комиссия установлена в 1000 сатоши, а транзакция составляет лишь 250 байт, тогда комиссия &quot;на килобайт&quot; составит 250 сатоши, а &quot;всего как минимум&quot; — 1000 сатоши. Для транзакций крупнее килобайта в обоих случаях будет использоваться платеж &quot;на килобайт&quot;.</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -2207,7 +2207,7 @@
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Очистить &amp;всё</translation>
+        <translation>Очистить &amp;все</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -2354,11 +2354,11 @@
     </message>
     <message>
         <source>This is a normal payment.</source>
-        <translation>Это нормальный платёж.</translation>
+        <translation>Это нормальный платеж.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
-        <translation>Адрес Atbcoin, на который отправить платёж</translation>
+        <source>The ATBcoin address to send the payment to.</source>
+        <translation>Адрес Atbcoin, на который отправить платеж.</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2378,7 +2378,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>С отправляемой суммы будет удержана комиссия. Получателю придёт меньше биткоинов, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
+        <translation>С отправляемой суммы будет удержана комиссия. Получателю придет меньше биткоинов, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2509,7 +2509,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive ATBcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Вы можете подписывать сообщения/соглашения своими адресами, чтобы доказать свою возможность получать биткоины на них. Будьте осторожны, не подписывайте что-то неопределённое или случайное, так как фишинговые атаки могут обманным путём заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
+        <translation>Вы можете подписывать сообщения/соглашения своими адресами, чтобы доказать свою возможность получать биткоины на них. Будьте осторожны, не подписывайте что-то неопределенное или случайное, так как фишинговые атаки могут обманным путем заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
@@ -2557,7 +2557,7 @@
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Очистить &amp;всё</translation>
+        <translation>Очистить &amp;все</translation>
     </message>
     <message>
         <source>&amp;Verify Message</source>
@@ -2884,7 +2884,7 @@
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation type="unfinished">Неподтвержден</translation>
+        <translation type="unfinished">Не подтвержден</translation>
     </message>
     <message>
         <source>Abandoned</source>
@@ -3138,7 +3138,7 @@
     <name>UnitDisplayStatusBarControl</name>
     <message>
         <source>Unit to show amounts in. Click to select another unit.</source>
-        <translation>Единица измерения количества монет. Щёлкните для выбора другой единицы.</translation>
+        <translation>Единица измерения количества монет. Щелкните для выбора другой единицы.</translation>
     </message>
 </context>
 <context>
@@ -3218,7 +3218,7 @@
     </message>
     <message>
         <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Разрешить подключения JSON-RPC с указанного источника. Разрешённые значения для &lt;ip&gt; — отдельный IP (например, 1.2.3.4), сеть/маска сети (например, 1.2.3.4/255.255.255.0) или сеть/CIDR (например, 1.2.3.4/24). Эту опцию можно использовать многократно</translation>
+        <translation type="unfinished">Разрешить подключения JSON-RPC с указанного источника. Разрешенные значения для &lt;ip&gt; — отдельный IP (например, 1.2.3.4), сеть/маска сети (например, 1.2.3.4/255.255.255.0) или сеть/CIDR (например, 1.2.3.4/24). Эту опцию можно использовать многократно</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -3358,11 +3358,11 @@
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Использовать случайные учётные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
+        <translation type="unfinished">Использовать случайные учетные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Уменьшить размер хранилища за счёт удаления (обрезания) старых блоков. Этот режим несовместим с -txindex и  -rescan. Внимание: переключение этой опции обратно потребует полной загрузки цепи блоков. (по умолчанию: 0 = отключить удаление блоков, &gt;%u = целевой размер в Мб для файлов блоков)</translation>
+        <translation type="unfinished">Уменьшить размер хранилища за счет удаления (обрезания) старых блоков. Этот режим несовместим с -txindex и  -rescan. Внимание: переключение этой опции обратно потребует полной загрузки цепи блоков. (по умолчанию: 0 = отключить удаление блоков, &gt;%u = целевой размер в Мб для файлов блоков)</translation>
     </message>
     <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
@@ -3458,7 +3458,7 @@
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">Вам необходимо пересобрать базу данных с помощью -reindex, чтобы вернуться к полному режиму. Это приведёт к перезагрузке всей цепи блоков</translation>
+        <translation type="unfinished">Вам необходимо пересобрать базу данных с помощью -reindex, чтобы вернуться к полному режиму. Это приведет к перезагрузке всей цепи блоков</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
@@ -3514,7 +3514,7 @@
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished">Попытаться восстановить приватные ключи из повреждённого бумажника при запуске</translation>
+        <translation type="unfinished">Попытаться восстановить приватные ключи из поврежденного бумажника при запуске</translation>
     </message>
     <message>
         <source>Automatically create Tor hidden service (default: %d)</source>
@@ -3526,15 +3526,15 @@
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Не удаётся понизить версию бумажника</translation>
+        <translation type="unfinished">Не удается понизить версию бумажника</translation>
     </message>
     <message>
         <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished">Не удаётся разрешить адрес в параметре -%s: &apos;%s&apos;</translation>
+        <translation type="unfinished">Не удается разрешить адрес в параметре -%s: &apos;%s&apos;</translation>
     </message>
     <message>
         <source>Cannot write default address</source>
-        <translation type="unfinished">Не удаётся записать адрес по умолчанию</translation>
+        <translation type="unfinished">Не удается записать адрес по умолчанию</translation>
     </message>
     <message>
         <source>Change index out of range</source>
@@ -3758,7 +3758,7 @@
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Максимальный размер буфера приёма на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
+        <translation type="unfinished">Максимальный размер буфера приема на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>

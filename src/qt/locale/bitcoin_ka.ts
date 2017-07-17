@@ -1586,7 +1586,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">გამო&amp;სახულების შენახვა...</translation>
     </message>
     <message>
@@ -1983,7 +1983,7 @@
         <translation>მის&amp;ამართის კოპირება</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>გამო&amp;სახულების შენახვა...</translation>
     </message>
     <message>
@@ -2371,7 +2371,7 @@
         <translation>შენიშვნა:</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

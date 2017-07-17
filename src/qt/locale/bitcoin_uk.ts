@@ -1599,7 +1599,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Зберегти зображення...</translation>
     </message>
     <message>
@@ -1996,7 +1996,7 @@
         <translation>Скопіювати &amp;адресу</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Зберегти зображення...</translation>
     </message>
     <message>
@@ -2357,7 +2357,7 @@
         <translation>Це звичайний платіж.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Адреса ATBcoin для відправлення платежу</translation>
     </message>
     <message>

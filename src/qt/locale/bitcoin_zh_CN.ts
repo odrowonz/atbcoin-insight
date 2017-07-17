@@ -1583,7 +1583,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">保存图片(&amp;S)...</translation>
     </message>
     <message>
@@ -1980,7 +1980,7 @@
         <translation>复制地址(&amp;A)</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>保存图片(&amp;S)...</translation>
     </message>
     <message>
@@ -2339,7 +2339,7 @@
         <translation>这是笔正常的支付。</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>付款目的地址</translation>
     </message>
     <message>

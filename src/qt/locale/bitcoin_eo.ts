@@ -1591,7 +1591,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Konservi Bildon...</translation>
     </message>
     <message>
@@ -1988,7 +1988,7 @@
         <translation>Kopii &amp;Adreson</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Konservi Bildon...</translation>
     </message>
     <message>
@@ -2376,7 +2376,7 @@
         <translation>Memorando:</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

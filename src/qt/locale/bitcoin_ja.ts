@@ -1583,7 +1583,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">画像を保存(&amp;S)</translation>
     </message>
     <message>
@@ -1980,7 +1980,7 @@
         <translation>アドレスをコピーする (&amp;A)</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>画像を保存(&amp;S)</translation>
     </message>
     <message>
@@ -2339,7 +2339,7 @@
         <translation>これは通常の支払です。</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>支払の送金先Atbcoinアドレス</translation>
     </message>
     <message>

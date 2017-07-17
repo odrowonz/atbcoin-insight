@@ -1591,7 +1591,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Sauvegarder l&apos;image...</translation>
     </message>
     <message>
@@ -1988,7 +1988,7 @@
         <translation>Copier l&apos;&amp;adresse</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Sauvegarder l&apos;image...</translation>
     </message>
     <message>
@@ -2348,7 +2348,7 @@
         <translation>Ceci est un paiement normal.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>L&apos;adresse ATBcoin à laquelle envoyer le paiement</translation>
     </message>
     <message>

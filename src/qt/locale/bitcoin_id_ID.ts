@@ -1583,7 +1583,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Simpan Gambaran...</translation>
     </message>
     <message>
@@ -1982,7 +1982,7 @@
         <translation>Salin &amp;Alamat</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Simpan Gambaran...</translation>
     </message>
     <message>
@@ -2369,7 +2369,7 @@
         <translation>Catatan Peringatan:</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

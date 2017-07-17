@@ -1583,7 +1583,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">Resmi ka&amp;ydet...</translation>
     </message>
     <message>
@@ -1980,7 +1980,7 @@
         <translation>&amp;Adresi kopyala</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>Resmi ka&amp;ydet...</translation>
     </message>
     <message>
@@ -2339,7 +2339,7 @@
         <translation>Bu, normal bir ödemedir.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Ödemenin yollanacağı ATBcoin adresi</translation>
     </message>
     <message>

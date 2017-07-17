@@ -1599,7 +1599,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">Uložiť obrázok...</translation>
     </message>
     <message>
@@ -1997,7 +1997,7 @@
         <translation>Kopírovať adresu</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>Uložiť obrázok...</translation>
     </message>
     <message>
@@ -2358,7 +2358,7 @@
         <translation>Toto je normálna platba.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Zvoľte adresu kam poslať platbu</translation>
     </message>
     <message>

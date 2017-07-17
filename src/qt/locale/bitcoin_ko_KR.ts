@@ -1583,7 +1583,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">이미지 저장(&amp;S)...</translation>
     </message>
     <message>
@@ -1980,7 +1980,7 @@
         <translation>주소 복사(&amp;A)</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>이미지 저장(&amp;S)...</translation>
     </message>
     <message>
@@ -2339,7 +2339,7 @@
         <translation>이것은 정상적인 지불입니다.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>이 비트코인 주소로 송금됩니다</translation>
     </message>
     <message>

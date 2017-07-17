@@ -1599,7 +1599,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Zapisz obraz...</translation>
     </message>
     <message>
@@ -1996,7 +1996,7 @@
         <translation>Kopiuj &amp;adres</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Zapisz obraz...</translation>
     </message>
     <message>
@@ -2357,7 +2357,7 @@
         <translation>To jest standardowa płatność</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Adres ATBcoin gdzie wysłać płatność</translation>
     </message>
     <message>

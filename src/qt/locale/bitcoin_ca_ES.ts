@@ -1591,7 +1591,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">De&amp;sa la imatge...</translation>
     </message>
     <message>
@@ -1988,7 +1988,7 @@
         <translation>Copia l&apos;&amp;adreça</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>De&amp;sa la imatge...</translation>
     </message>
     <message>
@@ -2348,7 +2348,7 @@
         <translation>Això és un pagament normal.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>L&apos;adreça ATBcoin on enviar el pagament</translation>
     </message>
     <message>

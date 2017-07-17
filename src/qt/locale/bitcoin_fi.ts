@@ -1591,7 +1591,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Tallenna kuva</translation>
     </message>
     <message>
@@ -1988,7 +1988,7 @@
         <translation>Kopioi &amp;Osoite</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Tallenna kuva</translation>
     </message>
     <message>
@@ -2348,7 +2348,7 @@
         <translation>Tämä on normaali maksu.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Atbcoin-osoite johon maksu lähetetään</translation>
     </message>
     <message>

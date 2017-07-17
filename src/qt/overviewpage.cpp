@@ -85,7 +85,7 @@ public:
             QBrush brush = qvariant_cast<QBrush>(value);
             foreground = brush.color();
         }
-        painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
+        painter->setPen(QColor::fromRgb(0x9d,0x9d,0x9d));
         QRect boundingRect;
         QFont font(painter->font());
         font.setBold(true);
@@ -135,7 +135,7 @@ public:
 #endif
         atbRect.setX(atbRect.x()+amountText.size()*6+space);
         painter->drawText(atbRect,Qt::AlignLeft |Qt::AlignVCenter,"ATB");
-        painter->setPen(QColor::fromRgb(0xdb,0xdb,0xdb));
+        painter->setPen(QColor::fromRgb(0x9d,0x9d,0x9d));
         amountRect.setWidth(amountRect.width()-15);
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
 

@@ -791,7 +791,7 @@ QMenu::item {
     border-radius: 3px;
     background-color: transparent;
     color: #fff;
-    font-size: 13pt;
+    font-size: 10pt;
     padding-left:15px;
     height:40px;
 }

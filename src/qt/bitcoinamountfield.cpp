@@ -28,7 +28,7 @@ public:
     {
         singleStep=pow(10,STATIC_DECEMALS); // ATBCoin
         setAlignment(Qt::AlignCenter);
-
+        setValue(0);
         connect(lineEdit(), SIGNAL(textEdited(QString)), this, SIGNAL(valueChanged()));
     }
 

@@ -40,6 +40,9 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
+    ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter);
+
+
     ui->CouponList->setColumnWidth(0,110);
     ui->CouponList->setColumnWidth(1,100);
     ui->CouponList->setColumnWidth(4,110);
@@ -47,6 +50,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->tab1->setCurrentIndex(0);
 
     ui->SAmount->setMinimum(0.001);
+    ui->SAmount->setAlignment(Qt::AlignCenter);
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
     ui->SAmount->setDecimals(3);
     ui->SAmount->setSingleStep(0.001);

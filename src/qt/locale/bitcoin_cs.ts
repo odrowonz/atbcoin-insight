@@ -1599,7 +1599,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Ulož obrázek...</translation>
     </message>
     <message>
@@ -1996,7 +1996,7 @@
         <translation>Kopíruj &amp;adresu</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Ulož obrázek...</translation>
     </message>
     <message>
@@ -2357,7 +2357,7 @@
         <translation>Tohle je normální platba.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Atbcoinová adresa příjemce</translation>
     </message>
     <message>

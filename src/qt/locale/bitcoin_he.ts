@@ -1586,7 +1586,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;שמירת תמונה…</translation>
     </message>
     <message>
@@ -1983,7 +1983,7 @@
         <translation>העתקת &amp;כתובת</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;שמירת תמונה…</translation>
     </message>
     <message>
@@ -2343,7 +2343,7 @@
         <translation>זהו תשלום רגיל.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>כתובת הביטקוין של המוטב</translation>
     </message>
     <message>

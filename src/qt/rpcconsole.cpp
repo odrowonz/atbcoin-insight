@@ -299,7 +299,6 @@ RPCConsole::RPCConsole(const PlatformStyle *platformStyle, QWidget *parent) :
     consoleFontSize = settings.value(fontSizeSettingsKey, QFontInfo(QFont()).pointSize()).toInt();
     clear();
 }
-
 RPCConsole::~RPCConsole()
 {
     GUIUtil::saveWindowGeometry("nRPCConsoleWindow", this);
@@ -836,6 +835,8 @@ void RPCConsole::updateNodeDetail(const CNodeCombinedStats *stats)
 void RPCConsole::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
+    ui->tabWidget->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/4.3));
+
 }
 
 void RPCConsole::showEvent(QShowEvent *event)

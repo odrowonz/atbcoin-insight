@@ -1592,7 +1592,7 @@ Per specificare più URL separarli con una barra verticale &quot;|&quot;.</trans
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Salva Immagine...</translation>
     </message>
     <message>
@@ -1989,7 +1989,7 @@ Per specificare più URL separarli con una barra verticale &quot;|&quot;.</trans
         <translation>Copia &amp;Indirizzo</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Salva Immagine...</translation>
     </message>
     <message>
@@ -2349,7 +2349,7 @@ Per specificare più URL separarli con una barra verticale &quot;|&quot;.</trans
         <translation>Questo è un normale pagamento.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>L&apos;indirizzo ATBcoin a cui vuoi inviare il pagamento</translation>
     </message>
     <message>

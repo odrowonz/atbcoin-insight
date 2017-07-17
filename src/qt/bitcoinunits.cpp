@@ -114,7 +114,7 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
             quotient_str.insert(q_size - i, thin_sp);
     if (n < 0)
         quotient_str.insert(0, '-');
-    else if (fPlus && n > 0)
+    else if (fPlus && n >= 0)
         quotient_str.insert(0, '+');
     return quotient_str + QString(".") + remainder_str;
 }

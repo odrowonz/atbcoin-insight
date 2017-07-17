@@ -1607,7 +1607,7 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation type="unfinished">&amp;Shrani sliko ...</translation>
     </message>
     <message>
@@ -2004,7 +2004,7 @@
         <translation>Kopiraj &amp;naslov</translation>
     </message>
     <message>
-        <source>&amp;Save Image...</source>
+        <source>&amp;Save Image</source>
         <translation>&amp;Shrani sliko ...</translation>
     </message>
     <message>
@@ -2366,7 +2366,7 @@
         <translation>Plačilo je navadne vrste.</translation>
     </message>
     <message>
-        <source>The ATBcoin address to send the payment to</source>
+        <source>The ATBcoin address to send the payment to.</source>
         <translation>Naslov Atbcoin, na katerega bo plačilo poslano</translation>
     </message>
     <message>
