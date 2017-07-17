@@ -432,8 +432,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, b
 QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
 {
     // Show addresses without label in a less visible color
-    switch(wtx->type)
-    {
+    switch(wtx->type)    {
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::SendToAddress:
     case TransactionRecord::Generated:

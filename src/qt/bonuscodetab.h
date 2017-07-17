@@ -36,6 +36,7 @@ private:
     CWalletTx* findTx(const CScript& script);
     QSortFilterProxyModel *model;
 private Q_SLOTS:
+    void confirmation(const uint256 &, int);
     void cliced(QModelIndex);
     void getBonusClick(bool);
     void CreateClick(bool);

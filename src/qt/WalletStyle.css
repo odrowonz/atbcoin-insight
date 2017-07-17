@@ -1,6 +1,3 @@
-*:focus{
-    border:none;
-}
 .QPushButton{
         min-width: 120px;
 	margin:5px;
@@ -419,7 +416,6 @@ QDateTimeEdit,QSpinBox,QDoubleSpinBox,AmountSpinBox,QComboBox,QValueComboBox,QCo
         border: none;
         border-radius:20px;
   	width: 224px;
-  	display: inline-block;
   	position: relative;
 }
 QSpinBox,QDoubleSpinBox, AmountSpinBox{
