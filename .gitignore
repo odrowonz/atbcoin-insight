@@ -7,6 +7,11 @@ src/bitcoin-cli
 src/bitcoin-tx
 src/test/test_bitcoin
 src/qt/test/test_bitcoin-qt
+src/atbcoin_beta-cli
+src/atbcoin_beta-tx
+src/atbcoin_betad
+src/qt/atbcoin_beta-qt
+
 
 src/atbcoin
 src/atbcoind

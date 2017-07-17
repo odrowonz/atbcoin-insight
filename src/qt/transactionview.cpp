@@ -181,7 +181,7 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     connect(amountWidget, SIGNAL(textChanged(QString)), this, SLOT(changedAmount(QString)));
 
     // Clicking on "Export" allows to export the transaction list
-    connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
+    connect(exportButton, SIGNAL(clicked(bool)), this, SLOT(exportClicked()));
 
 
     connect(view, SIGNAL(doubleClicked(QModelIndex)), this, SIGNAL(doubleClicked(QModelIndex)));
