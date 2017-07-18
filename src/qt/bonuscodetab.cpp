@@ -91,10 +91,21 @@ void BonusCodeTab::updateBonusList(){
                     model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
                 }
             }
+//            model->setData(model->index(0,3),QString::fromStdString(i->key));
+//            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
+//            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f',3));
+//            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
+
             model->setData(model->index(0,3),QString::fromStdString(i->key));
             model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f',3));
-            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
+            model->setData(model->index(0,1),tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR);
+            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime));
+
+            model->setData(model->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
+            model->setData(model->index(0,1),Qt::AlignCenter, Qt::TextAlignmentRole);
+            model->setData(model->index(0,2),Qt::AlignCenter, Qt::TextAlignmentRole);
+            model->setData(model->index(0,3),Qt::AlignCenter, Qt::TextAlignmentRole);
+            model->setData(model->index(0,4),Qt::AlignCenter, Qt::TextAlignmentRole);
         }
     }
 }

@@ -114,7 +114,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QTableView" name="CouponList"/>
+             <widget class="QTableView" name="CouponList">
+              <property name="textElideMode">
+               <enum>Qt::ElideMiddle</enum>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
