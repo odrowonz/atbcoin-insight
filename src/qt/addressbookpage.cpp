@@ -28,7 +28,8 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
     mode(mode),
     tab(tab)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
     if (!platformStyle->getImagesOnButtons()) {
         ui->newAddress->setIcon(QIcon());
         ui->copyAddress->setIcon(QIcon());

@@ -28,7 +28,8 @@ ReceiveCoinsDialog::ReceiveCoinsDialog(const PlatformStyle *platformStyle, QWidg
     model(0),
     platformStyle(platformStyle)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
 
     if (!platformStyle->getImagesOnButtons()) {
         ui->clearButton->setIcon(QIcon());

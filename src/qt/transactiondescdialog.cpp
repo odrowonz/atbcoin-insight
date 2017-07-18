@@ -13,7 +13,8 @@ TransactionDescDialog::TransactionDescDialog(const QModelIndex &idx, QWidget *pa
     QDialog(parent),
     ui(new Ui::TransactionDescDialog)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
     setWindowTitle(tr("Details for %1").arg(idx.data(TransactionTableModel::TxIDRole).toString()));
     QString desc = idx.data(TransactionTableModel::LongDescriptionRole).toString();
     ui->detailText->setHtml(desc);
@@ -22,7 +23,8 @@ TransactionDescDialog::TransactionDescDialog(const QSortFilterProxyModel &idx, i
     QDialog(parent),
     ui(new Ui::TransactionDescDialog)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
     setMinimumWidth(750);
     setWindowTitle(tr("Details for coupon"));
     ui->detailText->setHtml(QString (tr("<i><b><font color='#fff'>  %4:</b></i> %0 <br>"

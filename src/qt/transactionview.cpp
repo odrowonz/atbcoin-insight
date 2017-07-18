@@ -146,6 +146,7 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
 
     transactionView = view;
     transactionView->setShowGrid(false);
+    transactionView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     // Actions
     abandonAction = new QAction(tr("Abandon transaction"), this);
     QAction *copyAddressAction = new QAction(tr("Copy address"), this);

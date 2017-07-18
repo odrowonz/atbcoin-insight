@@ -5,7 +5,8 @@ InformationDialog::InformationDialog(const QString& information,const QString &A
     QDialog(parent),
     ui(new Ui::InformationDialog)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
     setModal(false);
     if(!key.size()){
         ui->InfKey->hide();

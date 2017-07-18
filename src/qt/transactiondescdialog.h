@@ -27,6 +27,8 @@ public:
 
 private:
     Ui::TransactionDescDialog *ui;
+private Q_SLOTS:
+
 };
 
 #endif // BITCOIN_QT_TRANSACTIONDESCDIALOG_H

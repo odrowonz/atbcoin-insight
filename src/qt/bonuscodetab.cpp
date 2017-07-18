@@ -18,7 +18,8 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
 {
     wmodel=wmodel_;
     this->platformStyle=platformStyle;
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStandardItemModel *couponModel=new QStandardItemModel;
@@ -91,11 +92,6 @@ void BonusCodeTab::updateBonusList(){
                     model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
                 }
             }
-//            model->setData(model->index(0,3),QString::fromStdString(i->key));
-//            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
-//            model->setData(model->index(0,1),QString::number(tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR,'f',3));
-//            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime).toString("M.d.yyyy HH:mm"));
-
             model->setData(model->index(0,3),QString::fromStdString(i->key));
             model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
             model->setData(model->index(0,1),tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR);

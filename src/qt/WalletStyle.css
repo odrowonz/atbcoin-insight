@@ -131,7 +131,7 @@
     text-align:center;
 }
 #reuseAddress{
-    font-size:12px;
+    font-size:10px;
     font-weight: 550;
     margin:1px;
 }
@@ -760,6 +760,7 @@ QToolBar{
 }
 
 QMenuBar {
+    padding-left:20px;
     background-color: #45a698;
     color: #6a6970;
 }

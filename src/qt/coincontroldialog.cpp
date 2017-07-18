@@ -41,7 +41,8 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *platformStyle, QWidget
     model(0),
     platformStyle(platformStyle)
 {
-    ui->setupUi(this);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+
 
     // context menu actions
     QAction *copyAddressAction = new QAction(tr("Copy address"), this);
