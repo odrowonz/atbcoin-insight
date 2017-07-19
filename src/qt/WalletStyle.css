@@ -247,14 +247,16 @@ QToolTip{
         background: #208b7d;
 }
 QFrame[frameShape="4"]{
+    border-color: #fff;
     border-radius: 0px;
     border-top:  1px dashed #fff;
     background: transparent;
 }
 QFrame[frameShape="5"]
 {
-    margin-top:22px;
-    margin-bottom:22px;
+    border-color: #71bfaf;
+    margin-top:25px;
+    margin-bottom:25px;
     border-radius: 0px;
     border-left:  1px solid #fff;
     background: transparent;

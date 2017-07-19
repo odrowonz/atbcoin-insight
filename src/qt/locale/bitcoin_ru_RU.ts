@@ -645,7 +645,7 @@
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Неподтвержден</translation>
+        <translation>Не подтвержден</translation>
     </message>
     <message>
         <source>Amount of ATB coins</source>

@@ -19,7 +19,8 @@ class CBonusinfo{
 private:
     uint160 hash;             //the hash of the object 
     void genHash(){
-        std::vector<unsigned char> vchHash(key.begin(),key.end());        
+        std::string temp(hashTx.ToString()+key);
+        std::vector<unsigned char> vchHash(temp.begin(),temp.end());
         hash=Hash160(vchHash);
     }
 public:

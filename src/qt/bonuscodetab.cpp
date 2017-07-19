@@ -150,7 +150,7 @@ void BonusCodeTab::getBonusClick(bool){
                 if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
                     InformationDialog msgBox(tr("ATB coins were received with this code"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
                     msgBox.exec();
-                   Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
+                    Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
                     confirmation(i->first,nvout);
                 }
                 nvout++;
@@ -179,12 +179,12 @@ void BonusCodeTab::confirmation(const uint256 &hash, int i){
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
     wtx.mapValue["comment"] = tr("Commission for the confirmation of the bonus code.").toStdString();
-    if(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey)){
-        InformationDialog(tr("The key is confirmed."),"","",this).exec();
-    }else{
+    if(!(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey))){
         InformationDialog(tr("The key is no confirmed."),"","",this).exec();
     }
 }
+#include "QFile"
+#include "QTextStream"
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
     if(wallet->GetBalance()<=ui->SAmount->value()*CUSTOM_FACTOR){
@@ -208,7 +208,8 @@ void BonusCodeTab::CreateClick(bool){
         Entropy_source= size_t(temp);
         free(temp);
     }
-    srand(Entropy_source);
+    srand(time(0));
+    srand(Entropy_source*(double)rand() / RAND_MAX);
     std::string key;
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp)
