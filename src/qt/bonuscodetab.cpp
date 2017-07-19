@@ -57,6 +57,18 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->SAmount->setSingleStep(0.001);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
+
+    /*************************generate entropy source*********************************/
+    unsigned int Entropy_source=0x0;
+    srand(time(0));
+    while (!Entropy_source){
+        void * temp =malloc(0x1);
+        Entropy_source= size_t(temp);
+        free(temp);
+    }
+    srand(Entropy_source*(double)rand() / RAND_MAX);
+    /*******************************************************************/
+
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
@@ -202,14 +214,6 @@ void BonusCodeTab::CreateClick(bool){
 
 /***********************generate a key ******************************/
 
-    unsigned int Entropy_source=0x0;
-    while (!Entropy_source){
-        void * temp =malloc(0x1);
-        Entropy_source= size_t(temp);
-        free(temp);
-    }
-    srand(time(0));
-    srand(Entropy_source*(double)rand() / RAND_MAX);
     std::string key;
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp)

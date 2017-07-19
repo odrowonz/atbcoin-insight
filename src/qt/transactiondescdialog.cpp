@@ -32,7 +32,7 @@ TransactionDescDialog::TransactionDescDialog(const QSortFilterProxyModel &idx, i
                                         "<i><b><font color='#fff'>  %6:</b></i> %2 <br>"
                                         "<i><b><font color='#fff'>  %7:</b></i> %3 <br>")).
                                         arg(idx.data(idx.index(row,3)).toString()).
-                                        arg(idx.data(idx.index(row,1)).toString()).
+                                        arg(QString::number(idx.data(idx.index(row,1)).toDouble(),'f',3)).
                                         arg(idx.data(idx.index(row,2)).toString()).
                                         arg(idx.data(idx.index(row,0)).toString()).
                                         arg(idx.headerData(3,Qt::Horizontal).toString()).
