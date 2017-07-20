@@ -34,6 +34,7 @@ protected:
 
 private:
     Ui::SignVerifyMessageDialog *ui;
+    void resizeEvent(QResizeEvent*);
     WalletModel *model;
     const PlatformStyle *platformStyle;
 

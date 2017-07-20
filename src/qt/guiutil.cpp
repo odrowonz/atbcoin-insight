@@ -81,7 +81,7 @@ extern double NSAppKitVersionNumber;
 #endif
 
 namespace GUIUtil {
-
+int FontID=0;
 QString dateTimeStr(const QDateTime &date)
 {
     return date.date().toString(Qt::SystemLocaleShortDate) + QString(" ") + date.toString("hh:mm");
@@ -94,17 +94,19 @@ QString dateTimeStr(qint64 nTime)
 
 QFont fixedPitchFont()
 {
-#if QT_VERSION >= 0x50200
-    return QFontDatabase::systemFont(QFontDatabase::FixedFont);
-#else
-    QFont font("Monospace");
-#if QT_VERSION >= 0x040800
-    font.setStyleHint(QFont::Monospace);
-#else
-    font.setStyleHint(QFont::TypeWriter);
-#endif
-    return font;
-#endif
+//#if QT_VERSION >= 0x50200
+//    return QFontDatabase::systemFont(QFontDatabase::FixedFont);
+//#else
+//    QFont font("Monospace");
+//#if QT_VERSION >= 0x040800
+//    font.setStyleHint(QFont::Monospace);
+//#else
+//    font.setStyleHint(QFont::TypeWriter);
+//#endif
+//    return font;
+//#endif
+    QString family = QFontDatabase::applicationFontFamilies(FontID).at(0);
+    return QFont (family);
 }
 
 // Just some dummy data to generate an convincing random-looking (but consistent) address
@@ -151,7 +153,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("bitcoin"))
+    if(!uri.isValid() || uri.scheme() != QString("atbcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -215,9 +217,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("bitcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("atbcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "bitcoin:");
+        uri.replace(0, 10, "atbcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -225,7 +227,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("bitcoin:%1").arg(info.address);
+    QString ret = QString("atbcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -709,8 +711,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "bitcoin.desktop";
-    return GetAutostartDir() / strprintf("bitcoin-%s.lnk", chain);
+        return GetAutostartDir() / "atbcoin.desktop";
+    return GetAutostartDir() / strprintf("atbcoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()

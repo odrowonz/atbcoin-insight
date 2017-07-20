@@ -65,7 +65,9 @@ void SignVerifyMessageDialog::setModel(WalletModel *model)
 {
     this->model = model;
 }
-
+void SignVerifyMessageDialog::resizeEvent(QResizeEvent *){
+    ui->tabWidget->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/2.1));
+}
 void SignVerifyMessageDialog::setAddress_SM(const QString &address)
 {
     ui->addressIn_SM->setText(address);

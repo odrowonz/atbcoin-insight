@@ -184,7 +184,8 @@ void ReceiveRequestDialog::update()
             qrAddrImage.fill(0xffffff);
             QPainter painter(&qrAddrImage);
             painter.drawImage(0, 0, qrImage.scaled(QR_IMAGE_SIZE, QR_IMAGE_SIZE));
-            QFont font = GUIUtil::fixedPitchFont();
+            QFont font("sans-serif");
+            font.setStyleHint(QFont::SansSerif);
             font.setPixelSize(12);
             painter.setFont(font);
             QRect paddedRect = qrAddrImage.rect();

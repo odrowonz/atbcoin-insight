@@ -83,7 +83,7 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
     deleteAction = new QAction(ui->deleteAddress->text(), this);
 
     // Build context menu
-    contextMenu = new QMenu();
+    contextMenu = new QMenu(this);
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(editAction);
@@ -133,6 +133,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
     }
     ui->tableView->setModel(proxyModel);
     ui->tableView->sortByColumn(0, Qt::AscendingOrder);
+
 
     // Set column widths
 #if QT_VERSION < 0x050000

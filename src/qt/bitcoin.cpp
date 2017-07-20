@@ -308,18 +308,15 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     returnValue(0)
 {
     setQuitOnLastWindowClosed(false);
-
     // UI per-platform customization
     // This must be done inside the BitcoinApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
     //QFontDatabase::addApplicationFont(":/icons/Bold");
    // QFontDatabase::addApplicationFont(":/icons/Medium");
    // QFontDatabase::addApplicationFont(":/icons/Regulyar");
-#ifndef Q_OS_WIN
-    int id = QFontDatabase::addApplicationFont(":/icons/Tahoma");
-    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    GUIUtil::FontID = QFontDatabase::addApplicationFont(":/icons/Tahoma");
+    QString family = QFontDatabase::applicationFontFamilies(GUIUtil::FontID).at(0);
     QApplication::setFont(QFont (family));
-#endif
     std::string platformName;
     platformName = GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));

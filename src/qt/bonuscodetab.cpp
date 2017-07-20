@@ -41,12 +41,12 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
     ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter);
+    ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
 
     ui->CouponList->setColumnWidth(0,110);
     ui->CouponList->setColumnWidth(1,100);
-    ui->CouponList->setColumnWidth(4,110);
+    ui->CouponList->setColumnWidth(4,130);
     ui->CouponList->setShowGrid(false);
     ui->tab1->setCurrentIndex(0);
 

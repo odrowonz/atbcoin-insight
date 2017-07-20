@@ -2083,7 +2083,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции биткойна будет больше, чем может обрабатывать сеть.</translation>
+        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции атбкойна будет больше, чем может обрабатывать сеть.</translation>
     </message>
     <message>
         <source>Send Coins</source>
@@ -2191,11 +2191,11 @@
     </message>
     <message>
         <source>normal</source>
-        <translation>обычный</translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>fast</source>
-        <translation>ускоренный</translation>
+        <translation>Ускоренный</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
@@ -2382,11 +2382,11 @@
     </message>
     <message>
         <source>Remove this entry</source>
-        <translation>Удалить эту запись</translation>
+        <translation>Удалить получателя</translation>
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>С отправляемой суммы будет удержана комиссия. Получателю придет меньше биткоинов, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
+        <translation>С отправляемой суммы будет удержана комиссия. Получателю придет меньше атбкоинов, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2402,7 +2402,7 @@
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation>Введите метку для этого адреса, чтобы добавить его в список использованных</translation>
+        <translation>Введите метку для этого адреса, чтобы добавить его в список использованных.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2517,7 +2517,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive ATBcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Вы можете подписывать сообщения/соглашения своими адресами, чтобы доказать свою возможность получать биткоины на них. Будьте осторожны, не подписывайте что-то неопределенное или случайное, так как фишинговые атаки могут обманным путем заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
+        <translation>Вы можете подписывать сообщения/соглашения своими адресами, чтобы доказать свою возможность получать коины на них. Будьте осторожны, не подписывайте что-то неопределенное или случайное, так как фишинговые атаки могут обманным путем заставить вас подписать нежелательные сообщения. Подписывайте только те сообщения, с которыми вы согласны вплоть до мелочей.</translation>
     </message>
     <message>
         <source>The ATBcoin address to sign the message with</source>
