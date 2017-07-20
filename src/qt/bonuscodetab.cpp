@@ -18,7 +18,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
 {
     wmodel=wmodel_;
     this->platformStyle=platformStyle;
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
     ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
     ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);

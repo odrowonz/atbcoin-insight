@@ -459,7 +459,7 @@ QSpinBox::down-button:disabled,QDoubleSpinBox::down-button:disabled,AmountSpinBo
     background-color: #5ec8bd;
 }
 
-QSpinBox::up-button:hover,QSpinBox::up-button:pressed,QSpinBox::down-button:hover, QSpinBox::down-button:pressed, 
+QSpinBox::up-button:hover,QSpinBox::up-button:pressed,QSpinBox::down-button:hover, QSpinBox::down-button:pressed,
 QDoubleSpinBox::up-button:hover,QDoubleSpinBox::up-button:pressed,QDoubleSpinBox::down-button:hover, QDoubleSpinBox::down-button:pressed,
 AmountSpinBox::up-button:hover,AmountSpinBox::up-button:pressed,AmountSpinBox::down-button:hover, AmountSpinBox::down-button:pressed
 {
@@ -467,7 +467,7 @@ AmountSpinBox::up-button:hover,AmountSpinBox::up-button:pressed,AmountSpinBox::d
 }
 
 
-QSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
+pressedQSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
     image: url(:/icons/spinUp);
     subcontrol-origin: border;
     subcontrol-position: center center;
@@ -487,14 +487,15 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     height:8px;
 }
 
-#customFee AmountSpinBox,QSpinBox
+#customFee AmountSpinBox,QSpinBox,QDateTimeEdit
 {
     min-width:145px;
     width:145px;
     border-radius:4px;
 }
 #customFee AmountSpinBox::up-arrow,
-QSpinBox::up-arrow{
+QSpinBox::up-arrow,
+QDateTimeEdit::up-arrow{
     image: url(:/icons/Up);
     margin: 0px;
     margin-bottom:4px;
@@ -502,7 +503,8 @@ QSpinBox::up-arrow{
     subcontrol-position: center center;
 }
 #customFee AmountSpinBox::up-button,
-QSpinBox::up-button{
+QSpinBox::up-button,
+QDateTimeEdit::up-button{
     border-radius:0px;
     background: #4ea69d;
     border: 4px solid #118381;
@@ -515,7 +517,8 @@ QSpinBox::up-button{
 }
 
 #customFee AmountSpinBox::down-arrow,
-QSpinBox::down-arrow{
+QSpinBox::down-arrow,
+QDateTimeEdit::down-arrow{
     image: url(:/icons/Down);
     margin: 0px;
     margin-top:4px;
@@ -523,7 +526,8 @@ QSpinBox::down-arrow{
     subcontrol-position: center center;
 }
 #customFee AmountSpinBox::down-button,
-QSpinBox::down-button{
+QSpinBox::down-button,
+QDateTimeEdit::down-button{
     border-radius:px;
     background: #4ea69d;
     border: 4px solid #118381;
@@ -534,38 +538,45 @@ QSpinBox::down-button{
     height:17px;
     subcontrol-position: bottom right;
 }
-QSpinBox::down-button,QSpinBox::up-button{
+QSpinBox::down-button,QSpinBox::up-button,
+QDateTimeEdit::up-button,
+QDateTimeEdit::down-button{
     border: none;
 }
 #customFee AmountSpinBox::up-button:hover,
 #customFee AmountSpinBox::down-button:hover,
 QSpinBox::up-button:hover,
-QSpinBox::down-button:hover{
+QSpinBox::down-button:hover,
+QDateTimeEdit::up-button:hover,
+QDateTimeEdit::down-button:hover{
     background: #168986;
 }
 #customFee AmountSpinBox::up-button:pressed,
 #customFee AmountSpinBox::down-button:pressed,
 QSpinBox::up-button:pressed,
-QSpinBox::down-button:pressed{
+QSpinBox::down-button:pressed,
+QDateTimeEdit::up-button:pressed,
+QDateTimeEdit::down-button:pressed{
     background: #3e968d;
 }
 #customFee AmountSpinBox::up-button:disabled,
 #customFee AmountSpinBox::down-button:disabled,
 QSpinBox::up-button:disabled,
-QSpinBox::down-button:disabled{
+QSpinBox::down-button:disabled,
+QDateTimeEdit::up-button:disabled,
+QDateTimeEdit::down-button:disabled{
     background: #158785;
 }
 QDateTimeEdit:editable,QComboBox:editable {
     background: #46a799;
 }
 QDateTimeEdit{
-    font-size:10px;
+    font-size: 13px;
+    font-weight:500;
     margin-bottom: 10px;
     margin-top: 10px;
-    font-weight:500;
-
 }
-QDateTimeEdit,QComboBox::drop-down, QValueComboBox::drop-down{
+QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
@@ -581,7 +592,7 @@ QDateTimeEdit QListView,QComboBox QListView{
     background: #46a799;
     width: 60px;
 }
-QDateTimeEdit::down-arrow,QComboBox::down-arrow, QValueComboBox::down-arrow{
+QComboBox::down-arrow, QValueComboBox::down-arrow{
     image: url(:/icons/Down);
     subcontrol-origin: border;
     subcontrol-position: center right;
@@ -592,15 +603,23 @@ QDateTimeEdit::down-arrow,QComboBox::down-arrow, QValueComboBox::down-arrow{
 }
 
 
-QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off, QDoubleSpinBox::up-arrow:disabled, QDoubleSpinBox::up-arrow:off, AmountSpinBox::up-arrow:disabled, AmountSpinBox::up-arrow:off{
+QDateTimeEdit::up-arrow:disabled,QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off, QDoubleSpinBox::up-arrow:disabled, QDoubleSpinBox::up-arrow:off, AmountSpinBox::up-arrow:disabled, AmountSpinBox::up-arrow:off{
    image: url(:/icons/spinUp);
 }
 
-QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-arrow:disabled, QDoubleSpinBox::down-arrow:off, AmountSpinBox::down-arrow:disabled, AmountSpinBox::down-arrow:off,QComboBox::down-arrow:disabled, QValueComboBox::down-arrow:disabled, QComboBox::down-arrow:off, QValueComboBox::down-arrow:off{
+QDateTimeEdit::down-arrow:disabled,QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off, QDoubleSpinBox::down-arrow:disabled, QDoubleSpinBox::down-arrow:off, AmountSpinBox::down-arrow:disabled, AmountSpinBox::down-arrow:off,QComboBox::down-arrow:disabled, QValueComboBox::down-arrow:disabled, QComboBox::down-arrow:off, QValueComboBox::down-arrow:off{
    image: url(:/icons/spinDown);
 }
-
-QDateTimeEdit,QComboBox:item,QValueComboBox:item{
+QDateTimeEdit::down-button,QDateTimeEdit::up-button{
+    border:none;
+    background:transparent;
+    border-radius:6px;
+}
+QDateTimeEdit::down-arrow,QDateTimeEdit::up-arrow{
+    width:10px;
+    height:10px;
+}
+QDateTimeEdit:item,QComboBox:item,QValueComboBox:item{
     border-radius: 3px;
     background-color: transparent;
     color: #fff;

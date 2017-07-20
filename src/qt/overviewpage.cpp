@@ -171,7 +171,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     txdelegate(new TxViewDelegate(platformStyle)),
     filter(0)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
     // use a SingleColorIcon for the "out of sync warning" icon
     QIcon icon = platformStyle->SingleColorIcon(":/icons/warning",Qt::white);

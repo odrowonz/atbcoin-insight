@@ -25,7 +25,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
     model(0),
     fCapsLock(false)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
 
     ui->passEdit1->setMinimumSize(ui->passEdit1->sizeHint());

@@ -11,7 +11,7 @@ ShareDialog::ShareDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ShareDialog)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
     connect(ui->cancelButtonByEmail,SIGNAL(clicked(bool)),SLOT(close()));
     connect(ui->cancelButtonByKey,SIGNAL(clicked(bool)),SLOT(close()));

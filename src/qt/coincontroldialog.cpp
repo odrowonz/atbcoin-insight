@@ -41,7 +41,7 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *platformStyle, QWidget
     model(0),
     platformStyle(platformStyle)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
 
     // context menu actions

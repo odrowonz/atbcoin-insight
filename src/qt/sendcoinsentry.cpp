@@ -22,7 +22,7 @@ SendCoinsEntry::SendCoinsEntry(const PlatformStyle *platformStyle, QWidget *pare
     model(0),
     platformStyle(platformStyle)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
 
     ui->addressBookButton->setIcon(platformStyle->SingleColorIcon(":/icons/address-book"));

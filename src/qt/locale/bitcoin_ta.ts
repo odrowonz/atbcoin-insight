@@ -657,6 +657,14 @@
         <source>Your code is created. The code will be available after confirmation.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Commission for the confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoinControlDialog</name>
@@ -1590,10 +1598,6 @@
 <context>
     <name>QRImageWidget</name>
     <message>
-        <source>&amp;Save Image</source>
-        <translation type="unfinished">&amp;படத்தை சேமி...</translation>
-    </message>
-    <message>
         <source>&amp;Copy Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1603,6 +1607,10 @@
     </message>
     <message>
         <source>PNG Image (*.png)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Image...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

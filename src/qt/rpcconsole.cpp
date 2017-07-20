@@ -255,7 +255,7 @@ RPCConsole::RPCConsole(const PlatformStyle *platformStyle, QWidget *parent) :
     banTableContextMenu(0),
     consoleFontSize(0)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
     GUIUtil::restoreWindowGeometry("nRPCConsoleWindow", this->size(), this);
 

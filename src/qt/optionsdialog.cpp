@@ -36,7 +36,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     model(0),
     mapper(0)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
 
     /* Main elements init */

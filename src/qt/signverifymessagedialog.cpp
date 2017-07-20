@@ -26,7 +26,7 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(const PlatformStyle *platformSt
     model(0),
     platformStyle(platformStyle)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()|Qt::WindowContextHelpButtonHint);
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
 
     ui->addressBookButton_SM->setIcon(platformStyle->SingleColorIcon(":/icons/address-book"));
