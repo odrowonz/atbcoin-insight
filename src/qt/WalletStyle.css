@@ -502,6 +502,9 @@ QSpinBox::down-arrow,QDoubleSpinBox::down-arrow ,AmountSpinBox::down-arrow {
     width:145px;
     border-radius:4px;
 }
+QDateTimeEdit{
+    background: #5ba69b;
+}
 #customFee AmountSpinBox::up-arrow,
 QSpinBox::up-arrow,
 QDateTimeEdit::up-arrow{
@@ -597,7 +600,7 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     border:none;
 }
 
-QDateTimeEdit QListView,QComboBox QListView{
+QComboBox QListView{
     background: #46a799;
     width: 60px;
 }
@@ -610,8 +613,6 @@ QComboBox::down-arrow, QValueComboBox::down-arrow{
     width: 12px;
     height: 7px;
 }
-
-
 QDateTimeEdit::up-arrow:disabled,QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off, QDoubleSpinBox::up-arrow:disabled, QDoubleSpinBox::up-arrow:off, AmountSpinBox::up-arrow:disabled, AmountSpinBox::up-arrow:off{
    image: url(:/icons/spinUp);
 }
@@ -691,7 +692,7 @@ QSlider::sub-page:vertical {
 QTableView{
     font-size: 13px;
     font-weight: 800;
-    border: 1px solid #7cc0af;
+    border: 2px solid #7cc0af;
     border-radius:6px;
     overflow: hidden;
     margin: 20px 0 25px;
@@ -706,6 +707,7 @@ QTableView::item{
     border-radius:0px;
 }
 QHeaderView::section {
+    height:30px;
     background: #46a799;
     border: 1px solid #7cc0af;
     border-top:none;
