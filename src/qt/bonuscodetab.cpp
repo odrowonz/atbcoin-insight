@@ -11,6 +11,7 @@
 #include "informationdialog.h"
 #include "../coincontrol.h"
 #include "../script/standard.h"
+#include "previewcodedialog.h"
 
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
@@ -44,7 +45,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
 
-    ui->CouponList->setColumnWidth(0,110);
+    ui->CouponList->setColumnWidth(0,120);
     ui->CouponList->setColumnWidth(1,100);
     ui->CouponList->setColumnWidth(4,130);
     ui->CouponList->setShowGrid(false);
@@ -57,6 +58,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->SAmount->setSingleStep(0.001);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
+    ui->CouponId->setText(ui->CouponId->text()+":");
 
     /*************************generate entropy source*********************************/
     unsigned int Entropy_source=0x0;
@@ -81,7 +83,7 @@ bool BonusCodeTab::keyCheck(const std::string &str){
             (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
 }
 void BonusCodeTab::cliced(QModelIndex i){
-    TransactionDescDialog(*model,i.row(),this).exec();
+    PreviewCodeDialog(model,i.row(),this).exec();
 }
 void BonusCodeTab::resizeEvent(QResizeEvent *){
     ui->tab1->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/2.1));

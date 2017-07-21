@@ -314,9 +314,15 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     //QFontDatabase::addApplicationFont(":/icons/Bold");
    // QFontDatabase::addApplicationFont(":/icons/Medium");
    // QFontDatabase::addApplicationFont(":/icons/Regulyar");
+QString family;
+#ifdef Q_OS_WIN
+    family="sans-serif";
+#else
     GUIUtil::FontID = QFontDatabase::addApplicationFont(":/icons/Tahoma");
-    QString family = QFontDatabase::applicationFontFamilies(GUIUtil::FontID).at(0);
-    QApplication::setFont(QFont (family));
+    family = QFontDatabase::applicationFontFamilies(GUIUtil::FontID).at(0);
+
+#endif
+      QApplication::setFont(QFont (family));
     std::string platformName;
     platformName = GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));

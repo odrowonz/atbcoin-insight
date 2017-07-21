@@ -27,10 +27,10 @@ TransactionDescDialog::TransactionDescDialog(const QSortFilterProxyModel &idx, i
 
     setMinimumWidth(750);
     setWindowTitle(tr("Details for coupon"));
-    ui->detailText->setHtml(QString (tr("<i><b><font color='#fff'>  %4:</b></i> %0 <br>"
-                                        "<i><b><font color='#fff'>  %5:</b></i> %1 <br>"
-                                        "<i><b><font color='#fff'>  %6:</b></i> %2 <br>"
-                                        "<i><b><font color='#fff'>  %7:</b></i> %3 <br>")).
+    ui->detailText->setHtml(QString (tr("<i><b><font color='#fff'>  %4: </b></i> %0 <br>"
+                                        "<i><b><font color='#fff'>  %5: </b></i> %1 <br>"
+                                        "<i><b><font color='#fff'>  %6: </b></i> %2 <br>"
+                                        "<i><b><font color='#fff'>  %7: </b></i> %3 <br>")).
                                         arg(idx.data(idx.index(row,3)).toString()).
                                         arg(QString::number(idx.data(idx.index(row,1)).toDouble(),'f',3)).
                                         arg(idx.data(idx.index(row,2)).toString()).

@@ -898,13 +898,6 @@ QStackedWidget{
     margin-bottom:5px;
 }
 
-TransactionDescDialog{
-    background:#83d8bf;
-}
-TransactionDescDialog #detailText{
-    color: #fff;
-    background:#38a196;
-}
 #ReceiveCoinsDialog{
     background: transparent;
 }
@@ -915,6 +908,24 @@ TransactionDescDialog #detailText{
     margin-top:12px;
     min-height:50px;
 }
+TransactionDescDialog,#PreviewCodeDialog{
+    background:#83d8bf;
+}
+TransactionDescDialog #detailText,
+#PreviewCodeDialogframe{
+    color: #a8ddd7;
+    border-radius:6px;
+    background:#38a196;
+}
 
-
+#AmountFirst,#CodeFirst,#HashFirst,#DateFirst{
+    max-width:120px;
+    font-weight:600;
+    color:#a8ddd7;
+    text-align:right;
+}
+#AmountSecond,#CodeSecond,#HashSecond,#DateSecond{
+    font-weight:600;
+    color:#fff;
+}
 

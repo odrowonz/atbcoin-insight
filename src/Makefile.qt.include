@@ -108,8 +108,8 @@ QT_FORMS_UI = \
   qt/forms/transactiondescdialog.ui \
   qt/forms/bonuscodetab.ui \
   qt/forms/informationdialog.ui \
-  qt/forms/ShareDialog.ui 
-  
+  qt/forms/ShareDialog.ui \
+  qt/forms/previewcodedialog.ui 
 
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
@@ -160,7 +160,8 @@ QT_MOC_CPP = \
   qt/moc_informationdialog.cpp \
   qt/moc_css.cpp \
   qt/moc_ShareDialog.cpp \
-  qt/moc_backgroundimage.cpp
+  qt/moc_backgroundimage.cpp \
+  qt/moc_previewcodedialog.cpp 
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
@@ -238,7 +239,8 @@ BITCOIN_QT_H = \
   qt/informationdialog.h \
   qt/css.h \
   qt/ShareDialog.h \
-  qt/backgroundimage.h
+  qt/backgroundimage.h \
+  qt/previewcodedialog.h 
 
 RES_ICONS = \
   qt/res/icons/add.png \
@@ -353,7 +355,8 @@ BITCOIN_QT_CPP += \
   qt/css.cpp \
   qt/informationdialog.cpp \
   qt/ShareDialog.cpp \
-  qt/backgroundimage.cpp 
+  qt/backgroundimage.cpp \
+  qt/previewcodedialog.cpp 
 
 endif
 
