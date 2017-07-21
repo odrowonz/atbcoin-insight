@@ -34,7 +34,7 @@ static int column_alignments[] = {
         Qt::AlignCenter|Qt::AlignVCenter, /* status */
         Qt::AlignCenter|Qt::AlignVCenter, /* watchonly */
         Qt::AlignCenter|Qt::AlignVCenter, /* date */
-        Qt::AlignCenter|Qt::AlignVCenter, /* type */
+        Qt::AlignCenter|Qt::AlignLeft, /* type */
         Qt::AlignCenter|Qt::AlignVCenter, /* address */
         Qt::AlignCenter|Qt::AlignVCenter /* amount */
     };

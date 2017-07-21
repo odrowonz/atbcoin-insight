@@ -1,6 +1,6 @@
 #include "previewcodedialog.h"
 #include "ui_previewcodedialog.h"
-
+#include <QDateTime>
 PreviewCodeDialog::PreviewCodeDialog(QSortFilterProxyModel* idx,int row,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PreviewCodeDialog)
@@ -14,7 +14,8 @@ PreviewCodeDialog::PreviewCodeDialog(QSortFilterProxyModel* idx,int row,QWidget 
     ui->AmountSecond->setText(QString::number(idx->data(idx->index(row,1)).toDouble(),'f',3));
     ui->CodeSecond->setText(idx->data(idx->index(row,3)).toString());
     ui->HashSecond->setText(idx->data(idx->index(row,2)).toString());
-    ui->DateSecond->setText(idx->data(idx->index(row,0)).toString());
+    QLocale l(QLocale::system());
+    ui->DateSecond->setText(idx->data(idx->index(row,0)).toDateTime().toString(l.dateTimeFormat(QLocale::NarrowFormat)));
 }
 
 PreviewCodeDialog::~PreviewCodeDialog()

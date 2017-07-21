@@ -45,7 +45,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
 
-    ui->CouponList->setColumnWidth(0,120);
+    ui->CouponList->setColumnWidth(0,140);
     ui->CouponList->setColumnWidth(1,100);
     ui->CouponList->setColumnWidth(4,130);
     ui->CouponList->setShowGrid(false);

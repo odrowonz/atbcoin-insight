@@ -327,6 +327,9 @@ QFrame[frameShape="5"]
         qproperty-iconSize: 8px;
         color: #99ccc7;
 }
+#PreviewCodeDialogpushButton{
+        text-transform: none;
+}
 #buttonMinimizeFee::text,#buttonChooseFee::text{
     margin:0px;
     padding:0px;
@@ -635,8 +638,8 @@ QDateTimeEdit::down-button,QDateTimeEdit::up-button{
     border-radius:6px;
 }
 QDateTimeEdit::down-arrow,QDateTimeEdit::up-arrow{
-    width:10px;
-    height:10px;
+    width:13px;
+    height:13px;
 }
 QDateTimeEdit:item,QComboBox:item,QValueComboBox:item,
 QComboBox QListView:item,QValueComboBox QListView:item{
