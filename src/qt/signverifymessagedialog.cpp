@@ -47,6 +47,7 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(const PlatformStyle *platformSt
 
     ui->addressIn_SM->installEventFilter(this);
     ui->messageIn_SM->installEventFilter(this);
+    ui->messageIn_SM->setFont(GUIUtil::fixedPitchFont());
     ui->signatureOut_SM->installEventFilter(this);
     ui->addressIn_VM->installEventFilter(this);
     ui->messageIn_VM->installEventFilter(this);

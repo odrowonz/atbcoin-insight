@@ -444,6 +444,10 @@ void BitcoinGUI::createMenuBar()
     }
     help->addAction(showHelpMessageAction);
     help->addSeparator();
+    appMenuBar->setFont(GUIUtil::fixedPitchFont());
+    settings->setFont(GUIUtil::fixedPitchFont());
+    file->setFont(GUIUtil::fixedPitchFont());
+    help->setFont(GUIUtil::fixedPitchFont());
 }
 void BitcoinGUI::shareDialogCliced(){
     (new ShareDialog(this))->show();
@@ -612,6 +616,7 @@ void BitcoinGUI::createTrayIconMenu()
         return;
 
     trayIconMenu = new QMenu(this);
+    trayIconMenu->setFont(GUIUtil::fixedPitchFont());
     trayIcon->setContextMenu(trayIconMenu);
 
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
@@ -1215,6 +1220,7 @@ void UnitDisplayStatusBarControl::mousePressEvent(QMouseEvent *event)
 void UnitDisplayStatusBarControl::createContextMenu()
 {
     menu = new QMenu(this);
+    menu->setFont(GUIUtil::fixedPitchFont());
     Q_FOREACH(BitcoinUnits::Unit u, BitcoinUnits::availableUnits())
     {
         QAction *menuAction = new QAction(QString(BitcoinUnits::name(u)), this);

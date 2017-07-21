@@ -159,6 +159,7 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     QAction *showDetailsAction = new QAction(tr("Show transaction details"), this);
 
     contextMenu = new QMenu(this);
+    contextMenu->setFont(GUIUtil::fixedPitchFont());
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyAmountAction);
@@ -527,7 +528,7 @@ QWidget *TransactionView::createDateRangeWidget()
     QLocale l(QLocale::system());
     dateFrom->setDisplayFormat(l.dateFormat(QLocale::NarrowFormat));
     dateFrom->setCalendarPopup(false);
-    dateFrom->setMinimumWidth(90);
+   // dateFrom->setMinimumWidth(90);
     dateFrom->setDate(QDate::currentDate().addDays(-7));
     layout->addWidget(dateFrom);
     layout->addWidget(new QLabel(tr("to")));
@@ -535,7 +536,7 @@ QWidget *TransactionView::createDateRangeWidget()
     dateTo = new QDateTimeEdit(this);
     dateTo->setDisplayFormat(l.dateFormat(QLocale::NarrowFormat));
     dateTo->setCalendarPopup(false);
-    dateTo->setMinimumWidth(90);
+   // dateTo->setMinimumWidth(90);
     dateTo->setDate(QDate::currentDate());
     layout->addWidget(dateTo);
     layout->addStretch();

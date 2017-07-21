@@ -279,9 +279,16 @@ QFrame[frameShape="5"]
 }
 #frameFee QLabel{
         color:#9de3e1;
+        font-size:12px;
 }
+#labelFeeEstimation,
+#labelSmartFee{
+    max-width:140px;
+}
+#labelSmartFee2,
 #labelMinFeeWarning{
     font-size:12px;
+    margin-right:10px;
 }
 #frameFee #BalanceSend,#frameFee #labelBalance{
         font-weight: 700;
@@ -316,7 +323,7 @@ QFrame[frameShape="5"]
         min-width:0px;
         max-width:40px;
         width:70px;
-        text-transform: capitalize;
+        text-transform: none;
         qproperty-iconSize: 8px;
         color: #99ccc7;
 }
@@ -476,7 +483,7 @@ AmountSpinBox::up-button:hover,AmountSpinBox::up-button:pressed,AmountSpinBox::d
 }
 
 
-pressedQSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
+QSpinBox::up-arrow,QDoubleSpinBox::up-arrow ,AmountSpinBox::up-arrow{
     image: url(:/icons/spinUp);
     subcontrol-origin: border;
     subcontrol-position: center center;
@@ -579,14 +586,15 @@ QDateTimeEdit::up-button:disabled,
 QDateTimeEdit::down-button:disabled{
     background: #158785;
 }
-QDateTimeEdit:editable,QComboBox:editable {
-    background: #46a799;
-}
 QDateTimeEdit{
+    background:#4ea69d;
     font-size: 13px;
     font-weight:500;
     margin-bottom: 10px;
     margin-top: 10px;
+    min-width:70px;
+    width:110px;
+    max-width:130px;
 }
 QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
@@ -600,8 +608,9 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     border:none;
 }
 
-QComboBox QListView{
+QComboBox QListView,QValueComboBox QListView{
     background: #46a799;
+    color:#000;
     width: 60px;
 }
 QComboBox::down-arrow, QValueComboBox::down-arrow{
@@ -629,7 +638,8 @@ QDateTimeEdit::down-arrow,QDateTimeEdit::up-arrow{
     width:10px;
     height:10px;
 }
-QDateTimeEdit:item,QComboBox:item,QValueComboBox:item{
+QDateTimeEdit:item,QComboBox:item,QValueComboBox:item,
+QComboBox QListView:item,QValueComboBox QListView:item{
     border-radius: 3px;
     background-color: #5ba69b;
     color: #fff;
@@ -637,13 +647,16 @@ QDateTimeEdit:item,QComboBox:item,QValueComboBox:item{
     padding-left:15px;
     height:40px;
 }
-QComboBox:item:selected,QValueComboBox:item:selected{
+QComboBox:item:selected,QValueComboBox:item:selected,
+QComboBox QListView:item:selected,QValueComboBox QListView:item:selected{
     background-color:#64f1ec;
 }
-QComboBox:item:checked,QValueComboBox:item:checked{
+QComboBox:item:checked,QValueComboBox:item:checked,
+QComboBox QListView:item:checked,QValueComboBox QListView:item:checked{
     background-color:#64f1ec;
 }
-QComboBox:item:hover,QValueComboBox:item:hover{
+QComboBox:item:hover,QValueComboBox:item:hover,
+QComboBox QListView:item:hover,QValueComboBox QListView:item:hover{
     background-color:#64f1ec;
 }
 
@@ -821,6 +834,7 @@ QMenuBar::item:selected { /* when selected using mouse or keyboard */
 
 
 QMenu {
+    font-family: sans-serif;
     background-color: #45a698;
     border-radius: 2px;
     color: #fff;
@@ -828,6 +842,7 @@ QMenu {
 }
 
 QMenu::item {
+    font-family: sans-serif;
     border-radius: 3px;
     background-color: transparent;
     color: #fff;

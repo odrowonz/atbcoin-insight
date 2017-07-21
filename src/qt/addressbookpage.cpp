@@ -84,12 +84,14 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
 
     // Build context menu
     contextMenu = new QMenu(this);
+    contextMenu->setFont(GUIUtil::fixedPitchFont());
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(editAction);
     if(tab == SendingTab)
         contextMenu->addAction(deleteAction);
     contextMenu->addSeparator();
+    ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
     // Connect signals for context menu actions
     connect(copyAddressAction, SIGNAL(triggered()), this, SLOT(on_copyAddress_clicked()));

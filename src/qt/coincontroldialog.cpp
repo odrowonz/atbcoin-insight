@@ -53,7 +53,8 @@ CoinControlDialog::CoinControlDialog(const PlatformStyle *platformStyle, QWidget
              unlockAction = new QAction(tr("Unlock unspent"), this);                    // we need to enable/disable this
 
     // context menu
-    contextMenu = new QMenu();
+    contextMenu = new QMenu(this);
+    contextMenu->setFont(GUIUtil::fixedPitchFont());
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyAmountAction);

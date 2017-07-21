@@ -13,7 +13,7 @@
   <property name="minimumSize">
    <size>
     <width>0</width>
-    <height>0</height>
+    <height>550</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -638,7 +638,7 @@
         <x>0</x>
         <y>0</y>
         <width>811</width>
-        <height>83</height>
+        <height>91</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
@@ -906,6 +906,9 @@
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayoutFee8">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
                    <item>
                     <widget class="QCheckBox" name="checkBoxMinimumFee">
                      <property name="toolTip">
@@ -937,7 +940,7 @@
                       <bool>true</bool>
                      </property>
                      <property name="margin">
-                      <number>5</number>
+                      <number>0</number>
                      </property>
                     </widget>
                    </item>
@@ -972,6 +975,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayoutFee12">
                  <item>
                   <widget class="QLabel" name="labelSmartFee">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="maximumSize">
                     <size>
                      <width>9999</width>
@@ -988,6 +997,12 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="labelFeeEstimation">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="maximumSize">
                     <size>
                      <width>999999</width>
@@ -1007,6 +1022,17 @@
                      <height>16777215</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <stylestrategy>PreferDefault</stylestrategy>
+                    </font>
+                   </property>
+                   <property name="layoutDirection">
+                    <enum>Qt::LeftToRight</enum>
+                   </property>
+                   <property name="autoFillBackground">
+                    <bool>false</bool>
+                   </property>
                    <property name="text">
                     <string>(Smart fee not initialized yet. This usually takes a few blocks...)</string>
                    </property>
@@ -1014,22 +1040,9 @@
                     <bool>true</bool>
                    </property>
                    <property name="margin">
-                    <number>2</number>
+                    <number>0</number>
                    </property>
                   </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_5">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>1</width>
-                     <height>1</height>
-                    </size>
-                   </property>
-                  </spacer>
                  </item>
                 </layout>
                </item>

@@ -585,7 +585,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         return column_alignments[index.column()];
     case Qt::ForegroundRole:
         // Use the "danger" color for abandoned transactions
-        if(index.column() == Amount ){
+        if(index.column() == Amount|| index.column() == Type){
             if((rec->credit+rec->debit) < 0)
                 return COLOR_NEGATIVE;
             else

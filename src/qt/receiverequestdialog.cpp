@@ -32,7 +32,8 @@
 QRImageWidget::QRImageWidget(QWidget *parent):
     QLabel(parent), contextMenu(0)
 {
-    contextMenu = new QMenu();
+    contextMenu = new QMenu(this);
+    contextMenu->setFont(GUIUtil::fixedPitchFont());
     QAction *saveImageAction = new QAction(tr("&Save Image..."), this);
     connect(saveImageAction, SIGNAL(triggered()), this, SLOT(saveImage()));
     contextMenu->addAction(saveImageAction);
