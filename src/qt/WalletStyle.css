@@ -327,9 +327,6 @@ QFrame[frameShape="5"]
         qproperty-iconSize: 8px;
         color: #99ccc7;
 }
-#PreviewCodeDialogpushButton{
-        text-transform: none;
-}
 #buttonMinimizeFee::text,#buttonChooseFee::text{
     margin:0px;
     padding:0px;
@@ -641,8 +638,14 @@ QDateTimeEdit::down-arrow,QDateTimeEdit::up-arrow{
     width:13px;
     height:13px;
 }
+QComboBox QAbstractItemView,QValueComboBox QAbstractItemView
+{
+    color: #fff;
+    background-color: #5ba69b;
+    border:none;
+}
 QDateTimeEdit:item,QComboBox:item,QValueComboBox:item,
-QComboBox QListView:item,QValueComboBox QListView:item{
+QComboBox QAbstractItemView::item,QValueComboBox QAbstractItemView::item{
     border-radius: 3px;
     background-color: #5ba69b;
     color: #fff;
@@ -651,15 +654,15 @@ QComboBox QListView:item,QValueComboBox QListView:item{
     height:40px;
 }
 QComboBox:item:selected,QValueComboBox:item:selected,
-QComboBox QListView:item:selected,QValueComboBox QListView:item:selected{
+QComboBox QAbstractItemView::item:selected,QValueComboBox QAbstractItemView:item:selected{
     background-color:#64f1ec;
 }
 QComboBox:item:checked,QValueComboBox:item:checked,
-QComboBox QListView:item:checked,QValueComboBox QListView:item:checked{
+QComboBox QAbstractItemView::item:checked,QValueComboBox QAbstractItemView:item:checked{
     background-color:#64f1ec;
 }
 QComboBox:item:hover,QValueComboBox:item:hover,
-QComboBox QListView:item:hover,QValueComboBox QListView:item:hover{
+QComboBox QAbstractItemView::item:hover,QValueComboBox QAbstractItemView:item:hover{
     background-color:#64f1ec;
 }
 

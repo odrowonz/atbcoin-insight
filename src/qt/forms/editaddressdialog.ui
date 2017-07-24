@@ -30,6 +30,9 @@
        <property name="text">
         <string>&amp;Label</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
        <property name="buddy">
         <cstring>labelEdit</cstring>
        </property>
@@ -46,6 +49,9 @@
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>&amp;Address</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
        </property>
        <property name="buddy">
         <cstring>addressEdit</cstring>

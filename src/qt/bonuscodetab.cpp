@@ -60,22 +60,31 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
     ui->CouponId->setText(ui->CouponId->text()+":");
 
-    /*************************generate entropy source*********************************/
-    unsigned int Entropy_source=0x0;
-    srand(time(0));
-    while (!Entropy_source){
-        void * temp =malloc(0x1);
-        Entropy_source= size_t(temp);
-        free(temp);
-    }
-    srand(Entropy_source*(double)rand() / RAND_MAX);
-    /*******************************************************************/
+    gen_entropy_source();
+
 
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
     connect(ui->CouponList,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cliced(QModelIndex)));
 
+}
+void BonusCodeTab::gen_entropy_source(){
+    /*************************generate entropy source*********************************/
+    unsigned int Entropy_source=0x0;
+    srand(time(0));
+    while (!Entropy_source){
+        void *temp =malloc(0x4);
+        Entropy_source= *static_cast<unsigned int*>(temp);
+        Entropy_source+=size_t(temp);
+        free(temp);
+        std::mt19937 gen(std::random_device().operator()());
+        std::uniform_int_distribution<int> uid(0, RAND_MAX);
+        Entropy_source+=uid(gen);
+        Entropy_source+=rand();
+    }
+    srand(Entropy_source);
+    /*******************************************************************/
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
@@ -218,8 +227,11 @@ void BonusCodeTab::CreateClick(bool){
 
     std::string key;
     std::string temp=KEY_TEMPLATE;
-    for(unsigned char i:temp)
+    for(unsigned char i:temp){
+        if(i=='-')
+            gen_entropy_source();
         key.push_back((i=='0')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
+    }
     uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
     valtype temp4(temp3.begin(),temp3.end());
 

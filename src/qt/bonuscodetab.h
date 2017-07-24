@@ -28,6 +28,7 @@ public Q_SLOTS:
     void updateBonusList();
 private:
     void resizeEvent(QResizeEvent*);
+    void gen_entropy_source();
     Ui::BonusCodeTab *ui;
     ClientModel *clientModel;
     WalletModel *wmodel;
