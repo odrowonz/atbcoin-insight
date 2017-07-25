@@ -59,7 +59,7 @@ private:
     QMenu *contextMenu;
     QAction *deleteAction; // to be able to explicitly disable it
     QString newAddressToSelect;
-
+    void Header_fix();
 private Q_SLOTS:
     /** Delete currently selected address entry */
     void on_deleteAddress_clicked();

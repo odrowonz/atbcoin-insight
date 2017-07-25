@@ -165,7 +165,26 @@ void AddressBookPage::setModel(AddressTableModel *model)
 
     selectionChanged();
 }
-
+void AddressBookPage::Header_fix(){
+    if(proxyModel->rowCount()>0){
+#if QT_VERSION < 0x050000
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
+#else
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
+#endif
+    }else{
+#if QT_VERSION < 0x050000
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Address, QHeaderView::Fixed);
+#else
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::Fixed);
+#endif
+    ui->tableView->setColumnWidth(1,100);
+    }
+}
 void AddressBookPage::on_copyAddress_clicked()
 {
     GUIUtil::copyEntryData(ui->tableView, AddressTableModel::Address);
@@ -212,6 +231,7 @@ void AddressBookPage::on_newAddress_clicked()
         newAddressToSelect = dlg.getAddress();
         ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
     }
+    Header_fix();
     ui->tableView->repaint();
 }
 
@@ -226,6 +246,7 @@ void AddressBookPage::on_deleteAddress_clicked()
     {
         table->model()->removeRow(indexes.at(0).row());
     }
+    Header_fix();
     ui->tableView->repaint();
 }
 
