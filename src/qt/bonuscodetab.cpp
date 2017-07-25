@@ -12,7 +12,7 @@
 #include "../coincontrol.h"
 #include "../script/standard.h"
 #include "previewcodedialog.h"
-
+#include "../random.h"
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -59,8 +59,7 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
     ui->CouponId->setText(ui->CouponId->text()+":");
-
-    gen_entropy_source();
+    seed_insecure_rand();
 
 
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
@@ -68,13 +67,6 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
     connect(ui->CouponList,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cliced(QModelIndex)));
 
-}
-void BonusCodeTab::gen_entropy_source(){
-    /*************************generate entropy source*********************************/
-    std::mt19937 gen(std::random_device().operator()());
-    std::uniform_int_distribution<int> uid(0, RAND_MAX);
-    srand(uid(gen));
-    /*******************************************************************/
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
     std::string base(KEY_TEMPLATE);
@@ -218,9 +210,8 @@ void BonusCodeTab::CreateClick(bool){
     std::string key;
     std::string temp=KEY_TEMPLATE;
     for(unsigned char i:temp){
-        if(i=='-')
-            gen_entropy_source();
-        key.push_back((i=='0')?((rand()%5)?char(rand()%26+65):char(rand()%10+48)):i);
+        key.push_back((i=='0')?((GetRand(5))?char(GetRand(26)+65):char(GetRand(10)+48)):i);
+        srand(rand());
     }
     uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
     valtype temp4(temp3.begin(),temp3.end());
