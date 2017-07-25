@@ -71,19 +71,9 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
 }
 void BonusCodeTab::gen_entropy_source(){
     /*************************generate entropy source*********************************/
-    unsigned int Entropy_source=0x0;
-    srand(time(0));
-    while (!Entropy_source){
-        void *temp =malloc(0x4);
-        Entropy_source= *static_cast<unsigned int*>(temp);
-        Entropy_source+=size_t(temp);
-        free(temp);
-        std::mt19937 gen(std::random_device().operator()());
-        std::uniform_int_distribution<int> uid(0, RAND_MAX);
-        Entropy_source+=uid(gen);
-        Entropy_source+=rand();
-    }
-    srand(Entropy_source);
+    std::mt19937 gen(std::random_device().operator()());
+    std::uniform_int_distribution<int> uid(0, RAND_MAX);
+    srand(uid(gen));
     /*******************************************************************/
 }
 bool BonusCodeTab::keyCheck(const std::string &str){

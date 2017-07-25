@@ -320,7 +320,6 @@ public:
         if (ser_action.ForRead())
             Init(NULL);
         char fSpent = false;
-
         if (!ser_action.ForRead())
         {
             mapValue["fromaccount"] = strFromAccount;

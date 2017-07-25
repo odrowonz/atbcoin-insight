@@ -664,7 +664,7 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
         }
         else if (role == Qt::TextAlignmentRole)
         {
-            return column_alignments[section];
+            return Qt::AlignCenter;
         } else if (role == Qt::ToolTipRole)
         {
             switch(section)

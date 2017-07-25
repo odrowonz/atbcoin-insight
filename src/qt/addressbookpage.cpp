@@ -138,6 +138,8 @@ void AddressBookPage::setModel(AddressTableModel *model)
 
 
     // Set column widths
+
+    if(proxyModel->rowCount()>0){
 #if QT_VERSION < 0x050000
     ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
@@ -145,7 +147,16 @@ void AddressBookPage::setModel(AddressTableModel *model)
     ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
 #endif
-
+    }else{
+#if QT_VERSION < 0x050000
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Address, QHeaderView::Fixed);
+#else
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::Fixed);
+#endif
+    ui->tableView->setColumnWidth(1,100);
+    }
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
         this, SLOT(selectionChanged()));
 
@@ -199,7 +210,9 @@ void AddressBookPage::on_newAddress_clicked()
     if(dlg.exec())
     {
         newAddressToSelect = dlg.getAddress();
+        ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
     }
+    ui->tableView->repaint();
 }
 
 void AddressBookPage::on_deleteAddress_clicked()
@@ -213,6 +226,7 @@ void AddressBookPage::on_deleteAddress_clicked()
     {
         table->model()->removeRow(indexes.at(0).row());
     }
+    ui->tableView->repaint();
 }
 
 void AddressBookPage::selectionChanged()

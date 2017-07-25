@@ -171,19 +171,11 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -220,6 +212,14 @@ Alihkan fail data ke dalam tab semasa</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ATBCOINS&lt;/b&gt;!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your  atbcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1527,6 +1527,17 @@ Alihkan fail data ke dalam tab semasa</translation>
     </message>
 </context>
 <context>
+    <name>PreviewCodeDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>%1 didn&apos;t yet exit safely...</source>
@@ -2711,10 +2722,6 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>To</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2828,7 +2835,7 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %4:&lt;/b&gt;&lt;/i&gt; %0 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %5:&lt;/b&gt;&lt;/i&gt; %1 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %6:&lt;/b&gt;&lt;/i&gt; %2 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %7:&lt;/b&gt;&lt;/i&gt; %3 &lt;br&gt;</source>
+        <source>&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %4: &lt;/b&gt;&lt;/i&gt; %0 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %5: &lt;/b&gt;&lt;/i&gt; %1 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %6: &lt;/b&gt;&lt;/i&gt; %2 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %7: &lt;/b&gt;&lt;/i&gt; %3 &lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

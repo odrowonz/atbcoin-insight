@@ -96,7 +96,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
                 CTxDestination address = CBitcoinAddress(rec->address).Get();
                 if (wallet->mapAddressBook.count(address))
                 {
-                    strHTML += "<b>" + tr("From") + ":</b> " + tr("unknown") + "<br>";
+                   // strHTML += "<b>" + tr("From") + ":</b> " + tr("unknown") + "<br>";
                     strHTML += "<b>" + tr("To") + ":</b> ";
                     strHTML += GUIUtil::HtmlEscape(rec->address);
                     QString addressOwned = (::IsMine(*wallet, address) == ISMINE_SPENDABLE) ? tr("own address") : tr("watch-only");
