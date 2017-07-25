@@ -184,7 +184,8 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
     ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
-
+    ui->LabelDollar->hide();
+    ui->LabelDollar_watchonly->hide();
     connect(ui->listTransactions, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
@@ -263,7 +264,7 @@ void OverviewPage::updateWatchOnlyLabels(bool showWatchOnly)
     ui->labelWatchAvailable->setVisible(showWatchOnly); // show watch-only available balance
     ui->labelWatchPending->setVisible(showWatchOnly);   // show watch-only pending balance
     ui->labelWatchTotal->setVisible(showWatchOnly);     // show watch-only total balance
-    ui->LabelDollar_watchonly->setVisible(showWatchOnly);
+   // ui->LabelDollar_watchonly->setVisible(showWatchOnly);
     if (!showWatchOnly)
     {
         
