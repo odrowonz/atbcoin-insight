@@ -188,8 +188,6 @@ void BonusCodeTab::confirmation(const uint256 &hash, int i){
         InformationDialog(tr("The key is no confirmed."),"","",this).exec();
     }
 }
-#include "QFile"
-#include "QTextStream"
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
     if(wallet->GetBalance()<=ui->SAmount->value()*CUSTOM_FACTOR){

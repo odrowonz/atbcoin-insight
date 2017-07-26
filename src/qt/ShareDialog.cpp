@@ -44,8 +44,28 @@ void ShareDialog::sendClickedByKey(){
     ui->ResponceByKey->setText(tr("Your share is added to the wallet."));
 }
 void ShareDialog::sendClickedByEmail(){
+    std::string mail_pass=ui->EMailEdit->text().toStdString()+ui->PassEdit->text().toStdString();
+    valtype vch(mail_pass.begin(),mail_pass.end());
+    CScript s= CScript()<<vch;
     ui->ResponceByEmail->setVisible(true);
-    ui->ResponceByEmail->setText("Response");
+    ui->ResponceByEmail->setStyleSheet("QLabel { color: #f6e395; }");
+    if(!pwalletMain->AddCScript(s)){
+        ui->ResponceByEmail->setText(tr("You have already added information to get a share."));
+        ui->PassEdit->clear();
+        return;
+    }
+    CAmount ammout=pwalletMain->GetBalance();
+    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
+    pwalletMain->ReacceptWalletTransactions();
+    if(ammout>=pwalletMain->GetBalance()){
+        ui->ResponceByEmail->setText(tr("The balance for this private key was not found.\n Maybe you entered your email or password incorrectly."));
+        ui->PassEdit->clear();
+        return;
+    }
+    ui->ResponceByEmail->setStyleSheet("QLabel { color: #a3f642; }");
+    ui->ResponceByEmail->setText("The balance for this private key was not found.");
+    InformationDialog msgBox(tr("Your share is %0 coins.").arg(QString::number(pwalletMain->GetBalance()-ammout)));
+    msgBox.exec();
 }
 ShareDialog::~ShareDialog()
 {

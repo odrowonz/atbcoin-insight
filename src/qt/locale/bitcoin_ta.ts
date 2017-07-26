@@ -2483,6 +2483,23 @@
         <source>Your share is added to the wallet.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Get</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have already added information to get a share.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The balance for this private key was not found.
+ Maybe you entered your email or password incorrectly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your share is %0 coins.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShutdownWindow</name>

@@ -125,7 +125,7 @@
          <item>
           <widget class="QPushButton" name="sendButtonByEmail">
            <property name="text">
-            <string>Send</string>
+            <string>Get</string>
            </property>
           </widget>
          </item>
