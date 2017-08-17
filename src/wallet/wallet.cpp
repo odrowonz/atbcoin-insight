@@ -241,21 +241,6 @@ bool CWallet::AddCScript(const CScript& redeemScript)
     return CWalletDB(strWalletFile).WriteCScript(Hash160(redeemScript), redeemScript);
 }
 
-bool CWallet::AddCBonusScript(const CScript& redeemScript)
-{
-    if (!CCryptoKeyStore::AddCScript(redeemScript))
-        return false;
-    if (!fFileBacked)
-        return true;
-    CAmount ammout=pwalletMain->GetBalance();
-    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-    if(ammout>=pwalletMain->GetBalance()){
-        CCryptoKeyStore::RemoveCScript(redeemScript);
-        return false;
-    }
-    return CWalletDB(strWalletFile).WriteCScript(Hash160(redeemScript), redeemScript);
-}
-
 bool CWallet::LoadCScript(const CScript& redeemScript)
 {
     /* A sanity check was added in pull #3843 to avoid adding redeemScripts

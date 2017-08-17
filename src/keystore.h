@@ -162,7 +162,6 @@ public:
         }
         return false;
     }
-    virtual bool RemoveCScript(const CScript& redeemScript);
     virtual bool AddCScript(const CScript& redeemScript);
     virtual bool HaveCScript(const CScriptID &hash) const;
     virtual bool GetCScript(const CScriptID &hash, CScript& redeemScriptOut) const;

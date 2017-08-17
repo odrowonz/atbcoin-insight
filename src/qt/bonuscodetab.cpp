@@ -12,12 +12,8 @@
 #include "../coincontrol.h"
 #include "../script/standard.h"
 #include "previewcodedialog.h"
-#include "../random.h"
-// If the bonus code was added to the purse and at the time of the addition it was not valid,
-// then the hash of the transaction contains the hash of the script in it, and the viot number is V_OUT_FAIL.
-// This is necessary in order that later, when the key is confirmed,
-// it was possible to confirm the received money.
-#define V_OUT_FAIL 1000;
+#include "../key.h"
+
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -40,18 +36,12 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
     ui->CouponId->setText(ui->CouponId->text()+":");
-    seed_insecure_rand();
 
 
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
 
-}
-bool BonusCodeTab::keyCheck(const std::string &str){
-    std::string base(KEY_TEMPLATE);
-    return str.substr(0,4)=="ATB-"&&str.size()==base.size()&&
-            (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
 }
 void BonusCodeTab::Clicked(QModelIndex i){
     PreviewCodeDialog(i.model(),i.row(),this).exec();
@@ -156,67 +146,56 @@ void BonusCodeTab::setClientModel(ClientModel *clientmodel){
 }
 
 void BonusCodeTab::getBonusClick(bool){
-    std::string key= ui->EKey->text().toStdString();
-    key.erase(std::remove(key.begin(), key.end(), ' '), key.end());
-    if(!keyCheck(key)){
+    std::string key_text= ui->EKey->text().toStdString();
+    key_text.erase(std::remove(key_text.begin(), key_text.end(), ' '), key_text.end());
+    key_text.erase(0,4);
+    key_text.erase(std::remove(key_text.begin(),key_text.end(),'-'), key_text.end());
+    CBitcoinSecret vchSecret;
+    bool fGood = vchSecret.SetString(key_text);
+    if(!fGood){
         InformationDialog msgBox(tr("Invalid key: Check the key and try again."),"","",this);
         msgBox.exec();
         ui->EKey->clear();
         return;
     }
-    valtype vch(key.begin(),key.end());
-    CScript s= CScript()<<vch;
-    if(!pwalletMain->AddCBonusScript(s)){
-        InformationDialog msgBox(tr("This key is no longer valid."),"","",this);
-        msgBox.exec();
+    CKey key = vchSecret.GetKey();
+    if (!key.IsValid()){
+        InformationDialog(tr("Private key outside allowed range."),"","",this).exec();
         return;
     }
+    CPubKey pubkey = key.GetPubKey();
+    WalletModel::UnlockContext ctx(wmodel->requestUnlock());
+    if(!ctx.isValid())
+    {
+        // Unlock wallet was cancelled
+        return;
+    }
+    pwalletMain->nTimeFirstKey = 1; // 0 would be considered 'no value'
+    if (!pwalletMain->AddKeyPubKey(key, pubkey)){
+        InformationDialog(tr("Error adding key to wallet."),"","",this).exec();
+        return;
+    }
+    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
     std::map<uint256, CWalletTx>::iterator i=pwalletMain->mapWallet.begin();
     while(i!=pwalletMain->mapWallet.end()){
-        if(i->second.IsTrusted()){
+        if(i->second.IsTrusted()&&i->second.GetAvailableCredit()>0){
             int nvout=0;
             for(CTxOut vout:i->second.vout){
-                uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
-                valtype temp4(temp3.begin(),temp3.end());
-                if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
-                    InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
+                if(vout.scriptPubKey==GetScriptForRawPubKey(pubkey)){
+                    InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),
+                                             QString::number((double)vout.nValue/COIN,'f'),
+                                             QString::fromStdString(ui->EKey->text().toStdString()),
+                                             this);
                     msgBox.exec();
-                    Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
-                    confirmation(i->first,nvout,key);
-                    CBonusinfo bonus(key,i->first,nvout,true);
-                    pwalletMain->AddBonusKey(bonus);
-                    updateBonusList();
+                    confirmation(CBonusinfo(pubkey.GetHash().ToString(),i->first,nvout,true));
                 }
                 nvout++;
             }
         }
         i++;
     }
+    updateBonusList();
     ui->EKey->clear();
-}
-void BonusCodeTab::confirmation(const uint256 &hash, int i,std::string k){
-    std::vector<CRecipient> Recipient;
-    CRecipient rec;
-    CPubKey key;
-    CCoinControl control;
-    control.Select(COutPoint(hash,i));
-    pwalletMain->GetKeyFromPool(key);
-    CKeyID keyID = key.GetID();
-    CBitcoinAddress address(keyID);
-    rec.scriptPubKey=GetScriptForDestination(address.Get());
-    rec.nAmount=COIN*0.0001;
-    rec.fSubtractFeeFromAmount=false;
-    Recipient.push_back(rec);
-    CWalletTx wtx;
-    CReserveKey Rkey(pwalletMain);
-    std::string fall;
-    CAmount nFeeRet=1;
-    int nChangePosInOut=0;
-    wtx.mapValue["comment"] = tr("Commission for the confirmation of the bonus code.").toStdString();
-    wtx.mapValue["bonusConfirmation"] = k;
-    if(!(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey))){
-        InformationDialog(tr("The key is no confirmed."),"","",this).exec();
-    }
 }
 void BonusCodeTab::CreateClick(bool){
     CWallet *wallet=pwalletMain;
@@ -235,20 +214,22 @@ void BonusCodeTab::CreateClick(bool){
 
 /***********************generate a key ******************************/
 
-    std::string key;
-    std::string temp=KEY_TEMPLATE;
-    for(unsigned char i:temp){
-        key.push_back((i=='0')?((GetRand(5))?char(GetRand(26)+65):char(GetRand(10)+48)):i);
-        srand(rand());
+    std::string showkey="ATB";
+    CKey Key;
+    Key.MakeNewKey(false);
+    if(!Key.IsValid()){
+        InformationDialog(tr("Key create fail"),"","",this).exec();
+        return;
     }
-    uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
-    valtype temp4(temp3.begin(),temp3.end());
-
-
+    std::string temp=CBitcoinSecret(Key).ToString();
+    for(unsigned int i=0;i<temp.size();i+=10){
+        temp.insert(i,"-");
+    }
+    showkey+=temp;
 /********************create a new transaction*************************/
     std::vector<CRecipient> Recipient;
     CRecipient rec;
-    rec.scriptPubKey=CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL;
+    rec.scriptPubKey=GetScriptForRawPubKey(Key.GetPubKey());
     rec.nAmount=round(ui->SAmount->value()*CUSTOM_FACTOR);
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);
@@ -263,15 +244,45 @@ void BonusCodeTab::CreateClick(bool){
             InformationDialog(tr("Code create fail"),"","",this).exec();
             return;
         }
-        wallet->AddBonusKey(CBonusinfo(key,wtx.GetHash(),i));
+        wallet->AddBonusKey(CBonusinfo(showkey,wtx.GetHash(),i));
         updateBonusList();
         InformationDialog(tr("Your code is created. The code will be available after confirmation."),
-                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(key),this).exec();
+                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(showkey),this).exec();
 
     }else{
         InformationDialog(tr("Code create fail"),"","",this).exec();
     }
 }
+
+
+void BonusCodeTab::confirmation(const CBonusinfo& info){
+    std::vector<CRecipient> Recipient;
+    CRecipient rec;
+    CPubKey key;
+    CCoinControl control;
+    control.Select(COutPoint(info.hashTx,info.getnVout()));
+    pwalletMain->GetKeyFromPool(key);
+    CKeyID keyID = key.GetID();
+    CBitcoinAddress address(keyID);
+    rec.scriptPubKey=GetScriptForDestination(address.Get());
+    rec.nAmount=COIN*0.0001;
+    rec.fSubtractFeeFromAmount=false;
+    Recipient.push_back(rec);
+    CWalletTx wtx;
+    CReserveKey Rkey(pwalletMain);
+    std::string fall;
+    CAmount nFeeRet=1;
+    int nChangePosInOut=0;
+    wtx.mapValue["comment"] = tr("Commission for the confirmation of the bonus code.").toStdString();
+    wtx.mapValue["bonusConfirmation"] = info.key;
+    if(!(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey))){
+        InformationDialog(tr("The key is no confirmed."),"","",this).exec();
+        return;
+    }
+    pwalletMain->AddBonusKey(info);
+}
+
+
 BonusCodeTab::~BonusCodeTab()
 {
     delete ui;

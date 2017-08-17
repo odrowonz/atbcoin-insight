@@ -95,7 +95,7 @@ public:
 #ifdef Q_OS_WIN
         font.setPointSize(9);
 #endif
-#ifdef Q_OS_UNIX
+#ifdef Q_OS_LINUX
         font.setPointSize(10);
 #endif
         painter->setFont(font);

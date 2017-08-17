@@ -8,12 +8,11 @@
 #include "../txmempool.h"
 #include "transactionfilterproxy.h"
 #include <QStandardItemModel>
-/*Random characters will be used instead of zeros.*/
-#define KEY_TEMPLATE "ATB-00000000-00000000-00000000-00000000-00000000"
 namespace Ui {
 class BonusCodeTab;
 }
 class QTableView;
+class CBonusinfo;
 
 class BonusCodeTab : public QWidget
 {
@@ -28,21 +27,17 @@ public Q_SLOTS:
     void updateBonusList();
 private:
     void resizeEvent(QResizeEvent*);
+    void confirmation(const CBonusinfo &info);
     void tableInit(QTableView*);
     Ui::BonusCodeTab *ui;
     ClientModel *clientModel;
     WalletModel *wmodel;
     const PlatformStyle *platformStyle;
-    bool keyCheck(const std::string &str);
     CWalletTx* findTx(const CScript& script);
-   // QSortFilterProxyModel *model;
 private Q_SLOTS:
-    void confirmation(const uint256 &, int, std::string key);
     void Clicked(QModelIndex);
     void getBonusClick(bool);
     void CreateClick(bool);
-Q_SIGNALS:
-    void couponAdded(const QString&);// emitted when a new coupon added into wallet. where a parameter it is hash of transaction with coupon
 };
 
 #endif // BONUSCODETAB_H
