@@ -152,18 +152,19 @@ void BonusCodeTab::getBonusClick(bool){
     key_text.erase(std::remove(key_text.begin(),key_text.end(),'-'), key_text.end());
     CBitcoinSecret vchSecret;
     bool fGood = vchSecret.SetString(key_text);
-    if(!fGood){
+    CKey key = vchSecret.GetKey();
+    if(!fGood||!key.IsValid()){
         InformationDialog msgBox(tr("Invalid key: Check the key and try again."),"","",this);
         msgBox.exec();
         ui->EKey->clear();
         return;
     }
-    CKey key = vchSecret.GetKey();
-    if (!key.IsValid()){
-        InformationDialog(tr("Private key outside allowed range."),"","",this).exec();
+    CPubKey pubkey = key.GetPubKey();
+    COutPoint point=pwalletMain->isAvailableCode(GetScriptForRawPubKey(pubkey),chainActive.Genesis());
+    if(point.IsNull()){
+        InformationDialog(tr("Bonus code is not available."),"","",this).exec();
         return;
     }
-    CPubKey pubkey = key.GetPubKey();
     WalletModel::UnlockContext ctx(wmodel->requestUnlock());
     if(!ctx.isValid())
     {

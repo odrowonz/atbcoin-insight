@@ -1498,6 +1498,49 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
     return ret;
 }
 
+/**
+ * find transaction with script.
+ */
+COutPoint CWallet::isAvailableCode(const CScript& script,CBlockIndex* pindexStart)
+{
+    int64_t nNow = GetTime();
+    const CChainParams& chainParams = Params();
+
+    CBlockIndex* pindex = pindexStart;
+    {
+        LOCK2(cs_main, cs_wallet);
+
+        ShowProgress(_("Rescanning..."), 0); // show rescan progress in GUI as dialog or on splashscreen, if -rescan on startup
+        double dProgressStart = Checkpoints::GuessVerificationProgress(chainParams.Checkpoints(), pindex, false);
+        double dProgressTip = Checkpoints::GuessVerificationProgress(chainParams.Checkpoints(), chainActive.Tip(), false);
+        while (pindex)
+        {
+            if (pindex->nHeight % 100 == 0 && dProgressTip - dProgressStart > 0.0)
+                ShowProgress(_("Rescanning..."), std::max(1, std::min(99, (int)((Checkpoints::GuessVerificationProgress(chainParams.Checkpoints(), pindex, false) - dProgressStart) / (dProgressTip - dProgressStart) * 100))));
+
+            CBlock block;
+            ReadBlockFromDisk(block, pindex, Params().GetConsensus());
+            BOOST_FOREACH(CTransaction& tx, block.vtx)
+            {
+                const CCoins* coins = pcoinsTip->AccessCoins(tx.GetHash());
+                for(int i=0;i<tx.vout.size();i++){
+                    if(tx.vout[i].scriptPubKey==script&&coins&&coins->IsAvailable(i)){
+                        ShowProgress(_("Rescanning..."), 100); // hide progress dialog in GUI
+                        return COutPoint(tx.GetHash(),i);
+                    }
+                }
+            }
+            pindex = chainActive.Next(pindex);
+            if (GetTime() >= nNow + 60) {
+                nNow = GetTime();
+                LogPrintf("Still rescanning. At block %d. Progress=%f\n", pindex->nHeight, Checkpoints::GuessVerificationProgress(chainParams.Checkpoints(), pindex));
+            }
+        }
+        ShowProgress(_("Rescanning..."), 100); // hide progress dialog in GUI
+    }
+    return COutPoint();
+}
+
 void CWallet::ReacceptWalletTransactions()
 {
     // If transactions aren't being broadcasted, don't let them into local mempool either
