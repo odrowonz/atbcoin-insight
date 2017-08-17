@@ -12,8 +12,9 @@ ShareDialog::ShareDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ShareDialog)
 {
-    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
+    ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
+    this->setModal(true);
     connect(ui->cancelButtonByEmail,SIGNAL(clicked(bool)),SLOT(close()));
     connect(ui->cancelButtonByKey,SIGNAL(clicked(bool)),SLOT(close()));
     connect(ui->sendButtonByEmail,SIGNAL(clicked(bool)),this,SLOT(sendClickedByEmail()));
@@ -42,12 +43,6 @@ void ShareDialog::sendClickedByKey(){
         return;
     }
     CPubKey pubkey = key.GetPubKey();
-//    std::vector<unsigned char> data(pubkey.g.begin(), pubkey.end());
-//    std::stringstream hex;
-//    for(std::vector<unsigned char>::iterator i=data.begin(); i!=data.end(); i++){
-//        hex << std::hex << (int)*i;
-//    }
-    InformationDialog(QString::fromStdString(pubkey.GetHash().ToString()),"","",this).exec();
     CKeyID vchAddress = pubkey.GetID();
     {
         pwalletMain->MarkDirty();
@@ -74,13 +69,15 @@ void ShareDialog::sendClickedByKey(){
     ui->ResponceByKey->setText(tr("Your share is added to the wallet."));
 }
 void ShareDialog::sendClickedByEmail(){
-    std::string mail_pass=ui->EMailEdit->text().toStdString()+ui->PassEdit->text().toStdString();
+    std::string mail=ui->EMailEdit->text().toStdString();
+    mail.erase(std::remove(mail.begin(), mail.end(), ' '), mail.end());
+    std::string mail_pass=mail+ui->PassEdit->text().toStdString();
     valtype vch(mail_pass.begin(),mail_pass.end());
     CScript s= CScript()<<vch;
     ui->ResponceByEmail->setVisible(true);
     ui->ResponceByEmail->setStyleSheet("QLabel { color: #f6e395; }");
     if(!pwalletMain->AddCScript(s)){
-        ui->ResponceByEmail->setText(tr("You have already added information to get a share."));
+        ui->ResponceByEmail->setText(tr("The balance for this private key was not found.\n Maybe you entered your email or password incorrectly."));
         ui->PassEdit->clear();
         return;
     }
@@ -93,9 +90,7 @@ void ShareDialog::sendClickedByEmail(){
         return;
     }
     ui->ResponceByEmail->setStyleSheet("QLabel { color: #a3f642; }");
-    ui->ResponceByEmail->setText("The balance for this private key was not found.");
-    InformationDialog msgBox(tr("Your share is %0 coins.").arg(QString::number(pwalletMain->GetBalance()-ammout)));
-    msgBox.exec();
+    ui->ResponceByEmail->setText("The balance for this private key added into your wallet.");
 }
 ShareDialog::~ShareDialog()
 {

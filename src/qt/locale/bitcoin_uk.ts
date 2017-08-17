@@ -2,6 +2,873 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="uk">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation type="unfinished">(1 = утримувати метадані транзакцій (до яких відноситься інформація про власника рахунку та запити платежів), 2 - відкинути)</translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished">Встановлено дуже велике значення -maxtxfee! Такі великі комісії можуть бути сплачені окремою транзакцією.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished">Встановлено дуже велике значення -paytxfee! Цю комісію буде сплачено для проведення транзакції.</translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation type="unfinished">Дозволити підключення по протоколу JSON-RPC зі вказаного джерела. Правильною для &lt;ip&gt; є окрема IP-адреса (наприклад, 1.2.3.4), IP-адреса та маска підмережі (наприклад, 1.2.3.4/255.255.255.0) або CIDR-адреса (наприклад, 1.2.3.4/24). Цей параметр можна вказувати декілька разів.</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Прив&apos;язатися до даної адреси та прослуховувати її. Використовуйте запис виду [хост]:порт для IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Прив&apos;язатися до даної адреси та вносити до білого списку учасників, що під&apos;єднуються до неї. Використовуйте запис виду [хост]:порт для IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation type="unfinished">Прив&apos;язатися до даної адреси для прослуховування JSON-RPC підключень. Використовуйте запис виду [хост]:порт для IPv6. Цей параметр можна вказувати декілька разів (типово: прив&apos;язуватися до всіх інтерфейсів)</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation type="unfinished">Створювати нові файли з типовими для системи атрибутами доступу замість маски 077 (діє тільки при вимкненому гаманці)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation type="unfinished">Видалити всі транзакції гаманця та відновити ті, що будуть знайдені під час запуску за допомогою -rescan</translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation type="unfinished">Визначити власні IP-адреси (типово: 1 при прослуховуванні та за відсутності -externalip або -proxy)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation type="unfinished">Поширюється за ліцензією MIT, додаткова інформація міститься у файлі COPYING та за адресою &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation type="unfinished">Не тримати транзакції в пам&apos;яті довше &lt;n&gt; годин (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation type="unfinished">Помилка: Не вдалося налаштувати прослуховування вхідних підключень (listen повернув помилку: %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation type="unfinished">Виконати команду при надходженні важливого сповіщення або при спостереженні тривалого розгалуження ланцюжка (замість %s буде підставлено повідомлення)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation type="unfinished">Виконати команду, коли транзакція гаманця зміниться (замість %s в команді буде підставлено ідентифікатор транзакції)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation type="unfinished">Виконати команду, коли з&apos;явиться новий блок (%s в команді змінюється на хеш блоку)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation type="unfinished">Комісії (в %s/kB), що менші за вказану, вважатимуться нульовими для зміни, аналізу та створення транзакцій (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation type="unfinished">Комісії (в %s/kB), що менші за вказану, вважатимуться нульовими для створення транзакцій (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation type="unfinished">Рівень ретельності перевірки блоків (0-4, типово: %u)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation type="unfinished">Якщо &lt;category&gt; не задано, або ж якщо &lt;category&gt; = 1, виводить всю налагоджувальну інформацію.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation type="unfinished">Якщо параметр paytxfee не встановлено, включити комісію для отримання перших підтверджень транзакцій протягом n блоків (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished">Неприпустима сума для -maxtxfee = &lt;amount&gt;: «%s» ( плата повинна бути, принаймні %s, щоб запобігти зависанню транзакцій)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation type="unfinished">Утримувати повний індекс транзакцій (використовується RPC-викликом getrawtransaction) (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation type="unfinished">Максимальний розмір даних в транзакціях носіїв даних, що ми передаємо і добуваємо (за замовчуванням: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation type="unfinished">Час в секундах, протягом якого відключені учасники з поганою поведінкою не зможуть підключитися (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished">Виводити налагоджувальну інформацію (типово: %u, вказання &lt;category&gt; необов&apos;язкове)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation type="unfinished">Встановлений розмір ланцюжка блоків є замалим (меншим за %d МіБ). Будь ласка, виберіть більше число.</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished">Операція відсікання: остання синхронізація вмісту гаманцю не обмежується діями над скороченими данними. Вам необхідно зробити переіндексацію -reindex (заново завантажити веcь ланцюжок блоків в разі появи скороченого ланцюга)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation type="unfinished">Дізнаватися адреси учасників через DNS при замалій кількості відомих адрес (типово: 1 за відсутності -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation type="unfinished">Надавати випадкові дані доступу для кожного проксі-з&apos;єднання. Це дозволяє ввімкнути ізоляцію потоків Tor&apos;у (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation type="unfinished">Зменшити вимоги до наявного простору на носії даних за допомогою скорочення ланцюжка (видалення старих блоків). Цей режим несумісний з параметрами -txindex та -rescan. Увага: при поверненні до типового значення видалені частини ланцюжка буде повторно завантажено. (типово: 0 = вимкнути скорочення ланцюжка, &gt;%u = очікуваний розмір файлів блоків в МіБ)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation type="unfinished">Неможливо провести повторне сканування зі скороченим ланцюжком. Вам необхідно використати -reindex для завантаження повного ланцюжка блоків.</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation type="unfinished">Встановити максимальний розмір транзакцій з високим пріоритетом та низькою комісією (в байтах) (типово: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation type="unfinished">Встановити кількість потоків скрипту перевірки (від %u до %d, 0 = автоматично, &lt;0 = вказує кількість вільних ядер, типово: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation type="unfinished">Фільтрація блоків та транзакцій з допомогою фільтрів Блума (типово: %u)</translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation type="unfinished">Схоже, що база даних блоків містить блок з майбутнього. Це може статися із-за некоректно встановленої дати та/або часу. Перебудовуйте базу даних блоків лише тоді, коли ви переконані, що встановлено правильну дату і час</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation type="unfinished">Залишок від суми транзакції зі сплатою комісії занадто малий </translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation type="unfinished">Це тестова збірка пре-релізної версії - використовуйте на свій страх і ризик - не застосовувати для добування монет або торгівлі</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished">Цей продукт включає в себе програмне забезпечення, розроблене в рамках проекту OpenSSL &lt;https://www.openssl.org/&gt;, криптографічне програмне забезпечення, написане Еріком Янгом, та функції для роботи з UPnP, написані Томасом Бернардом.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished">Загальна довжина рядку мережевої версії (%i) перевищує максимально допустиму (%i). Зменшіть число чи розмір коментарів клієнта користувача.</translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation type="unfinished">Намагається зберегти вихідний трафік відповідно до зданого значення (в MIB за 24 години), 0 = без обмежень (типово: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished">Параметр -socks не підтримується. Можливість вказувати версію SOCKS було видалено, так як підтримується лише SOCKS5.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation type="unfinished">Використовувати UPnP для відображення порту, що прослуховується (типово: 1 при прослуховуванні та за відсутності -proxy)</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation type="unfinished">Використовувати окремий SOCKS5-проксі для з&apos;єднання з учасниками через приховані сервіси Tor (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation type="unfinished">Логін та хешований пароль для зв&apos;язків JSON-RPC. Поле &lt;userpw&gt; має формат: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Класичний Python script додано до share/rpcuser. Цей параметр може бути застосований декілька разів.</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation type="unfinished">Увага: Частина мережі використовує інший головний ланцюжок! Деякі добувачі, можливо, зазнають проблем.</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation type="unfinished">Увага: Наш ланцюжок блоків відрізняється від ланцюжків підключених учасників! Можливо, вам, або іншим вузлам, необхідно оновитися.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation type="unfinished">Додати учасників, що під&apos;єднуються з заданої підмережі чи IP-адреси, в білий список. Можна вказувати декілька разів.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation type="unfinished">Учасники, що знаходяться в білому списку, не можуть бути заблоковані за DoS та їхні транзакції завжди ретранслюватимуться (навіть якщо вони є в пам&apos;яті), що може бути корисним, наприклад, для шлюзу</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation type="unfinished">Вам необхідно перебудувати базу даних з використанням -reindex для завантаження повного ланцюжка блоків.</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation type="unfinished">(типово: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation type="unfinished">(типово: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation type="unfinished">-maxmempool має бути не менше %d МБ</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished">&lt;category&gt; може бути:</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation type="unfinished">Приймати команди із командного рядка та команди JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation type="unfinished">Приймати підключення ззовні (типово: 1 за відсутності -proxy чи -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation type="unfinished">Приймати публічні REST-запити (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation type="unfinished">Додати вузол до підключення і лишити його відкритим</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation type="unfinished">Дозволити пошук в DNS для команд -addnode, -seednode та -connect</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation type="unfinished">Завжди дізнаватися адреси учасників через DNS (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation type="unfinished">Автоматичне з&apos;єднання з прихованим сервісом Tor (типово: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation type="unfinished">Опції створення блоку:</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation type="unfinished">Не вдається понизити версію гаманця</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation type="unfinished">Неможливо записати типову адресу</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation type="unfinished">Підключитись лише до вказаного вузла/вузлів</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished">Підключитись через SOCKS5-проксі</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation type="unfinished">Підключитись до вузла, щоб отримати список адрес інших учасників та від&apos;єднатись</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation type="unfinished">Параметри з&apos;єднання:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">Виявлено пошкоджений блок бази даних</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">Параметри тестування/налагодження:</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">Не завантажувати гаманець та вимкнути звернення до нього через RPC</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">Ви хочете перебудувати базу даних блоків зараз?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation type="unfinished">Завантаження завершене</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation type="unfinished">Дозволено введення хеш блоку в рядок &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Дозволено введення хеш транзакції в рядок &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation type="unfinished">Дозволено введення RAW блоку в рядок &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Дозволено введення RAW транзакції в рядок &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">Помилка ініціалізації бази даних блоків</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">Помилка ініціалізації середовища бази даних гаманця %s!</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation type="unfinished">Помилка завантаження бази даних блоків</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation type="unfinished">Помилка відкриття блоку бази даних </translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">Помилка читання бази даних, припиняю роботу.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Помилка</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished">Помилка: Сталася фатальна помилка (детальніший опис наведено в debug.log)</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">Помилка: Мало вільного місця на диску!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">Не вдалося слухати на жодному порту. Використовуйте -listen=0, якщо ви хочете цього.</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished">Комісія (в %s/КБ), що додаватиметься до вихідних транзакцій (типово: %s)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">Скільки блоків перевіряти під час запуску (типово: %u, 0 = всі)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation type="unfinished">Імпорт...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation type="unfinished">Спочатку імпортує блоки з зовнішнього файлу blk000??.dat </translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation type="unfinished">Включити IP-адреси до налагоджувального виводу (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation type="unfinished">Початковий блок некоректний/відсутній. Чи правильно вказано каталог даних для обраної мережі?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">Інформація</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation type="unfinished">Недостатньо коштів</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation type="unfinished">Помилка в адресі -onion: «%s»</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation type="unfinished">Помилка в адресі проксі-сервера: «%s»</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished">Вказано некоректну суму для параметру -paytxfee: «%s» (повинно бути щонайменше %s)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation type="unfinished">Вказано неправильну маску підмережі для -whitelist: «%s»</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation type="unfinished">Утримувати в пам&apos;яті щонайбільше &lt;n&gt; транзакцій, що споживають невідомі входи (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation type="unfinished">Утримувати розмір пам&apos;яті для пулу транзакцій меншим за &lt;n&gt; мегабайтів (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Прослуховувати &lt;port&gt; для JSON-RPC з&apos;єднань (типово: %u, для тестової мережі: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Чекати на з&apos;єднання на &lt;port&gt; (типово: %u, для тестової мережі: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation type="unfinished">Завантаження адрес...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation type="unfinished">Завантаження індексу блоків...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation type="unfinished">Завантаження гаманця...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation type="unfinished">Підтримувати щонайбільше &lt;n&gt; з&apos;єднань з учасниками (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation type="unfinished">Дозволити гаманцю розповсюджувати транзакції</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Максимальний розмір вхідного буферу на одне з&apos;єднання, &lt;n&gt;*1000 байтів (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Максимальний розмір вихідного буферу на одне з&apos;єднання, &lt;n&gt;*1000 байтів (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">Необхідно вказати порт для -whitebind: «%s»</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation type="unfinished">Параметри вузла ретрансляції:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">Бракує доступних дескрипторів файлів.</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">Підключатися тільки до вузлів в мережі &lt;net&gt; (ipv4, ipv6 або onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation type="unfinished">Параметри:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">Пароль для JSON-RPC-з&apos;єднань</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">Доповнювати налагоджувальний вивід відміткою часу (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation type="unfinished">Версія для друку і виходу</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation type="unfinished">Розмір скороченого ланцюжка блоків не може бути від&apos;ємним. </translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation type="unfinished">Використання скороченого ланцюжка блоків несумісне з параметром -txindex.</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation type="unfinished">Скорочення кількості блоків...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation type="unfinished">Параметри сервера RPC:</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation type="unfinished">Зменшення значення -maxconnections з %d до %d із-за обмежень системи.</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Ретранслювати та створювати транзакції носіїв даних (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">Ретранслювати не-P2SH транзакції з мультипідписом (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation type="unfinished">Спочатку переглянте ланцюжок блоків на наявність втрачених транзакцій гаманця</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation type="unfinished">Сканування...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">Запустити в фоновому режимі (як демон) та приймати команди</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation type="unfinished">Відсилати налагоджувальну інформацію на консоль, а не у файл debug.log</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">Не сплачувати комісію за надсилання транзакцій, якщо це можливо (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">Встановити розмір кешу бази даних в мегабайтах (від %d до %d, типово: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">Встановити розмір пулу ключів &lt;n&gt; (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">Встановити максимальний розмір блоку у байтах (типово: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">Встановити число потоків для обслуговування викликів RPC (типово: %d)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">Показати всі налагоджувальні параметри (використання: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">Стискати файл debug.log під час старту клієнта (типово: 1 коли відсутній параметр -debug)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">Підписання транзакції не вдалося</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">Вказати файл конфігурації (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">Вказати тайм-аут підключення в мілісекундах (щонайменше: 1, типово: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation type="unfinished">Вкажіть робочий каталог</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">Вказати pid-файл (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">Вкажіть файл гаманця (в межах каталогу даних)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">Вкажіть вашу власну публічну адресу</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">Витрачати непідтверджену решту при відправленні транзакцій (типово: %u)</translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation type="unfinished">Неможливо сплатити комісію із-за малої суми транзакції</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">Це програмне забезпечення є експериментальним.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">Поріг відключення учасників з поганою поведінкою (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished">Пароль управління порт протоколом Tor (типово: empty)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished">Скористайтесь управлінням порт протоколом Tor, в разі перехоплення обміну цибулевої маршрутизації (типово: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">Сума транзакції занадто мала</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">Суми монет у транзакції мають бути позитивними</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation type="unfinished">Транзакція занадто велика для правил комісії</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation type="unfinished">Транзакція занадто велика</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation type="unfinished">Неможливо прив&apos;язатися до %s на цьому комп&apos;ютері (bind повернув помилку: %s)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation type="unfinished">Неможливо запустити HTTP-сервер. Детальніший опис наведено в журналі зневадження.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation type="unfinished">Невідома мережа вказана в -onlynet: «%s»</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation type="unfinished">Параметр -benchmark не підтримується та буде проігноровано; використовуйте -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation type="unfinished">Параметр -debugnet не підтримується та буде проігноровано; використовуйте -debug=net.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">Параметр -tor не підтримується; використовуйте -onion.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation type="unfinished">Спочатку оновіть гаманець до останньої версії</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation type="unfinished">Використовувати UPnP для відображення порту, що прослуховується (типово: %u)</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished">Коментар до Клієнта Користувача (%s) містить небезпечні символи.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation type="unfinished">Ім&apos;я користувача для JSON-RPC-з&apos;єднань</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation type="unfinished">Перевірка блоків...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation type="unfinished">Перевірка гаманця... </translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished">Гаманець %s знаходиться поза каталогом даних %s</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation type="unfinished">Параметри гаманця:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Попередження</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation type="unfinished">Чи слід працювати в режимі тільки блоки (типово: %u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished">Видалення всіх транзакцій з гаманця...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation type="unfinished">Параметри сповіщень ZeroMQ:</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -236,7 +1103,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Sign &amp;message...</source>
+        <source>Sign &amp;message</source>
         <translation>&amp;Підписати повідомлення...</translation>
     </message>
     <message>
@@ -272,31 +1139,31 @@
         <translation>Вийти</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>&amp;Параметри...</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
+        <source>&amp;Encrypt Wallet</source>
         <translation>&amp;Шифрування гаманця...</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
+        <source>&amp;Backup Wallet</source>
         <translation>&amp;Резервне копіювання гаманця...</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
+        <source>&amp;Change Passphrase</source>
         <translation>Змінити парол&amp;ь...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
+        <source>&amp;Sending addresses</source>
         <translation>Адреси для &amp;відправлення...</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
+        <source>&amp;Receiving addresses</source>
         <translation>Адреси для &amp;отримання...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
+        <source>Open &amp;URI</source>
         <translation>Відкрити &amp;URI</translation>
     </message>
     <message>
@@ -324,7 +1191,7 @@
         <translation>Відкрити консоль зневадження і діагностики</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
+        <source>&amp;Verify message</source>
         <translation>П&amp;еревірити повідомлення...</translation>
     </message>
     <message>
@@ -550,10 +1417,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Money share</source>
         <translation type="unfinished"></translation>
     </message>
@@ -571,6 +1434,22 @@
     </message>
     <message>
         <source>ATBcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -641,15 +1520,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -670,6 +1541,14 @@
     </message>
     <message>
         <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1463,7 +2342,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2341,7 +3220,7 @@
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid ATBCoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2438,23 +3317,11 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2463,10 +3330,6 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2482,10 +3345,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Could not get share by key (%0)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2498,16 +3357,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
+        <source>Invalid private key encoding.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2519,17 +3402,6 @@
     </message>
     <message>
         <source>%1 is shutting down...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3002,6 +3874,10 @@
         <source>Amount removed from or added to balance.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransactionView</name>
@@ -3165,6 +4041,10 @@
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -3213,872 +4093,41 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
+        <source>Wallet Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The %s developers</source>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = утримувати метадані транзакцій (до яких відноситься інформація про власника рахунку та запити платежів), 2 - відкинути)</translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <source>Import a backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">Встановлено дуже велике значення -maxtxfee! Такі великі комісії можуть бути сплачені окремою транзакцією.</translation>
-    </message>
-    <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">Встановлено дуже велике значення -paytxfee! Цю комісію буде сплачено для проведення транзакції.</translation>
-    </message>
-    <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <source>Recovery failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <source>Restore completed successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Дозволити підключення по протоколу JSON-RPC зі вказаного джерела. Правильною для &lt;ip&gt; є окрема IP-адреса (наприклад, 1.2.3.4), IP-адреса та маска підмережі (наприклад, 1.2.3.4/255.255.255.0) або CIDR-адреса (наприклад, 1.2.3.4/24). Цей параметр можна вказувати декілька разів.</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Прив&apos;язатися до даної адреси та прослуховувати її. Використовуйте запис виду [хост]:порт для IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Прив&apos;язатися до даної адреси та вносити до білого списку учасників, що під&apos;єднуються до неї. Використовуйте запис виду [хост]:порт для IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Прив&apos;язатися до даної адреси для прослуховування JSON-RPC підключень. Використовуйте запис виду [хост]:порт для IPv6. Цей параметр можна вказувати декілька разів (типово: прив&apos;язуватися до всіх інтерфейсів)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <source>You must restart your wallet to continue working.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Створювати нові файли з типовими для системи атрибутами доступу замість маски 077 (діє тільки при вимкненому гаманці)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Видалити всі транзакції гаманця та відновити ті, що будуть знайдені під час запуску за допомогою -rescan</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">Визначити власні IP-адреси (типово: 1 при прослуховуванні та за відсутності -externalip або -proxy)</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">Поширюється за ліцензією MIT, додаткова інформація міститься у файлі COPYING та за адресою &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished">Не тримати транзакції в пам&apos;яті довше &lt;n&gt; годин (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <source>remove old wallet failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <source>Lock wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">Помилка: Не вдалося налаштувати прослуховування вхідних підключень (listen повернув помилку: %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">Виконати команду при надходженні важливого сповіщення або при спостереженні тривалого розгалуження ланцюжка (замість %s буде підставлено повідомлення)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Виконати команду, коли транзакція гаманця зміниться (замість %s в команді буде підставлено ідентифікатор транзакції)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">Виконати команду, коли з&apos;явиться новий блок (%s в команді змінюється на хеш блоку)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">Комісії (в %s/kB), що менші за вказану, вважатимуться нульовими для зміни, аналізу та створення транзакцій (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished">Комісії (в %s/kB), що менші за вказану, вважатимуться нульовими для створення транзакцій (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">Рівень ретельності перевірки блоків (0-4, типово: %u)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">Якщо &lt;category&gt; не задано, або ж якщо &lt;category&gt; = 1, виводить всю налагоджувальну інформацію.</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">Якщо параметр paytxfee не встановлено, включити комісію для отримання перших підтверджень транзакцій протягом n блоків (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">Неприпустима сума для -maxtxfee = &lt;amount&gt;: «%s» ( плата повинна бути, принаймні %s, щоб запобігти зависанню транзакцій)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Утримувати повний індекс транзакцій (використовується RPC-викликом getrawtransaction) (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Максимальний розмір даних в транзакціях носіїв даних, що ми передаємо і добуваємо (за замовчуванням: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Час в секундах, протягом якого відключені учасники з поганою поведінкою не зможуть підключитися (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Виводити налагоджувальну інформацію (типово: %u, вказання &lt;category&gt; необов&apos;язкове)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">Встановлений розмір ланцюжка блоків є замалим (меншим за %d МіБ). Будь ласка, виберіть більше число.</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">Операція відсікання: остання синхронізація вмісту гаманцю не обмежується діями над скороченими данними. Вам необхідно зробити переіндексацію -reindex (заново завантажити веcь ланцюжок блоків в разі появи скороченого ланцюга)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">Дізнаватися адреси учасників через DNS при замалій кількості відомих адрес (типово: 1 за відсутності -connect)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Надавати випадкові дані доступу для кожного проксі-з&apos;єднання. Це дозволяє ввімкнути ізоляцію потоків Tor&apos;у (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Зменшити вимоги до наявного простору на носії даних за допомогою скорочення ланцюжка (видалення старих блоків). Цей режим несумісний з параметрами -txindex та -rescan. Увага: при поверненні до типового значення видалені частини ланцюжка буде повторно завантажено. (типово: 0 = вимкнути скорочення ланцюжка, &gt;%u = очікуваний розмір файлів блоків в МіБ)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">Неможливо провести повторне сканування зі скороченим ланцюжком. Вам необхідно використати -reindex для завантаження повного ланцюжка блоків.</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Встановити максимальний розмір транзакцій з високим пріоритетом та низькою комісією (в байтах) (типово: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Встановити кількість потоків скрипту перевірки (від %u до %d, 0 = автоматично, &lt;0 = вказує кількість вільних ядер, типово: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished">Фільтрація блоків та транзакцій з допомогою фільтрів Блума (типово: %u)</translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">Схоже, що база даних блоків містить блок з майбутнього. Це може статися із-за некоректно встановленої дати та/або часу. Перебудовуйте базу даних блоків лише тоді, коли ви переконані, що встановлено правильну дату і час</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">Залишок від суми транзакції зі сплатою комісії занадто малий </translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">Це тестова збірка пре-релізної версії - використовуйте на свій страх і ризик - не застосовувати для добування монет або торгівлі</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">Цей продукт включає в себе програмне забезпечення, розроблене в рамках проекту OpenSSL &lt;https://www.openssl.org/&gt;, криптографічне програмне забезпечення, написане Еріком Янгом, та функції для роботи з UPnP, написані Томасом Бернардом.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished">Загальна довжина рядку мережевої версії (%i) перевищує максимально допустиму (%i). Зменшіть число чи розмір коментарів клієнта користувача.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">Намагається зберегти вихідний трафік відповідно до зданого значення (в MIB за 24 години), 0 = без обмежень (типово: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Параметр -socks не підтримується. Можливість вказувати версію SOCKS було видалено, так як підтримується лише SOCKS5.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">Використовувати UPnP для відображення порту, що прослуховується (типово: 1 при прослуховуванні та за відсутності -proxy)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Використовувати окремий SOCKS5-проксі для з&apos;єднання з учасниками через приховані сервіси Tor (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished">Логін та хешований пароль для зв&apos;язків JSON-RPC. Поле &lt;userpw&gt; має формат: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Класичний Python script додано до share/rpcuser. Цей параметр може бути застосований декілька разів.</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">Увага: Частина мережі використовує інший головний ланцюжок! Деякі добувачі, можливо, зазнають проблем.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">Увага: Наш ланцюжок блоків відрізняється від ланцюжків підключених учасників! Можливо, вам, або іншим вузлам, необхідно оновитися.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Додати учасників, що під&apos;єднуються з заданої підмережі чи IP-адреси, в білий список. Можна вказувати декілька разів.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Учасники, що знаходяться в білому списку, не можуть бути заблоковані за DoS та їхні транзакції завжди ретранслюватимуться (навіть якщо вони є в пам&apos;яті), що може бути корисним, наприклад, для шлюзу</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">Вам необхідно перебудувати базу даних з використанням -reindex для завантаження повного ланцюжка блоків.</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(типово: %s)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(типово: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">-maxmempool має бути не менше %d МБ</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;category&gt; може бути:</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Приймати команди із командного рядка та команди JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">Приймати підключення ззовні (типово: 1 за відсутності -proxy чи -connect)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Приймати публічні REST-запити (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Додати вузол до підключення і лишити його відкритим</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">Дозволити пошук в DNS для команд -addnode, -seednode та -connect</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Завжди дізнаватися адреси учасників через DNS (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">Автоматичне з&apos;єднання з прихованим сервісом Tor (типово: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Опції створення блоку:</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Не вдається понизити версію гаманця</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">Неможливо записати типову адресу</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">Підключитись лише до вказаного вузла/вузлів</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">Підключитись через SOCKS5-проксі</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Підключитись до вузла, щоб отримати список адрес інших учасників та від&apos;єднатись</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">Параметри з&apos;єднання:</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">Виявлено пошкоджений блок бази даних</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Параметри тестування/налагодження:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Не завантажувати гаманець та вимкнути звернення до нього через RPC</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">Ви хочете перебудувати базу даних блоків зараз?</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">Завантаження завершене</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">Дозволено введення хеш блоку в рядок &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Дозволено введення хеш транзакції в рядок &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">Дозволено введення RAW блоку в рядок &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Дозволено введення RAW транзакції в рядок &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">Помилка ініціалізації бази даних блоків</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Помилка ініціалізації середовища бази даних гаманця %s!</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">Помилка завантаження бази даних блоків</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">Помилка відкриття блоку бази даних </translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">Помилка читання бази даних, припиняю роботу.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Помилка</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">Помилка: Сталася фатальна помилка (детальніший опис наведено в debug.log)</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">Помилка: Мало вільного місця на диску!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Не вдалося слухати на жодному порту. Використовуйте -listen=0, якщо ви хочете цього.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">Комісія (в %s/КБ), що додаватиметься до вихідних транзакцій (типово: %s)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">Скільки блоків перевіряти під час запуску (типово: %u, 0 = всі)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">Імпорт...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished">Спочатку імпортує блоки з зовнішнього файлу blk000??.dat </translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Включити IP-адреси до налагоджувального виводу (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">Початковий блок некоректний/відсутній. Чи правильно вказано каталог даних для обраної мережі?</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">Інформація</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">Недостатньо коштів</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">Помилка в адресі -onion: «%s»</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">Помилка в адресі проксі-сервера: «%s»</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">Вказано некоректну суму для параметру -paytxfee: «%s» (повинно бути щонайменше %s)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">Вказано неправильну маску підмережі для -whitelist: «%s»</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Утримувати в пам&apos;яті щонайбільше &lt;n&gt; транзакцій, що споживають невідомі входи (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Утримувати розмір пам&apos;яті для пулу транзакцій меншим за &lt;n&gt; мегабайтів (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Прослуховувати &lt;port&gt; для JSON-RPC з&apos;єднань (типово: %u, для тестової мережі: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Чекати на з&apos;єднання на &lt;port&gt; (типово: %u, для тестової мережі: %u)</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">Завантаження адрес...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">Завантаження індексу блоків...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">Завантаження гаманця...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Підтримувати щонайбільше &lt;n&gt; з&apos;єднань з учасниками (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">Дозволити гаманцю розповсюджувати транзакції</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Максимальний розмір вхідного буферу на одне з&apos;єднання, &lt;n&gt;*1000 байтів (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Максимальний розмір вихідного буферу на одне з&apos;єднання, &lt;n&gt;*1000 байтів (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">Необхідно вказати порт для -whitebind: «%s»</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Параметри вузла ретрансляції:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">Бракує доступних дескрипторів файлів.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Підключатися тільки до вузлів в мережі &lt;net&gt; (ipv4, ipv6 або onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">Параметри:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">Пароль для JSON-RPC-з&apos;єднань</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Доповнювати налагоджувальний вивід відміткою часу (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">Версія для друку і виходу</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">Розмір скороченого ланцюжка блоків не може бути від&apos;ємним. </translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">Використання скороченого ланцюжка блоків несумісне з параметром -txindex.</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">Скорочення кількості блоків...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">Параметри сервера RPC:</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished">Зменшення значення -maxconnections з %d до %d із-за обмежень системи.</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Ретранслювати та створювати транзакції носіїв даних (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">Ретранслювати не-P2SH транзакції з мультипідписом (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">Спочатку переглянте ланцюжок блоків на наявність втрачених транзакцій гаманця</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">Сканування...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Запустити в фоновому режимі (як демон) та приймати команди</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">Відсилати налагоджувальну інформацію на консоль, а не у файл debug.log</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Не сплачувати комісію за надсилання транзакцій, якщо це можливо (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Встановити розмір кешу бази даних в мегабайтах (від %d до %d, типово: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Встановити розмір пулу ключів &lt;n&gt; (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Встановити максимальний розмір блоку у байтах (типово: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Встановити число потоків для обслуговування викликів RPC (типово: %d)</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Показати всі налагоджувальні параметри (використання: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">Стискати файл debug.log під час старту клієнта (типово: 1 коли відсутній параметр -debug)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">Підписання транзакції не вдалося</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Вказати файл конфігурації (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Вказати тайм-аут підключення в мілісекундах (щонайменше: 1, типово: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Вкажіть робочий каталог</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Вказати pid-файл (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Вкажіть файл гаманця (в межах каталогу даних)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Вкажіть вашу власну публічну адресу</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Витрачати непідтверджену решту при відправленні транзакцій (типово: %u)</translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">Неможливо сплатити комісію із-за малої суми транзакції</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">Це програмне забезпечення є експериментальним.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Поріг відключення учасників з поганою поведінкою (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished">Пароль управління порт протоколом Tor (типово: empty)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished">Скористайтесь управлінням порт протоколом Tor, в разі перехоплення обміну цибулевої маршрутизації (типово: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">Сума транзакції занадто мала</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">Суми монет у транзакції мають бути позитивними</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">Транзакція занадто велика для правил комісії</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">Транзакція занадто велика</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">Неможливо прив&apos;язатися до %s на цьому комп&apos;ютері (bind повернув помилку: %s)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">Неможливо запустити HTTP-сервер. Детальніший опис наведено в журналі зневадження.</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">Невідома мережа вказана в -onlynet: «%s»</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Параметр -benchmark не підтримується та буде проігноровано; використовуйте -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Параметр -debugnet не підтримується та буде проігноровано; використовуйте -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Параметр -tor не підтримується; використовуйте -onion.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">Спочатку оновіть гаманець до останньої версії</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Використовувати UPnP для відображення порту, що прослуховується (типово: %u)</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">Коментар до Клієнта Користувача (%s) містить небезпечні символи.</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">Ім&apos;я користувача для JSON-RPC-з&apos;єднань</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">Перевірка блоків...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">Перевірка гаманця... </translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">Гаманець %s знаходиться поза каталогом даних %s</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Параметри гаманця:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">Попередження</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">Чи слід працювати в режимі тільки блоки (типово: %u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">Видалення всіх транзакцій з гаманця...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">Параметри сповіщень ZeroMQ:</translation>
     </message>
 </context>
 </TS>

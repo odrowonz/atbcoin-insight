@@ -2,6 +2,873 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="tr">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation type="unfinished">%s geliştiricileri</translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation type="unfinished">(1 = tx meta verilerini tut mesela hesap sahibi ve ödeme talebi bilgileri, 2 = tx meta verilerini at)</translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation type="unfinished">-fallbackfee çok yüksek bir değere ayarlanmış! Ücret tahminleri mevcut değilken ödeyebileceğiniz muamele ücretidir bu.</translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished">-maxtxfee çok yüksek bir değere ayarlanmış! Bu denli yüksek ücretler tek bir muamelede ödenebilir.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished">-paytxfee çok yüksek bir değere ayarlanmış! Bu, muamele gönderirseniz ödeyeceğiniz muamele ücretidir.</translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation type="unfinished">Ücret tahmini için yetersiz veri bulunduğunda kullanılacak ücret oranı (%s/kB olarak) (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation type="unfinished">Muameleler aktarılmadığında dahi beyaz listedeki eşlerden aktarılan muameleleri kabul et (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation type="unfinished">Belirtilen kaynaktan JSON-RPC bağlantılarını kabul et. Bir &lt;ip&gt; için geçerli olanlar şunlardır: salt IP adresi (mesela 1.2.3.4), bir şebeke/ağ maskesi (örneğin 1.2.3.4/255.255.255.0) ya da bir şebeke/CIDR (mesela 1.2.3.4/24). Bu seçenek birden fazla kez belirtilebilir</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Belirtilen adrese bağlan ve daima ondan dinle. IPv6 için [makine]:port yazımını kullanınız</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Belirtilen adrese bağlan ve ona bağlanan eşleri beyaz listeye al. IPv6 için [makine]:port imlasını kullanınız</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation type="unfinished">Belirtilen adrese bağlan ve JSON RPC bağlantıları için dinlemeye geç. IPv6 için [makine]:port imlasını kullanınız. Bu seçenek birden çok kez belirtilebilir (varsayılan: tüm arayüzlere bağlan)</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished">%s veri dizininde kilit elde edilemedi. %s muhtemelen hâlihazırda çalışmaktadır.</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation type="unfinished">Yeni dosyaları umask 077 yerine varsayılan izinlerle oluştur (sadece devre dışı cüzdan işlevselliği ile etkilidir)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation type="unfinished">Tüm cüzdan muamelelerini sil ve başlangıçta -rescan ile sadece blok zincirinin parçası olanları geri getir</translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation type="unfinished">Kendi IP adreslerini keşfet (varsayılan: dinlenildiğinde ve -externalip ya da -proxy yoksa 1)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation type="unfinished">MIT yazılım lisansı kapsamında yayınlanmıştır, ekteki COPYING dosyasına ya da &lt;http://www.opensource.org/licenses/mit-license.php&gt; adresine bakınız.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation type="unfinished">Muameleleri bellek alanında &lt;n&gt; saatten fazla tutma (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation type="unfinished">%s yüklenmesinde hata: zaten var olan ve HD olmayan bir cüzdanda HD etkinleştirilemez.</translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished">%s dosyasının okunması sırasında bir hata meydana geldi! Tüm anahtarlar doğru bir şekilde okundu, ancak muamele verileri ya da adres defteri unsurları hatalı veya eksik olabilir.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation type="unfinished">Hata: İçeri gelen bağlantıların dinlenmesi başarısız oldu (dinleme %s hatasını verdi)</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation type="unfinished">İlgili bir uyarı alındığında ya da gerçekten uzun bir çatallama gördüğümüzde komutu çalıştır (komuttaki %s mesaj ile değiştirilir)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation type="unfinished">Bir cüzdan muamelesi değiştiğinde komutu çalıştır (komuttaki %s muamele kimliği ile değiştirilecektir)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation type="unfinished">En iyi blok değiştiğinde komutu çalıştır (komut için %s parametresi blok hash değeri ile değiştirilecektir)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation type="unfinished">Bundan düşük ücretler (%s/kB olarak) aktarma, oluşturma ve muamele yaratma için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation type="unfinished">Bundan düşük ücretler (%s/kB olarak) muamele oluşturulması için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation type="unfinished">Yerel aktarma politikasını ihlal ettiklerinde bile beyaz listedeki eşlerden gelen muamelelerin aktarılmasını zorla (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation type="unfinished">-checkblocks&apos;un blok kontrolünün ne kadar kapsamlı olacağı (0 ilâ 4, varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation type="unfinished">Eğer &lt;kategori&gt; belirtilmemişse ya da &lt;kategori&gt; = 1 ise, tüm hata ayıklama verilerini dök.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation type="unfinished">Eğer paytxfee ayarlanmadıysa kafi derecede ücret ekleyin ki muameleler teyite vasati n blok içinde başlasın (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished">-maxtxfee=&lt;tutar&gt; için geçersiz tutar: &apos;%s&apos; (Sıkışmış muameleleri önlemek için en az %s değerinde asgari aktarım ücretine eşit olmalıdır)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation type="unfinished">Muamelelerin tamamının indeksini tut, getrawtransaction rpc çağrısı tarafından kullanılır (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation type="unfinished">Müsaade edilen azami medyan eş zamanı değişiklik sınırının ayarlaması. Zamanın yerel perspektifi bu miktar kadar ileri ya da geri eşler tarafından etkilenebilir. (Varsayılan %u saniye)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation type="unfinished">Aktardığımız ve oluşturduğumuz veri taşıyıcı muamelelerindeki azami veri boyutu (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation type="unfinished">Tek cüzdan muamelesinde ya da ham muamelede kullanılacak azami toplam ücret (%s olarak); bunu çok düşük olarak ayarlamak büyük muameleleri iptal edebilir (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation type="unfinished">Aksaklık gösteren eşlerle terkar bağlantıyı engelleme süresi, saniye olarak (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished">Hata ayıklama bilgisi dök (varsayılan: %u, &lt;kategori&gt; sağlanması seçime dayalıdır)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation type="unfinished">Lütfen bilgisayarınızın saat ve tarihinin doğru olduğunu kontrol ediniz! Saatinizde gecikme varsa %s doğru şekilde çalışamaz.</translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation type="unfinished">%s programını faydalı buluyorsanız lütfen katkıda bulununuz. Yazılım hakkında daha fazla bilgi için %s adresini ziyaret ediniz.</translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation type="unfinished">Budama, asgari değer olan %d MiB&apos;den düşük olarak ayarlanmıştır. Lütfen daha yüksek bir sayı kullanınız.</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished">Budama: son cüzdan eşleşmesi budanmış verilerin ötesine gitmektedir. -reindex kullanmanız gerekmektedir (Budanmış düğüm ise tüm blok zincirini tekrar indirmeniz gerekir.)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation type="unfinished">Adres sayısı azaldıysa DNS sorgulamasıyla eş adresleri ara (varsayılan: 1 -connect kullanılmadıysa)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation type="unfinished">Her vekil bağlantısı için kimlik verilerini rastgele yap. Bu, Tor akış izolasyonunu etkinleştirir (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation type="unfinished">Depolama gerekliliğini eski blokları budayarak (silerek) düşür. Bu kip -txindex ve -rescan ile uyumsuzdur. İkaz: Bu ayarı geri almak tüm blok zincirini yeniden indirmeyi gerektirir. (varsayılan: 0 = blokları silmeyi devre dışı bırak, &gt;%u = MiB olarak blok dosyaları için kullanılacak hedef boyut)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation type="unfinished">Tekrar taramalar budanmış kipte mümkün değildir. Tüm blok zincirini tekrar indirecek olan -reindex seçeneğini kullanmanız gerekecektir.</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation type="unfinished">Yüksek öncelikli/düşük ücretli muamelelerin azami boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation type="unfinished">Betik kontrolü iş parçacıklarının sayısını belirler (%u ilâ %d, 0 = otomatik, &lt;0 = bu sayıda çekirdeği kullanma, varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation type="unfinished">Blokların ve muamelelerin bloom filtreleri ile süzülmesini destekle (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation type="unfinished">Blok veritabanı gelecekten gibi görünen bir blok içermektedir. Bu, bilgisayarınızın saat ve tarihinin yanlış ayarlanmış olmasından kaynaklanabilir. Blok veritabanını sadece bilgisayarınızın tarih ve saatinin doğru olduğundan eminseniz yeniden derleyin.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation type="unfinished">Bu muamele, ücret düşüldükten sonra göndermek için çok düşük</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation type="unfinished">Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - ATBcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished">Bu ürün OpenSSL projesi tarafından OpenSSL araç takımı (http://www.openssl.org/) için geliştirilen yazılımlar, Eric Young (eay@cryptsoft.com) tarafından hazırlanmış şifreleme yazılımları ve Thomas Bernard tarafından programlanmış UPnP yazılımı içerir.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished">Şebeke sürümü zincirinin toplam boyutu (%i) azami boyutu geçmektedir (%i). Kullanıcı aracı açıklamasının sayısı veya boyutunu azaltınız.</translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation type="unfinished">Giden trafiği belirtilen hedefin altında tutmaya çalışır (24 saat başı MiB olarak), 0 = sınırsız (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation type="unfinished">Veritabanını çatallama öncesi duruma geri sarmak mümkün değil. Blok zincirini tekrar indirmeniz gerekmektedir</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished">Desteklenmeyen -socks argümanı bulundu. SOCKS sürümünün ayarlanması artık mümkün değildir, sadece SOCKS5 vekilleri desteklenmektedir.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation type="unfinished">Desteklenmeyen argüman -whitelistalwaysrelay görmezden gelindi, -whitelistrelay ve/veya -whitelistforcerelay kullanın.</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation type="unfinished">Dinlenecek portu haritalamak için UPnP kullan (varsayılan: dinlenildiğinde ve -proxy olmadığında 1)</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation type="unfinished">BIP32&apos;den sonra hiyerarşik determinist (HD) anahtar üretimini kullan. Sadece cüzdan oluşturulmasında/ilk başlamada etkiye sahiptir.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation type="unfinished">Eşlere gizli Tor servisleri ile ulaşmak için ayrı SOCKS5 vekil sunucusu kullan (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation type="unfinished">JSON-RPC bağlantıları için kullanıcı ismi ve karmalanmış parola. &lt;userpw&gt; alanı şu biçimdedir: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Kanonik bir Python betiği share/rpcuser klasöründe bulunabilir. Bu seçenek birden çok kez belirtilebilir.</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation type="unfinished">Uyarı: şebeke tamamen mutabık değil gibi görünüyor! Bazı madenciler sorun yaşıyor gibi görünüyor.</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation type="unfinished">İkaz: bilinmeyen blok sürümü oluşturulmaya çalışılıyor. Bilinmeyen kuralların işlemesi mümkündür.</translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished">Uyarı: wallet.dat bozuk, veriler geri kazanıldı! Özgün %s, %s olarak %s klasörüne kaydedildi; bakiyeniz ya da muameleleriniz yanlışsa bir yedeklemeden tekrar yüklemeniz gerekir.</translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation type="unfinished">Uyarı: eşlerimizle tamamen mutabık değiliz gibi görünüyor! Güncelleme yapmanız gerekebilir ya da diğer düğümlerin güncelleme yapmaları gerekebilir.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation type="unfinished">Belirtilen ağ maskesi ya da IP adresinden bağlanan eşleri beyaz listeye al. Birden fazla kez belirtilebilir.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation type="unfinished">Beyaz listeye alınan eşler DoS yasaklamasına uğramazlar ve muameleleri zaten mempool&apos;da olsalar da daima aktarılır, bu mesela bir geçit için kullanışlıdır</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation type="unfinished">Budama olmayan kipe dönmek için veritabanını -reindex ile tekrar derlemeniz gerekir. Bu, tüm blok zincirini tekrar indirecektir</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation type="unfinished">-txindex&apos;i değiştirmek için veritabanını -reindex-chainstate kullanarak tekrar inşa etmeniz gerekmektedir</translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished">%s bozuk, geri kazanım başarısız oldu</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation type="unfinished">(varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation type="unfinished">(varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation type="unfinished">-maxmempool asgari %d MB olmalıdır</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished">&lt;kategori&gt; şunlar olabilir:</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation type="unfinished">Komut satırı ve JSON-RPC komutlarını kabul et</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation type="unfinished">Dışarıdan gelen bağlantıları kabul et (varsayılan: -proxy veya -connect yoksa 1)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation type="unfinished">Herkese açık REST taleplerini kabul et (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation type="unfinished">Bağlanılacak düğüm ekle ve bağlantıyı zinde tutmaya çalış</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation type="unfinished">-addnode, -seednode ve -connect için DNS aramalarına izin ver</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation type="unfinished">Eş adresleri sorgulaması için daima DNS aramasını kullan (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished">Kullanıcı aracı zincirine yorumu ekle</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation type="unfinished">Başlangıçta bozuk bir cüzdandan özel anahtarları geri kazanmayı dene</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation type="unfinished">Otomatik olarak gizli Tor servisi oluştur (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation type="unfinished">Blok oluşturma seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation type="unfinished">Cüzdan eski biçime geri alınamaz</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation type="unfinished">Çözümlenemedi - %s adres: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation type="unfinished">Varsayılan adres yazılamadı</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation type="unfinished">Aralık dışında değişiklik endeksi</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation type="unfinished">Sadece belirtilen düğüme veya düğümlere bağlan</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished">SOCKS5 vekil sunucusu vasıtasıyla bağlan</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation type="unfinished">Eş adresleri elde etmek için bir düğüme bağlan ve ardından bağlantıyı kes</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation type="unfinished">Bağlantı seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation type="unfinished">Telif hakkı (C) %i-%i</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">Bozuk blok veritabanı tespit edildi</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">Hata ayıklama/deneme seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">Cüzdanı yükleme ve cüzdan RPC çağrılarını devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">Blok veritabanını şimdi yeniden inşa etmek istiyor musunuz?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation type="unfinished">Yükleme tamamlandı</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation type="unfinished">Blok karma değerinin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Karma değer muamelesinin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation type="unfinished">Ham blokun &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Ham muamelenin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation type="unfinished">Bellek alanında muamele değiştirmeyi etkinleştir (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">Blok veritabanını başlatılırken bir hata meydana geldi</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">%s cüzdan veritabanı ortamının başlatılmasında hata meydana geldi!</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu: bozuk cüzdan</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu: cüzdan %s programının yeni bir sürümüne ihtiyaç duyuyor</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation type="unfinished">%s yüklenmesinde hata: zaten var olan HD bir cüzdanda HD devre dışı bırakılamaz.</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation type="unfinished">Blok veritabanının yüklenmesinde hata</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation type="unfinished">Blok veritabanının açılışı sırasında hata</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">Veritabanından okumada hata, kapatılıyor.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Hata</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished">Hata: Ölümcül dahili bir hata meydana geldi, ayrıntılar için debug.log dosyasına bakınız</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">Hata: Disk alanı düşük!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">Herhangi bir portun dinlenmesi başarısız oldu. Bunu istiyorsanız -listen=0 seçeneğini kullanınız.</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished">Yolladığınız muamelelere eklenecek ücret (%s/kB olarak) (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">Başlangıçta kontrol edilecek blok sayısı (varsayılan: %u, 0 = hepsi)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation type="unfinished">İçe aktarılıyor...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation type="unfinished">Başlangıçta harici blk000??.dat dosyasından blokları içe aktarır</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation type="unfinished">Hata ayıklama çıktısına IP adreslerini dahil et (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation type="unfinished">Yanlış ya da bulunamamış doğuş bloku. Şebeke için yanlış veri klasörü mü?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">Bilgi</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished">Başlatma sınaması başarısız oldu. %s kapatılıyor.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation type="unfinished">Yetersiz bakiye</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation type="unfinished">Geçersiz -onion adresi: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation type="unfinished">Geçersiz -proxy adresi: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">-%s=&lt;meblağ&gt; için geçersiz meblağ: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished"> -fallbackfee=&lt;meblağ&gt; için geçersiz meblağ: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished">-paytxfee=&lt;tutar&gt;:&apos;%s&apos; unsurunda geçersiz tutar (asgari %s olması lazımdır)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation type="unfinished">-whitelist: &apos;%s&apos; unsurunda geçersiz bir ağ maskesi belirtildi</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation type="unfinished">Hafızada en çok &lt;n&gt; bağlanılamaz muamele tut (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation type="unfinished">Muamele bellek alanını &lt;n&gt; megabayttan düşük tut (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: %u veya tesnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Bağlantılar için dinlenecek &lt;port&gt; (varsayılan: %u ya da testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation type="unfinished">Adresler yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation type="unfinished">Yasaklama listesi yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation type="unfinished">Blok indeksi yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation type="unfinished">Cüzdan yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation type="unfinished">auth çerezinin konumu (varsayılan: veri klasörü)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation type="unfinished">Eşler ile en çok &lt;n&gt; adet bağlantı kur (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation type="unfinished">Cüzdanın muameleleri yayınlamasını sağla</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Her bağlantı için azami alım tamponu, &lt;n&gt;*1000 bayt (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Her bağlantı için azami yollama tamponu, &lt;n&gt;*1000 bayt (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">-whitebind: &apos;%s&apos; ile bir port belirtilmesi lazımdır</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation type="unfinished">Düğüm röle seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">Kafi derecede dosya tanımlayıcıları mevcut değil.</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">Sadece &lt;net&gt; şebekesindeki düğümlere bağlan (ipv4, ipv6 veya onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation type="unfinished">Seçenekler:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">JSON-RPC bağlantıları için parola</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">Hata ayıklama verilerinin önüne zaman damgası ekle (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation type="unfinished">Bu yardım mesajını yaz ve çık</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation type="unfinished">Sürümü yaz ve çık</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation type="unfinished">Budama negatif bir değerle yapılandırılamaz.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation type="unfinished">Budama kipi -txindex ile uyumsuzdur.</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation type="unfinished">Blockstore budanıyor...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation type="unfinished">RPC sunucu seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation type="unfinished">Zincir durumu ve blok endeksini diskteki blk*.dat dosyalarından yeniden derle</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation type="unfinished">Zincir durumunu güncel olarak endekslenen bloklardan yeniden derle</translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation type="unfinished">Sistem sınırlamaları sebebiyle -maxconnections %d değerinden %d değerine düşürülmüştür.</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Veri taşıyıcı muameleleri oluştur ve aktar (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">P2SH olmayan çoklu imzaları aktar (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation type="unfinished">Başlangıçta blok zincirini eksik cüzdan muameleleri için tekrar tara</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation type="unfinished">Yeniden tarama...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation type="unfinished">Bloklar geri sarılıyor...</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">Arka planda daemon (servis) olarak çalış ve komutları kabul et</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation type="unfinished">Trace/hata ayıklama verilerini debug.log dosyası yerine konsola gönder</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">Muameleleri mümkünse ücretsiz olarak gönder (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">Veritabanı önbellek boyutunu megabayt olarak belirt (%d ilâ %d, varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">Anahtar alan boyutunu &lt;n&gt; değerine ayarla (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation type="unfinished">Azami BIP141 blok ağırlığını ayarla (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">Azami blok boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">Hizmet RCP aramaları iş parçacığı sayısını belirle (varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">Tüm hata ayıklama seçeneklerini göster (kullanımı: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">İstemci başlatıldığında debug.log dosyasını küçült (varsayılan: -debug bulunmadığında 1)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">Muamelenin imzalanması başarısız oldu</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">Yapılandırma dosyası belirtiniz (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">Bağlantı zaman aşım süresini milisaniye olarak belirt (asgari: 1, varsayılan: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation type="unfinished">Veri dizinini belirt</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">Pid dosyası belirtiniz (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">Cüzdan dosyası belirtiniz (veri klasörünün içinde)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">Kendi genel adresinizi tanımlayın</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">Gönderme muamelelerinde teyit edilmemiş para üstünü harca (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation type="unfinished">Kaynak kod şuradan elde edilebilir: %s.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation type="unfinished">Muamele meblağı ücreti ödemek için çok düşük</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">Bu, deneysel bir yazılımdır.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">Aksaklık gösteren eşlerle bağlantıyı kesme sınırı (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished">Tor kontrol portu parolası (varsayılan: boş)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished">Eğer onion dinlenmesi etkinse kullanılacak Tor kontrol portu (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">Muamele meblağı çok düşük</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">Muamele tutarının pozitif olması lazımdır</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation type="unfinished">Ücret politikası için çok büyük muamele</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation type="unfinished">Muamele çok büyük</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation type="unfinished">Bu bilgisayarda %s unsuruna bağlanılamadı (bağlanma %s hatasını verdi)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished">Bu bilgisayarda %s unsuruna bağlanılamadı. %s muhtemelen hâlihazırda çalışmaktadır.</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation type="unfinished">HTTP sunucusu başlatılamadı. Ayrıntılar için debug.log dosyasına bakınız.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation type="unfinished">-onlynet için bilinmeyen bir şebeke belirtildi: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation type="unfinished">Desteklenmeyen -benchmark argümanı görmezden gelindi, -debug=bench kullanınız.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation type="unfinished">Desteklenmeyen -debugnet argümanı görmezden gelindi, debug=net kullanınız.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">Deskteklenmeyen -tor argümanı bulundu, -onion kullanınız.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation type="unfinished">Başlangıçta cüzdanı en yeni biçime güncelle</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation type="unfinished">Dinleme portunu haritalamak için UPnP kullan (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished">Kullanıcı Aracı açıklaması (%s) güvensiz karakterler içermektedir.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation type="unfinished">JSON-RPC bağlantıları için kullanıcı ismi</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation type="unfinished">Bloklar kontrol ediliyor...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation type="unfinished">Cüzdan kontrol ediliyor...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished">%s cüzdan %s veri klasörünün dışında bulunuyor</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation type="unfinished">Cüzdan hata ayıklama/test etme seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished">Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için %s programını yeniden başlatınız</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation type="unfinished">Cüzdan seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Uyarı</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation type="unfinished">İkaz: bilinmeyen yeni kurallar etkinleştirilmiştir (versionbit %i)</translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation type="unfinished">Salt blok kipinde çalışılıp çalışılmayacağı (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished">Cüzdandaki tüm muameleler kaldırılıyor...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation type="unfinished">ZeroMQ bildirim seçenekleri:</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -236,7 +1103,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Sign &amp;message...</source>
+        <source>Sign &amp;message</source>
         <translation>&amp;Mesaj imzala...</translation>
     </message>
     <message>
@@ -272,7 +1139,7 @@
         <translation>Uygulamadan çık</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>&amp;Seçenekler...</translation>
     </message>
     <message>
@@ -280,27 +1147,27 @@
         <translation>%1 için yapılandırma ayarlarını değiştir</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
+        <source>&amp;Encrypt Wallet</source>
         <translation>Cüzdanı &amp;şifrele...</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
+        <source>&amp;Backup Wallet</source>
         <translation>Cüzdanı &amp;yedekle...</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
+        <source>&amp;Change Passphrase</source>
         <translation>Parolayı &amp;değiştir...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
+        <source>&amp;Sending addresses</source>
         <translation>&amp;Gönderme adresleri...</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
+        <source>&amp;Receiving addresses</source>
         <translation>&amp;Alma adresleri...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
+        <source>Open &amp;URI</source>
         <translation>&amp;URI aç...</translation>
     </message>
     <message>
@@ -328,7 +1195,7 @@
         <translation>Hata ayıklama ve teşhis penceresini aç</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
+        <source>&amp;Verify message</source>
         <translation>Mesaj &amp;kontrol et...</translation>
     </message>
     <message>
@@ -550,15 +1417,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Money share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ATBcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -629,15 +1508,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -658,6 +1529,14 @@
     </message>
     <message>
         <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1447,7 +2326,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2323,7 +3202,7 @@
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid ATBCoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2420,23 +3299,11 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2445,10 +3312,6 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2464,10 +3327,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Could not get share by key (%0)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2480,16 +3339,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
+        <source>Invalid private key encoding.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2502,17 +3385,6 @@
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Bu pencere kalkıncaya dek bilgisayarı kapatmayınız.</translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2976,6 +3848,10 @@
         <source>Amount removed from or added to balance.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransactionView</name>
@@ -3139,6 +4015,10 @@
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -3187,872 +4067,41 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
+        <source>Wallet Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The %s developers</source>
-        <translation type="unfinished">%s geliştiricileri</translation>
-    </message>
-    <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = tx meta verilerini tut mesela hesap sahibi ve ödeme talebi bilgileri, 2 = tx meta verilerini at)</translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation type="unfinished">-fallbackfee çok yüksek bir değere ayarlanmış! Ücret tahminleri mevcut değilken ödeyebileceğiniz muamele ücretidir bu.</translation>
-    </message>
-    <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">-maxtxfee çok yüksek bir değere ayarlanmış! Bu denli yüksek ücretler tek bir muamelede ödenebilir.</translation>
-    </message>
-    <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">-paytxfee çok yüksek bir değere ayarlanmış! Bu, muamele gönderirseniz ödeyeceğiniz muamele ücretidir.</translation>
-    </message>
-    <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished">Ücret tahmini için yetersiz veri bulunduğunda kullanılacak ücret oranı (%s/kB olarak) (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished">Muameleler aktarılmadığında dahi beyaz listedeki eşlerden aktarılan muameleleri kabul et (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Belirtilen kaynaktan JSON-RPC bağlantılarını kabul et. Bir &lt;ip&gt; için geçerli olanlar şunlardır: salt IP adresi (mesela 1.2.3.4), bir şebeke/ağ maskesi (örneğin 1.2.3.4/255.255.255.0) ya da bir şebeke/CIDR (mesela 1.2.3.4/24). Bu seçenek birden fazla kez belirtilebilir</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Belirtilen adrese bağlan ve daima ondan dinle. IPv6 için [makine]:port yazımını kullanınız</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Belirtilen adrese bağlan ve ona bağlanan eşleri beyaz listeye al. IPv6 için [makine]:port imlasını kullanınız</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Belirtilen adrese bağlan ve JSON RPC bağlantıları için dinlemeye geç. IPv6 için [makine]:port imlasını kullanınız. Bu seçenek birden çok kez belirtilebilir (varsayılan: tüm arayüzlere bağlan)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
-        <translation type="unfinished">%s veri dizininde kilit elde edilemedi. %s muhtemelen hâlihazırda çalışmaktadır.</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Yeni dosyaları umask 077 yerine varsayılan izinlerle oluştur (sadece devre dışı cüzdan işlevselliği ile etkilidir)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Tüm cüzdan muamelelerini sil ve başlangıçta -rescan ile sadece blok zincirinin parçası olanları geri getir</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">Kendi IP adreslerini keşfet (varsayılan: dinlenildiğinde ve -externalip ya da -proxy yoksa 1)</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">MIT yazılım lisansı kapsamında yayınlanmıştır, ekteki COPYING dosyasına ya da &lt;http://www.opensource.org/licenses/mit-license.php&gt; adresine bakınız.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished">Muameleleri bellek alanında &lt;n&gt; saatten fazla tutma (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
-        <translation type="unfinished">%s yüklenmesinde hata: zaten var olan ve HD olmayan bir cüzdanda HD etkinleştirilemez.</translation>
+        <source>Import a backup.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation type="unfinished">%s dosyasının okunması sırasında bir hata meydana geldi! Tüm anahtarlar doğru bir şekilde okundu, ancak muamele verileri ya da adres defteri unsurları hatalı veya eksik olabilir.</translation>
+        <source>Recovery failed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">Hata: İçeri gelen bağlantıların dinlenmesi başarısız oldu (dinleme %s hatasını verdi)</translation>
+        <source>Restore completed successfully.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">İlgili bir uyarı alındığında ya da gerçekten uzun bir çatallama gördüğümüzde komutu çalıştır (komuttaki %s mesaj ile değiştirilir)</translation>
+        <source>You must restart your wallet to continue working.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Bir cüzdan muamelesi değiştiğinde komutu çalıştır (komuttaki %s muamele kimliği ile değiştirilecektir)</translation>
+        <source>remove old wallet failed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">En iyi blok değiştiğinde komutu çalıştır (komut için %s parametresi blok hash değeri ile değiştirilecektir)</translation>
+        <source>Lock wallet</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">Bundan düşük ücretler (%s/kB olarak) aktarma, oluşturma ve muamele yaratma için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished">Bundan düşük ücretler (%s/kB olarak) muamele oluşturulması için sıfır değerinde ücret olarak kabul edilir (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished">Yerel aktarma politikasını ihlal ettiklerinde bile beyaz listedeki eşlerden gelen muamelelerin aktarılmasını zorla (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">-checkblocks&apos;un blok kontrolünün ne kadar kapsamlı olacağı (0 ilâ 4, varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">Eğer &lt;kategori&gt; belirtilmemişse ya da &lt;kategori&gt; = 1 ise, tüm hata ayıklama verilerini dök.</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">Eğer paytxfee ayarlanmadıysa kafi derecede ücret ekleyin ki muameleler teyite vasati n blok içinde başlasın (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">-maxtxfee=&lt;tutar&gt; için geçersiz tutar: &apos;%s&apos; (Sıkışmış muameleleri önlemek için en az %s değerinde asgari aktarım ücretine eşit olmalıdır)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Muamelelerin tamamının indeksini tut, getrawtransaction rpc çağrısı tarafından kullanılır (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished">Müsaade edilen azami medyan eş zamanı değişiklik sınırının ayarlaması. Zamanın yerel perspektifi bu miktar kadar ileri ya da geri eşler tarafından etkilenebilir. (Varsayılan %u saniye)</translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Aktardığımız ve oluşturduğumuz veri taşıyıcı muamelelerindeki azami veri boyutu (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished">Tek cüzdan muamelesinde ya da ham muamelede kullanılacak azami toplam ücret (%s olarak); bunu çok düşük olarak ayarlamak büyük muameleleri iptal edebilir (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Aksaklık gösteren eşlerle terkar bağlantıyı engelleme süresi, saniye olarak (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Hata ayıklama bilgisi dök (varsayılan: %u, &lt;kategori&gt; sağlanması seçime dayalıdır)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
-        <translation type="unfinished">Lütfen bilgisayarınızın saat ve tarihinin doğru olduğunu kontrol ediniz! Saatinizde gecikme varsa %s doğru şekilde çalışamaz.</translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished">%s programını faydalı buluyorsanız lütfen katkıda bulununuz. Yazılım hakkında daha fazla bilgi için %s adresini ziyaret ediniz.</translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">Budama, asgari değer olan %d MiB&apos;den düşük olarak ayarlanmıştır. Lütfen daha yüksek bir sayı kullanınız.</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">Budama: son cüzdan eşleşmesi budanmış verilerin ötesine gitmektedir. -reindex kullanmanız gerekmektedir (Budanmış düğüm ise tüm blok zincirini tekrar indirmeniz gerekir.)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">Adres sayısı azaldıysa DNS sorgulamasıyla eş adresleri ara (varsayılan: 1 -connect kullanılmadıysa)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Her vekil bağlantısı için kimlik verilerini rastgele yap. Bu, Tor akış izolasyonunu etkinleştirir (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Depolama gerekliliğini eski blokları budayarak (silerek) düşür. Bu kip -txindex ve -rescan ile uyumsuzdur. İkaz: Bu ayarı geri almak tüm blok zincirini yeniden indirmeyi gerektirir. (varsayılan: 0 = blokları silmeyi devre dışı bırak, &gt;%u = MiB olarak blok dosyaları için kullanılacak hedef boyut)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">Tekrar taramalar budanmış kipte mümkün değildir. Tüm blok zincirini tekrar indirecek olan -reindex seçeneğini kullanmanız gerekecektir.</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Yüksek öncelikli/düşük ücretli muamelelerin azami boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Betik kontrolü iş parçacıklarının sayısını belirler (%u ilâ %d, 0 = otomatik, &lt;0 = bu sayıda çekirdeği kullanma, varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished">Blokların ve muamelelerin bloom filtreleri ile süzülmesini destekle (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">Blok veritabanı gelecekten gibi görünen bir blok içermektedir. Bu, bilgisayarınızın saat ve tarihinin yanlış ayarlanmış olmasından kaynaklanabilir. Blok veritabanını sadece bilgisayarınızın tarih ve saatinin doğru olduğundan eminseniz yeniden derleyin.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">Bu muamele, ücret düşüldükten sonra göndermek için çok düşük</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - ATBcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">Bu ürün OpenSSL projesi tarafından OpenSSL araç takımı (http://www.openssl.org/) için geliştirilen yazılımlar, Eric Young (eay@cryptsoft.com) tarafından hazırlanmış şifreleme yazılımları ve Thomas Bernard tarafından programlanmış UPnP yazılımı içerir.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished">Şebeke sürümü zincirinin toplam boyutu (%i) azami boyutu geçmektedir (%i). Kullanıcı aracı açıklamasının sayısı veya boyutunu azaltınız.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">Giden trafiği belirtilen hedefin altında tutmaya çalışır (24 saat başı MiB olarak), 0 = sınırsız (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished">Veritabanını çatallama öncesi duruma geri sarmak mümkün değil. Blok zincirini tekrar indirmeniz gerekmektedir</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Desteklenmeyen -socks argümanı bulundu. SOCKS sürümünün ayarlanması artık mümkün değildir, sadece SOCKS5 vekilleri desteklenmektedir.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished">Desteklenmeyen argüman -whitelistalwaysrelay görmezden gelindi, -whitelistrelay ve/veya -whitelistforcerelay kullanın.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">Dinlenecek portu haritalamak için UPnP kullan (varsayılan: dinlenildiğinde ve -proxy olmadığında 1)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished">BIP32&apos;den sonra hiyerarşik determinist (HD) anahtar üretimini kullan. Sadece cüzdan oluşturulmasında/ilk başlamada etkiye sahiptir.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Eşlere gizli Tor servisleri ile ulaşmak için ayrı SOCKS5 vekil sunucusu kullan (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished">JSON-RPC bağlantıları için kullanıcı ismi ve karmalanmış parola. &lt;userpw&gt; alanı şu biçimdedir: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Kanonik bir Python betiği share/rpcuser klasöründe bulunabilir. Bu seçenek birden çok kez belirtilebilir.</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">Uyarı: şebeke tamamen mutabık değil gibi görünüyor! Bazı madenciler sorun yaşıyor gibi görünüyor.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished">İkaz: bilinmeyen blok sürümü oluşturulmaya çalışılıyor. Bilinmeyen kuralların işlemesi mümkündür.</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished">Uyarı: wallet.dat bozuk, veriler geri kazanıldı! Özgün %s, %s olarak %s klasörüne kaydedildi; bakiyeniz ya da muameleleriniz yanlışsa bir yedeklemeden tekrar yüklemeniz gerekir.</translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">Uyarı: eşlerimizle tamamen mutabık değiliz gibi görünüyor! Güncelleme yapmanız gerekebilir ya da diğer düğümlerin güncelleme yapmaları gerekebilir.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Belirtilen ağ maskesi ya da IP adresinden bağlanan eşleri beyaz listeye al. Birden fazla kez belirtilebilir.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Beyaz listeye alınan eşler DoS yasaklamasına uğramazlar ve muameleleri zaten mempool&apos;da olsalar da daima aktarılır, bu mesela bir geçit için kullanışlıdır</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">Budama olmayan kipe dönmek için veritabanını -reindex ile tekrar derlemeniz gerekir. Bu, tüm blok zincirini tekrar indirecektir</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished">-txindex&apos;i değiştirmek için veritabanını -reindex-chainstate kullanarak tekrar inşa etmeniz gerekmektedir</translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished">%s bozuk, geri kazanım başarısız oldu</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">-maxmempool asgari %d MB olmalıdır</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;kategori&gt; şunlar olabilir:</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Komut satırı ve JSON-RPC komutlarını kabul et</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">Dışarıdan gelen bağlantıları kabul et (varsayılan: -proxy veya -connect yoksa 1)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Herkese açık REST taleplerini kabul et (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Bağlanılacak düğüm ekle ve bağlantıyı zinde tutmaya çalış</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">-addnode, -seednode ve -connect için DNS aramalarına izin ver</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Eş adresleri sorgulaması için daima DNS aramasını kullan (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished">Kullanıcı aracı zincirine yorumu ekle</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished">Başlangıçta bozuk bir cüzdandan özel anahtarları geri kazanmayı dene</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">Otomatik olarak gizli Tor servisi oluştur (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Blok oluşturma seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Cüzdan eski biçime geri alınamaz</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished">Çözümlenemedi - %s adres: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">Varsayılan adres yazılamadı</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished">Aralık dışında değişiklik endeksi</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">Sadece belirtilen düğüme veya düğümlere bağlan</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">SOCKS5 vekil sunucusu vasıtasıyla bağlan</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Eş adresleri elde etmek için bir düğüme bağlan ve ardından bağlantıyı kes</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">Bağlantı seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished">Telif hakkı (C) %i-%i</translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">Bozuk blok veritabanı tespit edildi</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Hata ayıklama/deneme seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Cüzdanı yükleme ve cüzdan RPC çağrılarını devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">Blok veritabanını şimdi yeniden inşa etmek istiyor musunuz?</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">Yükleme tamamlandı</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">Blok karma değerinin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Karma değer muamelesinin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">Ham blokun &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Ham muamelenin &lt;adres&gt;te yayınlanmasını etkinleştir</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished">Bellek alanında muamele değiştirmeyi etkinleştir (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">Blok veritabanını başlatılırken bir hata meydana geldi</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">%s cüzdan veritabanı ortamının başlatılmasında hata meydana geldi!</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu: bozuk cüzdan</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished">%s unsurunun yüklenmesinde hata oluştu: cüzdan %s programının yeni bir sürümüne ihtiyaç duyuyor</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished">%s yüklenmesinde hata: zaten var olan HD bir cüzdanda HD devre dışı bırakılamaz.</translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">Blok veritabanının yüklenmesinde hata</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">Blok veritabanının açılışı sırasında hata</translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">Veritabanından okumada hata, kapatılıyor.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Hata</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">Hata: Ölümcül dahili bir hata meydana geldi, ayrıntılar için debug.log dosyasına bakınız</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">Hata: Disk alanı düşük!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Herhangi bir portun dinlenmesi başarısız oldu. Bunu istiyorsanız -listen=0 seçeneğini kullanınız.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">Yolladığınız muamelelere eklenecek ücret (%s/kB olarak) (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">Başlangıçta kontrol edilecek blok sayısı (varsayılan: %u, 0 = hepsi)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">İçe aktarılıyor...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished">Başlangıçta harici blk000??.dat dosyasından blokları içe aktarır</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Hata ayıklama çıktısına IP adreslerini dahil et (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">Yanlış ya da bulunamamış doğuş bloku. Şebeke için yanlış veri klasörü mü?</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">Bilgi</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished">Başlatma sınaması başarısız oldu. %s kapatılıyor.</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">Yetersiz bakiye</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">Geçersiz -onion adresi: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">Geçersiz -proxy adresi: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">-%s=&lt;meblağ&gt; için geçersiz meblağ: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"> -fallbackfee=&lt;meblağ&gt; için geçersiz meblağ: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">-paytxfee=&lt;tutar&gt;:&apos;%s&apos; unsurunda geçersiz tutar (asgari %s olması lazımdır)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">-whitelist: &apos;%s&apos; unsurunda geçersiz bir ağ maskesi belirtildi</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Hafızada en çok &lt;n&gt; bağlanılamaz muamele tut (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Muamele bellek alanını &lt;n&gt; megabayttan düşük tut (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: %u veya tesnet: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Bağlantılar için dinlenecek &lt;port&gt; (varsayılan: %u ya da testnet: %u)</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">Adresler yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished">Yasaklama listesi yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">Blok indeksi yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">Cüzdan yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished">auth çerezinin konumu (varsayılan: veri klasörü)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Eşler ile en çok &lt;n&gt; adet bağlantı kur (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">Cüzdanın muameleleri yayınlamasını sağla</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Her bağlantı için azami alım tamponu, &lt;n&gt;*1000 bayt (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Her bağlantı için azami yollama tamponu, &lt;n&gt;*1000 bayt (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">-whitebind: &apos;%s&apos; ile bir port belirtilmesi lazımdır</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Düğüm röle seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">Kafi derecede dosya tanımlayıcıları mevcut değil.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Sadece &lt;net&gt; şebekesindeki düğümlere bağlan (ipv4, ipv6 veya onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">Seçenekler:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">JSON-RPC bağlantıları için parola</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Hata ayıklama verilerinin önüne zaman damgası ekle (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished">Bu yardım mesajını yaz ve çık</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">Sürümü yaz ve çık</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">Budama negatif bir değerle yapılandırılamaz.</translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">Budama kipi -txindex ile uyumsuzdur.</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">Blockstore budanıyor...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">RPC sunucu seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished">Zincir durumu ve blok endeksini diskteki blk*.dat dosyalarından yeniden derle</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished">Zincir durumunu güncel olarak endekslenen bloklardan yeniden derle</translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished">Sistem sınırlamaları sebebiyle -maxconnections %d değerinden %d değerine düşürülmüştür.</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Veri taşıyıcı muameleleri oluştur ve aktar (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">P2SH olmayan çoklu imzaları aktar (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">Başlangıçta blok zincirini eksik cüzdan muameleleri için tekrar tara</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">Yeniden tarama...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished">Bloklar geri sarılıyor...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Arka planda daemon (servis) olarak çalış ve komutları kabul et</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">Trace/hata ayıklama verilerini debug.log dosyası yerine konsola gönder</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Muameleleri mümkünse ücretsiz olarak gönder (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Veritabanı önbellek boyutunu megabayt olarak belirt (%d ilâ %d, varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Anahtar alan boyutunu &lt;n&gt; değerine ayarla (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
-        <translation type="unfinished">Azami BIP141 blok ağırlığını ayarla (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Azami blok boyutunu bayt olarak ayarla (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Hizmet RCP aramaları iş parçacığı sayısını belirle (varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Tüm hata ayıklama seçeneklerini göster (kullanımı: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">İstemci başlatıldığında debug.log dosyasını küçült (varsayılan: -debug bulunmadığında 1)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">Muamelenin imzalanması başarısız oldu</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Yapılandırma dosyası belirtiniz (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Bağlantı zaman aşım süresini milisaniye olarak belirt (asgari: 1, varsayılan: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Veri dizinini belirt</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Pid dosyası belirtiniz (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Cüzdan dosyası belirtiniz (veri klasörünün içinde)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Kendi genel adresinizi tanımlayın</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Gönderme muamelelerinde teyit edilmemiş para üstünü harca (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished">Kaynak kod şuradan elde edilebilir: %s.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">Muamele meblağı ücreti ödemek için çok düşük</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">Bu, deneysel bir yazılımdır.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Aksaklık gösteren eşlerle bağlantıyı kesme sınırı (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished">Tor kontrol portu parolası (varsayılan: boş)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished">Eğer onion dinlenmesi etkinse kullanılacak Tor kontrol portu (varsayılan: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">Muamele meblağı çok düşük</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">Muamele tutarının pozitif olması lazımdır</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">Ücret politikası için çok büyük muamele</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">Muamele çok büyük</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">Bu bilgisayarda %s unsuruna bağlanılamadı (bağlanma %s hatasını verdi)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished">Bu bilgisayarda %s unsuruna bağlanılamadı. %s muhtemelen hâlihazırda çalışmaktadır.</translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">HTTP sunucusu başlatılamadı. Ayrıntılar için debug.log dosyasına bakınız.</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">-onlynet için bilinmeyen bir şebeke belirtildi: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Desteklenmeyen -benchmark argümanı görmezden gelindi, -debug=bench kullanınız.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Desteklenmeyen -debugnet argümanı görmezden gelindi, debug=net kullanınız.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Deskteklenmeyen -tor argümanı bulundu, -onion kullanınız.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">Başlangıçta cüzdanı en yeni biçime güncelle</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Dinleme portunu haritalamak için UPnP kullan (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">Kullanıcı Aracı açıklaması (%s) güvensiz karakterler içermektedir.</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">JSON-RPC bağlantıları için kullanıcı ismi</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">Bloklar kontrol ediliyor...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">Cüzdan kontrol ediliyor...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">%s cüzdan %s veri klasörünün dışında bulunuyor</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished">Cüzdan hata ayıklama/test etme seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished">Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için %s programını yeniden başlatınız</translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Cüzdan seçenekleri:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">Uyarı</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished">İkaz: bilinmeyen yeni kurallar etkinleştirilmiştir (versionbit %i)</translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">Salt blok kipinde çalışılıp çalışılmayacağı (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">Cüzdandaki tüm muameleler kaldırılıyor...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">ZeroMQ bildirim seçenekleri:</translation>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

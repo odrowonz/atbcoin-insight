@@ -2,6 +2,879 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation type="unfinished">(1 = 保留 tx meta data , 如 account owner 和 payment request information, 2 = 不保留 tx meta data) </translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation type="unfinished">-fallbackfree 交易费设置得很高！这是在费用估计不可用时你可能会支付的交易费。</translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation type="unfinished">当费用估计数据(default: %s)不足时将会启用的费率 (in %s/kB) </translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation type="unfinished">即使在无关联交易(默认: %d)时也接受来自白名单同行的关联交易</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation type="unfinished">允许来自指定地址的 JSON-RPC 连接。 &lt;ip&gt;为单一IP (如: 1.2.3.4), 网络/掩码 (如: 1.2.3.4/255.255.255.0), 网络/CIDR (如:  1.2.3.4/24)。该选项可多次指定。</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">绑定指定的IP地址开始监听。IPv6地址请使用[host]:port 格式</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">绑定到指定地址和连接的白名单节点。 IPv6使用  [主机]:端口 格式 </translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation type="unfinished">绑定到指定地址监听 JSON-RPC连接。 IPv6使用[主机]:端口 格式。该选项可多次指定 (默认: 绑定到所有接口) </translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation type="unfinished">创建系统默认权限的文件，而不是 umask 077 (只在关闭钱包功能时有效) </translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation type="unfinished">删除钱包的所有交易记录，且只有用 -rescan参数启动客户端才能重新取回交易记录 </translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation type="unfinished">发现自己的 IP 地址（默认: 监听并且无 -externalip 或 -proxy 时为 1）</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation type="unfinished">Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation type="unfinished">错误：监听外部连接失败 (监听返回错误 %s) </translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation type="unfinished">当收到相关提醒或者我们看到一个长分叉时执行命令（%s 将替换为消息）</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation type="unfinished">当最佳区块变化时执行命令 (命令行中的 %s 会被替换成区块哈希值)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation type="unfinished">当最佳数据块变化时执行命令 (命令行中的 %s 会被替换成数据块哈希值)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation type="unfinished">交易费(in %s/kB)比这更小的在关联、挖掘和生成交易时将被视为零费交易 (默认: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation type="unfinished">强制关联来自白名单同行的交易即使他们违反本地关联政策(默认: %d)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation type="unfinished">数据块验证 严密级别  -checkblocks (0-4, 默认: %u) </translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation type="unfinished">如果&lt;category&gt;未提供或&lt;category&gt; = 1，输出所有调试信息。</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation type="unfinished">如果未设置交易费用，自动添加足够的交易费以确保交易在平均n个数据块内被确认 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished">-maxtxfee=&lt;amount&gt;: &apos;%s&apos; 的金额无效（交易费至少为 %s，以免交易滞留过久）</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation type="unfinished">维护一份完整的交易索引, 用于 getrawtransaction RPC调用 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation type="unfinished">Maximum size of data in data carrier transactions we relay and mine (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation type="unfinished">限制 非礼节点 若干秒内不能连接 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished">输出调试信息 (默认: %u, 提供 &lt;category&gt; 是可选项)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation type="unfinished">修剪值被设置为低于最小值%d MiB，请使用更大的数值。</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished">修剪：最后的钱包同步超过了修剪的数据。你需要通过 -reindex (重新下载整个区块链以防修剪节点)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation type="unfinished">通过DNS查询每个地址，如果短地址 (默认值: 1 除非 -连接)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation type="unfinished">为每个代理连接随机化凭据。这将启用 Tor 流隔离 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation type="unfinished">通过修剪(删除)旧数据块减少存储需求。此模式与 -txindex 和 -rescan不兼容。警告：还原此设置需要重新下载整个区块链。(默认: 0 = 禁用修剪数据块， &gt;%u = 数据块文件目标大小，单位 MiB)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation type="unfinished">无法在开启修剪的状态下重扫描，请使用 -reindex重新下载完整的区块链。</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation type="unfinished">设置 高优先级/低交易费 交易的最大字节  (缺省: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation type="unfinished">设置脚本验证的程序 (%u 到 %d, 0 = 自动, &lt;0 = 保留自由的核心, 默认值: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation type="unfinished">区块数据库包含未来的交易，这可能是由本机错误的日期时间引起。若确认本机日期时间正确，请重新建立区块数据库。</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation type="unfinished">在交易费被扣除后发送的交易金额太小</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation type="unfinished">这是测试用的预发布版本 - 请谨慎使用 - 不要用来挖矿，或者在正式商用环境下使用</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished">This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation type="unfinished">尝试保持上传带宽低于（MiB/24h），0=无限制（默认：%d）</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation type="unfinished">一个不被支持的参数 -whitelistalwaysrelay 被忽略了。请使用 -whitelistrelay 或者 -whitelistforcerelay.</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation type="unfinished">使用UPnP暴露本机监听端口（默认：1 当正在监听且不使用代理）</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation type="unfinished">通过Tor隐藏服务连接节点时 使用不同的SOCKS5代理 (默认: %s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation type="unfinished">警告：网络似乎并不完全同意！有些矿工似乎遇到了问题。</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation type="unfinished">警告: 未知的区块版本被挖掘！未知规则可能已生效</translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation type="unfinished">警告：我们的同行似乎不完全同意！您可能需要升级，或者其他节点可能需要升级。</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation type="unfinished">节点白名单,网络掩码或IP址。可多次指定。</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation type="unfinished">白名单节点不能被DoS banned ，且转发所有来自他们的交易(即便这些交易已经存在于mempool中)，常用于网关 </translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation type="unfinished">您需要使用 -reindex 重新构建数据库以返回未修剪的模式。这将重新下载整个区块链</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation type="unfinished">(默认: %s) </translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation type="unfinished">(默认: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation type="unfinished">-maxmempool 最小为%d MB</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished">&lt;category&gt; 可能是：</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation type="unfinished">接受命令行和 JSON-RPC 命令
+</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation type="unfinished">接受来自外部的连接 (缺省: 如果不带 -proxy or -connect 参数设置为1)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation type="unfinished">接受公共 REST 请求 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation type="unfinished">添加节点并与其保持连接</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation type="unfinished">使用 -addnode, -seednode 和 -connect 选项时允许查询DNS</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation type="unfinished">始终通过 DNS 查询节点地址 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished">为用户代理字符串附加说明</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation type="unfinished">自动建立Tor隐藏服务 (默认:%d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation type="unfinished">数据块创建选项：</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation type="unfinished">无法降级钱包</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation type="unfinished">无法写入默认地址</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation type="unfinished">仅连接到指定节点</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished">通过 SOCKS5 代理连接</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation type="unfinished">连接一个节点并获取对端地址，然后断开连接</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation type="unfinished">连接选项：</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">检测发现数据块数据库损坏。请使用 -reindex参数重启客户端。</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">调试/测试选项：</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">不要加载钱包和禁用钱包的 RPC 调用</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">你想现在就重建块数据库吗？</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation type="unfinished">加载完成</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation type="unfinished">允许在&lt;address&gt;广播哈希区块</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation type="unfinished">允许在&lt;address&gt;广播哈希交易</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation type="unfinished">允许在&lt;address&gt;广播原始区块</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation type="unfinished">允许在&lt;address&gt;广播原始交易</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation type="unfinished">保证内存池中的交易更换(默认：%u)</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">初始化数据块数据库出错</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">Error initializing wallet database environment %s!</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation type="unfinished">导入数据块数据库出错</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation type="unfinished">导入数据块数据库出错</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">读取数据库出错，关闭中。</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">错误</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished">错误：发生了致命的内部错误，详情见 debug.log 文件</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">错误：磁盘剩余空间低!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">监听端口失败。请使用 -listen=0 参数。</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished">为付款交易添加交易费 (%s/kB) (默认: %s) </translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">启动时检测多少个数据块(默认: %u, 0=所有)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation type="unfinished">导入中...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation type="unfinished">在调试输出中包含IP地址 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation type="unfinished">不正确或没有找到起源区块。网络错误？</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">信息</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation type="unfinished">金额不足</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation type="unfinished">无效的 -onion 地址：“%s”</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation type="unfinished">无效的代理地址：%s</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">-fallbackfee 的无效数额=&lt;amount&gt;: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished">无效的金额 -paytxfee=&lt;amount&gt;: &apos;%s&apos; (必须至少为 %s)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation type="unfinished">-whitelist: &apos;%s&apos; 指定的网络掩码无效</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation type="unfinished">内存中最多保留 &lt;n&gt; 笔孤立的交易 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation type="unfinished">保持交易内存池大小低于&lt;n&gt;MB（默认：%u）</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">使用 &lt;port&gt;端口监听 JSON-RPC 连接 (默认: %u ; testnet: %u) </translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">使用端口 &lt;port&gt; 监听连接 (默认: %u ; testnet: %u) </translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation type="unfinished">正在加载地址簿...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation type="unfinished">正在加载数据块索引...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation type="unfinished">正在加载钱包...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation type="unfinished">认证Cookie的位置 (默认: data目录)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation type="unfinished">保留最多 &lt;n&gt; 条节点连接 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation type="unfinished">钱包广播事务处理</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">每个连接的最大接收缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">每个连接的最大发送缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">-whitebind: &apos;%s&apos; 需要指定一个端口</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation type="unfinished">节点中继选项:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">没有足够的文件描述符可用。</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">只连接 &lt;net&gt;网络中的节点 (ipv4, ipv6 或 onion) </translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation type="unfinished">选项：
+</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">JSON-RPC 连接密码
+</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">输出调试信息时，前面加上时间戳 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation type="unfinished">打印版本信息并退出</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation type="unfinished">修剪不能配置一个负数。</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation type="unfinished">修剪模式与 -txindex 不兼容。</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation type="unfinished">正在修剪区块存储...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation type="unfinished">RPC 服务器选项：</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Relay and mine data carrier transactions (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">是否转发 非P2SH格式的多签名交易 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation type="unfinished">重新扫描区块链以查找遗漏的钱包交易</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation type="unfinished">正在重新扫描...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">在后台运行并接受命令
+
+</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation type="unfinished">跟踪/调试信息输出到控制台，不输出到 debug.log 文件</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">发送时尽可能 不支付交易费用 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">设置以MB为单位的数据库缓存大小(%d 到 %d, 默认值: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">设置私钥池大小为 &lt;n&gt; (默认：%u) </translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">设置最大区块大小 (默认: %d，单位字节)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">设置RPC服务线程数 (默认: %d) </translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">显示所有调试选项 (用法: --帮助 -帮助调试)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">客户端启动时压缩debug.log文件(缺省：no-debug模式时为1)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">签署交易失败</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">指定配置文件 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">指定连接超时毫秒数 (最小: 1, 默认: %d) </translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation type="unfinished">指定数据目录
+</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">指定 pid 文件 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">指定钱包文件（数据目录内）</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">指定您的公共地址</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">付款时允许使用未确认的零钱 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation type="unfinished">交易金额太小，不足以支付交易费</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">这是实验性的软件。</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">断开 非礼节点的阀值 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">交易量太小</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">交易金额必须是积极的</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation type="unfinished">费用策略的交易太大</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation type="unfinished">交易太大</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation type="unfinished">无法在此计算机上绑定 %s (绑定返回错误 %s)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation type="unfinished">无法启动HTTP服务，查看日志获取更多信息</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation type="unfinished">-onlynet 指定的是未知网络：%s</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation type="unfinished">忽略不支持的选项 -benchmark，使用 -debug=bench</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation type="unfinished">忽略不支持的选项 -debugnet，使用 -debug=net。</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">忽略不支持的选项 -tor，使用 -oinon</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation type="unfinished">程序启动时升级钱包到最新格式</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation type="unfinished">使用UPnp映射监听端口 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished">用户代理评论(%s)包含不安全的字符。</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation type="unfinished">JSON-RPC 连接用户名</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation type="unfinished">正在验证数据库的完整性...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation type="unfinished">正在检测钱包的完整性...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished">钱包 %s 在外部的数据目录 %s</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation type="unfinished">钱包选项:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">警告</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation type="unfinished">是否用块方进行 (%u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished">Zapping all transactions from wallet...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation type="unfinished">ZeroMQ 通知选项：</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -236,7 +1109,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Sign &amp;message...</source>
+        <source>Sign &amp;message</source>
         <translation>消息签名(&amp;M)...</translation>
     </message>
     <message>
@@ -272,32 +1145,32 @@
         <translation>退出程序</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>选项(&amp;O)...</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
+        <source>&amp;Encrypt Wallet</source>
         <translation>加密钱包(&amp;E)...</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
+        <source>&amp;Backup Wallet</source>
         <translation>备份钱包(&amp;B)...</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
+        <source>&amp;Change Passphrase</source>
         <translation>更改密码(&amp;C)...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
+        <source>&amp;Sending addresses</source>
         <translation>正在发送地址(&amp;S)...</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
+        <source>&amp;Receiving addresses</source>
         <translation>正在接收地址(&amp;R)...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
-        <translation>打开 &amp;URI...</translation>
+        <source>Open &amp;URI</source>
+        <translation>打开 &amp;URI</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -324,7 +1197,7 @@
         <translation>打开调试和诊断控制台</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
+        <source>&amp;Verify message</source>
         <translation>验证消息(&amp;V)...</translation>
     </message>
     <message>
@@ -538,10 +1411,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Money share</source>
         <translation type="unfinished"></translation>
     </message>
@@ -559,6 +1428,22 @@
     </message>
     <message>
         <source>ATBcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -629,15 +1514,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -658,6 +1535,14 @@
     </message>
     <message>
         <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1447,7 +2332,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2323,7 +3208,7 @@
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid ATBCoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2420,23 +3305,11 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2445,10 +3318,6 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2464,10 +3333,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Could not get share by key (%0)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2480,16 +3345,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
+        <source>Invalid private key encoding.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2501,17 +3390,6 @@
     </message>
     <message>
         <source>%1 is shutting down...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2976,6 +3854,10 @@
         <source>Amount removed from or added to balance.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransactionView</name>
@@ -3139,6 +4021,10 @@
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -3187,878 +4073,41 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
+        <source>Wallet Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The %s developers</source>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = 保留 tx meta data , 如 account owner 和 payment request information, 2 = 不保留 tx meta data) </translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation type="unfinished">-fallbackfree 交易费设置得很高！这是在费用估计不可用时你可能会支付的交易费。</translation>
-    </message>
-    <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <source>Import a backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <source>Recovery failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished">当费用估计数据(default: %s)不足时将会启用的费率 (in %s/kB) </translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished">即使在无关联交易(默认: %d)时也接受来自白名单同行的关联交易</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">允许来自指定地址的 JSON-RPC 连接。 &lt;ip&gt;为单一IP (如: 1.2.3.4), 网络/掩码 (如: 1.2.3.4/255.255.255.0), 网络/CIDR (如:  1.2.3.4/24)。该选项可多次指定。</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">绑定指定的IP地址开始监听。IPv6地址请使用[host]:port 格式</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">绑定到指定地址和连接的白名单节点。 IPv6使用  [主机]:端口 格式 </translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">绑定到指定地址监听 JSON-RPC连接。 IPv6使用[主机]:端口 格式。该选项可多次指定 (默认: 绑定到所有接口) </translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <source>Restore completed successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">创建系统默认权限的文件，而不是 umask 077 (只在关闭钱包功能时有效) </translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">删除钱包的所有交易记录，且只有用 -rescan参数启动客户端才能重新取回交易记录 </translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">发现自己的 IP 地址（默认: 监听并且无 -externalip 或 -proxy 时为 1）</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <source>You must restart your wallet to continue working.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <source>remove old wallet failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <source>Lock wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">错误：监听外部连接失败 (监听返回错误 %s) </translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">当收到相关提醒或者我们看到一个长分叉时执行命令（%s 将替换为消息）</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">当最佳区块变化时执行命令 (命令行中的 %s 会被替换成区块哈希值)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">当最佳数据块变化时执行命令 (命令行中的 %s 会被替换成数据块哈希值)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">交易费(in %s/kB)比这更小的在关联、挖掘和生成交易时将被视为零费交易 (默认: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished">强制关联来自白名单同行的交易即使他们违反本地关联政策(默认: %d)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">数据块验证 严密级别  -checkblocks (0-4, 默认: %u) </translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">如果&lt;category&gt;未提供或&lt;category&gt; = 1，输出所有调试信息。</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">如果未设置交易费用，自动添加足够的交易费以确保交易在平均n个数据块内被确认 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">-maxtxfee=&lt;amount&gt;: &apos;%s&apos; 的金额无效（交易费至少为 %s，以免交易滞留过久）</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">维护一份完整的交易索引, 用于 getrawtransaction RPC调用 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Maximum size of data in data carrier transactions we relay and mine (default: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">限制 非礼节点 若干秒内不能连接 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">输出调试信息 (默认: %u, 提供 &lt;category&gt; 是可选项)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">修剪值被设置为低于最小值%d MiB，请使用更大的数值。</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">修剪：最后的钱包同步超过了修剪的数据。你需要通过 -reindex (重新下载整个区块链以防修剪节点)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">通过DNS查询每个地址，如果短地址 (默认值: 1 除非 -连接)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">为每个代理连接随机化凭据。这将启用 Tor 流隔离 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">通过修剪(删除)旧数据块减少存储需求。此模式与 -txindex 和 -rescan不兼容。警告：还原此设置需要重新下载整个区块链。(默认: 0 = 禁用修剪数据块， &gt;%u = 数据块文件目标大小，单位 MiB)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">无法在开启修剪的状态下重扫描，请使用 -reindex重新下载完整的区块链。</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">设置 高优先级/低交易费 交易的最大字节  (缺省: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">设置脚本验证的程序 (%u 到 %d, 0 = 自动, &lt;0 = 保留自由的核心, 默认值: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">区块数据库包含未来的交易，这可能是由本机错误的日期时间引起。若确认本机日期时间正确，请重新建立区块数据库。</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">在交易费被扣除后发送的交易金额太小</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">这是测试用的预发布版本 - 请谨慎使用 - 不要用来挖矿，或者在正式商用环境下使用</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">尝试保持上传带宽低于（MiB/24h），0=无限制（默认：%d）</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished">一个不被支持的参数 -whitelistalwaysrelay 被忽略了。请使用 -whitelistrelay 或者 -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">使用UPnP暴露本机监听端口（默认：1 当正在监听且不使用代理）</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">通过Tor隐藏服务连接节点时 使用不同的SOCKS5代理 (默认: %s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">警告：网络似乎并不完全同意！有些矿工似乎遇到了问题。</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished">警告: 未知的区块版本被挖掘！未知规则可能已生效</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">警告：我们的同行似乎不完全同意！您可能需要升级，或者其他节点可能需要升级。</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">节点白名单,网络掩码或IP址。可多次指定。</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">白名单节点不能被DoS banned ，且转发所有来自他们的交易(即便这些交易已经存在于mempool中)，常用于网关 </translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">您需要使用 -reindex 重新构建数据库以返回未修剪的模式。这将重新下载整个区块链</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(默认: %s) </translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(默认: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">-maxmempool 最小为%d MB</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;category&gt; 可能是：</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">接受命令行和 JSON-RPC 命令
-</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">接受来自外部的连接 (缺省: 如果不带 -proxy or -connect 参数设置为1)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">接受公共 REST 请求 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">添加节点并与其保持连接</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">使用 -addnode, -seednode 和 -connect 选项时允许查询DNS</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">始终通过 DNS 查询节点地址 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished">为用户代理字符串附加说明</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">自动建立Tor隐藏服务 (默认:%d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">数据块创建选项：</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">无法降级钱包</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">无法写入默认地址</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">仅连接到指定节点</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">通过 SOCKS5 代理连接</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">连接一个节点并获取对端地址，然后断开连接</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">连接选项：</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">检测发现数据块数据库损坏。请使用 -reindex参数重启客户端。</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">调试/测试选项：</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">不要加载钱包和禁用钱包的 RPC 调用</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">你想现在就重建块数据库吗？</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">加载完成</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">允许在&lt;address&gt;广播哈希区块</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">允许在&lt;address&gt;广播哈希交易</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">允许在&lt;address&gt;广播原始区块</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">允许在&lt;address&gt;广播原始交易</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished">保证内存池中的交易更换(默认：%u)</translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">初始化数据块数据库出错</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Error initializing wallet database environment %s!</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">导入数据块数据库出错</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">导入数据块数据库出错</translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">读取数据库出错，关闭中。</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">错误</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">错误：发生了致命的内部错误，详情见 debug.log 文件</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">错误：磁盘剩余空间低!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">监听端口失败。请使用 -listen=0 参数。</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">为付款交易添加交易费 (%s/kB) (默认: %s) </translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">启动时检测多少个数据块(默认: %u, 0=所有)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">导入中...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">在调试输出中包含IP地址 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">不正确或没有找到起源区块。网络错误？</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">信息</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">金额不足</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">无效的 -onion 地址：“%s”</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">无效的代理地址：%s</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">-fallbackfee 的无效数额=&lt;amount&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">无效的金额 -paytxfee=&lt;amount&gt;: &apos;%s&apos; (必须至少为 %s)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">-whitelist: &apos;%s&apos; 指定的网络掩码无效</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">内存中最多保留 &lt;n&gt; 笔孤立的交易 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">保持交易内存池大小低于&lt;n&gt;MB（默认：%u）</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">使用 &lt;port&gt;端口监听 JSON-RPC 连接 (默认: %u ; testnet: %u) </translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">使用端口 &lt;port&gt; 监听连接 (默认: %u ; testnet: %u) </translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">正在加载地址簿...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">正在加载数据块索引...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">正在加载钱包...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished">认证Cookie的位置 (默认: data目录)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">保留最多 &lt;n&gt; 条节点连接 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">钱包广播事务处理</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">每个连接的最大接收缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">每个连接的最大发送缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">-whitebind: &apos;%s&apos; 需要指定一个端口</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">节点中继选项:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">没有足够的文件描述符可用。</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">只连接 &lt;net&gt;网络中的节点 (ipv4, ipv6 或 onion) </translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">选项：
-</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">JSON-RPC 连接密码
-</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">输出调试信息时，前面加上时间戳 (默认: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">打印版本信息并退出</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">修剪不能配置一个负数。</translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">修剪模式与 -txindex 不兼容。</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">正在修剪区块存储...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">RPC 服务器选项：</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Relay and mine data carrier transactions (default: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">是否转发 非P2SH格式的多签名交易 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">重新扫描区块链以查找遗漏的钱包交易</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">正在重新扫描...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">在后台运行并接受命令
-
-</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">跟踪/调试信息输出到控制台，不输出到 debug.log 文件</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">发送时尽可能 不支付交易费用 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">设置以MB为单位的数据库缓存大小(%d 到 %d, 默认值: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">设置私钥池大小为 &lt;n&gt; (默认：%u) </translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">设置最大区块大小 (默认: %d，单位字节)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">设置RPC服务线程数 (默认: %d) </translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">显示所有调试选项 (用法: --帮助 -帮助调试)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">客户端启动时压缩debug.log文件(缺省：no-debug模式时为1)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">签署交易失败</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">指定配置文件 (默认: %s) </translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">指定连接超时毫秒数 (最小: 1, 默认: %d) </translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">指定数据目录
-</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">指定 pid 文件 (默认: %s) </translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">指定钱包文件（数据目录内）</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">指定您的公共地址</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">付款时允许使用未确认的零钱 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">交易金额太小，不足以支付交易费</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">这是实验性的软件。</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">断开 非礼节点的阀值 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">交易量太小</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">交易金额必须是积极的</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">费用策略的交易太大</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">交易太大</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">无法在此计算机上绑定 %s (绑定返回错误 %s)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">无法启动HTTP服务，查看日志获取更多信息</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">-onlynet 指定的是未知网络：%s</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">忽略不支持的选项 -benchmark，使用 -debug=bench</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">忽略不支持的选项 -debugnet，使用 -debug=net。</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">忽略不支持的选项 -tor，使用 -oinon</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">程序启动时升级钱包到最新格式</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">使用UPnp映射监听端口 (默认: %u) </translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">用户代理评论(%s)包含不安全的字符。</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">JSON-RPC 连接用户名</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">正在验证数据库的完整性...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">正在检测钱包的完整性...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">钱包 %s 在外部的数据目录 %s</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">钱包选项:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">警告</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">是否用块方进行 (%u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">Zapping all transactions from wallet...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">ZeroMQ 通知选项：</translation>
     </message>
 </context>
 </TS>

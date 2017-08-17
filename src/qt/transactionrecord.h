@@ -77,7 +77,8 @@ public:
         SendToOther,
         RecvWithAddress,
         RecvFromOther,
-        SendToSelf
+        SendToSelf,
+        bonusConfirmation
     };
 
     
@@ -114,6 +115,7 @@ public:
     uint256 hash;
     qint64 time;
     Type type;
+    std::string BonusKey;
     std::string address;
     CAmount debit;
     CAmount credit;

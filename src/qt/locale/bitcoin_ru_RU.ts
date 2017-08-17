@@ -2,6 +2,873 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation>Разработчики %s</translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = сохранять метаданные транзакции: например, владельца аккаунта и информацию запроса платежа; 2 = отбросить метаданные)</translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation>Установлено очень большое значение -fallbackfee! Это комиссия за транзацию, которую вы можете заплатить, если оценка размера комиссии не доступна. </translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Установлено очень большое значение -maxtxfee. Такие большие комиссии могут быть уплачены в отдельной транзакции.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation>Установлено очень большое значение -paytxfee. Такие большие комиссии могут быть уплачены в отдельной транзакции.</translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation>Принимать транзакции пересылаемые от узлов из белого списка даже если они не удовлетворяют требованиям ретрансляции (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>Разрешить подключения JSON-RPC с указанного источника. Разрешенные значения для &lt;ip&gt; — отдельный IP (например, 1.2.3.4), сеть/маска сети (например, 1.2.3.4/255.255.255.0) или сеть/CIDR (например, 1.2.3.4/24). Эту опцию можно использовать многократно</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation>Привязаться к указанному адресу и всегда прослушивать только его. Используйте [хост]:порт для IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Привязаться к указанному адресу и внести в белый список подключающихся к нему участников. Используйте [хост]:порт для IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Привязаться к указанному адресу для прослушивания JSON-RPC подключений. Используйте запись [хост]:порт для IPv6. Эту опцию можно использовать многократно (по умолчанию: привязываться ко всем интерфейсам)</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation>Невозможно заблокировать каталог данных %s. %s возможно уже работает.</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>Создавать новые файлы с системными правами по умолчанию вместо umask 077 (эффективно только при отключенном бумажнике)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>Удалить все транзакции бумажника с возможностью восстановить эти части цепи блоков с помощью -rescan при запуске</translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation>Обнаруживать собственный IP адрес (по умолчанию: 1 при прослушивании и без -externalip или -proxy)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Распространяется под лицензией MIT, см. приложенный файл COPYING или &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation>Не хранить транзакции в памяти дольше, чем &lt;n&gt; часов (по умолчанию %u)</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation>Ошибка загрузки %s: Вы не можете включить HD в уже существующем не-HD кошельке</translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation>Ошибка чтения %s! Все ключи прочитаны верно, но данные транзакций или записи адресной книги могут отсутствовать или быть неправильными.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Ошибка: не удалось начать прослушивание входящих подключений (прослушивание вернуло ошибку %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation>Выполнить команду, когда приходит соответствующее сообщение о тревоге или наблюдается очень длинное расщепление цепи (%s в команде заменяется на сообщение)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation>Выполнить команду, когда меняется транзакция в бумажнике (%s в команде заменяется на TxID)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation>Выполнить команду, когда появляется новый блок (%s в команде заменяется на хэш блока)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation>Комиссии (в %s/Кб) меньшие этого значения считаются нулевыми для создания, ретрансляции, получения транзакции (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Комиссии (в %s/Кб) меньшие этого значения считаются нулевыми при создании транзакций (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation>Всегда разрешать транзакции, полученные от участников из белого списка (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation>Насколько тщательна проверка контрольных блоков -checkblocks (0-4, по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation>Если &lt;category&gt; не предоставлена или равна 1, выводить всю отладочную информацию.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>Если paytxfee не задан, включить достаточную комиссию для подтверждения транзакции в среднем за n блоков (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>Неверное значение для -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (минимальная комиссия трансляции %s для предотвращения зависания транзакций)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>Держать полный индекс транзакций, используемый RPC-запросом getrawtransaction (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Наибольший размер данных в носителе данных транзакций, которые мы передаем и генерируем (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>Число секунд блокирования неправильно ведущих себя узлов (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>Выводить отладочную информацию (по умолчанию: %u, указание &lt;category&gt; необязательно)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation>Пожалуйста убедитесь в корректности установки времени и даты на вашем компьютере! Если время установлено неверно, %s не будет работать правильно.</translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation>Удаление блоков выставлено ниже, чем минимум в %d Мб. Пожалуйста, используйте большее значение.</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation>Удаление: последняя синхронизация кошелька вышла за рамки удаленных данных. Вам нужен -reindex (скачать всю  цепь блоков в случае удаленного узла)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Запрашивать адреса участников с помощью DNS, если адресов мало (по умолчанию: 1, если не указан -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation>Использовать случайные учетные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation>Уменьшить размер хранилища за счет удаления (обрезания) старых блоков. Этот режим несовместим с -txindex и  -rescan. Внимание: переключение этой опции обратно потребует полной загрузки цепи блоков. (по умолчанию: 0 = отключить удаление блоков, &gt;%u = целевой размер в Мб для файлов блоков)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation>Повторное сканирование не возможно в режиме удаления. Вам надо будет использовать -reindex, который загрузит заново всю цепь блоков.</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation>Задать максимальный размер высокоприоритетных/низкокомиссионных транзакций в байтах (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation>Задать число потоков проверки скрипта (от %u до %d, 0=авто, &lt;0 = оставить столько ядер свободными, по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>Поддерживать фильтрацию блоков и транзакций с помощью фильтра Блума (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation>База данных блоков содержит блок, который появляется из будущего. Это может из-за некорректно установленных даты и времени на вашем компьютере. Остается только перестроивать базу блоков, если вы уверены, что дата и время корректны.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation>Сумма транзакции за вычетом комиссии слишком мала</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation>Это пре-релизная тестовая сборка - используйте на свой страх и риск - не используйте для добычи или торговых приложений</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Этот продукт включает ПО, разработанное OpenSSL Project для использования в OpenSSL Toolkit &lt;https://www.openssl.org/&gt; и криптографическое ПО, написанное Eric Young и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation>Текущая длина строки версии сети (%i) превышает максимальную длину (%i). Увеливается количество или размер uacomments.</translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation>Пытается ограничить исходящий трафик до (в МБ за 24ч), 0 = не ограничивать (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation>Невозможно отмотать базу данных до пред-форкового состояния. Вам будет необходимо перекачать цепочку блоков.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>Обнаружен не поддерживаемый аргумент -socks. Выбор версии SOCKS более невозможен, поддерживаются только прокси SOCKS5.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation>Не поддерживаемый аргумент -whitelistalwaysrelay игнорируется, используйте -whitelistrelay и/или -whitelistforcerelay.</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation>Использовать UPnP для проброса порта (по умолчанию: 1, если используется прослушивание и нет -proxy)</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation>Использовать иерархическую детерминированную генерацию ключей (HD) после BIP32. Применяется в процессе создания бумажника / первого запуска</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Использовать отдельный прокси SOCKS5 для соединения с участниками через скрытые сервисы Tor (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation>Имя пользователя и хэш пароля для JSON-RPC соединений. Поле &lt;userpw&gt; использует формат: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Каноничный пример скрипта на питоне включен в &quot;share/rpcuser&quot;. Эта опция может быть указана несколько раз</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation>Внимание: похоже, в сети нет полного согласия! Некоторый майнеры, возможно, испытывают проблемы.</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation>Внимание: Получена неизвестная версия блока! Возможно неизвестные правила вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation>Внимание: Файл бумажника поврежден, данные восстановлены! Оригинальный %s сохранен как %s в %s; Если баланс или транзакции некорректны, вы должны восстановить файл из резервной копии.</translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation>Внимание: мы не полностью согласны с подключенными участниками! Вам или другим участникам, возможно, следует обновиться.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Вносить в белый список участников, подключающихся с указанной маски сети или IP. Можно использовать многократно.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Участники из белого списка не могуть быть забанены за DoS, и их транзакции всегда транслируются, даже если они уже содержатся в памяти. Полезно, например, для шлюза.</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation>Вам необходимо пересобрать базу данных с помощью -reindex, чтобы вернуться к полному режиму. Это приведет к перезагрузке всей цепи блоков</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation>Вам необходимо пересобрать базы данных с помощью -reindex-chainstate, чтобы изменить -txindex</translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation>%s поврежден, восстановить не удалось</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation>(по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation>-maxmempool должен быть как минимум %d MB</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; может быть:</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation>Принимать командную строку и команды JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Принимать подключения извне (по умолчанию: 1, если не используется -proxy или -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Принимать публичные REST-запросы (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation>Добавить узел для подключения и пытаться поддерживать соединение открытым</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation>Разрешить поиск в DNS для -addnode, -seednode и -connect</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Всегда запрашивать адреса участников с помощью DNS (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation>Добавить комментарий к строке пользовательского агента</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation>Попытаться восстановить приватные ключи из поврежденного бумажника при запуске</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation>Автоматически создавать скрытый Tor сервис (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation>Параметры создания блоков:</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation>Не удается понизить версию бумажника</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation>Не удается разрешить адрес в параметре -%s: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation>Не удается записать адрес по умолчанию</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation>Изменение индекса вне диапазона</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Подключаться только к указанному узлу(ам)</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Подключаться через SOCKS5 прокси</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation>Подключиться к участнику, чтобы получить список адресов других участников и отключиться</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation>Параметры подключения:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation>Copyright (C) %i-%i</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation>БД блоков повреждена</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation>Параметры отладки/тестирования:</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation>Не загружать бумажник и запретить обращения к нему через RPC</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation>Пересобрать БД блоков прямо сейчас?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation>Загрузка завершена</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>Включить публичный хеш блока в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>Включить публичный хеш транзакции в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Включить публичный сырой блок в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Включить публичную сырую транзакцию в &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation>Ошибка инициализации БД блоков</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation>Ошибка инициализации окружения БД бумажника %s!</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation>Ошибка загрузки %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation>Ошибка загрузки %s: Бумажник поврежден</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation>Ошибка загрузки %s: Для бумажника требуется более новая версия %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation>Ошибка загрузки %s: Вы не можете включить HD в уже существующем не-HD кошельке</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation>Ошибка чтения базы данных блоков</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation>Не удалось открыть БД блоков</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Ошибка чтения базы данных, работа завершается.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Ошибка: произошла неустранимая ошибка, подробности в debug.log</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation>Ошибка: мало места на диске!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation>Не удалось начать прослушивание на порту. Используйте -listen=0 если вас это устраивает.</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation>Комиссия (в %s/Кб) для добавления к вашим транзакциям (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Сколько блоков проверять при запуске (по умолчанию: %u, 0 = все)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation>Импорт ...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation>Импортировать блоки из внешнего файла blk000?.dat при запуске</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Включить IP-адреса в отладочный вывод (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation>Неверный или отсутствующий начальный блок. Неправильный каталог данных для сети?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation>Начальная проверка исправности не удалась. %s завершает работу.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation>Недостаточно монет</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation>Неверный -onion адрес: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation>Неверный адрес -proxy: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation>Неверная сумма для -%s=&lt;amount&gt;: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation>Неверное количество в параметре -paytxfee=&lt;кол-во&gt;: &apos;%s&apos; (должно быть как минимум %s)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation>Указана неверная сетевая маска в -whitelist: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Держать в памяти до &lt;n&gt; несвязных транзакций (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation>Сбрасывать транзакции из памяти на диск каждые &lt;n&gt; мегабайт (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Прослушивать подключения JSON-RPC на &lt;порту&gt; (по умолчанию: %u или %u в тестовой сети)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Принимать входящие подключения на &lt;port&gt; (по умолчанию: %u или %u в тестовой сети)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation>Загрузка адресов...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation>Загрузка банлиста...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Загрузка индекса блоков...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation>Загрузка бумажника...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Расположение куки входы(по умолчанию: data dir)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Поддерживать не более &lt;n&gt; подключений к узлам (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation>Рассылать транзакции из бумажника</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Максимальный размер буфера приема на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Максимальный размер буфера отправки на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation>Необходимо указать порт с помощью -whitebind: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation>Параметры трансляции узла:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation>Недостаточно файловых дескрипторов.</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Соединяться только по сети &lt;net&gt; (ipv4, ipv6 или onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation>Параметры:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation>Пароль для подключений JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Дописывать отметки времени к отладочному выводу (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation>Вывести эту справку и выйти</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation>Написать версию и выйти</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation>Удаление блоков не может использовать отрицательное значение.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation>Режим удаления блоков несовместим с -txindex.</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation>Очистка хранилища блоков...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation>Параметры сервера RPC:</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation>Перестроить индекс цепи из текущих индексированных блоков</translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation>Уменьшите -maxconnections с %d до %d, из-за ограничений системы.</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Транслировать и генерировать транзакции носителей данных (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Транслировать не-P2SH мультиподпись (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation>Перепроверить цепь блоков на предмет отсутствующих в бумажнике транзакций при запуске</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation>Сканирование...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation>Перемотка блоков...</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation>Запускаться в фоне как демон и принимать команды</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation>Выводить информацию трассировки/отладки на консоль вместо файла debug.log</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Осуществить транзакцию бесплатно, если возможно (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation>Установить размер кэша БД в мегабайтах(от %d до %d, по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Установить размер пула ключей в &lt;n&gt; (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation>Задать максимальное BIP141 значение блока (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation>Задать максимальный размер блока в байтах (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Задать число потоков выполнения запросов RPC (по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation>Показать все отладочные параметры (использование: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation>Сжимать файл debug.log при запуске клиента (по умолчанию: 1, если нет -debug)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation>Не удалось подписать транзакцию</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Указать конфигурационный файл (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Указать тайм-аут соединения в миллисекундах (минимум: 1, по умолчанию: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation>Задать каталог данных</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Указать pid-файл (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation>Укажите файл бумажника (внутри каталога данных)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation>Укажите ваш собственный публичный адрес</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Тратить неподтвержденную сдачу при отправке транзакций (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation>Исходный код доступен в %s.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation>Сумма транзакции слишком мала для уплаты комиссии</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation>Это экспериментальное ПО.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Порог для отключения неправильно ведущих себя узлов (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation>Пароль контроля порта Tor (по умолчанию: пустой)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation>Порт контроля Tor используется, если включено прослушивание onion (по умолчанию: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation>Сумма транзакции слишком мала</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation>Сумма транзакции должна быть положительна</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Транзакция слишком большая для правил комиссии.</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation>Транзакция слишком большая</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Невозможно привязаться к %s на этом компьютере (bind вернул ошибку %s)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation>Невозможно привязаться к %s на этом компьютере. Возможно, %s уже работает.</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Невозможно запустить HTTP сервер. Смотри debug лог для подробностей.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation>В параметре -onlynet указана неизвестная сеть: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Неподдерживаемый аргумент -benchmark проигнорирован, используйте -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Неподдерживаемый аргумент -debugnet проигнорирован, используйте -debug=net.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation>Обнаружен не поддерживаемый параметр -tor, используйте -onion.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation>Обновить бумажник до последнего формата при запуске</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Использовать UPnP для проброса порта (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation>Комментарий пользователя (%s) содержит небезопасные символы.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation>Имя для подключений JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation>Проверка блоков...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation>Проверка бумажника...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Бумажник %s располагается вне каталога данных %s</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation>Параметры отладки/тестирования бумажника:</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation>Необходимо перезаписать бумажник, перезапустите %s для завершения операции.</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation>Настройки бумажника:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Внимание</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation>Внимание: неизвестные правила вступили в силу(versionbit %i)</translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation>Будет работать в режиме только блоков (по умолчанию: %u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation>Стираем все транзакции из кошелька...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation>ZeroMQ параметры оповещения:</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -45,74 +912,75 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите адрес для отправки монет</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите адрес для получения монет</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправка адресов</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
-        <translation type="unfinished"></translation>
+        <translation>Получение адресов</translation>
     </message>
     <message>
         <source>These are your ATBcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это ваши адреса ATBcoin для отправки платежей. Всегда проверяйте сумму и принимающий адрес перед отправкой монет.</translation>
     </message>
     <message>
         <source>These are your ATBcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это ваши адреса ATBcoin для получения платежей. Для каждой транзакции рекомендуется использовать новый адрес получателя.
+</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Копировать адрес</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать &amp;метку</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Редактировать</translation>
     </message>
     <message>
         <source>Export Address List</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт списка адресов</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation type="unfinished"></translation>
+        <translation>Comma separated file (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка экспорта</translation>
     </message>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>При попытке сохранить список адресов в %1 произошла ошибка. Пожалуйста, попробуйте еще раз.</translation>
     </message>
 </context>
 <context>
     <name>AddressTableModel</name>
     <message>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет метки)</translation>
     </message>
 </context>
 <context>
@@ -135,91 +1003,91 @@
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите новый пароль в кошелек. &lt;br/&gt; Пожалуйста, используйте пароль из десяти символов или более случайных символов &lt;/b&gt;, или &lt;b&gt; 8 или более слов &lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифровать кошелек</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите пароль, чтобы разблокировать кошелек.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Разблокировать кошелек</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите пароль, чтобы расшифровать кошелек.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Расшифровать кошелек</translation>
     </message>
     <message>
         <source>Change passphrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить пароль</translation>
     </message>
     <message>
         <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите старый и новый пароль.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждение шифрования кошелька</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно хотите зашифровать свой кошелек?</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
-        <translation type="unfinished"></translation>
+        <translation>Кошелек зашифрованный</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>ВАЖНО: любые предыдущие резервные копии, которые вы сделали из вашего файла кошелька, должны быть заменены вновь созданным зашифрованным файлом кошелька. По соображениям безопасности предыдущие резервные копии файла незашифрованного кошелька станут бесполезными, как только вы начнете использовать новый, зашифрованный кошелек.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка шифрования кошелька</translation>
     </message>
     <message>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка шифрования кошелька из-за внутренней ошибки. Ваш кошелек не был зашифрован.</translation>
     </message>
     <message>
         <source>The supplied passphrases do not match.</source>
-        <translation type="unfinished"></translation>
+        <translation>Предоставленные пароли не совпадают.</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка разблокировки кошелька</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль введен неправильно.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка дешифрования кошелька</translation>
     </message>
     <message>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль был успешно измененен.</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation type="unfinished"></translation>
+        <translation>Внимание: кнопка Caps Lock включена!</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR ATBCOINS&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупреждение. Если вы зашифруете свой кошелек и потеряете свой пароль, вы  &lt;b&gt; ПОТЕРЯЕТЕ ВСЕ ВАШИ МОНЕТЫ &lt; /b &gt;!</translation>
     </message>
     <message>
         <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your  atbcoins from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 закроется, чтобы закончить процесс шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши сбережения от кражи вредоносными программами, заражающими ваш компьютер.</translation>
     </message>
 </context>
 <context>
@@ -244,8 +1112,8 @@
         <translation>Просмотр страницы бонусных кодов</translation>
     </message>
     <message>
-        <source>Sign &amp;message...</source>
-        <translation>&amp;Подписать сообщение...</translation>
+        <source>Sign &amp;message</source>
+        <translation>&amp;Подписать сообщение</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -280,7 +1148,7 @@
         <translation>Закрыть приложение</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>&amp;Параметры</translation>
     </message>
     <message>
@@ -288,28 +1156,28 @@
         <translation>Изменить конфигурационные настройки для %1</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
-        <translation>&amp;Зашифровать бумажник...</translation>
+        <source>&amp;Encrypt Wallet</source>
+        <translation>&amp;Зашифровать бумажник</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
-        <translation>&amp;Сделать резервную копию бумажника...</translation>
+        <source>&amp;Backup Wallet</source>
+        <translation>&amp;Сделать резервную копию бумажника</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
-        <translation>&amp;Изменить пароль...</translation>
+        <source>&amp;Change Passphrase</source>
+        <translation>&amp;Изменить пароль</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;Адреса отправки...</translation>
+        <source>&amp;Sending addresses</source>
+        <translation>&amp;Адреса отправки</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>Адреса &amp;получения...</translation>
+        <source>&amp;Receiving addresses</source>
+        <translation>Адреса &amp;получения</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
-        <translation>Открыть &amp;URI...</translation>
+        <source>Open &amp;URI</source>
+        <translation>Открыть &amp;URI</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -336,8 +1204,8 @@
         <translation>Открыть консоль отладки и диагностики</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
-        <translation>&amp;Проверить сообщение...</translation>
+        <source>&amp;Verify message</source>
+        <translation>&amp;Проверить сообщение</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -555,23 +1423,35 @@
     </message>
     <message>
         <source>A fatal error occurred.ATBcoin can no longer continue safely and will quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Произошла фатальная ошибка. ATBcoin больше не может продолжать работать безопасно и будет отключен.</translation>
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible ATBcoin command-line options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите help %1, чтобы получить список с возможными параметрами командной строки ATBcoin</translation>
     </message>
     <message>
         <source>&amp;Money share</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Доля</translation>
     </message>
     <message>
         <source>ATBcoin</source>
-        <translation type="unfinished"></translation>
+        <translation>ATBcoin</translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation>Восстановить кошелек</translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation>Восстановить резервную копию кошелька.</translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation>Заблокировать кошелек</translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
+        <translation>Разблокировать Кошелек</translation>
     </message>
 </context>
 <context>
@@ -585,16 +1465,8 @@
         <translation>Создать код</translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation>Этот ключ добавлен в ваш кошелек.</translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
         <translation>Этот ключ больше не действителен.</translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
-        <translation>Монеты ATB были получены с помощью этого кода</translation>
     </message>
     <message>
         <source>You do not have the right amount in your account.</source>
@@ -618,7 +1490,7 @@
     </message>
     <message>
         <source>Redeem code</source>
-        <translation>Ввести код</translation>
+        <translation>Погасить код</translation>
     </message>
     <message>
         <source>Code Id</source>
@@ -646,11 +1518,11 @@
     </message>
     <message>
         <source>Unused</source>
-        <translation>Не используется</translation>
+        <translation>Не использован</translation>
     </message>
     <message>
         <source>Used</source>
-        <translation>Используется</translation>
+        <translation>Использован</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
@@ -662,15 +1534,23 @@
     </message>
     <message>
         <source>Bonus Code Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкладка «Бонусный код»</translation>
     </message>
     <message>
         <source>Commission for the confirmation of the bonus code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Комиссия за подтверждение бонусного кода.</translation>
     </message>
     <message>
         <source>The key is no confirmed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ не подтвержден.</translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation>Вы получили %0 ATB с помощью этого кода</translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
+        <translation>Погашенные коды:</translation>
     </message>
 </context>
 <context>
@@ -753,147 +1633,147 @@
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать метку</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать ID транзакции</translation>
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation type="unfinished"></translation>
+        <translation>Блокировать</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
-        <translation type="unfinished"></translation>
+        <translation>Разблокировать</translation>
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать комиссию</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать после оплаты</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать байты</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать приоритет</translation>
     </message>
     <message>
         <source>Copy dust</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy dust</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать изменение</translation>
     </message>
     <message>
         <source>highest</source>
-        <translation type="unfinished"></translation>
+        <translation>самый большой</translation>
     </message>
     <message>
         <source>higher</source>
-        <translation type="unfinished"></translation>
+        <translation>очень большой</translation>
     </message>
     <message>
         <source>high</source>
-        <translation type="unfinished"></translation>
+        <translation>высокий</translation>
     </message>
     <message>
         <source>medium-high</source>
-        <translation type="unfinished"></translation>
+        <translation>средне-высокий</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation type="unfinished"></translation>
+        <translation>средний</translation>
     </message>
     <message>
         <source>low-medium</source>
-        <translation type="unfinished"></translation>
+        <translation>средне-низкий</translation>
     </message>
     <message>
         <source>low</source>
-        <translation type="unfinished"></translation>
+        <translation>низкий</translation>
     </message>
     <message>
         <source>lower</source>
-        <translation type="unfinished"></translation>
+        <translation>очень низкий</translation>
     </message>
     <message>
         <source>lowest</source>
-        <translation type="unfinished"></translation>
+        <translation>ниже всего</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
-        <translation type="unfinished"></translation>
+        <translation>(%1 блокирован)</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">ничего</translation>
+        <translation>ничего</translation>
     </message>
     <message>
         <source>yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Да</translation>
     </message>
     <message>
         <source>no</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>This label turns red if the transaction size is greater than 1000 bytes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта метка становится красным, если размер транзакции превышает 1000 байт.</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 per kB is required.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это означает, что требуется плата не менее %1 за килобайт.</translation>
     </message>
     <message>
         <source>Can vary +/- 1 byte per input.</source>
-        <translation type="unfinished"></translation>
+        <translation>Может варьироваться +/- 1 байт на вход.</translation>
     </message>
     <message>
         <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation type="unfinished"></translation>
+        <translation>Транзакции с более высоким приоритетом с большей вероятностью будут включены в блок.</translation>
     </message>
     <message>
         <source>This label turns red if the priority is smaller than &quot;medium&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта метка становится красной, если приоритет меньше, чем &quot;«средний»&quot;.</translation>
     </message>
     <message>
         <source>This label turns red if any recipient receives an amount smaller than the current dust threshold.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта метка становится красной, если какой-либо получатель получает количество, меньшее, чем текущий порог минимума.</translation>
     </message>
     <message>
         <source>Can vary +/- %1 satoshi(s) per input.</source>
-        <translation type="unfinished"></translation>
+        <translation>Может варьироваться +/- %1 сатоши на вход.</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет метки)</translation>
     </message>
     <message>
         <source>change from %1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменение от %1 (%2)</translation>
     </message>
     <message>
         <source>(change)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменено</translation>
     </message>
 </context>
 <context>
@@ -920,35 +1800,35 @@
     </message>
     <message>
         <source>New receiving address</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый адрес получателя</translation>
     </message>
     <message>
         <source>New sending address</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый адрес отправки</translation>
     </message>
     <message>
         <source>Edit receiving address</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить адрес получателя</translation>
     </message>
     <message>
         <source>Edit sending address</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить адрес отправки</translation>
     </message>
     <message>
         <source>The entered address &quot;%1&quot; is not a valid ATBcoin address.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введенный адрес &quot;%1&quot; Не является допустимым адресом ATBcoin.</translation>
     </message>
     <message>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введенный адрес &quot;%1&quot; Уже находится в адресной книге.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось разблокировать кошелек.</translation>
     </message>
     <message>
         <source>New key generation failed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось создать новой набор ключей.</translation>
     </message>
 </context>
 <context>
@@ -1033,11 +1913,11 @@
     <name>InformationDialog</name>
     <message>
         <source>Information</source>
-        <translation type="unfinished">Информация</translation>
+        <translation>Информация</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст строки</translation>
     </message>
 </context>
 <context>
@@ -1111,7 +1991,7 @@
     </message>
     <message>
         <source>Select payment request file to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файл платежного запроса для открытия</translation>
     </message>
 </context>
 <context>
@@ -1425,110 +2305,110 @@
     </message>
     <message>
         <source>Stake:</source>
-        <translation type="unfinished"></translation>
+        <translation>Доля майнинга</translation>
     </message>
     <message>
         <source>Staked balance that has not yet matured</source>
-        <translation type="unfinished"></translation>
+        <translation>баланс, который еще не созрел</translation>
     </message>
     <message>
         <source>0.000 000 00 ATB</source>
-        <translation type="unfinished"></translation>
+        <translation>0.000 000 00 ATB</translation>
     </message>
     <message>
         <source>Staked balance in watch-only addresses that has not yet matured</source>
-        <translation type="unfinished"></translation>
+        <translation>Установленный баланс наблюдения, которые еще не созрели</translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
         <source>Payment request error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка запроса платежа</translation>
     </message>
     <message>
         <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удается запустить биткойн: обработчик click-to-pay</translation>
     </message>
     <message>
         <source>URI handling</source>
-        <translation type="unfinished"></translation>
+        <translation>Обработка URI</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Недопустимый URL-адрес запроса на получение платежей: %1</translation>
     </message>
     <message>
         <source>Invalid payment address %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Недопустимый адрес платежа %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation type="unfinished"></translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
+        <translation>URI не может быть проанализирован! Это может быть вызвано неправильным адресом atbcoin или неправильными параметрами URI</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
-        <translation type="unfinished"></translation>
+        <translation>Обработка файлов платежных запросов</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл с запросом платежа не может быть прочитан! Это может быть вызвано недопустимым файлом запроса платежа.</translation>
     </message>
     <message>
         <source>Payment request rejected</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа отклонен</translation>
     </message>
     <message>
         <source>Payment request network doesn&apos;t match client network.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сеть запросов платежей не соответствует сети клиентов.</translation>
     </message>
     <message>
         <source>Payment request expired.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа истек.</translation>
     </message>
     <message>
         <source>Payment request is not initialized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа не инициализируется.</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподтвержденные платежные требования к пользовательским сценариям платежей не поддерживаются.</translation>
     </message>
     <message>
         <source>Invalid payment request.</source>
-        <translation type="unfinished"></translation>
+        <translation>Недействительный запрос платежа.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрошенная сумма платежа %1 слишком мала (считается пылью).</translation>
     </message>
     <message>
         <source>Refund from %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Возврат из %1</translation>
     </message>
     <message>
         <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа %1 слишком велик (%2 байта, допустимо %3 байта).</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка связи с %1: %2</translation>
     </message>
     <message>
         <source>Payment request cannot be parsed!</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа не может быть проанализирован!</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Плохой ответ от сервера %1</translation>
     </message>
     <message>
         <source>Network request error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка сетевого запроса</translation>
     </message>
     <message>
         <source>Payment acknowledged</source>
-        <translation type="unfinished"></translation>
+        <translation>Оплата подтверждена</translation>
     </message>
 </context>
 <context>
@@ -1550,11 +2430,11 @@
     <name>PreviewCodeDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -1597,41 +2477,42 @@
     </message>
     <message>
         <source>%1 didn&apos;t yet exit safely...</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 еще не вышел безопасно ...</translation>
     </message>
 </context>
 <context>
     <name>QObject::QObject</name>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: указанный каталог данных &quot;%1&quot; не существует.</translation>
     </message>
     <message>
         <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: не удается проанализировать файл конфигурации: %1. Используйте синтаксис key = value.
+</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: %1</translation>
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Copy Image</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Копировать изображение</translation>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить QR-код</translation>
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG Image (*.png)</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить изображение</translation>
     </message>
 </context>
 <context>
@@ -1914,7 +2795,7 @@
     </message>
     <message>
         <source>Totals: </source>
-        <translation type="unfinished"></translation>
+        <translation>Итоговые:</translation>
     </message>
 </context>
 <context>
@@ -1989,15 +2870,15 @@
     </message>
     <message>
         <source>Copy label</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать метку</translation>
     </message>
     <message>
         <source>Copy message</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сообщение</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
 </context>
 <context>
@@ -2020,70 +2901,70 @@
     </message>
     <message>
         <source>Request payment to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Запросить платеж в %1</translation>
     </message>
     <message>
         <source>Payment information</source>
-        <translation type="unfinished"></translation>
+        <translation>Платежная информация</translation>
     </message>
     <message>
         <source>URI</source>
-        <translation type="unfinished"></translation>
+        <translation>URI</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished">Сумма</translation>
+        <translation>Сумма</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation type="unfinished"></translation>
+        <translation>Слишком длинный URI, попробуйте уменьшить текст для метки /сообщения.</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка кодирования URI в QR-код.</translation>
     </message>
 </context>
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Дата</translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет метки)</translation>
     </message>
     <message>
         <source>(no message)</source>
-        <translation type="unfinished"></translation>
+        <translation>(нет сообщения)</translation>
     </message>
     <message>
         <source>(no amount requested)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет запроса)</translation>
     </message>
     <message>
         <source>Requested</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос</translation>
     </message>
 </context>
 <context>
@@ -2094,7 +2975,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции атбкойна будет больше, чем может обрабатывать сеть.</translation>
+        <translation>Оплатить только минимальную сумму, если в блоках меньше объема транзакции, чем места в блоках. Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, когда спрос на транзакции atbcoin будет больше, чем может обрабатывать сеть.</translation>
     </message>
     <message>
         <source>Send Coins</source>
@@ -2242,115 +3123,118 @@
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать комиссию</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать после оплаты</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать байты</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать приоритет</translation>
     </message>
     <message>
         <source>Copy dust</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy dust</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать изменение</translation>
     </message>
     <message>
         <source>%1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>из %1 в %2</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы действительно хотите отправить?</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавляется как комиссия за транзакцию</translation>
     </message>
     <message>
         <source>Total Amount %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Общая сумма %1</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"></translation>
+        <translation>или</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтвердить отправку монет</translation>
     </message>
     <message>
         <source>The recipient address is not valid. Please recheck.</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес получателя недействителен. Повторите попытку.</translation>
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сумма платежа должна быть больше 0.</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сумма превышает ваш баланс.</translation>
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сумма превышает ваш баланс, когда включена комиссия за транзакцию %1.</translation>
     </message>
     <message>
         <source>Duplicate address found: addresses should only be used once each.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дублированный адрес: адреса должны использоваться только один раз.
+</translation>
     </message>
     <message>
         <source>Transaction creation failed!</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось создать транзакцию!</translation>
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделка была отклонена! Это может произойти, если некоторые из монет в вашем кошельке уже были потрачены, например, если вы использовали копию кошелька. Dat и монеты были потрачены в копии, но не отмечены как потраченные здесь.
+</translation>
     </message>
     <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гонорар выше %1 считается абсурдно высоким.
+</translation>
     </message>
     <message>
         <source>Payment request expired.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запрос платежа истек.</translation>
     </message>
     <message numerus="yes">
         <source>Estimated to begin confirmation within %n block(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Предполагается начать подтверждение в пределах %n блока.</numerusform>
+            <numerusform>Предполагается начать подтверждение в пределах %n блоков.</numerusform>
+            <numerusform>Предполагается начать подтверждение в пределах %n блоков.</numerusform>
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
-        <translation type="unfinished"></translation>
+        <source>Warning: Invalid ATBCoin address</source>
+        <translation>Предупреждение: неверный адрес ATBCoin</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
-        <translation type="unfinished"></translation>
+        <translation>Предупреждение: Неизвестный адрес изменения</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет метки)</translation>
     </message>
 </context>
 <context>
@@ -2397,7 +3281,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less ATBcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>С отправляемой суммы будет удержана комиссия. Получателю придет меньше атбкоинов, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
+        <translation>С отправляемой суммы будет удержана комиссия. Получателю придет меньше монет, чем вы вводите в поле количества. Если выбрано несколько получателей, комиссия распределяется поровну.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2425,90 +3309,94 @@
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите метку для этого адреса, чтобы добавить его в свою адресную книгу</translation>
     </message>
 </context>
 <context>
     <name>SendConfirmationDialog</name>
     <message>
         <source>Yes</source>
-        <translation type="unfinished">Да</translation>
+        <translation>Да</translation>
     </message>
 </context>
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
+        <translation>Через Email</translation>
     </message>
     <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
-        <translation type="unfinished"></translation>
+        <translation>EMail</translation>
     </message>
     <message>
         <source>Response</source>
-        <translation type="unfinished"></translation>
+        <translation>Ответ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>by Private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Через Приватный ключ</translation>
     </message>
     <message>
         <source>Private key</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватный ключ</translation>
     </message>
     <message>
         <source>Responce</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ответ</translation>
     </message>
     <message>
         <source>Could not get share by key (%0)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось получить долю по ключу (%0)</translation>
     </message>
     <message>
         <source>Your share is added to the wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваша доля добавлена в кошелек.</translation>
     </message>
     <message>
         <source>Get</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Получить</translation>
     </message>
     <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Баланс для этого закрытого ключа не найден. Возможно, вы неправильно указали свой адрес электронной почты или пароль.</translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
-        <translation type="unfinished"></translation>
+        <source>Invalid private key encoding.</source>
+        <translation>Недопустимая кодировка закрытого ключа.</translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation>Закрытый ключ вне допустимого диапазона.</translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation>Закрытый ключ уже добавлен в ваш кошелек.</translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation>Ошибка добавления ключа в кошелек.</translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation>Получение денежной доли</translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation>Введите свой адрес электронной почты и пароль, чтобы получить свою долю ATBcoin.</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
+        <translation>Введите свой приватный ключ, чтобы получить свою долю от ATBcoin.</translation>
     </message>
 </context>
 <context>
@@ -2520,17 +3408,6 @@
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Не выключайте компьютер, пока это окно не исчезнет.</translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2621,55 +3498,55 @@
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите &quot; Подписать сообщение &quot; Для создания подписи</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введенный адрес недействителен.</translation>
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, проверьте адрес и попробуйте снова.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введенный адрес не относится к ключу.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Разблокировка кошелька была отменена.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрытый ключ для введенного адреса недоступен.</translation>
     </message>
     <message>
         <source>Message signing failed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка подписания сообщения.</translation>
     </message>
     <message>
         <source>Message signed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение подписано.</translation>
     </message>
     <message>
         <source>The signature could not be decoded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подпись не может быть расшифрована.</translation>
     </message>
     <message>
         <source>Please check the signature and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверьте подпись и повторите попытку.</translation>
     </message>
     <message>
         <source>The signature did not match the message digest.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подпись не соответствовала дайджесту сообщения.</translation>
     </message>
     <message>
         <source>Message verification failed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось выполнить проверку сообщения.</translation>
     </message>
     <message>
         <source>Message verified.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение подтверждено.</translation>
     </message>
 </context>
 <context>
@@ -2690,179 +3567,180 @@
     <name>TransactionDesc</name>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Открыть для %n блока (ов)</numerusform>
+            <numerusform>Открыть для %n блоков (ов)</numerusform>
+            <numerusform>Открыть для %n блоков (ов)</numerusform>
         </translation>
     </message>
     <message>
         <source>Open until %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть до %1</translation>
     </message>
     <message>
         <source>conflicted with a transaction with %1 confirmations</source>
-        <translation type="unfinished"></translation>
+        <translation>Противоречит транзакции с подтверждением %1</translation>
     </message>
     <message>
         <source>%1/offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/оффлайн</translation>
     </message>
     <message>
         <source>0/unconfirmed, %1</source>
-        <translation type="unfinished"></translation>
+        <translation>0/неподтверждена, %1</translation>
     </message>
     <message>
         <source>in memory pool</source>
-        <translation type="unfinished"></translation>
+        <translation>В пуле памяти</translation>
     </message>
     <message>
         <source>not in memory pool</source>
-        <translation type="unfinished"></translation>
+        <translation>Не в пуле памяти</translation>
     </message>
     <message>
         <source>abandoned</source>
-        <translation type="unfinished"></translation>
+        <translation>заброшенный</translation>
     </message>
     <message>
         <source>%1/unconfirmed</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/неподтвержденные</translation>
     </message>
     <message>
         <source>%1 confirmations</source>
-        <translation type="unfinished"></translation>
+        <translation>%1подтверждений</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус</translation>
     </message>
     <message>
         <source>, has not been successfully broadcast yet</source>
-        <translation type="unfinished"></translation>
+        <translation>, еще не была успешно передана</translation>
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>, Передается через %n узел</numerusform>
+            <numerusform>, Передается через %n узла</numerusform>
+            <numerusform>, Передается через %n узлов</numerusform>
         </translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Дата</translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Исходник</translation>
     </message>
     <message>
         <source>Generated</source>
-        <translation type="unfinished"></translation>
+        <translation>Сформирован</translation>
     </message>
     <message>
         <source>From</source>
-        <translation type="unfinished"></translation>
+        <translation>Из</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>В</translation>
     </message>
     <message>
         <source>own address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваш адрес</translation>
     </message>
     <message>
         <source>watch-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только наблюдение</translation>
     </message>
     <message>
         <source>label</source>
-        <translation type="unfinished"></translation>
+        <translation>метка</translation>
     </message>
     <message>
         <source>Credit</source>
-        <translation type="unfinished"></translation>
+        <translation>кредит</translation>
     </message>
     <message numerus="yes">
         <source>matures in %n more block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Созреет через %n блок</numerusform>
+            <numerusform>Созреет через %n блока</numerusform>
+            <numerusform>Созреет через %n блоков</numerusform>
         </translation>
     </message>
     <message>
         <source>not accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>не принимаются</translation>
     </message>
     <message>
         <source>Debit</source>
-        <translation type="unfinished"></translation>
+        <translation>Дебет</translation>
     </message>
     <message>
         <source>Total debit</source>
-        <translation type="unfinished"></translation>
+        <translation>Общий дебет</translation>
     </message>
     <message>
         <source>Total credit</source>
-        <translation type="unfinished"></translation>
+        <translation>Общий кредит</translation>
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation type="unfinished"></translation>
+        <translation>Комиссия на перевод</translation>
     </message>
     <message>
         <source>Net amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Чистая сумма</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение</translation>
     </message>
     <message>
         <source>Comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Комментарий</translation>
     </message>
     <message>
         <source>Transaction ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID транзакции</translation>
     </message>
     <message>
         <source>Output index</source>
-        <translation type="unfinished"></translation>
+        <translation>Выходной индекс</translation>
     </message>
     <message>
         <source>Merchant</source>
-        <translation type="unfinished"></translation>
+        <translation>коммерсант</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сгенерированные монеты должны созревать %1 блоков, прежде чем они могут быть потрачены. Когда вы сгенерировали этот блок, он был передан в сеть, которая будет добавлена в цепочку блоков. Если он не сможет попасть в цепочку, его состояние изменится на &quot;не принятое&quot;, и оно не будет потрачено. Иногда это может произойти, если другой узел генерирует блок в течение нескольких секунд.
+</translation>
     </message>
     <message>
         <source>Debug information</source>
-        <translation type="unfinished"></translation>
+        <translation>Отладочная информация</translation>
     </message>
     <message>
         <source>Transaction</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделка</translation>
     </message>
     <message>
         <source>Inputs</source>
-        <translation type="unfinished"></translation>
+        <translation>входящие</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished">Сумма</translation>
+        <translation>Сумма</translation>
     </message>
     <message>
         <source>true</source>
-        <translation type="unfinished"></translation>
+        <translation>истина</translation>
     </message>
     <message>
         <source>false</source>
-        <translation type="unfinished"></translation>
+        <translation>лож</translation>
     </message>
 </context>
 <context>
@@ -2873,297 +3751,305 @@
     </message>
     <message>
         <source>Details for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробности для %1</translation>
     </message>
     <message>
         <source>Details for coupon</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробная информация о купоне</translation>
     </message>
     <message>
         <source>&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %4: &lt;/b&gt;&lt;/i&gt; %0 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %5: &lt;/b&gt;&lt;/i&gt; %1 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %6: &lt;/b&gt;&lt;/i&gt; %2 &lt;br&gt;&lt;i&gt;&lt;b&gt;&lt;font color=&apos;#fff&apos;&gt;  %7: &lt;/b&gt;&lt;/i&gt; %3 &lt;br&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>TransactionTableModel</name>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Дата</translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка</translation>
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Открыть для %n блока</numerusform>
+            <numerusform>Открыть для %n блоков</numerusform>
+            <numerusform>Открыть для %n блоков</numerusform>
         </translation>
     </message>
     <message>
         <source>Open until %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть до %1</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Не в сети</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation type="unfinished">Не подтвержден</translation>
+        <translation>Не подтвержден</translation>
     </message>
     <message>
         <source>Abandoned</source>
-        <translation type="unfinished"></translation>
+        <translation>заброшенный</translation>
     </message>
     <message>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждение (%1 из %2 рекомендованных подтверждений)</translation>
     </message>
     <message>
         <source>Confirmed (%1 confirmations)</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждено (подтверждений %1)</translation>
     </message>
     <message>
         <source>Conflicted</source>
-        <translation type="unfinished"></translation>
+        <translation>Конфликтующее</translation>
     </message>
     <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Незрелые (%1 подтверждений будут доступны после %2)</translation>
     </message>
     <message>
         <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот блок не был получен никакими другими узлами и, вероятно, не будет принят!</translation>
     </message>
     <message>
         <source>Generated but not accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Сгенерировано, но не принято</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation type="unfinished"></translation>
+        <translation>Получено</translation>
     </message>
     <message>
         <source>Received from</source>
-        <translation type="unfinished"></translation>
+        <translation>Получен от</translation>
     </message>
     <message>
         <source>Sent to</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправлено</translation>
     </message>
     <message>
         <source>Payment to yourself</source>
-        <translation type="unfinished"></translation>
+        <translation>Оплата самому себе</translation>
     </message>
     <message>
         <source>Mined</source>
-        <translation type="unfinished"></translation>
+        <translation>Майнинг</translation>
     </message>
     <message>
         <source>watch-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только наблюдение</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation type="unfinished"></translation>
+        <translation>(n/a)</translation>
     </message>
     <message>
         <source>(no label)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Нет метки)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Статус транзакции. Наведите указатель мыши на это поле, чтобы показать количество подтверждений.</translation>
     </message>
     <message>
         <source>Date and time that the transaction was received.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата и время получения транзакции.</translation>
     </message>
     <message>
         <source>Type of transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип транзакции.</translation>
     </message>
     <message>
         <source>Whether or not a watch-only address is involved in this transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Независимо от того, включен ли в эту транзакцию только адрес наблюдения.</translation>
     </message>
     <message>
         <source>User-defined intent/purpose of the transaction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Определенноя пользователем цель транзакции.</translation>
     </message>
     <message>
         <source>Amount removed from or added to balance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сумма, удаленная или добавленная к балансу.</translation>
+    </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation>Подтверждение бонусного кода.</translation>
     </message>
 </context>
 <context>
     <name>TransactionView</name>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>Cегодня</translation>
     </message>
     <message>
         <source>This week</source>
-        <translation type="unfinished"></translation>
+        <translation>На этой неделе</translation>
     </message>
     <message>
         <source>This month</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот месяц</translation>
     </message>
     <message>
         <source>Last month</source>
-        <translation type="unfinished"></translation>
+        <translation>Прошлый месяц</translation>
     </message>
     <message>
         <source>This year</source>
-        <translation type="unfinished"></translation>
+        <translation>В этом году</translation>
     </message>
     <message>
         <source>Range...</source>
-        <translation type="unfinished"></translation>
+        <translation>Диапазон...</translation>
     </message>
     <message>
         <source>Received with</source>
-        <translation type="unfinished"></translation>
+        <translation>Получено</translation>
     </message>
     <message>
         <source>Sent to</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправлено</translation>
     </message>
     <message>
         <source>To yourself</source>
-        <translation type="unfinished"></translation>
+        <translation>Самому себе</translation>
     </message>
     <message>
         <source>Mined</source>
-        <translation type="unfinished"></translation>
+        <translation>Майнинг</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие</translation>
     </message>
     <message>
         <source>Enter address or label to search</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите адрес или метку для поиска</translation>
     </message>
     <message>
         <source>Min amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимальная сумма</translation>
     </message>
     <message>
         <source>&amp;Export</source>
-        <translation type="unfinished">&amp;Экспорт</translation>
+        <translation>&amp;Экспорт</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation type="unfinished">Экспортировать данные из вкладки в файл</translation>
+        <translation>Экспортировать данные из вкладки в файл</translation>
     </message>
     <message>
         <source>Abandon transaction</source>
-        <translation type="unfinished"></translation>
+        <translation>Отказ от транзакции</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать адрес</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать метку</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать сумму</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать ID транзакции</translation>
     </message>
     <message>
         <source>Copy raw transaction</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать транзакцию</translation>
     </message>
     <message>
         <source>Copy full transaction details</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать полную информацию о транзакции</translation>
     </message>
     <message>
         <source>Edit label</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить метку</translation>
     </message>
     <message>
         <source>Show transaction details</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать данные транзакции</translation>
     </message>
     <message>
         <source>Export Transaction History</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт истории транзакций</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation type="unfinished"></translation>
+        <translation>Comma separated file (*.csv)</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation type="unfinished">Подтверждено</translation>
+        <translation>Подтверждено</translation>
     </message>
     <message>
         <source>Watch-only</source>
-        <translation type="unfinished"></translation>
+        <translation>Только наблюдение</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">Дата</translation>
+        <translation>Дата</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"></translation>
+        <translation>Метка</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <source>ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка экспорта</translation>
     </message>
     <message>
         <source>There was an error trying to save the transaction history to %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>При попытке сохранить историю транзакций в %1 произошла ошибка.</translation>
     </message>
     <message>
         <source>Exporting Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт успешных</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>История транзакций была успешно сохранена в %1.</translation>
     </message>
     <message>
         <source>Range:</source>
-        <translation type="unfinished"></translation>
+        <translation>Диапазон:</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>в</translation>
+    </message>
+    <message>
+        <source>Confirmation</source>
+        <translation>Подтверждение</translation>
     </message>
 </context>
 <context>
@@ -3177,908 +4063,77 @@
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>Кошелек не загружен.</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation type="unfinished">Отправка</translation>
+        <translation>Отправка</translation>
     </message>
 </context>
 <context>
     <name>WalletView</name>
     <message>
         <source>Backup Wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Резервное копирование</translation>
     </message>
     <message>
         <source>Wallet Data (*.dat)</source>
-        <translation type="unfinished"></translation>
+        <translation>Wallet Data (*.dat)</translation>
     </message>
     <message>
         <source>Backup Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка резервного копирования</translation>
     </message>
     <message>
         <source>There was an error trying to save the wallet data to %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>При попытке сохранить данные кошелька в% 1 произошла ошибка.</translation>
     </message>
     <message>
         <source>Backup Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Резервное копирование успешно завершено</translation>
     </message>
     <message>
         <source>The wallet data was successfully saved to %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Данные кошелька были успешно сохранены в %1.</translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation type="unfinished"></translation>
+        <source>Wallet Restore</source>
+        <translation>Восстановление кошелька</translation>
     </message>
     <message>
-        <source>The %s developers</source>
-        <translation type="unfinished">Разработчики %s</translation>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
+        <translation>Восстановление резервной копии приведет к потере средств, полученных в промежутке времени от создания резервной копии до текущего времени. Это происходит только в том случае, если вы потеряли доступ к своему кошельку. Хотели бы вы продолжить восстановление?</translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = сохранять метаданные транзакции: например, владельца аккаунта и информацию запроса платежа; 2 = отбросить метаданные)</translation>
+        <source>Import a backup.</source>
+        <translation>Импорт резервной копии.</translation>
     </message>
     <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation type="unfinished">Установлено очень большое значение -fallbackfee! Это комиссия за транзацию, которую вы можете заплатить, если оценка размера комиссии не доступна. </translation>
+        <source>Recovery failed.</source>
+        <translation>Сбой восстановления.</translation>
     </message>
     <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">Установлено очень большое значение -maxtxfee. Такие большие комиссии могут быть уплачены в отдельной транзакции.</translation>
+        <source>Restore completed successfully.</source>
+        <translation>Восстановление выполнено успешно.</translation>
     </message>
     <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">Установлено очень большое значение -paytxfee. Такие большие комиссии могут быть уплачены в отдельной транзакции.</translation>
+        <source>You must restart your wallet to continue working.</source>
+        <translation>Вы должны перезапустить свой кошелек, чтобы продолжить работу.</translation>
     </message>
     <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished"></translation>
+        <source>remove old wallet failed.</source>
+        <translation>Удалить старый кошелек не удалось.</translation>
     </message>
     <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished">Принимать транзакции пересылаемые от узлов из белого списка даже если они не удовлетворяют требованиям ретрансляции (по умолчанию: %d)</translation>
+        <source>Lock wallet</source>
+        <translation>Блокировать кошелек</translation>
     </message>
     <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Разрешить подключения JSON-RPC с указанного источника. Разрешенные значения для &lt;ip&gt; — отдельный IP (например, 1.2.3.4), сеть/маска сети (например, 1.2.3.4/255.255.255.0) или сеть/CIDR (например, 1.2.3.4/24). Эту опцию можно использовать многократно</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Привязаться к указанному адресу и всегда прослушивать только его. Используйте [хост]:порт для IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Привязаться к указанному адресу и внести в белый список подключающихся к нему участников. Используйте [хост]:порт для IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Привязаться к указанному адресу для прослушивания JSON-RPC подключений. Используйте запись [хост]:порт для IPv6. Эту опцию можно использовать многократно (по умолчанию: привязываться ко всем интерфейсам)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
-        <translation type="unfinished">Невозможно заблокировать каталог данных %s. %s возможно уже работает.</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Создавать новые файлы с системными правами по умолчанию вместо umask 077 (эффективно только при отключенном бумажнике)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Удалить все транзакции бумажника с возможностью восстановить эти части цепи блоков с помощью -rescan при запуске</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">Обнаруживать собственный IP адрес (по умолчанию: 1 при прослушивании и без -externalip или -proxy)</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">Распространяется под лицензией MIT, см. приложенный файл COPYING или &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished">Не хранить транзакции в памяти дольше, чем &lt;n&gt; часов (по умолчанию %u)</translation>
-    </message>
-    <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
-        <translation type="unfinished">Ошибка загрузки %s: Вы не можете включить HD в уже существующем не-HD кошельке</translation>
-    </message>
-    <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation type="unfinished">Ошибка чтения %s! Все ключи прочитаны верно, но данные транзакций или записи адресной книги могут отсутствовать или быть неправильными.</translation>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">Ошибка: не удалось начать прослушивание входящих подключений (прослушивание вернуло ошибку %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">Выполнить команду, когда приходит соответствующее сообщение о тревоге или наблюдается очень длинное расщепление цепи (%s в команде заменяется на сообщение)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Выполнить команду, когда меняется транзакция в бумажнике (%s в команде заменяется на TxID)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">Выполнить команду, когда появляется новый блок (%s в команде заменяется на хэш блока)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">Комиссии (в %s/Кб) меньшие этого значения считаются нулевыми для создания, ретрансляции, получения транзакции (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished">Комиссии (в %s/Кб) меньшие этого значения считаются нулевыми при создании транзакций (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished">Всегда разрешать транзакции, полученные от участников из белого списка (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">Насколько тщательна проверка контрольных блоков -checkblocks (0-4, по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">Если &lt;category&gt; не предоставлена или равна 1, выводить всю отладочную информацию.</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">Если paytxfee не задан, включить достаточную комиссию для подтверждения транзакции в среднем за n блоков (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">Неверное значение для -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (минимальная комиссия трансляции %s для предотвращения зависания транзакций)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Держать полный индекс транзакций, используемый RPC-запросом getrawtransaction (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Наибольший размер данных в носителе данных транзакций, которые мы передаем и генерируем (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Число секунд блокирования неправильно ведущих себя узлов (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Выводить отладочную информацию (по умолчанию: %u, указание &lt;category&gt; необязательно)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
-        <translation type="unfinished">Пожалуйста убедитесь в корректности установки времени и даты на вашем компьютере! Если время установлено неверно, %s не будет работать правильно.</translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">Удаление блоков выставлено ниже, чем минимум в %d Мб. Пожалуйста, используйте большее значение.</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">Удаление: последняя синхронизация кошелька вышла за рамки удаленных данных. Вам нужен -reindex (скачать всю  цепь блоков в случае удаленного узла)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">Запрашивать адреса участников с помощью DNS, если адресов мало (по умолчанию: 1, если не указан -connect)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Использовать случайные учетные данные для каждого прокси-подключения. Эта функция позволяет изолировать потоки Tor (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Уменьшить размер хранилища за счет удаления (обрезания) старых блоков. Этот режим несовместим с -txindex и  -rescan. Внимание: переключение этой опции обратно потребует полной загрузки цепи блоков. (по умолчанию: 0 = отключить удаление блоков, &gt;%u = целевой размер в Мб для файлов блоков)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">Повторное сканирование не возможно в режиме удаления. Вам надо будет использовать -reindex, который загрузит заново всю цепь блоков.</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Задать максимальный размер высокоприоритетных/низкокомиссионных транзакций в байтах (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Задать число потоков проверки скрипта (от %u до %d, 0=авто, &lt;0 = оставить столько ядер свободными, по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished">Поддерживать фильтрацию блоков и транзакций с помощью фильтра Блума (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">База данных блоков содержит блок, который появляется из будущего. Это может из-за некорректно установленных даты и времени на вашем компьютере. Остается только перестроивать базу блоков, если вы уверены, что дата и время корректны.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">Сумма транзакции за вычетом комиссии слишком мала</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">Это пре-релизная тестовая сборка - используйте на свой страх и риск - не используйте для добычи или торговых приложений</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">Этот продукт включает ПО, разработанное OpenSSL Project для использования в OpenSSL Toolkit &lt;https://www.openssl.org/&gt; и криптографическое ПО, написанное Eric Young и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished">Текущая длина строки версии сети (%i) превышает максимальную длину (%i). Увеливается количество или размер uacomments.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">Пытается ограничить исходящий трафик до (в МБ за 24ч), 0 = не ограничивать (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished">Невозможно отмотать базу данных до пред-форкового состояния. Вам будет необходимо перекачать цепочку блоков.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Обнаружен не поддерживаемый аргумент -socks. Выбор версии SOCKS более невозможен, поддерживаются только прокси SOCKS5.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished">Не поддерживаемый аргумент -whitelistalwaysrelay игнорируется, используйте -whitelistrelay и/или -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">Использовать UPnP для проброса порта (по умолчанию: 1, если используется прослушивание и нет -proxy)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished">Использовать иерархическую детерминированную генерацию ключей (HD) после BIP32. Применяется в процессе создания бумажника / первого запуска</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Использовать отдельный прокси SOCKS5 для соединения с участниками через скрытые сервисы Tor (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished">Имя пользователя и хэш пароля для JSON-RPC соединений. Поле &lt;userpw&gt; использует формат: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Каноничный пример скрипта на питоне включен в &quot;share/rpcuser&quot;. Эта опция может быть указана несколько раз</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">Внимание: похоже, в сети нет полного согласия! Некоторый майнеры, возможно, испытывают проблемы.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished">Внимание: Получена неизвестная версия блока! Возможно неизвестные правила вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished">Внимание: Файл бумажника поврежден, данные восстановлены! Оригинальный %s сохранен как %s в %s; Если баланс или транзакции некорректны, вы должны восстановить файл из резервной копии.</translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">Внимание: мы не полностью согласны с подключенными участниками! Вам или другим участникам, возможно, следует обновиться.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Вносить в белый список участников, подключающихся с указанной маски сети или IP. Можно использовать многократно.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Участники из белого списка не могуть быть забанены за DoS, и их транзакции всегда транслируются, даже если они уже содержатся в памяти. Полезно, например, для шлюза.</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">Вам необходимо пересобрать базу данных с помощью -reindex, чтобы вернуться к полному режиму. Это приведет к перезагрузке всей цепи блоков</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished">Вам необходимо пересобрать базы данных с помощью -reindex-chainstate, чтобы изменить -txindex</translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished">%s поврежден, восстановить не удалось</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">-maxmempool должен быть как минимум %d MB</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;category&gt; может быть:</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Принимать командную строку и команды JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">Принимать подключения извне (по умолчанию: 1, если не используется -proxy или -connect)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Принимать публичные REST-запросы (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Добавить узел для подключения и пытаться поддерживать соединение открытым</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">Разрешить поиск в DNS для -addnode, -seednode и -connect</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Всегда запрашивать адреса участников с помощью DNS (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished">Добавить комментарий к строке пользовательского агента</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished">Попытаться восстановить приватные ключи из поврежденного бумажника при запуске</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">Автоматически создавать скрытый Tor сервис (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Параметры создания блоков:</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Не удается понизить версию бумажника</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished">Не удается разрешить адрес в параметре -%s: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">Не удается записать адрес по умолчанию</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished">Изменение индекса вне диапазона</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">Подключаться только к указанному узлу(ам)</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">Подключаться через SOCKS5 прокси</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Подключиться к участнику, чтобы получить список адресов других участников и отключиться</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">Параметры подключения:</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished">Copyright (C) %i-%i</translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">БД блоков повреждена</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Параметры отладки/тестирования:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Не загружать бумажник и запретить обращения к нему через RPC</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">Пересобрать БД блоков прямо сейчас?</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">Загрузка завершена</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">Включить публичный хеш блока в &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Включить публичный хеш транзакции в &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">Включить публичный сырой блок в &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Включить публичную сырую транзакцию в &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">Ошибка инициализации БД блоков</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Ошибка инициализации окружения БД бумажника %s!</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished">Ошибка загрузки %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished">Ошибка загрузки %s: Бумажник поврежден</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished">Ошибка загрузки %s: Для бумажника требуется более новая версия %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished">Ошибка загрузки %s: Вы не можете включить HD в уже существующем не-HD кошельке</translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">Ошибка чтения базы данных блоков</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">Не удалось открыть БД блоков</translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">Ошибка чтения базы данных, работа завершается.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Ошибка</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">Ошибка: произошла неустранимая ошибка, подробности в debug.log</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">Ошибка: мало места на диске!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Не удалось начать прослушивание на порту. Используйте -listen=0 если вас это устраивает.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">Комиссия (в %s/Кб) для добавления к вашим транзакциям (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">Сколько блоков проверять при запуске (по умолчанию: %u, 0 = все)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">Импорт ...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished">Импортировать блоки из внешнего файла blk000?.dat при запуске</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Включить IP-адреса в отладочный вывод (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">Неверный или отсутствующий начальный блок. Неправильный каталог данных для сети?</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">Информация</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished">Начальная проверка исправности не удалась. %s завершает работу.</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">Недостаточно монет</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">Неверный -onion адрес: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">Неверный адрес -proxy: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">Неверная сумма для -%s=&lt;amount&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">Неверное количество в параметре -paytxfee=&lt;кол-во&gt;: &apos;%s&apos; (должно быть как минимум %s)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">Указана неверная сетевая маска в -whitelist: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Держать в памяти до &lt;n&gt; несвязных транзакций (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Сбрасывать транзакции из памяти на диск каждые &lt;n&gt; мегабайт (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Прослушивать подключения JSON-RPC на &lt;порту&gt; (по умолчанию: %u или %u в тестовой сети)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Принимать входящие подключения на &lt;port&gt; (по умолчанию: %u или %u в тестовой сети)</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">Загрузка адресов...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished">Загрузка банлиста...</translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">Загрузка индекса блоков...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">Загрузка бумажника...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished">Расположение куки входы(по умолчанию: data dir)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Поддерживать не более &lt;n&gt; подключений к узлам (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">Рассылать транзакции из бумажника</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Максимальный размер буфера приема на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Максимальный размер буфера отправки на соединение, &lt;n&gt;*1000 байт (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">Необходимо указать порт с помощью -whitebind: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Параметры трансляции узла:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">Недостаточно файловых дескрипторов.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Соединяться только по сети &lt;net&gt; (ipv4, ipv6 или onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">Параметры:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">Пароль для подключений JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Дописывать отметки времени к отладочному выводу (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished">Вывести эту справку и выйти</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">Написать версию и выйти</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">Удаление блоков не может использовать отрицательное значение.</translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">Режим удаления блоков несовместим с -txindex.</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">Очистка хранилища блоков...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">Параметры сервера RPC:</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished">Перестроить индекс цепи из текущих индексированных блоков</translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished">Уменьшите -maxconnections с %d до %d, из-за ограничений системы.</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Транслировать и генерировать транзакции носителей данных (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">Транслировать не-P2SH мультиподпись (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">Перепроверить цепь блоков на предмет отсутствующих в бумажнике транзакций при запуске</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">Сканирование...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished">Перемотка блоков...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Запускаться в фоне как демон и принимать команды</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">Выводить информацию трассировки/отладки на консоль вместо файла debug.log</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Осуществить транзакцию бесплатно, если возможно (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Установить размер кэша БД в мегабайтах(от %d до %d, по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Установить размер пула ключей в &lt;n&gt; (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
-        <translation type="unfinished">Задать максимальное BIP141 значение блока (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Задать максимальный размер блока в байтах (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Задать число потоков выполнения запросов RPC (по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Показать все отладочные параметры (использование: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">Сжимать файл debug.log при запуске клиента (по умолчанию: 1, если нет -debug)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">Не удалось подписать транзакцию</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Указать конфигурационный файл (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Указать тайм-аут соединения в миллисекундах (минимум: 1, по умолчанию: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Задать каталог данных</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Указать pid-файл (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Укажите файл бумажника (внутри каталога данных)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Укажите ваш собственный публичный адрес</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Тратить неподтвержденную сдачу при отправке транзакций (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished">Исходный код доступен в %s.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">Сумма транзакции слишком мала для уплаты комиссии</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">Это экспериментальное ПО.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Порог для отключения неправильно ведущих себя узлов (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished">Пароль контроля порта Tor (по умолчанию: пустой)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished">Порт контроля Tor используется, если включено прослушивание onion (по умолчанию: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">Сумма транзакции слишком мала</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">Сумма транзакции должна быть положительна</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">Транзакция слишком большая для правил комиссии.</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">Транзакция слишком большая</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">Невозможно привязаться к %s на этом компьютере (bind вернул ошибку %s)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished">Невозможно привязаться к %s на этом компьютере. Возможно, %s уже работает.</translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">Невозможно запустить HTTP сервер. Смотри debug лог для подробностей.</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">В параметре -onlynet указана неизвестная сеть: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Неподдерживаемый аргумент -benchmark проигнорирован, используйте -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Неподдерживаемый аргумент -debugnet проигнорирован, используйте -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Обнаружен не поддерживаемый параметр -tor, используйте -onion.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">Обновить бумажник до последнего формата при запуске</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Использовать UPnP для проброса порта (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">Комментарий пользователя (%s) содержит небезопасные символы.</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">Имя для подключений JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">Проверка блоков...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">Проверка бумажника...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">Бумажник %s располагается вне каталога данных %s</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished">Параметры отладки/тестирования бумажника:</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished">Необходимо перезаписать бумажник, перезапустите %s для завершения операции.</translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Настройки бумажника:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">Внимание</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished">Внимание: неизвестные правила вступили в силу(versionbit %i)</translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">Будет работать в режиме только блоков (по умолчанию: %u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">Стираем все транзакции из кошелька...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">ZeroMQ параметры оповещения:</translation>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <translation>С заблокированным кошельком вы не можете участвовать в майнинге. Вы хотите заблокировать кошелек?</translation>
     </message>
 </context>
 </TS>

@@ -18,12 +18,18 @@
 #include "transactiontablemodel.h"
 #include "transactionview.h"
 #include "walletmodel.h"
+#include "../util.h"
+#include "../wallet/wallet.h"
 
 #include "ui_interface.h"
-
+#include <QApplication>
+#include <QDateTime>
 #include <QAction>
 #include <QActionGroup>
+#include <QFile>
+#include <QMessageBox>
 #include <QFileDialog>
+#include <QDir>
 #include <QHBoxLayout>
 #include <QProgressDialog>
 #include <QPushButton>
@@ -262,7 +268,54 @@ void WalletView::changePassphrase()
     dlg.setModel(walletModel);
     dlg.exec();
 }
-
+void WalletView::restoreWallet(){
+    int result;
+    result=QMessageBox::warning(this,tr("Wallet Restore"),tr("Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time."
+                                               "Do this only if you have lost access to your wallet.Would you like to continue with the restoration?"),
+                         QMessageBox::Yes,QMessageBox::No);
+    if(result==QMessageBox::Yes){
+        QString url= QFileDialog::getOpenFileName(this,tr("Import a backup."),"","*.dat");
+        QFile file(url);
+        QString datadir=QString::fromStdString(GetArg("-datadir",""));
+        if(datadir.isEmpty()){
+            datadir=QString::fromStdString(GetDefaultDataDir().string());
+        }
+        if(file.open(QIODevice::ReadOnly)&&!datadir.isEmpty()){
+            QString newName=QString("/wallet copy of %0.dat").arg(QDateTime::currentDateTime().toString("dd_MM_yy hh_mm_ss"));
+            if(!QFile(datadir+"/wallet.dat").rename(datadir+newName)){
+                QMessageBox::warning(this,tr("remove old wallet failed."),tr("Recovery failed."));
+                return;
+            }
+            if(file.copy(datadir+"/wallet.dat")){
+                QMessageBox::information(this,tr("Restore completed successfully."),
+                                         tr("You must restart your wallet to continue working."));
+                QApplication::exit();
+            }else{
+                QMessageBox::warning(this,tr("Recovery failed."),tr("Recovery failed."));
+            }
+            file.close();
+        }
+    }
+}
+void WalletView::LockWallet(){
+    int result;
+    result=QMessageBox::information(this,tr("Lock wallet"),tr("With the purses blocked, you can not participate in the mining."
+                                                       "Do you want block the wallet?"),QMessageBox::Yes,QMessageBox::No);
+    if(result==QMessageBox::Yes){
+        walletModel->setWalletLocked(true);
+    }
+}
+void WalletView::DecryptWallet(){
+    if(!walletModel)
+        return;
+    // Decrypt wallet when requested by wallet model
+    if (walletModel->getEncryptionStatus() != WalletModel::Unencrypted)
+    {
+        AskPassphraseDialog dlg(AskPassphraseDialog::Decrypt, this);
+        dlg.setModel(walletModel);
+        dlg.exec();
+    }
+}
 void WalletView::unlockWallet()
 {
     if(!walletModel)

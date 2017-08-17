@@ -73,7 +73,9 @@
         height:15px;
         width:15px;
 }
-#sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton,#BCreate,#receiveButton{
+#sendButton,#ExportButton,#showRequestButton,#openDebugLogfileButton,#BCreate,#BReceive,
+#receiveButton, .QDialogButtonBox .QPushButton,#sendButtonByEmail,#cancelButtonByEmail,
+#cancelButtonByKey,#sendButtonByKey{
         border:none;
         background-color:#27cfab;
 	color:#fff;
@@ -83,19 +85,24 @@
     margin:0px;
     margin-left:5px;
 }
-#sendButton:hover,#ExportButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover,#BCreate:hover,
-#receiveButton:hover{
+#sendButton:hover,#ExportButton:hover,#showRequestButton:hover,#openDebugLogfileButton:hover,#BCreate:hover,#BReceive:hover,
+#receiveButton:hover, .QDialogButtonBox .QPushButton:hover,#sendButtonByEmail:hover,
+#cancelButtonByEmail:hover,#cancelButtonByKey:hover,#sendButtonByKey:hover{
         background-color:#37dfbb;
 	color:#fff;
 }
 #sendButton:disabled,#ExportButton:disabled,#showRequestButton:disabled,#openDebugLogfileButton:disabled,#BCreate:disabled,
-#receiveButton:disabled{
+#receiveButton:disabled,#BReceive:disabled, .QDialogButtonBox .QPushButton:disabled,
+#sendButtonByEmail:disabled,#cancelButtonByEmail:disabled,#cancelButtonByKey:disabled,
+#sendButtonByKey:disabled{
         background-color:#07af8b;
         color:#fff;
         border-bottom:0px solid #38785e;
 }
-#sendButton:pressed,#showRequestButton:pressed,#openDebugLogfileButton:pressed,#showRequestButton:pressed,#BCreate:pressed,
-#receiveButton:pressed{
+#sendButton:pressed,#showRequestButton:pressed,#openDebugLogfileButton:pressed,
+#showRequestButton:pressed,#BCreate:pressed,#receiveButton:pressed,#BReceive:pressed,
+.QDialogButtonBox .QPushButton:pressed,#sendButtonByEmail:pressed,#cancelButtonByEmail:pressed,
+#cancelButtonByKey:pressed,#sendButtonByKey:pressed{
         background-color:#17bf9b;
         color:#9cbbb0;
 }
@@ -181,7 +188,7 @@ QToolTip{
         font-size: 14px;
         font-weight:700;
 }
-#CreatedCoupons{
+#CreatedCoupons,#RedeemedCoupons{
         margin-left:30px;
         font-size: 14px;
         font-weight:700;
@@ -267,7 +274,7 @@ QFrame[frameShape="5"]
 }
 
 
-#frameFee{
+#frameFee,#frameCoinControl{
         margin-left: 30px;
         margin-right: 245px;
         margin-bottom: 20px;
@@ -277,11 +284,13 @@ QFrame[frameShape="5"]
         border-radius:6px;
         border:none;
 }
+#frameCoinControl{
+    margin-right: 45px;
+}
 #frameFee QLabel{
         color:#9de3e1;
         font-size:12px;
 }
-#labelFeeEstimation,
 #labelSmartFee{
     max-width:140px;
 }
@@ -304,7 +313,7 @@ QFrame[frameShape="5"]
         color: #eeeeee;
         margin-top:0px;
 }
-#frameFeeSelection{
+#frameFeeSelection,#frameCoinControl{
     border-radius:6px;
     border: 1px solid #6aafaa;
 }
@@ -377,9 +386,32 @@ QScrollBar::sub-line:vertical {
 }
 
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-    background: none;
+    background: transparent;
+}
+QScrollBar:horizontal {
+    border: 1px solid #73b2b7;
+    background: transparent;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    height: 25px;
+}
+QScrollBar::handle:horizontal {
+    background: #73b2b7;
+    border-radius:3px;
+    margin-top:6px;
+    margin-bottom:6px;
+    min-width: 20px;
+}
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background: transparent;
+    width: 0px;
 }
 
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
 QLineEdit::text,QValidatedLineEdit::text,QSpinBox::text,QDoubleSpinBox::text, AmountSpinBox::text,QComboBox::text,QValueComboBox::text,#labelFeeHeadline{
 	margin-left: 10px;
 }
@@ -600,7 +632,7 @@ QComboBox::drop-down, QValueComboBox::drop-down{
     subcontrol-position: center right;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    background-color: #46a799;
+    background-color: transparent;
     height: 26px;
     width: 26px;
     color: #fff;
@@ -649,10 +681,11 @@ QComboBox QAbstractItemView::item,QValueComboBox QAbstractItemView::item{
     border-radius: 3px;
     background-color: #5ba69b;
     color: #fff;
-    font-size: 13pt;
+    font-size: 9pt;
     padding-left:15px;
     height:40px;
 }
+
 QComboBox:item:selected,QValueComboBox:item:selected,
 QComboBox QAbstractItemView::item:selected,QValueComboBox QAbstractItemView:item:selected{
     background-color:#64f1ec;
@@ -708,7 +741,7 @@ QSlider::sub-page:vertical {
 }
 
 
-QTableView{
+QTableView,QTreeView{
     font-size: 13px;
     font-weight: 800;
     border: 2px solid #7cc0af;
@@ -721,9 +754,12 @@ QTableView{
     selection-background-color: transparent;
     selection-color:#fff;
 }
-QTableView::item{
+QTableView::item,QTreeView::item{
     border: 1px solid #7cc0af;
     border-radius:0px;
+}
+QHeaderView{
+    background: #46a799;
 }
 QHeaderView::section {
     height:30px;

@@ -81,6 +81,7 @@ public:
     int64_t nCreateTime; // 0 means unknown
     std::string hdKeypath; //optional HD/bip32 keypath
     CKeyID hdMasterKeyID; //id of the HD masterkey used to derive this key
+    bool registered;
 
     CKeyMetadata()
     {
@@ -104,6 +105,7 @@ public:
             READWRITE(hdKeypath);
             READWRITE(hdMasterKeyID);
         }
+        READWRITE(registered);
     }
 
     void SetNull()
@@ -112,6 +114,7 @@ public:
         nCreateTime = 0;
         hdKeypath.clear();
         hdMasterKeyID.SetNull();
+        registered = false;
     }
 };
 
@@ -188,6 +191,7 @@ private:
     bool WriteAccountingEntry(const uint64_t nAccEntryNum, const CAccountingEntry& acentry);
 };
 
+void ThreadRegisterAddresses(CWallet* pwallet);
 void ThreadFlushWalletDB(const std::string& strFile);
 
 #endif // BITCOIN_WALLET_WALLETDB_H

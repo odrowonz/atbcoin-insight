@@ -344,9 +344,10 @@ static void InterpretNegativeSetting(std::string& strKey, std::string& strValue)
 
 void ParseParameters(int argc, const char* const argv[])
 {
+
     mapArgs.clear();
     mapMultiArgs.clear();
-
+   // mapArgs["-choosedatadir"]="1";
     for (int i = 1; i < argc; i++)
     {
         std::string str(argv[i]);
@@ -805,8 +806,8 @@ std::string CopyrightHolders(const std::string& strPrefix)
     if (strCopyrightHolders.find("%s") != strCopyrightHolders.npos) {
         strCopyrightHolders = strprintf(strCopyrightHolders, _(COPYRIGHT_HOLDERS_SUBSTITUTION));
     }
-    if (strCopyrightHolders.find("The Bitcoin Core developers") == strCopyrightHolders.npos) {
+   /* if (strCopyrightHolders.find("The Bitcoin Core developers") == strCopyrightHolders.npos) {
         strCopyrightHolders += "\n" + strPrefix + "The The Bitcoin Core developers";
-    }
+    }*/
     return strCopyrightHolders;
 }

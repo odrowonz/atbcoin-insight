@@ -2,6 +2,873 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt_PT">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation type="unfinished">(1 = guardar metadados da transacção ex: proprietário da conta e informação do pedido de pagamento, 2 = descartar metadados da transacção)</translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation type="unfinished">-fallbackfee está definida muito elevada! Esta é a taxa de transação pode poderá pagar quando as estimativas de taxas não estão disponíveis.</translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished">-maxtxfee está definido com um valor muito alto! Taxas desta magnitude podem ser pagas numa única transacção.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished">-paytxfee está definido com um valor muito alto! Esta é a taxa que irá pagar se enviar uma transacção.</translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation type="unfinished">Uma percentagem da taxa (em %s/kB) que será utilizada quando a estimativa da taxa tiver dados insuficientes (predefinição: %s)</translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation type="unfinished">Aceitar as transações retransmitidas recebidas dos pares na lista branca, mesmo quando não retransmitir as transações (predefinição: %d)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation type="unfinished">Permitir conexções JSON-RPC de fontes especificas. Valido para &lt;ip&gt; um unico IP (ex. 1.2.3.4), uma rede/netmask (ex. 1.2.3.4/255.255.255.0) ou uma rede/CIDR (ex. 1.2.3.4/24). Esta opção pode ser especificada varias vezes</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Associar a endereço específico e escutar sempre nele. Use a notação [anfitrião]:porta para IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Vincualar o endereço dado e listar as ligações conectadas ao mesmo na lista branca. Use a notação [anfitrião]:porta para IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation type="unfinished">Vinculado para dar o endereço para atender as ligações JSON-RPC. Use [host]: Notação de porta para IPv6. Esta opção pode ser especificada várias vezes (padrão: ligam-se a todas as interfaces)</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation type="unfinished">Crie ficheiros novos com as permisões predefinidas do sistema, em vez de umask 077 (apenas eficaz caso a funcionalidade carteira esteja desactivada)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation type="unfinished">Apague todas as transações da carteira e somente restore aquelas que façam parte do blockchain através de re-scan ao reiniciar o programa</translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation type="unfinished">Descobrir o próprio endereço IP (padrão: 1 ao escutar e sem -externalip ou -proxy)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation type="unfinished">Distribuido através da licença de software MIT, verifique o ficheiro anexado COPYING ou &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation type="unfinished">Não guardar transações no banco de memória por mais de &lt;n&gt; horas (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation type="unfinished">Erro: A escuta de ligações de entrada falhou (escuta devolveu erro %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation type="unfinished">Executar comando quando um alerta relevante for recebido ou em caso de uma divisão longa da cadeia de blocos (no comando, %s é substituído pela mensagem)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation type="unfinished">Executar comando quando uma das transações na carteira mudar (no comando, %s é substituído pelo ID da Transação)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation type="unfinished">Executar comando quando o melhor bloco mudar (no comando, %s é substituído pela hash do bloco)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation type="unfinished">Taxas (em %s/kB) abaixo deste valor são consideradas nulas para propagação, mineração e criação de transacções (padrão: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation type="unfinished">Taxas (em %s/kB) abaixo deste valor são consideradas nulas para a criação de transacções (padrão: %s)</translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation type="unfinished">Forçar retransmissão das transações a partir dos pares da lista branca, mesmo que estes violem a política de retransmissão local (predefinição: %d)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation type="unfinished">Minuciosidade da verificação de blocos para -checkblocks é (0-4, padrão: %u)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation type="unfinished">Se &lt;category&gt; não é fornecida ou &lt;category&gt; = 1, imprimir toda a informação de depuração.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation type="unfinished">Caso o paytxfee não seja definido, inclua uma taxa suficiente para que as transacções comecem a ser confirmadas, em média, dentro de n blocos (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished">Montante inválido para -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (deverá ser, no mínimo , a taxa mínima de propagação de %s, de modo a evitar transações bloqueadas)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation type="unfinished">Manter um índice de transacções completo, usado pela chamada RPC getrawtransaction (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation type="unfinished">Tamanho máximo dos dados em transacções que incluem dados que propagamos e mineramos (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation type="unfinished">Número de segundos a impedir que pares com comportamento indesejado se liguem de novo (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished">Informação de depuração (padrão: %u, fornecer uma &lt;category&gt; é opcional)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation type="unfinished">Poda configurada abaixo do mínimo de %d MiB.  Por favor, utilize um valor mais elevado.</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished">Suprimir: a última sincronização da carteira vai além dos dados suprimidos. O que precisa para -reindex (transferir novamente toda a cadeia de blocos, no caso de nó suprimido)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation type="unfinished">Encontrar pares usando DNS lookup, caso o número de endereços seja reduzido (padrão: 1 excepto -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation type="unfinished">Usar credenciais aleatórias por cada ligação proxy. Permite que o Tor use stream isolation (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation type="unfinished">Reduza os requisitos de armazenamento podando (eliminando) blocos antigos. Este modo é incompatível com -txindex e -rescan. Aviso: Reverter esta opção requer um novo descarregamento da cadeia de blocos completa. (padrão: 0 = desactivar poda de blocos, &gt;%u = tamanho desejado em MiB para utilizar em ficheiros de blocos)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation type="unfinished">Reanálises não são possíveis no modo de suprimir. Para isso terá de utilizar -reindex que irá transferir novamente toda a cadeia de blocos.</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation type="unfinished">Definir tamanho máximo de transações com alta-prioridade/baixa-taxa em bytes (por defeito: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation type="unfinished">Defina o número de processos de verificação (%u até %d, 0 = automático, &lt;0 = ldisponibiliza esse número de núcleos livres, por defeito: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation type="unfinished">Suportar filtragem de blocos e transacções com fitros bloom (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation type="unfinished">A base de dados de blocos contém um bloco que aparenta ser do futuro. Isto pode ser causado por uma data incorrecta definida no seu computador. Reconstrua apenas a base de dados de blocos caso tenha a certeza de que a data e hora do seu computador estão correctos.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation type="unfinished">O montante da transacção é demasiado baixo após a dedução da taxa</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation type="unfinished">Esta é uma versão de testes pré-lançamento - use à sua responsabilidade - não usar para minar ou aplicações comerciais</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished">Este produto inclui software desenvolvido pelo OpenSSL Project para utilização no OpenSSL Toolkit &lt;https://www.openssl.org/&gt;  e software criptográfico escrito por Eric Young e software UPnP escrito por Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished">Comprimento total da entrada da versão de rede (%i) excede o comprimento máximo (%i). Reduzir o número ou o tamanho de uacomments.</translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation type="unfinished">Tenta manter o tráfego externo abaixo do limite especificado (em MiB por 24h), 0 = sem limite (padrão: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished">Encontrado um argumento não suportado -socks. Definir a versão do SOCKS já não é possível, apenas proxies SOCKS5 são suportados.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation type="unfinished">Argumento não suportado -whitelistalwaysrelay ignorado, utilize -whitelistrelay e/ou -whitelistforcerelay.</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation type="unfinished">Utilizar UPnP para mapear a porta de escuta (predefinição: 1 quando escutar e sem -proxy)</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation type="unfinished">Use um proxy SOCKS5 separado para alcançar pares via serviços ocultos do Tor (padrão: %s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation type="unfinished">Username e hash da password para ligações JSON-RPC. O campo &lt;userpw&gt; está no formato: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Um script python está incluido em share/rpcuser. Esta opção pode ser especificada múltiplas vezes.</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation type="unfinished">Aviso: A rede não parece estar completamente de acordo! Parece que alguns mineiros estão com dificuldades técnicas.</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation type="unfinished">Atenção: Versões desconhecidas de blocos estão a ser mineradas! É possível que regras desconhecias estão a ser efetuadas</translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation type="unfinished">Atenção: Parecemos não estar de acordo com os nossos pares! Poderá ter que atualizar o seu cliente, ou outros nós poderão ter que atualizar os seus clientes.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation type="unfinished">Ligações na lista branca conectam desde a seguinte netmask ou endereço IP. Posse ser especificado varias vezes.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation type="unfinished">Os pares enviados para a lista branca não podem ser DoS banidos e as suas transações são sempre retransmitidas, mesmo que já estejam no banco de memória, útil, por exemplo, para um acesso</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation type="unfinished">É necessário reconstruir a base de dados, utilizando -reindex para voltar ao modo de suprimir. Isto irá transferir novamente a cadeia de blocos completa</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation type="unfinished">(predefinição: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation type="unfinished">(predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation type="unfinished">- máximo do banco de memória deverá ser pelo menos %d MB</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished">&lt;categoria&gt; pode ser:</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation type="unfinished">Aceitar comandos de linha de comandos e JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation type="unfinished">Aceitar ligações externas (padrão: 1 sem -proxy ou -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation type="unfinished">Aceitar pedidos REST públicos (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation type="unfinished">Adicionar um nó para se ligar e tentar manter a ligação aberta</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation type="unfinished">Permitir procuras DNS para -addnode, -seednode e -connect</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation type="unfinished">Utilizar sempre a consulta de DNS para endereços de pares (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished">Anexar um comentário para a entrada de agente do utilizador</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation type="unfinished">Tentar reuperar as chaves privadas de um &quot;wallet&quot; ao iniciar</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation type="unfinished">Criar automaticamente o serviço Tor oculto (predefinição: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation type="unfinished">Opções da criação de bloco:</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation type="unfinished">Impossível mudar a carteira para uma versão anterior</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation type="unfinished">Impossível escrever endereço por defeito</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation type="unfinished">Apenas ligar ao(s) nó(s) especificado(s)</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished">Ligar através de um proxy SOCKS5</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation type="unfinished">Ligar a um nó para recuperar endereços de pares, e desligar</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation type="unfinished">Opções de ligação:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">Cadeia de blocos corrompida detectada</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">Opções de Depuração/Teste:</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">Não carregar a carteira e desativar as chamadas de RPC da carteira.</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">Deseja reconstruir agora a base de dados de blocos.</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation type="unfinished">Carregamento concluído</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation type="unfinished">Activar publicação do hash do bloco em &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Activar publicação do hash da transacção em &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation type="unfinished">Activar publicação de dados brutos do bloco em &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Activar publicação de dados brutos da transacção em &lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation type="unfinished">Ativar substituição da transação no banco de memória (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">Erro ao inicializar a cadeia de blocos</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">Erro ao inicializar o ambiente %s da base de dados da carteira</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation type="unfinished">Erro ao carregar %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished">Erro ao carregar %s: carteira corrompida</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished">Erro ao carregar %s: a carteira requer a nova versão de %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation type="unfinished">Erro ao carregar base de dados de blocos</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation type="unfinished">Erro ao abrir a base de dados de blocos</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">Erro ao ler da base de dados, encerrando.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Erro</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished">Erro: Um erro fatal interno ocorreu, verificar debug.log para mais informação</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">Erro: Pouco espaço em disco!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">Falhou a escutar em qualquer porta. Use -listen=0 se quiser isto.</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished">Taxa (em %s/kB) a adicionar às transacções que envia (padrão: %s)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">Quantos blocos para verificar no arranque (predefinição: %u, 0 = todos)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation type="unfinished">A importar...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation type="unfinished">Importar blocos de um ficheiro blk000??.dat externo ao iniciar</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation type="unfinished">Incluir endereços de IP na informação de depuração (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation type="unfinished">Bloco génese incorreto ou nenhum bloco génese encontrado. Pasta de dados errada para a rede?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">Informação</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation type="unfinished">Fundos insuficientes</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation type="unfinished">Endereço -onion inválido: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation type="unfinished">Endereço -proxy inválido: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">Valor inválido para -%s=&lt;amount&gt;: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">Valor inválido para -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished">Montante inválido para -paytxfee=&lt;amount&gt;: &apos;%s&apos; (deverá ser no mínimo %s)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation type="unfinished">Máscara de rede inválida especificada em -whitelist: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation type="unfinished">Manter no máximo &lt;n&gt; transacções órfãs em memória (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation type="unfinished">Manter o banco de memória da transação abaixo de &lt;n&gt; megabytes (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Escutar por ligações JSON-RPC na porta &lt;port&gt; (predefinição: %u ou rede de testes: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Escute ligações na porta &lt;port&gt; (por defeito: %u ou testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation type="unfinished">A carregar os endereços...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation type="unfinished">A carregar o índice de blocos...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation type="unfinished">A carregar a carteira...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation type="unfinished">Localização de cookie de autorização (predefinição: diretoria de dados)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation type="unfinished">Manter no máximo &lt;n&gt; ligações a outros nós da rede (por defeito: %u)</translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation type="unfinished">Colocar a carteira a transmitir transacções</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Maximo armazenamento intermédio de recepção por ligação, &lt;n&gt;*1000 bytes (por defeito: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Maximo armazenamento intermédio de envio por ligação, &lt;n&gt;*1000 bytes (por defeito: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">Necessário especificar uma porta com -whitebind: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation type="unfinished">Opções da transmissão de nós:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">Os descritores de ficheiros disponíveis são insuficientes.</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">Somente conectar aos nodes na rede &lt;net&gt; (ipv4, ipv6 ou onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation type="unfinished">Opções:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">Palavra-passe para ligações JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">Adicionar data e hora à informação de depuração (por defeito: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation type="unfinished">Imprimir esta mensagem de ajuda e sair</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation type="unfinished">Imprimir versão e sair</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation type="unfinished">Poda não pode ser configurada com um valor negativo.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation type="unfinished">Modo poda é incompatível com -txindex.</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation type="unfinished">A podar a blockstore...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation type="unfinished">Opções do servidor RPC:</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation type="unfinished">Reduzindo -maxconnections de %d para %d, devido a limitações no sistema.</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Propagar e minerar transacções que incluem dados (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">Propagar não P2SH multisig (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation type="unfinished">Procurar transacções em falta na cadeia de blocos ao iniciar</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation type="unfinished">Reexaminando...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">Correr o processo em segundo plano e aceitar comandos</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation type="unfinished">Enviar informação de rastreio/depuração para a consola e não para o ficheiro debug.log</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">Enviar como uma transacção a custo zero se possível (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">Definir o tamanho da cache de base de dados em megabytes (%d a %d, padrão: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">Definir tamanho do banco de memória da chave para &lt;n&gt; (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">Definir tamanho máximo por bloco em bytes (por defeito: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">Defina o número de processos para servir as chamadas RPC (por defeito: %d)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">Mostrar todas as opções de depuração (utilização: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">Encolher ficheiro debug.log ao iniciar o cliente (por defeito: 1 sem -debug definido)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">Falhou assinatura da transação</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">Especificar ficheiro de configuração (por defeito: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">Especificar tempo de espera da ligação em milissegundos (mínimo 1, por defeito: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation type="unfinished">Especificar pasta de dados</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">Especificar ficheiro pid (padrão: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">Especifique ficheiro de carteira (dentro da pasta de dados)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">Especifique o seu endereço público</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">Gastar troco não confirmado ao enviar transacções (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation type="unfinished">O montante da transacção é demasiado baixo para pagar a taxa</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">Isto é software experimental.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">Tolerância para desligar nós com comportamento indesejável (padrão: %u)</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished">Palavra-passe da porta de controlo Tor (predefinição: vazio)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished">Porta de controlo Tor a utilizar se a escuta cebola estiver ativada (predefinição: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">Quantia da transação é muito baixa</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">Quantia da transação deverá ser positiva</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation type="unfinished">Transacção demasiado grande para a política de taxas</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation type="unfinished">Transação grande demais</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation type="unfinished">Incapaz de vincular à porta %s neste computador (vínculo retornou erro %s)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation type="unfinished">Não é possível iniciar o servidor HTTP. Verifique o debug.log para detalhes.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation type="unfinished">Rede desconhecida especificada em -onlynet: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation type="unfinished">Argumento não suportado -benchmark ignorado, use -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation type="unfinished">Argumento não suportado -debugnet ignorado, use -debug=net.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">Argumento não suportado -tor encontrado, use -onion.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation type="unfinished">Actualizar carteira para o formato mais recente ao iniciar</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation type="unfinished">Utilizar UPnP para mapear a porta de escuta (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished">Comentário no User Agent (%s) contém caracteres inseguros.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation type="unfinished">Nome de utilizador para ligações JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation type="unfinished">A verificar blocos...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation type="unfinished">A verificar carteira...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished">A carteira %s reside fora da pasta de dados %s</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation type="unfinished">Opções da carteira:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Aviso</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation type="unfinished">Aviso: ativadas novas regras desconhecidas (versionbit %i)</translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation type="unfinished">Se operar apenas num modo de blocos (predefinição: %u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished">A limpar todas as transações da carteira...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation type="unfinished">Opções de notificação ZeroMQ:</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -236,7 +1103,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Sign &amp;message...</source>
+        <source>Sign &amp;message</source>
         <translation>Assinar &amp;mensagem...</translation>
     </message>
     <message>
@@ -272,7 +1139,7 @@
         <translation>Sair da aplicação</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>&amp;Opções...</translation>
     </message>
     <message>
@@ -280,28 +1147,28 @@
         <translation>Modificar opções de configuração para %1</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
+        <source>&amp;Encrypt Wallet</source>
         <translation>E&amp;ncriptar Carteira...</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
+        <source>&amp;Backup Wallet</source>
         <translation>&amp;Guardar Carteira...</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
+        <source>&amp;Change Passphrase</source>
         <translation>Alterar &amp;Frase de Palavra-passe...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
+        <source>&amp;Sending addresses</source>
         <translation>A &amp;enviar os endereços...</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
+        <source>&amp;Receiving addresses</source>
         <translation>A &amp;receber os endereços...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
-        <translation>Abrir &amp;URI...</translation>
+        <source>Open &amp;URI</source>
+        <translation>Abrir &amp;URI</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -328,7 +1195,7 @@
         <translation>Abrir consola de diagnóstico e depuração</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
+        <source>&amp;Verify message</source>
         <translation>&amp;Verificar mensagem...</translation>
     </message>
     <message>
@@ -552,10 +1419,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Money share</source>
         <translation type="unfinished"></translation>
     </message>
@@ -565,6 +1428,22 @@
     </message>
     <message>
         <source>ATBcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -635,15 +1514,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -664,6 +1535,14 @@
     </message>
     <message>
         <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1456,7 +2335,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2333,7 +3212,7 @@
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid ATBCoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2430,23 +3309,11 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2455,10 +3322,6 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2474,10 +3337,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Could not get share by key (%0)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2490,16 +3349,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
+        <source>Invalid private key encoding.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2512,17 +3395,6 @@
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Não desligue o computador enquanto esta janela não desaparecer.</translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2990,6 +3862,10 @@
         <source>Amount removed from or added to balance.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransactionView</name>
@@ -3153,6 +4029,10 @@
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -3201,872 +4081,41 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
+        <source>Wallet Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The %s developers</source>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = guardar metadados da transacção ex: proprietário da conta e informação do pedido de pagamento, 2 = descartar metadados da transacção)</translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation type="unfinished">-fallbackfee está definida muito elevada! Esta é a taxa de transação pode poderá pagar quando as estimativas de taxas não estão disponíveis.</translation>
-    </message>
-    <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">-maxtxfee está definido com um valor muito alto! Taxas desta magnitude podem ser pagas numa única transacção.</translation>
-    </message>
-    <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">-paytxfee está definido com um valor muito alto! Esta é a taxa que irá pagar se enviar uma transacção.</translation>
-    </message>
-    <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished">Uma percentagem da taxa (em %s/kB) que será utilizada quando a estimativa da taxa tiver dados insuficientes (predefinição: %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished">Aceitar as transações retransmitidas recebidas dos pares na lista branca, mesmo quando não retransmitir as transações (predefinição: %d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Permitir conexções JSON-RPC de fontes especificas. Valido para &lt;ip&gt; um unico IP (ex. 1.2.3.4), uma rede/netmask (ex. 1.2.3.4/255.255.255.0) ou uma rede/CIDR (ex. 1.2.3.4/24). Esta opção pode ser especificada varias vezes</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Associar a endereço específico e escutar sempre nele. Use a notação [anfitrião]:porta para IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Vincualar o endereço dado e listar as ligações conectadas ao mesmo na lista branca. Use a notação [anfitrião]:porta para IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Vinculado para dar o endereço para atender as ligações JSON-RPC. Use [host]: Notação de porta para IPv6. Esta opção pode ser especificada várias vezes (padrão: ligam-se a todas as interfaces)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <source>Import a backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Crie ficheiros novos com as permisões predefinidas do sistema, em vez de umask 077 (apenas eficaz caso a funcionalidade carteira esteja desactivada)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Apague todas as transações da carteira e somente restore aquelas que façam parte do blockchain através de re-scan ao reiniciar o programa</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">Descobrir o próprio endereço IP (padrão: 1 ao escutar e sem -externalip ou -proxy)</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">Distribuido através da licença de software MIT, verifique o ficheiro anexado COPYING ou &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished">Não guardar transações no banco de memória por mais de &lt;n&gt; horas (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <source>Recovery failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <source>Restore completed successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <source>You must restart your wallet to continue working.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">Erro: A escuta de ligações de entrada falhou (escuta devolveu erro %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">Executar comando quando um alerta relevante for recebido ou em caso de uma divisão longa da cadeia de blocos (no comando, %s é substituído pela mensagem)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Executar comando quando uma das transações na carteira mudar (no comando, %s é substituído pelo ID da Transação)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">Executar comando quando o melhor bloco mudar (no comando, %s é substituído pela hash do bloco)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">Taxas (em %s/kB) abaixo deste valor são consideradas nulas para propagação, mineração e criação de transacções (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished">Taxas (em %s/kB) abaixo deste valor são consideradas nulas para a criação de transacções (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished">Forçar retransmissão das transações a partir dos pares da lista branca, mesmo que estes violem a política de retransmissão local (predefinição: %d)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">Minuciosidade da verificação de blocos para -checkblocks é (0-4, padrão: %u)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">Se &lt;category&gt; não é fornecida ou &lt;category&gt; = 1, imprimir toda a informação de depuração.</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">Caso o paytxfee não seja definido, inclua uma taxa suficiente para que as transacções comecem a ser confirmadas, em média, dentro de n blocos (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">Montante inválido para -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (deverá ser, no mínimo , a taxa mínima de propagação de %s, de modo a evitar transações bloqueadas)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Manter um índice de transacções completo, usado pela chamada RPC getrawtransaction (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <source>remove old wallet failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Tamanho máximo dos dados em transacções que incluem dados que propagamos e mineramos (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <source>Lock wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Número de segundos a impedir que pares com comportamento indesejado se liguem de novo (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Informação de depuração (padrão: %u, fornecer uma &lt;category&gt; é opcional)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">Poda configurada abaixo do mínimo de %d MiB.  Por favor, utilize um valor mais elevado.</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">Suprimir: a última sincronização da carteira vai além dos dados suprimidos. O que precisa para -reindex (transferir novamente toda a cadeia de blocos, no caso de nó suprimido)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">Encontrar pares usando DNS lookup, caso o número de endereços seja reduzido (padrão: 1 excepto -connect)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Usar credenciais aleatórias por cada ligação proxy. Permite que o Tor use stream isolation (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Reduza os requisitos de armazenamento podando (eliminando) blocos antigos. Este modo é incompatível com -txindex e -rescan. Aviso: Reverter esta opção requer um novo descarregamento da cadeia de blocos completa. (padrão: 0 = desactivar poda de blocos, &gt;%u = tamanho desejado em MiB para utilizar em ficheiros de blocos)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">Reanálises não são possíveis no modo de suprimir. Para isso terá de utilizar -reindex que irá transferir novamente toda a cadeia de blocos.</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Definir tamanho máximo de transações com alta-prioridade/baixa-taxa em bytes (por defeito: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Defina o número de processos de verificação (%u até %d, 0 = automático, &lt;0 = ldisponibiliza esse número de núcleos livres, por defeito: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished">Suportar filtragem de blocos e transacções com fitros bloom (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">A base de dados de blocos contém um bloco que aparenta ser do futuro. Isto pode ser causado por uma data incorrecta definida no seu computador. Reconstrua apenas a base de dados de blocos caso tenha a certeza de que a data e hora do seu computador estão correctos.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">O montante da transacção é demasiado baixo após a dedução da taxa</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">Esta é uma versão de testes pré-lançamento - use à sua responsabilidade - não usar para minar ou aplicações comerciais</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">Este produto inclui software desenvolvido pelo OpenSSL Project para utilização no OpenSSL Toolkit &lt;https://www.openssl.org/&gt;  e software criptográfico escrito por Eric Young e software UPnP escrito por Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished">Comprimento total da entrada da versão de rede (%i) excede o comprimento máximo (%i). Reduzir o número ou o tamanho de uacomments.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">Tenta manter o tráfego externo abaixo do limite especificado (em MiB por 24h), 0 = sem limite (padrão: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Encontrado um argumento não suportado -socks. Definir a versão do SOCKS já não é possível, apenas proxies SOCKS5 são suportados.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished">Argumento não suportado -whitelistalwaysrelay ignorado, utilize -whitelistrelay e/ou -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">Utilizar UPnP para mapear a porta de escuta (predefinição: 1 quando escutar e sem -proxy)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Use um proxy SOCKS5 separado para alcançar pares via serviços ocultos do Tor (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished">Username e hash da password para ligações JSON-RPC. O campo &lt;userpw&gt; está no formato: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Um script python está incluido em share/rpcuser. Esta opção pode ser especificada múltiplas vezes.</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">Aviso: A rede não parece estar completamente de acordo! Parece que alguns mineiros estão com dificuldades técnicas.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished">Atenção: Versões desconhecidas de blocos estão a ser mineradas! É possível que regras desconhecias estão a ser efetuadas</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">Atenção: Parecemos não estar de acordo com os nossos pares! Poderá ter que atualizar o seu cliente, ou outros nós poderão ter que atualizar os seus clientes.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Ligações na lista branca conectam desde a seguinte netmask ou endereço IP. Posse ser especificado varias vezes.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Os pares enviados para a lista branca não podem ser DoS banidos e as suas transações são sempre retransmitidas, mesmo que já estejam no banco de memória, útil, por exemplo, para um acesso</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">É necessário reconstruir a base de dados, utilizando -reindex para voltar ao modo de suprimir. Isto irá transferir novamente a cadeia de blocos completa</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(predefinição: %s)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">- máximo do banco de memória deverá ser pelo menos %d MB</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;categoria&gt; pode ser:</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Aceitar comandos de linha de comandos e JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">Aceitar ligações externas (padrão: 1 sem -proxy ou -connect)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Aceitar pedidos REST públicos (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Adicionar um nó para se ligar e tentar manter a ligação aberta</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">Permitir procuras DNS para -addnode, -seednode e -connect</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Utilizar sempre a consulta de DNS para endereços de pares (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished">Anexar um comentário para a entrada de agente do utilizador</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished">Tentar reuperar as chaves privadas de um &quot;wallet&quot; ao iniciar</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">Criar automaticamente o serviço Tor oculto (predefinição: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Opções da criação de bloco:</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Impossível mudar a carteira para uma versão anterior</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">Impossível escrever endereço por defeito</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">Apenas ligar ao(s) nó(s) especificado(s)</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">Ligar através de um proxy SOCKS5</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Ligar a um nó para recuperar endereços de pares, e desligar</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">Opções de ligação:</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">Cadeia de blocos corrompida detectada</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Opções de Depuração/Teste:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Não carregar a carteira e desativar as chamadas de RPC da carteira.</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">Deseja reconstruir agora a base de dados de blocos.</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">Carregamento concluído</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">Activar publicação do hash do bloco em &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Activar publicação do hash da transacção em &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">Activar publicação de dados brutos do bloco em &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Activar publicação de dados brutos da transacção em &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished">Ativar substituição da transação no banco de memória (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">Erro ao inicializar a cadeia de blocos</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Erro ao inicializar o ambiente %s da base de dados da carteira</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished">Erro ao carregar %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished">Erro ao carregar %s: carteira corrompida</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished">Erro ao carregar %s: a carteira requer a nova versão de %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">Erro ao carregar base de dados de blocos</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">Erro ao abrir a base de dados de blocos</translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">Erro ao ler da base de dados, encerrando.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Erro</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">Erro: Um erro fatal interno ocorreu, verificar debug.log para mais informação</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">Erro: Pouco espaço em disco!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Falhou a escutar em qualquer porta. Use -listen=0 se quiser isto.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">Taxa (em %s/kB) a adicionar às transacções que envia (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">Quantos blocos para verificar no arranque (predefinição: %u, 0 = todos)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">A importar...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished">Importar blocos de um ficheiro blk000??.dat externo ao iniciar</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Incluir endereços de IP na informação de depuração (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">Bloco génese incorreto ou nenhum bloco génese encontrado. Pasta de dados errada para a rede?</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">Informação</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">Fundos insuficientes</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">Endereço -onion inválido: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">Endereço -proxy inválido: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">Valor inválido para -%s=&lt;amount&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">Valor inválido para -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">Montante inválido para -paytxfee=&lt;amount&gt;: &apos;%s&apos; (deverá ser no mínimo %s)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">Máscara de rede inválida especificada em -whitelist: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Manter no máximo &lt;n&gt; transacções órfãs em memória (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Manter o banco de memória da transação abaixo de &lt;n&gt; megabytes (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Escutar por ligações JSON-RPC na porta &lt;port&gt; (predefinição: %u ou rede de testes: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Escute ligações na porta &lt;port&gt; (por defeito: %u ou testnet: %u)</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">A carregar os endereços...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">A carregar o índice de blocos...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">A carregar a carteira...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished">Localização de cookie de autorização (predefinição: diretoria de dados)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Manter no máximo &lt;n&gt; ligações a outros nós da rede (por defeito: %u)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">Colocar a carteira a transmitir transacções</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximo armazenamento intermédio de recepção por ligação, &lt;n&gt;*1000 bytes (por defeito: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximo armazenamento intermédio de envio por ligação, &lt;n&gt;*1000 bytes (por defeito: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">Necessário especificar uma porta com -whitebind: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Opções da transmissão de nós:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">Os descritores de ficheiros disponíveis são insuficientes.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Somente conectar aos nodes na rede &lt;net&gt; (ipv4, ipv6 ou onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">Opções:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">Palavra-passe para ligações JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Adicionar data e hora à informação de depuração (por defeito: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished">Imprimir esta mensagem de ajuda e sair</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">Imprimir versão e sair</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">Poda não pode ser configurada com um valor negativo.</translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">Modo poda é incompatível com -txindex.</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">A podar a blockstore...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">Opções do servidor RPC:</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished">Reduzindo -maxconnections de %d para %d, devido a limitações no sistema.</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Propagar e minerar transacções que incluem dados (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">Propagar não P2SH multisig (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">Procurar transacções em falta na cadeia de blocos ao iniciar</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">Reexaminando...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Correr o processo em segundo plano e aceitar comandos</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">Enviar informação de rastreio/depuração para a consola e não para o ficheiro debug.log</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Enviar como uma transacção a custo zero se possível (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Definir o tamanho da cache de base de dados em megabytes (%d a %d, padrão: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Definir tamanho do banco de memória da chave para &lt;n&gt; (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Definir tamanho máximo por bloco em bytes (por defeito: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Defina o número de processos para servir as chamadas RPC (por defeito: %d)</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Mostrar todas as opções de depuração (utilização: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">Encolher ficheiro debug.log ao iniciar o cliente (por defeito: 1 sem -debug definido)</translation>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">Falhou assinatura da transação</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Especificar ficheiro de configuração (por defeito: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Especificar tempo de espera da ligação em milissegundos (mínimo 1, por defeito: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Especificar pasta de dados</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Especificar ficheiro pid (padrão: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Especifique ficheiro de carteira (dentro da pasta de dados)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Especifique o seu endereço público</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Gastar troco não confirmado ao enviar transacções (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">O montante da transacção é demasiado baixo para pagar a taxa</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">Isto é software experimental.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Tolerância para desligar nós com comportamento indesejável (padrão: %u)</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished">Palavra-passe da porta de controlo Tor (predefinição: vazio)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished">Porta de controlo Tor a utilizar se a escuta cebola estiver ativada (predefinição: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">Quantia da transação é muito baixa</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">Quantia da transação deverá ser positiva</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">Transacção demasiado grande para a política de taxas</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">Transação grande demais</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">Incapaz de vincular à porta %s neste computador (vínculo retornou erro %s)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">Não é possível iniciar o servidor HTTP. Verifique o debug.log para detalhes.</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">Rede desconhecida especificada em -onlynet: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Argumento não suportado -benchmark ignorado, use -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Argumento não suportado -debugnet ignorado, use -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Argumento não suportado -tor encontrado, use -onion.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">Actualizar carteira para o formato mais recente ao iniciar</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Utilizar UPnP para mapear a porta de escuta (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">Comentário no User Agent (%s) contém caracteres inseguros.</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">Nome de utilizador para ligações JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">A verificar blocos...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">A verificar carteira...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">A carteira %s reside fora da pasta de dados %s</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Opções da carteira:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">Aviso</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished">Aviso: ativadas novas regras desconhecidas (versionbit %i)</translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">Se operar apenas num modo de blocos (predefinição: %u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">A limpar todas as transações da carteira...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">Opções de notificação ZeroMQ:</translation>
     </message>
 </context>
 </TS>

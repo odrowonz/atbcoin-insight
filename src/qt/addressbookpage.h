@@ -6,6 +6,7 @@
 #define BITCOIN_QT_ADDRESSBOOKPAGE_H
 
 #include <QDialog>
+#include <QModelIndex>
 
 class AddressTableModel;
 class OptionsModel;
@@ -18,7 +19,6 @@ namespace Ui {
 QT_BEGIN_NAMESPACE
 class QItemSelection;
 class QMenu;
-class QModelIndex;
 class QSortFilterProxyModel;
 class QTableView;
 QT_END_NAMESPACE
@@ -59,8 +59,9 @@ private:
     QMenu *contextMenu;
     QAction *deleteAction; // to be able to explicitly disable it
     QString newAddressToSelect;
-    void Header_fix();
 private Q_SLOTS:
+
+    void Header_fix(QModelIndex,int,int);
     /** Delete currently selected address entry */
     void on_deleteAddress_clicked();
     /** Create a new address for receiving coins and / or add a new address book entry */

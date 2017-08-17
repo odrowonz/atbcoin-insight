@@ -1,7 +1,9 @@
 #include "previewcodedialog.h"
 #include "ui_previewcodedialog.h"
 #include <QDateTime>
-PreviewCodeDialog::PreviewCodeDialog(QSortFilterProxyModel* idx,int row,QWidget *parent) :
+#include <QClipboard>
+
+PreviewCodeDialog::PreviewCodeDialog(const QAbstractItemModel *idx, int row, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PreviewCodeDialog)
 {
@@ -16,8 +18,12 @@ PreviewCodeDialog::PreviewCodeDialog(QSortFilterProxyModel* idx,int row,QWidget 
     ui->HashSecond->setText(idx->data(idx->index(row,2)).toString());
     QLocale l(QLocale::system());
     ui->DateSecond->setText(idx->data(idx->index(row,0)).toDateTime().toString(l.dateTimeFormat(QLocale::NarrowFormat)));
+    connect(ui->PreviewCodeDialogCopy,SIGNAL(clicked(bool)),this,SLOT(onCopyClicked(bool)));
 }
-
+void PreviewCodeDialog::onCopyClicked(bool){
+    QApplication::clipboard()->setText(ui->CodeSecond->text());
+    this->close();
+}
 PreviewCodeDialog::~PreviewCodeDialog()
 {
     delete ui;

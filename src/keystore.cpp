@@ -47,6 +47,12 @@ bool CBasicKeyStore::AddCScript(const CScript& redeemScript)
     mapScripts[CScriptID(redeemScript)] = redeemScript;
     return true;
 }
+bool CBasicKeyStore::RemoveCScript(const CScript& redeemScript)
+{
+    LOCK(cs_KeyStore);
+    mapScripts.erase(CScriptID(redeemScript));
+    return true;
+}
 
 bool CBasicKeyStore::HaveCScript(const CScriptID& hash) const
 {

@@ -851,6 +851,7 @@ void saveWindowGeometry(const QString& strSetting, QWidget *parent)
 void restoreWindowGeometry(const QString& strSetting, const QSize& defaultSize, QWidget *parent)
 {
     QSettings settings;
+
     QPoint pos = settings.value(strSetting + "Pos").toPoint();
     QSize size = settings.value(strSetting + "Size", defaultSize).toSize();
 

@@ -69,6 +69,14 @@ public Q_SLOTS:
 
     /** Encrypt the wallet */
     void encryptWallet(bool status);
+    /** Restore the Wallet*/
+    void restoreWallet();
+    /** Lock the Wallet*/
+    void LockWallet();
+    /** Unlock the Wallet*/
+    void UnlockWallet();
+    /** Decrypt the Wallet*/
+    void DecryptWallet();
     /** Backup the wallet */
     void backupWallet();
     /** Change encrypted wallet passphrase */

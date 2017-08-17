@@ -18,21 +18,30 @@
 class CBonusinfo{
 private:
     uint160 hash;             //the hash of the object 
+    int nVout;                //number of output;
     void genHash(){
-        std::string temp(hashTx.ToString()+key);
+        std::string temp(hashTx.ToString()+key+std::to_string(nVout));
         std::vector<unsigned char> vchHash(temp.begin(),temp.end());
         hash=Hash160(vchHash);
     }
 public:
     uint256 hashTx;           //the hash of transaction;
     std::string key;          //the users sicret key;
-    int nVout;                //number of output;  
-    explicit CBonusinfo(std::string Key="",uint256 HashTx=uint256(), int NVout=0){
+    /*  The number is stored 1 unit more,
+     *  this is done so that there is no situation when the number is zero,
+     *  which leads to the inability to determine whether the code is used on this purse or not.
+    */
+    explicit CBonusinfo(std::string Key="",uint256 HashTx=uint256(), int NVout=0,bool isUsed=false){
          hashTx=HashTx;
          key=Key;
-         nVout=NVout;
+         nVout=NVout+1;
+         if(isUsed){
+             nVout=0-nVout;
+         }
          genHash();
     }
+    int getnVout(bool newKey=true)const{ return abs(nVout)-newKey;}    // number of vout;
+    bool isUsed()const{return nVout<0;}         // if nVout<0 then the bonus key is used else false
     uint160 getHash()const{return hash;}
     CBonusinfo& operator=(const CBonusinfo& right){
         this->hash=right.hash;
@@ -153,6 +162,7 @@ public:
         }
         return false;
     }
+    virtual bool RemoveCScript(const CScript& redeemScript);
     virtual bool AddCScript(const CScript& redeemScript);
     virtual bool HaveCScript(const CScriptID &hash) const;
     virtual bool GetCScript(const CScriptID &hash, CScript& redeemScriptOut) const;

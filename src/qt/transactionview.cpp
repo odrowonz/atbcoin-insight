@@ -48,18 +48,14 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
 
 
     watchOnlyWidget = new QComboBox(this);
-    watchOnlyWidget->setFixedWidth(24);
+    watchOnlyWidget->setFixedWidth(30);
     watchOnlyWidget->addItem("", TransactionFilterProxy::WatchOnlyFilter_All);
     watchOnlyWidget->addItem(platformStyle->SingleColorIcon(":/icons/eye_plus"), "", TransactionFilterProxy::WatchOnlyFilter_Yes);
     watchOnlyWidget->addItem(platformStyle->SingleColorIcon(":/icons/eye_minus"), "", TransactionFilterProxy::WatchOnlyFilter_No);
     hlayout->addWidget(watchOnlyWidget);
 
     dateWidget = new QComboBox(this);
-    if (platformStyle->getUseExtraSpacing()) {
-        dateWidget->setFixedWidth(121);
-    } else {
-        dateWidget->setFixedWidth(120);
-    }
+    dateWidget->setFixedWidth(150);
     dateWidget->addItem(tr("All"), All);
     dateWidget->addItem(tr("Today"), Today);
     dateWidget->addItem(tr("This week"), ThisWeek);
@@ -70,11 +66,8 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     hlayout->addWidget(dateWidget);
 
     typeWidget = new QComboBox(this);
-    if (platformStyle->getUseExtraSpacing()) {
-        typeWidget->setFixedWidth(121);
-    } else {
-        typeWidget->setFixedWidth(120);
-    }
+    typeWidget->setFixedWidth(150);
+
 
     typeWidget->addItem(tr("All"), TransactionFilterProxy::ALL_TYPES);
     typeWidget->addItem(tr("Received with"), TransactionFilterProxy::TYPE(TransactionRecord::RecvWithAddress) |
@@ -82,6 +75,7 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     typeWidget->addItem(tr("Sent to"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
                                   TransactionFilterProxy::TYPE(TransactionRecord::SendToOther));
     typeWidget->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
+    typeWidget->addItem(tr("Confirmation"), TransactionFilterProxy::TYPE(TransactionRecord::bonusConfirmation));
     typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
 
@@ -128,14 +122,7 @@ TransactionView::TransactionView(const PlatformStyle *platformStyle, QWidget *pa
     vlayout->addWidget(createDateRangeWidget());
     vlayout->addWidget(view);
     vlayout->setSpacing(0);
-//    int width = view->verticalScrollBar()->sizeHint().width();
-//    // Cover scroll bar width with spacing
-//    if (platformStyle->getUseExtraSpacing()) {
-//        hlayout->addSpacing(width+2);
-//    } else {
-//        hlayout->addSpacing(width);
-//    }
-//    // Always show scroll bar
+
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     view->setTabKeyNavigation(false);
     view->setContextMenuPolicy(Qt::CustomContextMenu);

@@ -12,8 +12,8 @@
 #define KEY_TEMPLATE "ATB-00000000-00000000-00000000-00000000-00000000"
 namespace Ui {
 class BonusCodeTab;
-
 }
+class QTableView;
 
 class BonusCodeTab : public QWidget
 {
@@ -28,16 +28,17 @@ public Q_SLOTS:
     void updateBonusList();
 private:
     void resizeEvent(QResizeEvent*);
+    void tableInit(QTableView*);
     Ui::BonusCodeTab *ui;
     ClientModel *clientModel;
     WalletModel *wmodel;
     const PlatformStyle *platformStyle;
     bool keyCheck(const std::string &str);
     CWalletTx* findTx(const CScript& script);
-    QSortFilterProxyModel *model;
+   // QSortFilterProxyModel *model;
 private Q_SLOTS:
-    void confirmation(const uint256 &, int);
-    void cliced(QModelIndex);
+    void confirmation(const uint256 &, int, std::string key);
+    void Clicked(QModelIndex);
     void getBonusClick(bool);
     void CreateClick(bool);
 Q_SIGNALS:

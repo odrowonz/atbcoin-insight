@@ -12,14 +12,12 @@ InformationDialog::InformationDialog(const QString& information,const QString &A
         ui->InfKey->hide();
         ui->InfFon->layout()->removeItem(ui->verticalSpacer);
         ui->InfFon->layout()->removeItem(ui->verticalSpacer_3);
-        ui->InfFon->layout()->removeItem(ui->verticalSpacer_4);
-        ui->InfAmmount->hide();
+        ui->InfMessage->setText(information);
     }
     else{
-        ui->InfAmmount->setText(Ammount);
         ui->InfKey->setText(key);
+        ui->InfMessage->setText(information.arg(Ammount));
     }
-    ui->InfMessage->setText(information);
     resize(this->width(),this->minimumHeight());
 }
 

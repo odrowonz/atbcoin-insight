@@ -77,10 +77,7 @@ CChain chainActive;
 
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 int nStakeMinConfirmations = 20;
-<<<<<<< HEAD
-=======
 unsigned int nStakeMinAge = 60; // 30 days
->>>>>>> 15afa6b... segwit time fix; seeds added
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
 
 
@@ -2756,7 +2753,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             if (nActualStakeReward > blockReward)
                 return state.DoS(100,
                     error("ConnectBlock(): coinstake pays too much (actual=%d vs limit=%d)",
-                          block.vtx[1].GetValueOut(), blockReward),
+                          nActualStakeReward, blockReward),
                           REJECT_INVALID, "bad-cs-amount");
         }
     
@@ -3480,6 +3477,8 @@ bool GetCoinAge(const CTransaction& tx, CBlockTreeDB& txdb, const CBlockIndex* p
            LogPrint("coinage", "coin age skip nSpendDepth=%d\n", nSpendDepth + 1);
            continue; // only count coins meeting min confirmations requirement
        }
+       if (pindexPrev->nTime + nStakeMinAge > tx.nTime)
+           continue; // only count coins meeting min age requirement
  
  
          int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;

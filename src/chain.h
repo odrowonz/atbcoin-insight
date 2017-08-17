@@ -518,11 +518,6 @@ public:
         block.nBits           = nBits;
         block.nNonce          = nNonce;
         
-        block.vchBlockSig     = vchBlockSig;
-        block.fStake          = IsProofOfStake();
-        block.prevoutStake    = prevoutStake;
-        block.nStakeTime      = nStakeTime;
-        
         return block.GetHash();
     }
 

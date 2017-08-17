@@ -157,6 +157,11 @@ void SendCoinsDialog::setModel(WalletModel *model)
         // Coin Control
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(coinControlUpdateLabels()));
         connect(model->getOptionsModel(), SIGNAL(coinControlFeaturesChanged(bool)), this, SLOT(coinControlFeatureChanged(bool)));
+        if(model->getOptionsModel()->getCoinControlFeatures()){
+            setMinimumSize(1000,650);
+        }else{
+            setMinimumSize(0,0);
+        }
         ui->frameCoinControl->setVisible(model->getOptionsModel()->getCoinControlFeatures());
         coinControlUpdateLabels();
 
@@ -721,6 +726,11 @@ void SendCoinsDialog::coinControlClipboardChange()
 // Coin Control: settings menu - coin control enabled/disabled by user
 void SendCoinsDialog::coinControlFeatureChanged(bool checked)
 {
+    if(checked){
+        setMinimumSize(1000,650);
+    }else{
+        setMinimumSize(0,0);
+    }
     ui->frameCoinControl->setVisible(checked);
 
     if (!checked && model) // coin control features disabled
@@ -732,7 +742,7 @@ void SendCoinsDialog::coinControlFeatureChanged(bool checked)
 // Coin Control: button inputs -> show actual coin control dialog
 void SendCoinsDialog::coinControlButtonClicked()
 {
-    CoinControlDialog dlg(platformStyle);
+    CoinControlDialog dlg(platformStyle,this);
     dlg.setModel(model);
     dlg.exec();
     coinControlUpdateLabels();
@@ -770,7 +780,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Bitcoin address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid ATBCoin address"));
         }
         else // Valid address
         {

@@ -22,41 +22,69 @@
 
 BOOST_FIXTURE_TEST_SUITE(miner_tests, TestingSetup)
 
+
+
 static
 struct {
     unsigned char extranonce;
     unsigned int nonce;
 } blockinfo[] = {
-    {4, 0x1e2b}, {2, 0x29769}, {1, 0x4cc5b}, {1, 0x551d3},
-    {2, 0x6990d}, {2, 0x71a15}, {1, 0x9b658}, {2, 0xb9aa2},
-    {2, 0xc6c24}, {1, 0xc99c8}, {1, 0xcbb15}, {2, 0xcbd59},
-    {2, 0xd9c73}, {1, 0xffd53}, {2, 0x100482}, {2, 0x108c62},
-    {1, 0x1176e7}, {2, 0x11f756}, {1, 0x1303bc}, {1, 0x152ef1},
-    {3, 0x160f8b}, {2, 0x177178}, {2, 0x1b1826}, {1, 0x1cc5b7},
-    {2, 0x1d2cdd}, {1, 0x1f32e4}, {2, 0x1f9f78}, {2, 0x203357},
-    {2, 0x2082d9}, {2, 0x24aaeb}, {2, 0x250715}, {2, 0x27a307},
-    {1, 0x27ac8d}, {2, 0x28b7d6}, {2, 0x2b7c0b}, {1, 0x2b7d17},
-    {2, 0x2bbfdb}, {1, 0x2cbc8c}, {2, 0x2d5d94}, {1, 0x2d9fe7},
-    {1, 0x2fea65}, {3, 0x30618e}, {2, 0x344499}, {5, 0x34dbf7},
-    {1, 0x36b6b1}, {5, 0x3705ee}, {1, 0x379195}, {1, 0x37ad78},
-    {1, 0x38c0c7}, {2, 0x39c99d}, {1, 0x3a5576}, {1, 0x3abbba},
-    {1, 0x3cad61}, {1, 0x3d19ed}, {5, 0x3f0243}, {5, 0x3f3209},
-    {1, 0x412434}, {1, 0x427284}, {6, 0x44b8cc}, {2, 0x44c414},
-    {2, 0x488cd1}, {1, 0x4ac056}, {1, 0x4ebffb}, {1, 0x504608},
-    {2, 0x555772}, {2, 0x568265}, {1, 0x5d1f3e}, {1, 0x5ed980},
-    {1, 0x612958}, {5, 0x61b359}, {5, 0x64d158}, {1, 0x69bb3d},
-    {1, 0x6c13ff}, {2, 0x6d1684}, {2, 0x6eafc7}, {1, 0x71529f},
-    {2, 0x73a0e9}, {1, 0x76b630}, {2, 0x7af448}, {2, 0x81997a},
-    {1, 0x885e36}, {1, 0x88dab5}, {1, 0x898b3c}, {5, 0x8cf2e6},
-    {1, 0x91d1b5}, {1, 0x9e784f}, {1, 0xa0afac}, {1, 0xa1402d},
-    {1, 0xa3d704}, {1, 0xa4b418}, {1, 0xa4ffed}, {2, 0xa88dc9},
-    {0, 0xb3df65}, {1, 0xb4fe84}, {2, 0xb6d9ed}, {2, 0xb9676f},
-    {2, 0xb998f1}, {1, 0xba0254}, {1, 0xbfb9fd}, {1, 0xc4d272},
-    {1, 0xc5bf40}, {1, 0xc698fd}, {1, 0xca81af}, {5, 0xcb75ad},
-    {2, 0xd0eb9f}, {1, 0xd2e0ea}, {1, 0xd78028}, {1, 0xdcefd1},
-    {2, 0xe37f2e}, {2, 0xf12a16},
+    {4, 0x00025cca }, {2, 0x0004b338 }, {1, 0x0005160d }, {1, 0x00078eed },
+    {2, 0x0006bd07 }, {2, 0x00080f13 }, {1, 0x000eae7b }, {2, 0x000c9f81 },
+    {2, 0x000d713b }, {1, 0x000d7b1d }, {1, 0x000ce3f8 }, {2, 0x000cd10e },
+    {2, 0x000db75b }, {1, 0x001055a7 }, {2, 0x0011afca }, {2, 0x0012a5ec },
+    {1, 0x0012c0fb }, {2, 0x00125de5 }, {1, 0x0015a376 }, {1, 0x00157230 },
+    {3, 0x0017e147 }, {2, 0x00185db9 }, {2, 0x001c066b }, {1, 0x001ebb36 },
+    {2, 0x001edcca }, {1, 0x001fb671 }, {2, 0x00212f6c }, {2, 0x0020ab74 },
+    {2, 0x0022fb34 }, {2, 0x0024e77b }, {2, 0x00252f76 }, {2, 0x0029a3b6 },
+    {1, 0x0027eadc }, {2, 0x002ad58a }, {2, 0x002f0760 }, {1, 0x002c11c1 },
+    {2, 0x002be10e }, {1, 0x00303508 }, {2, 0x00313369 }, {1, 0x002f6d81 },
+    {1, 0x003108af }, {3, 0x0031eeff }, {2, 0x0035cb74 }, {5, 0x003641d4 },
+    {1, 0x003860e4 }, {5, 0x00379fff }, {1, 0x0038e0e3 }, {1, 0x004099bf },
+    {1, 0x003a5ae9 }, {2, 0x0039dac5 }, {1, 0x003e5978 }, {1, 0x003e1cd1 },
+    {1, 0x004286ec }, {1, 0x00406493 }, {5, 0x003f9529 }, {5, 0x003f6c91 },
+    {1, 0x0041d22d }, {1, 0x004403fc }, {6, 0x00454395 }, {2, 0x004519f3 },
+    {2, 0x004aabec }, {1, 0x004c158d }, {1, 0x004ee13e }, {1, 0x0050c91d },
+    {2, 0x0058bd4a }, {2, 0x005739f7 }, {1, 0x005d8228 }, {1, 0x00646274 },
+    {1, 0x00621944 }, {5, 0x0061b8c7 }, {5, 0x00652d32 }, {1, 0x006a73eb },
+    {1, 0x0073b6da }, {2, 0x00719afe }, {2, 0x006fecf6 }, {1, 0x00748cdd },
+    {2, 0x00753b87 }, {1, 0x007bcae2 }, {2, 0x007fbf48 }, {2, 0x00825cf1 },
+    {1, 0x0088d09f }, {1, 0x008cdc71 }, {1, 0x008fb14b }, {5, 0x00908324 },
+    {1, 0x00960b8a }, {1, 0x00a8db05 }, {1, 0x00a30c08 }, {1, 0x00a36452 },
+    {1, 0x00b12051 }, {1, 0x00a522ba }, {1, 0x00ad75a0 }, {2, 0x00ad05b7 },
+    {0, 0x00b57200 }, {1, 0x00bc0048 }, {2, 0x00b89cd1 }, {2, 0x00cd2888 },
+    {2, 0x00c21f6b }, {1, 0x00baa08e }, {1, 0x00c69e7d }, {1, 0x00d4a3a1 },
+//    {1, 0x00cb3227 }, {1, 0x00cba3b3 }, {1, 0x00d532ec }, {5, 0x00ce9d09 },
+//    {2, 0x00d99d13 }, {1, 0x00dadfcc }, {1, 0x00d827c2 }, {1, 0x00ddccf3 },
+//    {2, 0x00e95696 }, {2, 0x00f89a72 },
 };
-
+//Method that can make any block be the genesis block, useful for development to get the correct nonce.
+uint32_t ComputeGenesis(CBlock& block,int blockIndex)
+{
+    arith_uint256 bnTarget;
+    bnTarget.SetCompact(block.nBits);
+    while(true)
+    {
+        if (UintToArith256(block.GetHash()) <= bnTarget)
+            break;
+        ++block.nNonce;
+        if (block.nNonce == 0)
+        {
+            printf("NONCE WRAPPED, incrementing time\n");
+            ++block.nTime;
+        }
+    }
+    /*printf("\n\n\n");
+    printf("Block Number= %i\n",blockIndex);
+    printf("block.nTime = %u \n", block.nTime);
+    printf("block.nNonce = %#010x\n", block.nNonce);
+    printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
+    printf("block.hashMerkleRoot = %s\n", block.hashMerkleRoot.ToString().c_str());
+    printf("\n\n\n");*/
+    if(blockIndex%4==0)    printf("\n");
+    printf(" {%i, %#010x },",blockinfo[blockIndex].extranonce, block.nNonce);
+    return block.nNonce;
+}
 CBlockIndex CreateBlockIndex(int nHeight)
 {
     CBlockIndex index;
@@ -225,19 +253,12 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
         pblock->nNonce = blockinfo[i].nonce;
         CValidationState state;
+     //   ComputeGenesis(*pblock,i);
         BOOST_CHECK(ProcessNewBlock(state, chainparams, NULL, pblock, true, NULL));
         BOOST_CHECK(state.IsValid());
         pblock->hashPrevBlock = pblock->GetHash();
     }
     delete pblocktemplate;
-
-    // for(size_t i = 1; i < 111; i++){
-    //     std::cout << "{" << (int)blockinfo[i-1].extranonce << ", " << afsdf[i-1] << "},";
-    //     if(i%4==0)
-    //         std::cout << std::endl;
-    //     else
-    //         std::cout << " ";
-    // }
 
     // Just to make sure we can still make simple blocks
     BOOST_CHECK(pblocktemplate = BlockAssembler(chainparams).CreateNewBlock(scriptPubKey));

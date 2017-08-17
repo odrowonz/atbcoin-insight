@@ -13,6 +13,11 @@
 #include "../script/standard.h"
 #include "previewcodedialog.h"
 #include "../random.h"
+// If the bonus code was added to the purse and at the time of the addition it was not valid,
+// then the hash of the transaction contains the hash of the script in it, and the viot number is V_OUT_FAIL.
+// This is necessary in order that later, when the key is confirmed,
+// it was possible to confirm the received money.
+#define V_OUT_FAIL 1000;
 BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformStyle, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::BonusCodeTab)
@@ -21,34 +26,10 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     this->platformStyle=platformStyle;
     ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
 
-    ui->CouponList->setModel(model=new QSortFilterProxyModel(this));
-    ui->CouponList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    QStandardItemModel *couponModel=new QStandardItemModel;
-    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord")<<tr("status"));
-    model->setSourceModel(couponModel);
-    model->setDynamicSortFilter(true);
-    model->setSortCaseSensitivity(Qt::CaseInsensitive);
-    model->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    model->setSortRole(Qt::EditRole);
-    ui->CouponList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->CouponList->setAlternatingRowColors(true);
-    ui->CouponList->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->CouponList->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    ui->CouponList->setSortingEnabled(true);
-    ui->CouponList->sortByColumn(0, Qt::DescendingOrder);
-    ui->CouponList->verticalHeader()->hide();
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
-    ui->CouponList->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
-    ui->CouponList->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
+    tableInit(ui->CouponList);
+    tableInit(ui->usedCouponList);
 
-    ui->CouponList->setColumnWidth(0,140);
-    ui->CouponList->setColumnWidth(1,100);
-    ui->CouponList->setColumnWidth(4,130);
-    ui->CouponList->setShowGrid(false);
     ui->tab1->setCurrentIndex(0);
 
     ui->SAmount->setMinimum(0.001);
@@ -65,7 +46,6 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     connect(ui->BCreate,SIGNAL(clicked(bool)),this,SLOT(CreateClick(bool)));
     connect(ui->BReceive,SIGNAL(clicked(bool)),this,SLOT(getBonusClick(bool)));
     connect(ui->tab1,SIGNAL(currentChanged(int)),this,SLOT(updateBonusList()));
-    connect(ui->CouponList,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(cliced(QModelIndex)));
 
 }
 bool BonusCodeTab::keyCheck(const std::string &str){
@@ -73,40 +53,96 @@ bool BonusCodeTab::keyCheck(const std::string &str){
     return str.substr(0,4)=="ATB-"&&str.size()==base.size()&&
             (str[12]=='-'||str[21]=='-'||str[30]=='-'||str[39]=='-');
 }
-void BonusCodeTab::cliced(QModelIndex i){
-    PreviewCodeDialog(model,i.row(),this).exec();
+void BonusCodeTab::Clicked(QModelIndex i){
+    PreviewCodeDialog(i.model(),i.row(),this).exec();
 }
 void BonusCodeTab::resizeEvent(QResizeEvent *){
     ui->tab1->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/2.1));
 }
-void BonusCodeTab::updateBonusList(){
-    QStandardItemModel *model=static_cast<QStandardItemModel *>(this->model->sourceModel());
-    model->removeRows(0,model->rowCount());
-    for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
-        CTransaction tx;
-        uint256 hashBlock;
-        const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
-        model->insertRow(0);
-        if(GetTransaction(i->hashTx, tx, Params().GetConsensus(), hashBlock, true)){
-            if(coins!=NULL&&coins->IsAvailable(i->nVout)){
-                    model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
-            }else{
-                if(mempool.exists(tx.GetHash())){
-                    model->setData(model->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
-                }else{
-                    model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
-                }
-            }
-            model->setData(model->index(0,3),QString::fromStdString(i->key));
-            model->setData(model->index(0,2),QString::fromStdString(i->hashTx.ToString()));
-            model->setData(model->index(0,1),tx.vout[i->nVout].nValue/(double)CUSTOM_FACTOR);
-            model->setData(model->index(0,0),QDateTime::fromTime_t(tx.nTime));
+void BonusCodeTab::tableInit(QTableView *sourceTable){
+    QSortFilterProxyModel * model;
+    sourceTable->setModel(model=new QSortFilterProxyModel(this));
+    sourceTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    QStandardItemModel *couponModel=new QStandardItemModel;
+    couponModel->setHorizontalHeaderLabels(QStringList()<<tr("Date")<<tr("Amount")<<tr("Transaction hash")<<tr("KeyWord")<<tr("status"));
+    model->setSourceModel(couponModel);
+    model->setDynamicSortFilter(true);
+    model->setSortCaseSensitivity(Qt::CaseInsensitive);
+    model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    model->setSortRole(Qt::EditRole);
+    sourceTable->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    sourceTable->setAlternatingRowColors(true);
+    sourceTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    sourceTable->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    sourceTable->setSortingEnabled(true);
+    sourceTable->sortByColumn(0, Qt::DescendingOrder);
+    sourceTable->verticalHeader()->hide();
+    sourceTable->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
+    sourceTable->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    sourceTable->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);
+    sourceTable->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Stretch);
+    sourceTable->horizontalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
+    sourceTable->horizontalHeader()->setDefaultAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
-            model->setData(model->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
-            model->setData(model->index(0,1),Qt::AlignCenter, Qt::TextAlignmentRole);
-            model->setData(model->index(0,2),Qt::AlignCenter, Qt::TextAlignmentRole);
-            model->setData(model->index(0,3),Qt::AlignCenter, Qt::TextAlignmentRole);
-            model->setData(model->index(0,4),Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    sourceTable->setColumnWidth(0,140);
+    sourceTable->setColumnWidth(1,100);
+    sourceTable->setColumnHidden(2,true);
+    sourceTable->setColumnWidth(4,130);
+    sourceTable->setShowGrid(false);
+
+    connect(sourceTable,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(Clicked(QModelIndex)));
+
+}
+void BonusCodeTab::updateBonusList(){
+    QStandardItemModel *model=static_cast<QStandardItemModel* >((static_cast<QSortFilterProxyModel*>(ui->CouponList->model()))->sourceModel());
+    QStandardItemModel *usedmodel=static_cast<QStandardItemModel* >((static_cast<QSortFilterProxyModel*>(ui->usedCouponList->model()))->sourceModel());
+
+    model->removeRows(0,model->rowCount());
+    usedmodel->removeRows(0,usedmodel->rowCount());
+    for(Bonusinfoset::iterator i=pwalletMain->GetListOfBonusCodes().begin();i!=pwalletMain->GetListOfBonusCodes().end();i++){
+        const CCoins* coins = pcoinsTip->AccessCoins(i->hashTx);
+        const CWalletTx *tx(pwalletMain->GetWalletTx(i->hashTx));
+        if(tx){
+            if(i->isUsed()){
+                usedmodel->insertRow(0);
+                if(coins!=NULL&&coins->IsAvailable(i->getnVout(tx->nTime>1501545600)))
+                     usedmodel->setData(usedmodel->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
+                else
+                     usedmodel->setData(usedmodel->index(0,4),tr("Used"),Qt::DisplayRole);
+
+                usedmodel->setData(usedmodel->index(0,3),QString::fromStdString(i->key));
+                usedmodel->setData(usedmodel->index(0,2),QString::fromStdString(tx->GetHash().ToString()));
+                usedmodel->setData(usedmodel->index(0,1),tx->vout[i->getnVout(tx->nTime>1501545600)].nValue/(double)CUSTOM_FACTOR);
+                usedmodel->setData(usedmodel->index(0,0),QDateTime::fromTime_t(tx->nTimeReceived));
+
+                usedmodel->setData(usedmodel->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
+                usedmodel->setData(usedmodel->index(0,1),Qt::AlignCenter, Qt::TextAlignmentRole);
+                usedmodel->setData(usedmodel->index(0,2),Qt::AlignCenter, Qt::TextAlignmentRole);
+                usedmodel->setData(usedmodel->index(0,3),Qt::AlignCenter, Qt::TextAlignmentRole);
+                usedmodel->setData(usedmodel->index(0,4),Qt::AlignCenter, Qt::TextAlignmentRole);
+            }else{
+                model->insertRow(0);
+                if(coins!=NULL&&coins->IsAvailable(i->getnVout(tx->nTime>1501545600))){
+                        model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
+                }else{
+                    if(mempool.exists(tx->GetHash())){
+                        model->setData(model->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
+                    }else{
+                        model->setData(model->index(0,4),tr("Used"),Qt::DisplayRole);
+                    }
+                }
+                model->setData(model->index(0,3),QString::fromStdString(i->key));
+                model->setData(model->index(0,2),QString::fromStdString(tx->GetHash().ToString()));
+                model->setData(model->index(0,1),tx->vout[i->getnVout(tx->nTime>1501545600)].nValue/(double)CUSTOM_FACTOR);
+                model->setData(model->index(0,0),QDateTime::fromTime_t(tx->nTime));
+
+                model->setData(model->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
+                model->setData(model->index(0,1),Qt::AlignCenter, Qt::TextAlignmentRole);
+                model->setData(model->index(0,2),Qt::AlignCenter, Qt::TextAlignmentRole);
+                model->setData(model->index(0,3),Qt::AlignCenter, Qt::TextAlignmentRole);
+                model->setData(model->index(0,4),Qt::AlignCenter, Qt::TextAlignmentRole);
+            }
         }
     }
 }
@@ -130,17 +166,7 @@ void BonusCodeTab::getBonusClick(bool){
     }
     valtype vch(key.begin(),key.end());
     CScript s= CScript()<<vch;
-    if(!pwalletMain->AddCScript(s)){
-        InformationDialog msgBox(tr("This key is added into your wallet."),"","",this);
-        msgBox.exec();
-        return;
-    }
-    CAmount ammout=pwalletMain->GetBalance();
-    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-    pwalletMain->ReacceptWalletTransactions();
-    wmodel->updateTransaction();
-    wmodel->pollBalanceChanged();
-    if(ammout>=pwalletMain->GetBalance()){
+    if(!pwalletMain->AddCBonusScript(s)){
         InformationDialog msgBox(tr("This key is no longer valid."),"","",this);
         msgBox.exec();
         return;
@@ -153,10 +179,13 @@ void BonusCodeTab::getBonusClick(bool){
                 uint160 temp3= Hash160(CScript()<<valtype(key.begin(),key.end()));
                 valtype temp4(temp3.begin(),temp3.end());
                 if(vout.scriptPubKey==CScript()<<OP_0<<OP_DROP<<OP_HASH160<<temp4<<OP_EQUAL){
-                    InformationDialog msgBox(tr("ATB coins were received with this code"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
+                    InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),QString::number((double)vout.nValue/COIN,'f'),QString::fromStdString(key),this);
                     msgBox.exec();
                     Q_EMIT couponAdded(QString::fromStdString(i->first.ToString()));
-                    confirmation(i->first,nvout);
+                    confirmation(i->first,nvout,key);
+                    CBonusinfo bonus(key,i->first,nvout,true);
+                    pwalletMain->AddBonusKey(bonus);
+                    updateBonusList();
                 }
                 nvout++;
             }
@@ -165,7 +194,7 @@ void BonusCodeTab::getBonusClick(bool){
     }
     ui->EKey->clear();
 }
-void BonusCodeTab::confirmation(const uint256 &hash, int i){
+void BonusCodeTab::confirmation(const uint256 &hash, int i,std::string k){
     std::vector<CRecipient> Recipient;
     CRecipient rec;
     CPubKey key;
@@ -184,6 +213,7 @@ void BonusCodeTab::confirmation(const uint256 &hash, int i){
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
     wtx.mapValue["comment"] = tr("Commission for the confirmation of the bonus code.").toStdString();
+    wtx.mapValue["bonusConfirmation"] = k;
     if(!(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey))){
         InformationDialog(tr("The key is no confirmed."),"","",this).exec();
     }

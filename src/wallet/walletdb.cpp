@@ -159,6 +159,7 @@ bool CWalletDB::WriteDefaultKey(const CPubKey& vchPubKey)
     return Write(std::string("defaultkey"), vchPubKey);
 }
 
+
 bool CWalletDB::ReadPool(int64_t nPool, CKeyPool& keypool)
 {
     return Read(std::make_pair(std::string("pool"), nPool), keypool);
@@ -867,6 +868,19 @@ DBErrors CWalletDB::ZapWalletTx(CWallet* pwallet, vector<CWalletTx>& vWtx)
 
     return DB_LOAD_OK;
 }
+
+
+#include <iostream>
+#include <istream>
+#include <ostream>
+#include <string>
+#include <boost/asio.hpp>
+
+#include <sstream>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+
+
 
 void ThreadFlushWalletDB(const string& strFile)
 {

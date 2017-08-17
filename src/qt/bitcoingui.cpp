@@ -56,6 +56,7 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
+#include <QFontDatabase>
 #include "ShareDialog.h"
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
@@ -117,9 +118,15 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     prevBlocks(0),
     spinnerFrame(0),
     mainMenu(0),
+    shareDialog(0),
+    RestoreWallet(0),
+    Lock(0),
+    Unlock(0),
     platformStyle(platformStyle)
 {
-    GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+    QRect desctop=QApplication::desktop()->screenGeometry();
+    QSize size(desctop.width()*0.4,desctop.height()*0.4);
+    GUIUtil::restoreWindowGeometry("nWindow",size, this);
 
     QString windowTitle = tr(PACKAGE_NAME) + " - ";
 #ifdef ENABLE_WALLET
@@ -186,7 +193,11 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     // Create status bar
     statusBar();
     statusBar()->setMaximumHeight(30);
-
+#ifdef Q_OS_WIN
+    QFont font("sans-serif");
+    font.setStyleHint(QFont::SansSerif);
+    statusBar()->setFont(font);
+#endif
     // Disable size grip because it looks ugly and nobody needs it
     statusBar()->setSizeGripEnabled(false);
 
@@ -338,44 +349,52 @@ void BitcoinGUI::createActions()
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    optionsAction = new QAction(platformStyle->SingleColorIcon(":/icons/options"), tr("&Options..."), this);
+    optionsAction = new QAction(platformStyle->SingleColorIcon(":/icons/options"), tr("&Options"), this);
     optionsAction->setStatusTip(tr("Modify configuration options for %1").arg(tr(PACKAGE_NAME)));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     optionsAction->setEnabled(false);
     toggleHideAction = new QAction(platformStyle->SingleColorIcon(":/icons/about"), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
-    encryptWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
+    encryptWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"), tr("&Encrypt Wallet"), this);
     encryptWalletAction->setStatusTip(tr("Encrypt the private keys that belong to your wallet"));
     encryptWalletAction->setCheckable(true);
-    backupWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/filesave"), tr("&Backup Wallet..."), this);
+    backupWalletAction = new QAction(platformStyle->SingleColorIcon(":/icons/filesave"), tr("&Backup Wallet"), this);
     backupWalletAction->setStatusTip(tr("Backup wallet to another location"));
-    changePassphraseAction = new QAction(platformStyle->SingleColorIcon(":/icons/key"), tr("&Change Passphrase..."), this);
+    changePassphraseAction = new QAction(platformStyle->SingleColorIcon(":/icons/key"), tr("&Change Passphrase"), this);
     changePassphraseAction->setStatusTip(tr("Change the passphrase used for wallet encryption"));
-    signMessageAction = new QAction(platformStyle->SingleColorIcon(":/icons/edit"), tr("Sign &message..."), this);
+    signMessageAction = new QAction(platformStyle->SingleColorIcon(":/icons/edit"), tr("Sign &message"), this);
     signMessageAction->setStatusTip(tr("Sign messages with your ATBcoin addresses to prove you own them"));
-    verifyMessageAction = new QAction(platformStyle->SingleColorIcon(":/icons/verify"), tr("&Verify message..."), this);
+    verifyMessageAction = new QAction(platformStyle->SingleColorIcon(":/icons/verify"), tr("&Verify message"), this);
     verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified ATBcoin addresses"));
     openRPCConsoleAction = new QAction(platformStyle->SingleColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
     // initially disable the debug window menu item
     openRPCConsoleAction->setEnabled(false);
 
-    usedSendingAddressesAction = new QAction(platformStyle->SingleColorIcon(":/icons/address-book"), tr("&Sending addresses..."), this);
+    usedSendingAddressesAction = new QAction(platformStyle->SingleColorIcon(":/icons/address-book"), tr("&Sending addresses"), this);
     usedSendingAddressesAction->setStatusTip(tr("Show the list of used sending addresses and labels"));
-    usedReceivingAddressesAction = new QAction(platformStyle->SingleColorIcon(":/icons/address-book"), tr("&Receiving addresses..."), this);
+    usedReceivingAddressesAction = new QAction(platformStyle->SingleColorIcon(":/icons/address-book"), tr("&Receiving addresses"), this);
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
-    openAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("Open &URI..."), this);
+    openAction = new QAction(platformStyle->SingleColorIcon(":/icons/open"), tr("Open &URI"), this);
     openAction->setStatusTip(tr("Open a atbcoin: URI or payment request"));
 
     showHelpMessageAction = new QAction(platformStyle->SingleColorIcon(":/icons/info"), tr("&Command-line options"), this);
     showHelpMessageAction->setMenuRole(QAction::NoRole);
     showHelpMessageAction->setStatusTip(tr("Show the %1 help message to get a list with possible ATBcoin command-line options").arg(tr(PACKAGE_NAME)));
 
-    shareDialog=new QAction(platformStyle->SingleColorIcon(":/icons/new"), tr("&Money share"), this);
+/********************************************ATB_COIN*************************************************/
 
-    connect(shareDialog,SIGNAL(triggered(bool)),this,SLOT(shareDialogCliced()));
+    shareDialog=new QAction(platformStyle->SingleColorIcon(":/icons/new"), tr("&Money share"), this);
+    RestoreWallet=new QAction(platformStyle->SingleColorIcon(":/icons/editcopy"),tr("Restore Wallet"),this);
+    Lock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"),tr("Lock Wallet"),this);
+    Unlock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_open"),tr("Unlock Wallet"),this);
+/*****************************************************************************************************/
+
+    showHelpMessageAction->setStatusTip(tr("Return to the previously made backup copy of the wallet.").arg(tr(PACKAGE_NAME)));
+
+    connect(shareDialog,SIGNAL(triggered(bool)),this,SLOT(shareDialogClicked()));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
@@ -389,7 +408,10 @@ void BitcoinGUI::createActions()
     if(walletFrame)
     {
         connect(encryptWalletAction, SIGNAL(triggered(bool)), walletFrame, SLOT(encryptWallet(bool)));
+        connect(Lock, SIGNAL(triggered(bool)), walletFrame, SLOT(LockWallet()));
+        connect(Unlock, SIGNAL(triggered(bool)), walletFrame, SLOT(UnlockWallet()));
         connect(backupWalletAction, SIGNAL(triggered()), walletFrame, SLOT(backupWallet()));
+        connect(RestoreWallet, SIGNAL(triggered()), walletFrame, SLOT(restoreWallet()));
         connect(changePassphraseAction, SIGNAL(triggered()), walletFrame, SLOT(changePassphrase()));
         connect(signMessageAction, SIGNAL(triggered()), this, SLOT(gotoSignMessageTab()));
         connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
@@ -416,10 +438,12 @@ void BitcoinGUI::createMenuBar()
     appMenuBar->setFont(GUIUtil::fixedPitchFont());
     // Configure the menus
     QMenu *file = appMenuBar->addMenu(tr("&File"));
+
     if(walletFrame)
     {
         file->addAction(openAction);
         file->addAction(backupWalletAction);
+        file->addAction(RestoreWallet);
         file->addAction(signMessageAction);
         file->addAction(verifyMessageAction);
         file->addAction(shareDialog);
@@ -435,6 +459,9 @@ void BitcoinGUI::createMenuBar()
         settings->addAction(encryptWalletAction);
         settings->addAction(changePassphraseAction);
         settings->addSeparator();
+        settings->addAction(Lock);
+        settings->addAction(Unlock);
+        settings->addSeparator();
     }
     settings->addAction(optionsAction);
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
@@ -449,7 +476,7 @@ void BitcoinGUI::createMenuBar()
     file->setFont(GUIUtil::fixedPitchFont());
     help->setFont(GUIUtil::fixedPitchFont());
 }
-void BitcoinGUI::shareDialogCliced(){
+void BitcoinGUI::shareDialogClicked(){
     (new ShareDialog(this))->show();
 }
 void BitcoinGUI::createToolBars()
@@ -557,6 +584,7 @@ bool BitcoinGUI::addWallet(const QString& name, WalletModel *walletModel)
     if(!walletFrame)
         return false;
     setWalletActionsEnabled(true);
+    this->walletModel=walletModel;
     return walletFrame->addWallet(name, walletModel);
 }
 
@@ -1065,6 +1093,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(false);
         changePassphraseAction->setEnabled(false);
         encryptWalletAction->setEnabled(true);
+        Lock->setEnabled(false);
+        Unlock->setEnabled(false);
         break;
     case WalletModel::Unlocked:
         labelEncryptionIcon->show();
@@ -1073,6 +1103,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
+        Lock->setEnabled(true);
+        Unlock->setEnabled(false);
         break;
     case WalletModel::Locked:
         labelEncryptionIcon->show();
@@ -1081,6 +1113,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
+        Lock->setEnabled(false);
+        Unlock->setEnabled(true);
         break;
     }
 }

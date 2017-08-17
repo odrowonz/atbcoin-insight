@@ -81,7 +81,7 @@ protected:
 private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
-
+    WalletModel *walletModel;
     UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;
     QLabel *labelConnectionsIcon;
@@ -91,7 +91,7 @@ private:
     QProgressDialog *progressDialog;
 
     QMenuBar *appMenuBar;
-    QPushButton *mainMenu;
+    QPushButton *mainMenu;  //atbcoin
     QAction *overviewAction;
     QAction *historyAction;
     QAction *quitAction;
@@ -113,8 +113,12 @@ private:
     QAction *openRPCConsoleAction;
     QAction *openAction;
     QAction *showHelpMessageAction;
-    QAction *BonusCodeTab;
-    QAction *shareDialog;
+    QAction *BonusCodeTab;  //atbcoin
+    QAction *shareDialog;   //atbcoin
+    QAction *RestoreWallet; //atbcoin
+    QAction *Lock;          //atbcoin
+    QAction *Unlock;        //atbcoin
+
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     Notificator *notificator;
@@ -201,9 +205,8 @@ private Q_SLOTS:
     void openClicked();
     void checedTabChanged();
 #endif // ENABLE_WALLET
-
-    /** show testDialogCliced*/
-    void shareDialogCliced();
+    /** show ShareDialogClicked*/
+    void shareDialogClicked();
     /** Show configuration dialog */
     void optionsClicked();
     /** Show about dialog */

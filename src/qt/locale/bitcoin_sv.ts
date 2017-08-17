@@ -2,6 +2,873 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sv">
 <context>
+    <name>ATBCoin-core</name>
+    <message>
+        <source>Bitcoin Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %s developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation type="unfinished">(1 = spara tx metadata t.ex. kontoägare och betalningsbegäransinformation, 2 = släng tx metadata)</translation>
+    </message>
+    <message>
+        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
+        <translation type="unfinished">-fallbackfee är satt väldigt högt! Detta är avgiften du kan komma att betala om uppskattad avgift inte finns tillgänglig.</translation>
+    </message>
+    <message>
+        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished">-maxtxfee är väldigt högt satt! Så höga avgifter kan komma att betalas för en enstaka transaktion.</translation>
+    </message>
+    <message>
+        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished">-paytxfee är väldigt högt satt! Det här är avgiften du kommer betala om du skickar en transaktion.</translation>
+    </message>
+    <message>
+        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
+        <translation type="unfinished">En avgiftskurs (i %s/kB) som används när det inte finns tillräcklig data för att uppskatta avgiften (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
+        <translation type="unfinished">Acceptera vidarebefodrade transaktioner från vitlistade noder även när transaktioner inte vidarebefodras (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation type="unfinished">Tillåt JSON-RPC-anslutningar från specifik källa. Tillåtna &lt;ip&gt; är enkel IP (t.ex 1.2.3.4), en nätverk/nätmask (t.ex. 1.2.3.4/255.255.255.0) eller ett nätverk/CIDR (t.ex. 1.2.3.4/24). Detta alternativ anges flera gånger</translation>
+    </message>
+    <message>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Bind till given adress och lyssna alltid på den. Använd [värd]:port notation för IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation type="unfinished">Bind till given adress och vitlista klienter som ansluter till den. Använd [värd]:port notation för IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation type="unfinished">Bind till angiven adress för att lyssna på JSON-RPC-anslutningar. Använd [värd]:port-format for IPv6. Detta alternativ kan anges flera gånger (förvalt: bind till alla gränssnitt)</translation>
+    </message>
+    <message>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished">Kan inte låsa data-mappen %s. %s körs förmodligen redan.</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation type="unfinished">Skapa nya filer med systemets förvalda rättigheter, istället för umask 077 (bara effektivt med avaktiverad plånboks funktionalitet)</translation>
+    </message>
+    <message>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation type="unfinished">Ta bort alla plånbokstransaktioner och återskapa bara dom som är en del av blockkedjan genom att ange -rescan vid uppstart</translation>
+    </message>
+    <message>
+        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
+        <translation type="unfinished">Upptäck egna IP adresser (standard: 1 vid lyssning ingen -externalip eller -proxy)</translation>
+    </message>
+    <message>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation type="unfinished">Distribuerad under MIT mjukvarulicens, se den bifogade filen COPYING eller &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation type="unfinished">Håll inte transaktioner i minnespoolen längre än &lt;n&gt; timmar (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
+        <translation type="unfinished">Fel vid laddning av %s: Du kan inte aktivera HD på en existerande icke-HD plånbok</translation>
+    </message>
+    <message>
+        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished">Fel vid läsning av %s! Alla nycklar lästes korrekt, men transaktionsdatat eller adressbokens poster kanske saknas eller är felaktiga.</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation type="unfinished">Fel: Avlyssning av inkommande anslutningar misslyckades (Avlyssningen returnerade felkod %s)</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation type="unfinished">Exekvera kommando när ett relevant meddelande är mottagen eller när vi ser en väldigt lång förgrening (%s i cmd är utbytt med ett meddelande)</translation>
+    </message>
+    <message>
+        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
+        <translation type="unfinished">Exekvera kommando när en plånbokstransaktion ändras (%s i cmd är ersatt av TxID)</translation>
+    </message>
+    <message>
+        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
+        <translation type="unfinished">Exekvera kommando när det bästa blocket ändras (%s i cmd är utbytt av blockhash)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation type="unfinished">Avgifter (i %s/kB) mindre än detta betraktas som nollavgift för vidarebefordran, mining och transaktionsskapande (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation type="unfinished">Avgifter (i %s/kB) mindre än detta anses vara nollavgifter vid skapande av transaktion (standard: %s)</translation>
+    </message>
+    <message>
+        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
+        <translation type="unfinished">Vidarebefodra alltid transaktioner från vitlistade noder även om de bryter mot lokala reläpolicyn (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation type="unfinished">Hur grundlig blockverifikationen vid -checkblocks är (0-4, förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
+        <translation type="unfinished">Om &lt;kategori&gt; inte anges eller om &lt;category&gt; = 1, visa all avlusningsinformation.</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation type="unfinished">Om paytxfee inte är satt, inkludera tillräcklig avgift så att transaktionen börjar att konfirmeras inom n blocks (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished">Otillåtet belopp för -maxtxfee=&lt;belopp&gt;: &apos;%s&apos; (måste åtminstånde vara minrelay avgift %s för att förhindra stoppade transkationer)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation type="unfinished">Upprätthåll ett fullständigt transaktionsindex, som används av getrawtransaction rpc-anrop (förval: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
+        <translation type="unfinished">Maximalt tillåten median-peer tidsoffset justering. Lokalt perspektiv av tiden kan bli påverkad av partners, framåt eller bakåt denna tidsrymd. (förvalt: %u sekunder)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation type="unfinished">Maximal storlek på data i databärartransaktioner som vi reläar och bryter (förvalt: %u) </translation>
+    </message>
+    <message>
+        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
+        <translation type="unfinished">Maximal total avgift (i %s) att använda i en plånbokstransaktion eller råa transaktioner. Sätts denna för lågt kan stora transaktioner avbrytas (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation type="unfinished">Antal sekunder att hindra klienter som missköter sig från att ansluta (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished">Skriv ut avlusningsinformation (förvalt: %u, att ange &lt;category&gt; är frivilligt)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
+        <translation type="unfinished">Vänligen kolla så att din dators datum och tid är korrekt! Om din klocka går fel kommer %s inte att fungera korrekt.</translation>
+    </message>
+    <message>
+        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
+        <translation type="unfinished">Var snäll och bidra om du finner %s användbar. Besök %s för mer information om mjukvaran.</translation>
+    </message>
+    <message>
+        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
+        <translation type="unfinished">Beskärning konfigurerad under miniminivån %d MiB. Vänligen använd ett högre värde.</translation>
+    </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished">Beskärning: sista plånbokssynkroniseringen ligger utanför beskuren data. Du måste använda -reindex (ladda ner hela blockkedjan igen eftersom noden beskurits)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation type="unfinished">Sök efter klientadresser med DNS sökningen, om det finns otillräckligt med adresser (förvalt: 1 om inte -connect)</translation>
+    </message>
+    <message>
+        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
+        <translation type="unfinished">Slumpa autentiseringen för varje proxyanslutning. Detta möjliggör Tor ström-isolering (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
+        <translation type="unfinished">Minska lagringsbehovet genom att beskära (ta bort) gamla block. Detta läge är inkompatibelt med -txindex och -rescan. Varning: Ändras denna inställning måste hela blockkedjan laddas ner igen. (förvalt: 0 = inaktivera beskärning av block, &gt;%u = målstorlek i MiB att använda för blockfiler)</translation>
+    </message>
+    <message>
+        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
+        <translation type="unfinished">Omskanningar kan inte göras i beskuret läge. Du måste använda -reindex vilket kommer ladda ner hela blockkedjan igen.</translation>
+    </message>
+    <message>
+        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
+        <translation type="unfinished">Sätt den maximala storleken av hög-prioriterade/låg-avgifts transaktioner i byte (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
+        <translation type="unfinished">Ange antalet skriptkontrolltrådar (%u till %d, 0 = auto, &lt;0 = lämna så många kärnor lediga, förval: %d)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation type="unfinished">Stöd filtrering av block och transaktioner med bloomfilter (standard: %u)</translation>
+    </message>
+    <message>
+        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
+        <translation type="unfinished">Blockdatabasen innehåller ett block som verkar vara från framtiden. Detta kan vara på grund av att din dators datum och tid är felaktiga. Bygg bara om blockdatabasen om du är säker på att datorns datum och tid är korrekt</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to send after the fee has been deducted</source>
+        <translation type="unfinished">Transaktionen är för liten att skicka efter det att avgiften har dragits</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
+        <translation type="unfinished">Detta är ett förhands testbygge - använd på egen risk - använd inte för mining eller handels applikationer</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished">Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användning i OpenSSL Toolkit &lt;https://www.openssl.org/&gt; och kryptografisk mjukvara utvecklad av Eric Young samt UPnP-mjukvara skriven av Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished">Total längd på strängen för nätverksversion (%i) överskrider maxlängden (%i). Minska numret eller storleken på uacomments.</translation>
+    </message>
+    <message>
+        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
+        <translation type="unfinished">Försöker hålla utgående trafik under givet mål (i MiB per 24 timmar), 0 = ingen gräns (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
+        <translation type="unfinished">Kan inte spola tillbaka databasen till obeskärt läge. Du måste ladda ner blockkedjan igen</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished">Argumentet -socks hittades och stöds inte. Det är inte längre möjligt att sätta SOCKS-version längre, bara SOCKS5-proxy stöds.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
+        <translation type="unfinished">Argumentet -whitelistalwaysrelay stöds inte utan ignoreras, använd -whitelistrelay och/eller -whitelistforcerelay.</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
+        <translation type="unfinished">Använd UPnP för att mappa den lyssnande porten (förvalt: 1 när lyssning aktiverat och utan -proxy)</translation>
+    </message>
+    <message>
+        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
+        <translation type="unfinished">Använd hierarkisk deterministisk nyckel generering (HD) efter BIP32. Har bara effekt under plånbokens skapande/första användning.</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation type="unfinished">Använd separat SOCKS5 proxy för att nå kollegor via dolda tjänster i Tor (förvalt: -%s)</translation>
+    </message>
+    <message>
+        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
+        <translation type="unfinished">Användarnamn och hashat lösenord för JSON-RPC-anslutningar. Fältet &lt;userpw&gt; kommer i formatet: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Ett kanoniskt pythonskript finns inkluderat i share/rpcuser. Detta alternativ kan anges flera gånger</translation>
+    </message>
+    <message>
+        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
+        <translation type="unfinished">Varning: Nätverket verkar inte vara helt överens! Några miners verkar ha problem.</translation>
+    </message>
+    <message>
+        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
+        <translation type="unfinished">Varning: Okända blockversioner bryts! Det är möjligt att okända regler används</translation>
+    </message>
+    <message>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished">Varning: Plånboksfilen var korrupt, datat har räddats! Den ursprungliga %s har sparas som %s i %s. Om ditt saldo eller transaktioner är felaktiga bör du återställa från en säkerhetskopia.</translation>
+    </message>
+    <message>
+        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
+        <translation type="unfinished">Varning: Vi verkar inte helt överens med våra peers! Du kan behöva uppgradera, eller andra noder kan behöva uppgradera.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation type="unfinished">Vitlista klienter som ansluter från angivna nätmasker eller IP-adresser. Kan specificeras flera gånger.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation type="unfinished">Vitlistade klienter kan inte bli DoS-bannade och deras transaktioner reläas alltid, även om dom redan är i mempoolen, användbart för t.ex en gateway  </translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
+        <translation type="unfinished">Du måste bygga om databasen genom att använda -reindex för att återgå till obeskärt läge. Detta kommer att ladda ner hela blockkedjan.</translation>
+    </message>
+    <message>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation type="unfinished">Du måste återskapa databasen med -reindex-chainstate för att ändra -txindex</translation>
+    </message>
+    <message>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished">%s är korrupt, räddning misslyckades</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation type="unfinished">(förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %u)</source>
+        <translation type="unfinished">(förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>-maxmempool must be at least %d MB</source>
+        <translation type="unfinished">-maxmempool måste vara minst %d MB</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished">&lt;category&gt; Kan vara:</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation type="unfinished">Tillåt kommandon från kommandotolken och JSON-RPC-kommandon</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation type="unfinished">Acceptera anslutningar utifrån (förvalt: 1 om ingen -proxy eller -connect)</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation type="unfinished">Acceptera publika REST förfrågningar (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Add a node to connect to and attempt to keep the connection open</source>
+        <translation type="unfinished">Lägg till en nod att koppla upp mot och försök att hålla anslutningen öppen</translation>
+    </message>
+    <message>
+        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
+        <translation type="unfinished">Tillåt DNS-sökningar för -addnode, -seednode och -connect</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation type="unfinished">Sök alltid efter klientadresser med DNS sökningen (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished">Lägg till kommentar till user-agent-strängen</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
+        <translation type="unfinished">Försök att rädda privata nycklar från en korrupt plånbok vid uppstart</translation>
+    </message>
+    <message>
+        <source>Automatically create Tor hidden service (default: %d)</source>
+        <translation type="unfinished">Skapa automatiskt dold tjänst i Tor (förval: %d)</translation>
+    </message>
+    <message>
+        <source>Block creation options:</source>
+        <translation type="unfinished">Block skapande inställningar:</translation>
+    </message>
+    <message>
+        <source>Cannot downgrade wallet</source>
+        <translation type="unfinished">Kan inte nedgradera plånboken</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
+        <translation type="unfinished">Kan inte matcha -%s adress: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Cannot write default address</source>
+        <translation type="unfinished">Kan inte skriva standardadress</translation>
+    </message>
+    <message>
+        <source>Change index out of range</source>
+        <translation type="unfinished">Förändringsindexet utom räckhåll</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation type="unfinished">Koppla enbart upp till den/de specificerade noden/noder</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished">Anslut genom SOCKS5 proxy</translation>
+    </message>
+    <message>
+        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
+        <translation type="unfinished">Anslut till en nod för att hämta klientadresser, och koppla från</translation>
+    </message>
+    <message>
+        <source>Connection options:</source>
+        <translation type="unfinished">Anslutningsalternativ:</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i-%i</source>
+        <translation type="unfinished">Copyright (C) %i-%i</translation>
+    </message>
+    <message>
+        <source>Corrupted block database detected</source>
+        <translation type="unfinished">Korrupt blockdatabas har upptäckts</translation>
+    </message>
+    <message>
+        <source>Debugging/Testing options:</source>
+        <translation type="unfinished">Avlusnings/Test-alternativ:</translation>
+    </message>
+    <message>
+        <source>Do not load the wallet and disable wallet RPC calls</source>
+        <translation type="unfinished">Ladda inte plånboken och stäng av RPC-anrop till plånboken</translation>
+    </message>
+    <message>
+        <source>Do you want to rebuild the block database now?</source>
+        <translation type="unfinished">Vill du bygga om blockdatabasen nu?</translation>
+    </message>
+    <message>
+        <source>Done loading</source>
+        <translation type="unfinished">Klar med laddning</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation type="unfinished">Aktivera publicering av hashblock i &lt;adress&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Aktivera publicering av hashtransaktion i &lt;adress&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation type="unfinished">Aktivera publicering av råa block i &lt;adress&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation type="unfinished">Aktivera publicering av råa transaktioner i &lt;adress&gt;</translation>
+    </message>
+    <message>
+        <source>Enable transaction replacement in the memory pool (default: %u)</source>
+        <translation type="unfinished">Aktivera byte av transaktioner i minnespoolen (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Error initializing block database</source>
+        <translation type="unfinished">Fel vid initiering av blockdatabasen</translation>
+    </message>
+    <message>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished">Fel vid initiering av plånbokens databasmiljö %s!</translation>
+    </message>
+    <message>
+        <source>Error loading %s</source>
+        <translation type="unfinished">Fel vid inläsning av %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished">Fel vid inläsningen av %s: Plånboken är koruppt</translation>
+    </message>
+    <message>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished">Fel vid inläsningen av %s: Plånboken kräver en senare version av %s</translation>
+    </message>
+    <message>
+        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
+        <translation type="unfinished">Fel vid laddning av %s: Du kan inte avaktivera HD på en redan existerande HD plånbok</translation>
+    </message>
+    <message>
+        <source>Error loading block database</source>
+        <translation type="unfinished">Fel vid inläsning av blockdatabasen</translation>
+    </message>
+    <message>
+        <source>Error opening block database</source>
+        <translation type="unfinished">Fel vid öppning av blockdatabasen</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation type="unfinished">Fel vid läsning från databas, avslutar.</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Fel</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished">Fel: Ett kritiskt internt fel uppstod, se debug.log för detaljer</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished">Fel: Hårddiskutrymme är lågt!</translation>
+    </message>
+    <message>
+        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
+        <translation type="unfinished">Misslyckades att lyssna på någon port. Använd -listen=0 om du vill detta.</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation type="unfinished">Avgift (i %s/kB) att lägga till på transaktioner du skickar (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation type="unfinished">Hur många block att kontrollera vid uppstart (förvalt: %u, 0 = alla)</translation>
+    </message>
+    <message>
+        <source>Importing...</source>
+        <translation type="unfinished">Importerar...</translation>
+    </message>
+    <message>
+        <source>Imports blocks from external blk000??.dat file on startup</source>
+        <translation type="unfinished">Importera block från extern blk000??.dat-fil vid uppstart</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation type="unfinished">Inkludera IP-adresser i debugutskrift (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
+        <translation type="unfinished">Felaktig eller inget genesisblock hittades. Fel datadir för nätverket?</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">Information</translation>
+    </message>
+    <message>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished">Initieringschecken fallerade. %s stängs av.</translation>
+    </message>
+    <message>
+        <source>Insufficient funds</source>
+        <translation type="unfinished">Otillräckligt med atatbcoins</translation>
+    </message>
+    <message>
+        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <translation type="unfinished">Ogiltig -onion adress:&apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <translation type="unfinished">Ogiltig -proxy adress: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">Ogiltigt belopp för -%s=&lt;belopp&gt;:&apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
+        <translation type="unfinished">Ogiltigt belopp för -fallbackfee=&lt;belopp&gt;: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished">Ogiltigt belopp för -paytxfee=&lt;belopp&gt;:&apos;%s&apos; (måste vara minst %s)</translation>
+    </message>
+    <message>
+        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
+        <translation type="unfinished">Ogiltig nätmask angiven i -whitelist: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation type="unfinished">Håll som mest &lt;n&gt; oanslutningsbara transaktioner i minnet (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation type="unfinished">Håll minnespoolen över transaktioner under &lt;n&gt; megabyte (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Lyssna på JSON-RPC-anslutningar på &lt;port&gt; (förval: %u eller testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished">Lyssna efter anslutningar på &lt;port&gt; (förvalt: %u eller testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Loading addresses...</source>
+        <translation type="unfinished">Laddar adresser...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation type="unfinished">Laddar svarta listan...</translation>
+    </message>
+    <message>
+        <source>Loading block index...</source>
+        <translation type="unfinished">Laddar blockindex...</translation>
+    </message>
+    <message>
+        <source>Loading wallet...</source>
+        <translation type="unfinished">Laddar plånbok...</translation>
+    </message>
+    <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation type="unfinished">Plats för authcookie (förvalt: datamapp)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation type="unfinished">Ha som mest &lt;n&gt; anslutningar till andra klienter (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Make the wallet broadcast transactions</source>
+        <translation type="unfinished">Gör så att plånboken sänder ut transaktionerna</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Maximal mottagningsbuffert per anslutning, &lt;n&gt;*1000 byte (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation type="unfinished">Maximal sändningsbuffert per anslutning, &lt;n&gt;*1000 byte (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
+        <translation type="unfinished">Port måste anges med -whitelist: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Node relay options:</source>
+        <translation type="unfinished">Nodreläalternativ:</translation>
+    </message>
+    <message>
+        <source>Not enough file descriptors available.</source>
+        <translation type="unfinished">Inte tillräckligt med filbeskrivningar tillgängliga.</translation>
+    </message>
+    <message>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation type="unfinished">Anslut enbart till noder i nätverket &lt;net&gt; (IPv4, IPv6 eller onion)</translation>
+    </message>
+    <message>
+        <source>Options:</source>
+        <translation type="unfinished">Inställningar:</translation>
+    </message>
+    <message>
+        <source>Password for JSON-RPC connections</source>
+        <translation type="unfinished">Lösenord för JSON-RPC-anslutningar</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation type="unfinished">Skriv ut tidsstämpel i avlusningsinformationen (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Print this help message and exit</source>
+        <translation type="unfinished">Visa denna hjälptext och avsluta</translation>
+    </message>
+    <message>
+        <source>Print version and exit</source>
+        <translation type="unfinished">Visa version och avsluta</translation>
+    </message>
+    <message>
+        <source>Prune cannot be configured with a negative value.</source>
+        <translation type="unfinished">Beskärning kan inte konfigureras med ett negativt värde.</translation>
+    </message>
+    <message>
+        <source>Prune mode is incompatible with -txindex.</source>
+        <translation type="unfinished">Beskärningsläge är inkompatibel med -txindex.</translation>
+    </message>
+    <message>
+        <source>Pruning blockstore...</source>
+        <translation type="unfinished">Rensar blockstore...</translation>
+    </message>
+    <message>
+        <source>RPC server options:</source>
+        <translation type="unfinished">RPC-serveralternativ:</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
+        <translation type="unfinished">Återskapa blockkedjans status och index från blk*.dat filer på disken</translation>
+    </message>
+    <message>
+        <source>Rebuild chain state from the currently indexed blocks</source>
+        <translation type="unfinished">Återskapa blockkedjans status från aktuella indexerade block</translation>
+    </message>
+    <message>
+        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
+        <translation type="unfinished">Minskar -maxconnections från %d till %d, på grund av systembegränsningar.</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation type="unfinished">Reläa och bearbeta databärartransaktioner (förvalt: %u) </translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation type="unfinished">Reläa icke-P2SH multisig (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Rescan the block chain for missing wallet transactions on startup</source>
+        <translation type="unfinished">Sök i blockkedjan efter saknade plånbokstransaktioner vid uppstart</translation>
+    </message>
+    <message>
+        <source>Rescanning...</source>
+        <translation type="unfinished">Söker igen...</translation>
+    </message>
+    <message>
+        <source>Rewinding blocks...</source>
+        <translation type="unfinished">Spolar tillbaka blocken...</translation>
+    </message>
+    <message>
+        <source>Run in the background as a daemon and accept commands</source>
+        <translation type="unfinished">Kör i bakgrunden som tjänst och acceptera kommandon</translation>
+    </message>
+    <message>
+        <source>Send trace/debug info to console instead of debug.log file</source>
+        <translation type="unfinished">Skicka trace-/debuginformation till terminalen istället för till debug.log</translation>
+    </message>
+    <message>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation type="unfinished">Sänd transaktioner som nollavgiftstransaktioner om möjligt (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
+        <translation type="unfinished">Sätt databasens cachestorlek i megabyte (%d till %d, förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation type="unfinished">Sätt storleken på nyckelpoolen till &lt;n&gt; (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set maximum block size in bytes (default: %d)</source>
+        <translation type="unfinished">Sätt maximal blockstorlek i byte (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation type="unfinished">Ange antalet trådar för att hantera RPC anrop (förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Show all debugging options (usage: --help -help-debug)</source>
+        <translation type="unfinished">Visa alla avlusningsalternativ (använd: --help -help-debug)</translation>
+    </message>
+    <message>
+        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
+        <translation type="unfinished">Krymp debug.log filen vid klient start (förvalt: 1 vid ingen -debug)</translation>
+    </message>
+    <message>
+        <source>Signing transaction failed</source>
+        <translation type="unfinished">Signering av transaktion misslyckades</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation type="unfinished">Ange konfigurationsfil (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation type="unfinished">Ange timeout för uppkoppling i millisekunder (minimum:1, förvalt: %d)</translation>
+    </message>
+    <message>
+        <source>Specify data directory</source>
+        <translation type="unfinished">Ange katalog för data</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation type="unfinished">Ange pid-fil (förvalt: %s)</translation>
+    </message>
+    <message>
+        <source>Specify wallet file (within data directory)</source>
+        <translation type="unfinished">Ange plånboksfil (inom datakatalogen)</translation>
+    </message>
+    <message>
+        <source>Specify your own public address</source>
+        <translation type="unfinished">Ange din egen publika adress</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation type="unfinished">Spendera okonfirmerad växel när transaktioner sänds (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>The source code is available from %s.</source>
+        <translation type="unfinished">Källkoden är tillgänglig från %s.</translation>
+    </message>
+    <message>
+        <source>The transaction amount is too small to pay the fee</source>
+        <translation type="unfinished">Transaktionen är för liten för att betala avgiften</translation>
+    </message>
+    <message>
+        <source>This is experimental software.</source>
+        <translation type="unfinished">Detta är experimentmjukvara.</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation type="unfinished">Tröskelvärde för att koppla ifrån klienter som missköter sig (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>Tor control port password (default: empty)</source>
+        <translation type="unfinished">Lösenord för Tor-kontrollport (förval: inget)</translation>
+    </message>
+    <message>
+        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <translation type="unfinished">Tor-kontrollport att använda om onion är aktiverat (förval: %s)</translation>
+    </message>
+    <message>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished">Transaktions belopp för liten</translation>
+    </message>
+    <message>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished">Transaktionens belopp måste vara positiva</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation type="unfinished">Transaktionen är för stor för avgiftspolicyn</translation>
+    </message>
+    <message>
+        <source>Transaction too large</source>
+        <translation type="unfinished">Transaktionen är för stor</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation type="unfinished">Det går inte att binda till %s på den här datorn (bind returnerade felmeddelande %s)</translation>
+    </message>
+    <message>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished">Det går inte att binda till %s på den här datorn. %s är förmodligen redan igång.</translation>
+    </message>
+    <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation type="unfinished">Kunde inte starta HTTP-server. Se avlusningsloggen för detaljer.</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <translation type="unfinished">Okänt nätverk som anges i -onlynet: &apos;%s&apos;</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation type="unfinished">Argumentet -benchmark stöds inte och ignoreras, använd -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation type="unfinished">Argumentet -debugnet stöds inte och ignoreras, använd -debug=net.</translation>
+    </message>
+    <message>
+        <source>Unsupported argument -tor found, use -onion.</source>
+        <translation type="unfinished">Argumentet -tor hittades men stöds inte, använd -onion.</translation>
+    </message>
+    <message>
+        <source>Upgrade wallet to latest format on startup</source>
+        <translation type="unfinished">Uppgradera plånbok till senaste formatet vid uppstart</translation>
+    </message>
+    <message>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation type="unfinished">Använd UPnP för att mappa den lyssnande porten (förvalt: %u)</translation>
+    </message>
+    <message>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished">Kommentaren i användaragent (%s) innehåller osäkra tecken.</translation>
+    </message>
+    <message>
+        <source>Username for JSON-RPC connections</source>
+        <translation type="unfinished">Användarnamn för JSON-RPC-anslutningar</translation>
+    </message>
+    <message>
+        <source>Verifying blocks...</source>
+        <translation type="unfinished">Verifierar block...</translation>
+    </message>
+    <message>
+        <source>Verifying wallet...</source>
+        <translation type="unfinished">Verifierar plånboken...</translation>
+    </message>
+    <message>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished">Plånbok %s ligger utanför datakatalogen %s</translation>
+    </message>
+    <message>
+        <source>Wallet debugging/testing options:</source>
+        <translation type="unfinished">Plånbokens Avlusnings/Testnings optioner:</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished">Plånboken behöver sparas om: Starta om %s för att fullfölja</translation>
+    </message>
+    <message>
+        <source>Wallet options:</source>
+        <translation type="unfinished">Plånboksinställningar:</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished">Varning</translation>
+    </message>
+    <message>
+        <source>Warning: unknown new rules activated (versionbit %i)</source>
+        <translation type="unfinished">Varning: okända nya regler aktiverade (versionsbit %i)</translation>
+    </message>
+    <message>
+        <source>Whether to operate in a blocks only mode (default: %u)</source>
+        <translation type="unfinished">Ska allt göras i endast block-läge (förval: %u)</translation>
+    </message>
+    <message>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished">Töm plånboken på alla transaktioner...</translation>
+    </message>
+    <message>
+        <source>ZeroMQ notification options:</source>
+        <translation type="unfinished">ZeroMQ-alternativ för notiser:</translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
@@ -236,7 +1103,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Sign &amp;message...</source>
+        <source>Sign &amp;message</source>
         <translation>Signera &amp;meddelande...</translation>
     </message>
     <message>
@@ -272,7 +1139,7 @@
         <translation>Avsluta programmet</translation>
     </message>
     <message>
-        <source>&amp;Options...</source>
+        <source>&amp;Options</source>
         <translation>&amp;Alternativ...</translation>
     </message>
     <message>
@@ -280,28 +1147,28 @@
         <translation>Ändra konfigurationsalternativ för %1</translation>
     </message>
     <message>
-        <source>&amp;Encrypt Wallet...</source>
+        <source>&amp;Encrypt Wallet</source>
         <translation>&amp;Kryptera plånbok...</translation>
     </message>
     <message>
-        <source>&amp;Backup Wallet...</source>
+        <source>&amp;Backup Wallet</source>
         <translation>&amp;Säkerhetskopiera plånbok...</translation>
     </message>
     <message>
-        <source>&amp;Change Passphrase...</source>
+        <source>&amp;Change Passphrase</source>
         <translation>&amp;Byt lösenord...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
+        <source>&amp;Sending addresses</source>
         <translation>Av&amp;sändaradresser...</translation>
     </message>
     <message>
-        <source>&amp;Receiving addresses...</source>
+        <source>&amp;Receiving addresses</source>
         <translation>Mottaga&amp;radresser...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
-        <translation>Öppna &amp;URI...</translation>
+        <source>Open &amp;URI</source>
+        <translation>Öppna &amp;URI</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -328,7 +1195,7 @@
         <translation>Öppna debug- och diagnostikkonsolen</translation>
     </message>
     <message>
-        <source>&amp;Verify message...</source>
+        <source>&amp;Verify message</source>
         <translation>&amp;Verifiera meddelande...</translation>
     </message>
     <message>
@@ -556,15 +1423,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;SignIn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Money share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ATBcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return to the previously made backup copy of the wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -635,15 +1514,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is added into your wallet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This key is no longer valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ATB coins were received with this code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -664,6 +1535,14 @@
     </message>
     <message>
         <source>The key is no confirmed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1455,7 +2334,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Atbcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2332,7 +3211,7 @@
         </translation>
     </message>
     <message>
-        <source>Warning: Invalid Bitcoin address</source>
+        <source>Warning: Invalid ATBCoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2429,23 +3308,11 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>by Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Here is the description of this window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2454,10 +3321,6 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2473,10 +3336,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This key is not valid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Could not get share by key (%0)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2489,16 +3348,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You have already added information to get a share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The balance for this private key was not found.
  Maybe you entered your email or password incorrectly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your share is %0 coins.</source>
+        <source>Invalid private key encoding.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private key outside allowed range.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A private key has already been added to your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Receipt of a cash share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your email and password to receive your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter your private key to get your share of ATBcoin.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2511,17 +3394,6 @@
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Stäng inte av datorn förrän denna ruta försvinner.</translation>
-    </message>
-</context>
-<context>
-    <name>SignIn</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>your private key is not valid!</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2989,6 +3861,10 @@
         <source>Amount removed from or added to balance.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation of the bonus code.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransactionView</name>
@@ -3152,6 +4028,10 @@
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Confirmation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -3200,872 +4080,41 @@
         <source>The wallet data was successfully saved to %1.</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>bitcoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
+        <source>Wallet Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The %s developers</source>
+        <source>Restoring the backup will result in a loss of funds received in the interval from the creation of the backup to the current time.Do this only if you have lost access to your wallet.Would you like to continue with the restoration?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = spara tx metadata t.ex. kontoägare och betalningsbegäransinformation, 2 = släng tx metadata)</translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation type="unfinished">-fallbackfee är satt väldigt högt! Detta är avgiften du kan komma att betala om uppskattad avgift inte finns tillgänglig.</translation>
-    </message>
-    <message>
-        <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">-maxtxfee är väldigt högt satt! Så höga avgifter kan komma att betalas för en enstaka transaktion.</translation>
-    </message>
-    <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">-paytxfee är väldigt högt satt! Det här är avgiften du kommer betala om du skickar en transaktion.</translation>
-    </message>
-    <message>
-        <source>A fee rate (in %s/kB) that will be used when fee estimation has insufficient data (default: %s)</source>
-        <translation type="unfinished">En avgiftskurs (i %s/kB) som används när det inte finns tillräcklig data för att uppskatta avgiften (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>Accept relayed transactions received from whitelisted peers even when not relaying transactions (default: %d)</source>
-        <translation type="unfinished">Acceptera vidarebefodrade transaktioner från vitlistade noder även när transaktioner inte vidarebefodras (förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Tillåt JSON-RPC-anslutningar från specifik källa. Tillåtna &lt;ip&gt; är enkel IP (t.ex 1.2.3.4), en nätverk/nätmask (t.ex. 1.2.3.4/255.255.255.0) eller ett nätverk/CIDR (t.ex. 1.2.3.4/24). Detta alternativ anges flera gånger</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Bind till given adress och lyssna alltid på den. Använd [värd]:port notation för IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Bind till given adress och vitlista klienter som ansluter till den. Använd [värd]:port notation för IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Bind till angiven adress för att lyssna på JSON-RPC-anslutningar. Använd [värd]:port-format for IPv6. Detta alternativ kan anges flera gånger (förvalt: bind till alla gränssnitt)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
-        <translation type="unfinished">Kan inte låsa data-mappen %s. %s körs förmodligen redan.</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Skapa nya filer med systemets förvalda rättigheter, istället för umask 077 (bara effektivt med avaktiverad plånboks funktionalitet)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Ta bort alla plånbokstransaktioner och återskapa bara dom som är en del av blockkedjan genom att ange -rescan vid uppstart</translation>
-    </message>
-    <message>
-        <source>Discover own IP addresses (default: 1 when listening and no -externalip or -proxy)</source>
-        <translation type="unfinished">Upptäck egna IP adresser (standard: 1 vid lyssning ingen -externalip eller -proxy)</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation type="unfinished">Distribuerad under MIT mjukvarulicens, se den bifogade filen COPYING eller &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished">Håll inte transaktioner i minnespoolen längre än &lt;n&gt; timmar (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <source>Import a backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
-        <translation type="unfinished">Fel vid laddning av %s: Du kan inte aktivera HD på en existerande icke-HD plånbok</translation>
-    </message>
-    <message>
-        <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation type="unfinished">Fel vid läsning av %s! Alla nycklar lästes korrekt, men transaktionsdatat eller adressbokens poster kanske saknas eller är felaktiga.</translation>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
-        <translation type="unfinished">Fel: Avlyssning av inkommande anslutningar misslyckades (Avlyssningen returnerade felkod %s)</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">Exekvera kommando när ett relevant meddelande är mottagen eller när vi ser en väldigt lång förgrening (%s i cmd är utbytt med ett meddelande)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Exekvera kommando när en plånbokstransaktion ändras (%s i cmd är ersatt av TxID)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">Exekvera kommando när det bästa blocket ändras (%s i cmd är utbytt av blockhash)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished">Avgifter (i %s/kB) mindre än detta betraktas som nollavgift för vidarebefordran, mining och transaktionsskapande (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/kB) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished">Avgifter (i %s/kB) mindre än detta anses vara nollavgifter vid skapande av transaktion (standard: %s)</translation>
-    </message>
-    <message>
-        <source>Force relay of transactions from whitelisted peers even they violate local relay policy (default: %d)</source>
-        <translation type="unfinished">Vidarebefodra alltid transaktioner från vitlistade noder även om de bryter mot lokala reläpolicyn (förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
-        <translation type="unfinished">Hur grundlig blockverifikationen vid -checkblocks är (0-4, förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied or if &lt;category&gt; = 1, output all debugging information.</source>
-        <translation type="unfinished">Om &lt;kategori&gt; inte anges eller om &lt;category&gt; = 1, visa all avlusningsinformation.</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">Om paytxfee inte är satt, inkludera tillräcklig avgift så att transaktionen börjar att konfirmeras inom n blocks (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">Otillåtet belopp för -maxtxfee=&lt;belopp&gt;: &apos;%s&apos; (måste åtminstånde vara minrelay avgift %s för att förhindra stoppade transkationer)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Upprätthåll ett fullständigt transaktionsindex, som används av getrawtransaction rpc-anrop (förval: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)</source>
-        <translation type="unfinished">Maximalt tillåten median-peer tidsoffset justering. Lokalt perspektiv av tiden kan bli påverkad av partners, framåt eller bakåt denna tidsrymd. (förvalt: %u sekunder)</translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Maximal storlek på data i databärartransaktioner som vi reläar och bryter (förvalt: %u) </translation>
-    </message>
-    <message>
-        <source>Maximum total fees (in %s) to use in a single wallet transaction or raw transaction; setting this too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished">Maximal total avgift (i %s) att använda i en plånbokstransaktion eller råa transaktioner. Sätts denna för lågt kan stora transaktioner avbrytas (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Antal sekunder att hindra klienter som missköter sig från att ansluta (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Skriv ut avlusningsinformation (förvalt: %u, att ange &lt;category&gt; är frivilligt)</translation>
-    </message>
-    <message>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong, %s will not work properly.</source>
-        <translation type="unfinished">Vänligen kolla så att din dators datum och tid är korrekt! Om din klocka går fel kommer %s inte att fungera korrekt.</translation>
-    </message>
-    <message>
-        <source>Please contribute if you find %s useful. Visit %s for further information about the software.</source>
-        <translation type="unfinished">Var snäll och bidra om du finner %s användbar. Besök %s för mer information om mjukvaran.</translation>
-    </message>
-    <message>
-        <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation type="unfinished">Beskärning konfigurerad under miniminivån %d MiB. Vänligen använd ett högre värde.</translation>
-    </message>
-    <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished">Beskärning: sista plånbokssynkroniseringen ligger utanför beskuren data. Du måste använda -reindex (ladda ner hela blockkedjan igen eftersom noden beskurits)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation type="unfinished">Sök efter klientadresser med DNS sökningen, om det finns otillräckligt med adresser (förvalt: 1 om inte -connect)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished">Slumpa autentiseringen för varje proxyanslutning. Detta möjliggör Tor ström-isolering (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation type="unfinished">Minska lagringsbehovet genom att beskära (ta bort) gamla block. Detta läge är inkompatibelt med -txindex och -rescan. Varning: Ändras denna inställning måste hela blockkedjan laddas ner igen. (förvalt: 0 = inaktivera beskärning av block, &gt;%u = målstorlek i MiB att använda för blockfiler)</translation>
-    </message>
-    <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation type="unfinished">Omskanningar kan inte göras i beskuret läge. Du måste använda -reindex vilket kommer ladda ner hela blockkedjan igen.</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Sätt den maximala storleken av hög-prioriterade/låg-avgifts transaktioner i byte (förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Ange antalet skriptkontrolltrådar (%u till %d, 0 = auto, &lt;0 = lämna så många kärnor lediga, förval: %d)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished">Stöd filtrering av block och transaktioner med bloomfilter (standard: %u)</translation>
-    </message>
-    <message>
-        <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
-        <translation type="unfinished">Blockdatabasen innehåller ett block som verkar vara från framtiden. Detta kan vara på grund av att din dators datum och tid är felaktiga. Bygg bara om blockdatabasen om du är säker på att datorns datum och tid är korrekt</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to send after the fee has been deducted</source>
-        <translation type="unfinished">Transaktionen är för liten att skicka efter det att avgiften har dragits</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished">Detta är ett förhands testbygge - använd på egen risk - använd inte för mining eller handels applikationer</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användning i OpenSSL Toolkit &lt;https://www.openssl.org/&gt; och kryptografisk mjukvara utvecklad av Eric Young samt UPnP-mjukvara skriven av Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished">Total längd på strängen för nätverksversion (%i) överskrider maxlängden (%i). Minska numret eller storleken på uacomments.</translation>
-    </message>
-    <message>
-        <source>Tries to keep outbound traffic under the given target (in MiB per 24h), 0 = no limit (default: %d)</source>
-        <translation type="unfinished">Försöker hålla utgående trafik under givet mål (i MiB per 24 timmar), 0 = ingen gräns (förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>Unable to rewind the database to a pre-fork state. You will need to redownload the blockchain</source>
-        <translation type="unfinished">Kan inte spola tillbaka databasen till obeskärt läge. Du måste ladda ner blockkedjan igen</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Argumentet -socks hittades och stöds inte. Det är inte längre möjligt att sätta SOCKS-version längre, bara SOCKS5-proxy stöds.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation type="unfinished">Argumentet -whitelistalwaysrelay stöds inte utan ignoreras, använd -whitelistrelay och/eller -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
-        <translation type="unfinished">Använd UPnP för att mappa den lyssnande porten (förvalt: 1 när lyssning aktiverat och utan -proxy)</translation>
-    </message>
-    <message>
-        <source>Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start</source>
-        <translation type="unfinished">Använd hierarkisk deterministisk nyckel generering (HD) efter BIP32. Har bara effekt under plånbokens skapande/första användning.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Använd separat SOCKS5 proxy för att nå kollegor via dolda tjänster i Tor (förvalt: -%s)</translation>
-    </message>
-    <message>
-        <source>Username and hashed password for JSON-RPC connections. The field &lt;userpw&gt; comes in the format: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. A canonical python script is included in share/rpcuser. This option can be specified multiple times</source>
-        <translation type="unfinished">Användarnamn och hashat lösenord för JSON-RPC-anslutningar. Fältet &lt;userpw&gt; kommer i formatet: &lt;USERNAME&gt;:&lt;SALT&gt;$&lt;HASH&gt;. Ett kanoniskt pythonskript finns inkluderat i share/rpcuser. Detta alternativ kan anges flera gånger</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished">Varning: Nätverket verkar inte vara helt överens! Några miners verkar ha problem.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It&apos;s possible unknown rules are in effect</source>
-        <translation type="unfinished">Varning: Okända blockversioner bryts! Det är möjligt att okända regler används</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished">Varning: Plånboksfilen var korrupt, datat har räddats! Den ursprungliga %s har sparas som %s i %s. Om ditt saldo eller transaktioner är felaktiga bör du återställa från en säkerhetskopia.</translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished">Varning: Vi verkar inte helt överens med våra peers! Du kan behöva uppgradera, eller andra noder kan behöva uppgradera.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Vitlista klienter som ansluter från angivna nätmasker eller IP-adresser. Kan specificeras flera gånger.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Vitlistade klienter kan inte bli DoS-bannade och deras transaktioner reläas alltid, även om dom redan är i mempoolen, användbart för t.ex en gateway  </translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation type="unfinished">Du måste bygga om databasen genom att använda -reindex för att återgå till obeskärt läge. Detta kommer att ladda ner hela blockkedjan.</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
-        <translation type="unfinished">Du måste återskapa databasen med -reindex-chainstate för att ändra -txindex</translation>
-    </message>
-    <message>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished">%s är korrupt, räddning misslyckades</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>(default: %u)</source>
-        <translation type="unfinished">(förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>-maxmempool must be at least %d MB</source>
-        <translation type="unfinished">-maxmempool måste vara minst %d MB</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished">&lt;category&gt; Kan vara:</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Tillåt kommandon från kommandotolken och JSON-RPC-kommandon</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished">Acceptera anslutningar utifrån (förvalt: 1 om ingen -proxy eller -connect)</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Acceptera publika REST förfrågningar (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Lägg till en nod att koppla upp mot och försök att hålla anslutningen öppen</translation>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished">Tillåt DNS-sökningar för -addnode, -seednode och -connect</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Sök alltid efter klientadresser med DNS sökningen (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished">Lägg till kommentar till user-agent-strängen</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet on startup</source>
-        <translation type="unfinished">Försök att rädda privata nycklar från en korrupt plånbok vid uppstart</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation type="unfinished">Skapa automatiskt dold tjänst i Tor (förval: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Block skapande inställningar:</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished">Kan inte nedgradera plånboken</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -%s address: &apos;%s&apos;</source>
-        <translation type="unfinished">Kan inte matcha -%s adress: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished">Kan inte skriva standardadress</translation>
-    </message>
-    <message>
-        <source>Change index out of range</source>
-        <translation type="unfinished">Förändringsindexet utom räckhåll</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished">Koppla enbart upp till den/de specificerade noden/noder</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">Anslut genom SOCKS5 proxy</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Anslut till en nod för att hämta klientadresser, och koppla från</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation type="unfinished">Anslutningsalternativ:</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i-%i</source>
-        <translation type="unfinished">Copyright (C) %i-%i</translation>
-    </message>
-    <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished">Korrupt blockdatabas har upptäckts</translation>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Avlusnings/Test-alternativ:</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Ladda inte plånboken och stäng av RPC-anrop till plånboken</translation>
-    </message>
-    <message>
-        <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished">Vill du bygga om blockdatabasen nu?</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation type="unfinished">Klar med laddning</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished">Aktivera publicering av hashblock i &lt;adress&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Aktivera publicering av hashtransaktion i &lt;adress&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished">Aktivera publicering av råa block i &lt;adress&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished">Aktivera publicering av råa transaktioner i &lt;adress&gt;</translation>
-    </message>
-    <message>
-        <source>Enable transaction replacement in the memory pool (default: %u)</source>
-        <translation type="unfinished">Aktivera byte av transaktioner i minnespoolen (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Error initializing block database</source>
-        <translation type="unfinished">Fel vid initiering av blockdatabasen</translation>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Fel vid initiering av plånbokens databasmiljö %s!</translation>
-    </message>
-    <message>
-        <source>Error loading %s</source>
-        <translation type="unfinished">Fel vid inläsning av %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished">Fel vid inläsningen av %s: Plånboken är koruppt</translation>
-    </message>
-    <message>
-        <source>Error loading %s: Wallet requires newer version of %s</source>
-        <translation type="unfinished">Fel vid inläsningen av %s: Plånboken kräver en senare version av %s</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can&apos;t disable HD on a already existing HD wallet</source>
-        <translation type="unfinished">Fel vid laddning av %s: Du kan inte avaktivera HD på en redan existerande HD plånbok</translation>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished">Fel vid inläsning av blockdatabasen</translation>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished">Fel vid öppning av blockdatabasen</translation>
-    </message>
-    <message>
-        <source>Error reading from database, shutting down.</source>
-        <translation type="unfinished">Fel vid läsning från databas, avslutar.</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished">Fel</translation>
-    </message>
-    <message>
-        <source>Error: A fatal internal error occurred, see debug.log for details</source>
-        <translation type="unfinished">Fel: Ett kritiskt internt fel uppstod, se debug.log för detaljer</translation>
-    </message>
-    <message>
-        <source>Error: Disk space is low!</source>
-        <translation type="unfinished">Fel: Hårddiskutrymme är lågt!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Misslyckades att lyssna på någon port. Använd -listen=0 om du vill detta.</translation>
-    </message>
-    <message>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished">Avgift (i %s/kB) att lägga till på transaktioner du skickar (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">Hur många block att kontrollera vid uppstart (förvalt: %u, 0 = alla)</translation>
-    </message>
-    <message>
-        <source>Importing...</source>
-        <translation type="unfinished">Importerar...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file on startup</source>
-        <translation type="unfinished">Importera block från extern blk000??.dat-fil vid uppstart</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Inkludera IP-adresser i debugutskrift (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished">Felaktig eller inget genesisblock hittades. Fel datadir för nätverket?</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">Information</translation>
-    </message>
-    <message>
-        <source>Initialization sanity check failed. %s is shutting down.</source>
-        <translation type="unfinished">Initieringschecken fallerade. %s stängs av.</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation type="unfinished">Otillräckligt med atatbcoins</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished">Ogiltig -onion adress:&apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation type="unfinished">Ogiltig -proxy adress: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">Ogiltigt belopp för -%s=&lt;belopp&gt;:&apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -fallbackfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished">Ogiltigt belopp för -fallbackfee=&lt;belopp&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">Ogiltigt belopp för -paytxfee=&lt;belopp&gt;:&apos;%s&apos; (måste vara minst %s)</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">Ogiltig nätmask angiven i -whitelist: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Håll som mest &lt;n&gt; oanslutningsbara transaktioner i minnet (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Håll minnespoolen över transaktioner under &lt;n&gt; megabyte (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Lyssna på JSON-RPC-anslutningar på &lt;port&gt; (förval: %u eller testnet: %u)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Lyssna efter anslutningar på &lt;port&gt; (förvalt: %u eller testnet: %u)</translation>
-    </message>
-    <message>
-        <source>Loading addresses...</source>
-        <translation type="unfinished">Laddar adresser...</translation>
-    </message>
-    <message>
-        <source>Loading banlist...</source>
-        <translation type="unfinished">Laddar svarta listan...</translation>
-    </message>
-    <message>
-        <source>Loading block index...</source>
-        <translation type="unfinished">Laddar blockindex...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation type="unfinished">Laddar plånbok...</translation>
-    </message>
-    <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished">Plats för authcookie (förvalt: datamapp)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Ha som mest &lt;n&gt; anslutningar till andra klienter (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Make the wallet broadcast transactions</source>
-        <translation type="unfinished">Gör så att plånboken sänder ut transaktionerna</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximal mottagningsbuffert per anslutning, &lt;n&gt;*1000 byte (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximal sändningsbuffert per anslutning, &lt;n&gt;*1000 byte (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">Port måste anges med -whitelist: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Nodreläalternativ:</translation>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished">Inte tillräckligt med filbeskrivningar tillgängliga.</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Anslut enbart till noder i nätverket &lt;net&gt; (IPv4, IPv6 eller onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation type="unfinished">Inställningar:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">Lösenord för JSON-RPC-anslutningar</translation>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Skriv ut tidsstämpel i avlusningsinformationen (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Print this help message and exit</source>
-        <translation type="unfinished">Visa denna hjälptext och avsluta</translation>
-    </message>
-    <message>
-        <source>Print version and exit</source>
-        <translation type="unfinished">Visa version och avsluta</translation>
-    </message>
-    <message>
-        <source>Prune cannot be configured with a negative value.</source>
-        <translation type="unfinished">Beskärning kan inte konfigureras med ett negativt värde.</translation>
-    </message>
-    <message>
-        <source>Prune mode is incompatible with -txindex.</source>
-        <translation type="unfinished">Beskärningsläge är inkompatibel med -txindex.</translation>
-    </message>
-    <message>
-        <source>Pruning blockstore...</source>
-        <translation type="unfinished">Rensar blockstore...</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished">RPC-serveralternativ:</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state and block index from the blk*.dat files on disk</source>
-        <translation type="unfinished">Återskapa blockkedjans status och index från blk*.dat filer på disken</translation>
-    </message>
-    <message>
-        <source>Rebuild chain state from the currently indexed blocks</source>
-        <translation type="unfinished">Återskapa blockkedjans status från aktuella indexerade block</translation>
-    </message>
-    <message>
-        <source>Reducing -maxconnections from %d to %d, because of system limitations.</source>
-        <translation type="unfinished">Minskar -maxconnections från %d till %d, på grund av systembegränsningar.</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Reläa och bearbeta databärartransaktioner (förvalt: %u) </translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">Reläa icke-P2SH multisig (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions on startup</source>
-        <translation type="unfinished">Sök i blockkedjan efter saknade plånbokstransaktioner vid uppstart</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation type="unfinished">Söker igen...</translation>
-    </message>
-    <message>
-        <source>Rewinding blocks...</source>
-        <translation type="unfinished">Spolar tillbaka blocken...</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Kör i bakgrunden som tjänst och acceptera kommandon</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file</source>
-        <translation type="unfinished">Skicka trace-/debuginformation till terminalen istället för till debug.log</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Sänd transaktioner som nollavgiftstransaktioner om möjligt (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Sätt databasens cachestorlek i megabyte (%d till %d, förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Sätt storleken på nyckelpoolen till &lt;n&gt; (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <source>Recovery failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Sätt maximal blockstorlek i byte (förvalt: %d)</translation>
+        <source>Restore completed successfully.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Ange antalet trådar för att hantera RPC anrop (förvalt: %d)</translation>
+        <source>You must restart your wallet to continue working.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Visa alla avlusningsalternativ (använd: --help -help-debug)</translation>
+        <source>remove old wallet failed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">Krymp debug.log filen vid klient start (förvalt: 1 vid ingen -debug)</translation>
+        <source>Lock wallet</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished">Signering av transaktion misslyckades</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Ange konfigurationsfil (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Ange timeout för uppkoppling i millisekunder (minimum:1, förvalt: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Ange katalog för data</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Ange pid-fil (förvalt: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Ange plånboksfil (inom datakatalogen)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Ange din egen publika adress</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Spendera okonfirmerad växel när transaktioner sänds (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>The source code is available from %s.</source>
-        <translation type="unfinished">Källkoden är tillgänglig från %s.</translation>
-    </message>
-    <message>
-        <source>The transaction amount is too small to pay the fee</source>
-        <translation type="unfinished">Transaktionen är för liten för att betala avgiften</translation>
-    </message>
-    <message>
-        <source>This is experimental software.</source>
-        <translation type="unfinished">Detta är experimentmjukvara.</translation>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Tröskelvärde för att koppla ifrån klienter som missköter sig (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation type="unfinished">Lösenord för Tor-kontrollport (förval: inget)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation type="unfinished">Tor-kontrollport att använda om onion är aktiverat (förval: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction amount too small</source>
-        <translation type="unfinished">Transaktions belopp för liten</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation type="unfinished">Transaktionens belopp måste vara positiva</translation>
-    </message>
-    <message>
-        <source>Transaction too large for fee policy</source>
-        <translation type="unfinished">Transaktionen är för stor för avgiftspolicyn</translation>
-    </message>
-    <message>
-        <source>Transaction too large</source>
-        <translation type="unfinished">Transaktionen är för stor</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
-        <translation type="unfinished">Det går inte att binda till %s på den här datorn (bind returnerade felmeddelande %s)</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation type="unfinished">Det går inte att binda till %s på den här datorn. %s är förmodligen redan igång.</translation>
-    </message>
-    <message>
-        <source>Unable to start HTTP server. See debug log for details.</source>
-        <translation type="unfinished">Kunde inte starta HTTP-server. Se avlusningsloggen för detaljer.</translation>
-    </message>
-    <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">Okänt nätverk som anges i -onlynet: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Argumentet -benchmark stöds inte och ignoreras, använd -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Argumentet -debugnet stöds inte och ignoreras, använd -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Argumentet -tor hittades men stöds inte, använd -onion.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format on startup</source>
-        <translation type="unfinished">Uppgradera plånbok till senaste formatet vid uppstart</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Använd UPnP för att mappa den lyssnande porten (förvalt: %u)</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished">Kommentaren i användaragent (%s) innehåller osäkra tecken.</translation>
-    </message>
-    <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">Användarnamn för JSON-RPC-anslutningar</translation>
-    </message>
-    <message>
-        <source>Verifying blocks...</source>
-        <translation type="unfinished">Verifierar block...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">Verifierar plånboken...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">Plånbok %s ligger utanför datakatalogen %s</translation>
-    </message>
-    <message>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished">Plånbokens Avlusnings/Testnings optioner:</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart %s to complete</source>
-        <translation type="unfinished">Plånboken behöver sparas om: Starta om %s för att fullfölja</translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Plånboksinställningar:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="unfinished">Varning</translation>
-    </message>
-    <message>
-        <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation type="unfinished">Varning: okända nya regler aktiverade (versionsbit %i)</translation>
-    </message>
-    <message>
-        <source>Whether to operate in a blocks only mode (default: %u)</source>
-        <translation type="unfinished">Ska allt göras i endast block-läge (förval: %u)</translation>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished">Töm plånboken på alla transaktioner...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished">ZeroMQ-alternativ för notiser:</translation>
+        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

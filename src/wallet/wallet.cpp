@@ -27,7 +27,7 @@
 #include "utilmoneystr.h"
 
 #include "pos.h"
-
+#include <ctime>
 
 #include <assert.h>
 
@@ -238,6 +238,21 @@ bool CWallet::AddCScript(const CScript& redeemScript)
         return false;
     if (!fFileBacked)
         return true;
+    return CWalletDB(strWalletFile).WriteCScript(Hash160(redeemScript), redeemScript);
+}
+
+bool CWallet::AddCBonusScript(const CScript& redeemScript)
+{
+    if (!CCryptoKeyStore::AddCScript(redeemScript))
+        return false;
+    if (!fFileBacked)
+        return true;
+    CAmount ammout=pwalletMain->GetBalance();
+    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
+    if(ammout>=pwalletMain->GetBalance()){
+        CCryptoKeyStore::RemoveCScript(redeemScript);
+        return false;
+    }
     return CWalletDB(strWalletFile).WriteCScript(Hash160(redeemScript), redeemScript);
 }
 
@@ -607,8 +622,9 @@ void CWallet::RemoveFromSpends(const uint256& wtxid)
     BOOST_FOREACH(const CTxIn& txin, thisTx.vin)
         RemoveFromSpends(txin.prevout, wtxid);
 }
-
-
+bool CWallet::DecryptWallet(const SecureString&){
+    return false;
+}
 bool CWallet::EncryptWallet(const SecureString& strWalletPassphrase)
 {
     if (IsCrypted())
@@ -3786,7 +3802,7 @@ bool CWallet::InitLoadWallet()
     }
 
     if (fFirstRun)
-    {
+    {         
         // Create new keyUser and set as default key
         if (GetBoolArg("-usehd", DEFAULT_USE_HD_WALLET) && walletInstance->hdChain.masterKeyID.IsNull()) {
             // generate a new master key

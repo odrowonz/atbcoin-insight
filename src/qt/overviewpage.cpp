@@ -91,7 +91,11 @@ public:
         font.setBold(true);
 #ifdef Q_OS_MAC
         font.setPointSize(13);
-#else
+#endif
+#ifdef Q_OS_WIN
+        font.setPointSize(9);
+#endif
+#ifdef Q_OS_UNIX
         font.setPointSize(10);
 #endif
         painter->setFont(font);
@@ -117,7 +121,7 @@ public:
             amountText = QString("") + amountText + QString("");
         }
         amountText.remove("ATB");
-        if(amount>0)
+        if(amount>=0)
             painter->setPen(QColor::fromRgb(0x6c,0xba,0x07));
         else
             painter->setPen(QColor::fromRgb(0xe3,0x3b,0x19));

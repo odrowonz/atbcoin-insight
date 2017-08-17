@@ -80,12 +80,12 @@
          <number>10</number>
         </property>
         <property name="topMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayoutCoinControl1">
           <property name="bottomMargin">
-           <number>15</number>
+           <number>0</number>
           </property>
           <item>
            <widget class="QLabel" name="labelCoinControlFeatures">
@@ -117,7 +117,7 @@
            <number>8</number>
           </property>
           <property name="bottomMargin">
-           <number>10</number>
+           <number>0</number>
           </property>
           <item>
            <widget class="QPushButton" name="pushButtonCoinControl">
@@ -215,7 +215,7 @@
               <number>0</number>
              </property>
              <property name="bottomMargin">
-              <number>10</number>
+              <number>0</number>
              </property>
              <item>
               <layout class="QFormLayout" name="formLayoutCoinControl1">
@@ -638,7 +638,7 @@
         <x>0</x>
         <y>0</y>
         <width>811</width>
-        <height>91</height>
+        <height>132</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
@@ -1011,6 +1011,9 @@
                    </property>
                    <property name="text">
                     <string/>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -1404,7 +1407,7 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupCustomFee"/>
   <buttongroup name="groupFee"/>
+  <buttongroup name="groupCustomFee"/>
  </buttongroups>
 </ui>

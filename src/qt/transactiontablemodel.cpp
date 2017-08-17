@@ -381,6 +381,8 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
         return tr("Sent to");
     case TransactionRecord::SendToSelf:
         return tr("Payment to yourself");
+    case TransactionRecord::bonusConfirmation:
+        return tr("Confirmation of the bonus code.");
     case TransactionRecord::Generated:
         return tr("Mined");
     default:
@@ -423,6 +425,8 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, b
         return lookupAddress(wtx->address, tooltip) + watchAddress;
     case TransactionRecord::SendToOther:
         return QString::fromStdString(wtx->address) + watchAddress;
+    case TransactionRecord::bonusConfirmation:
+        return QString::fromStdString(wtx->BonusKey);
     case TransactionRecord::SendToSelf:
     default:
         return tr("(n/a)") + watchAddress;

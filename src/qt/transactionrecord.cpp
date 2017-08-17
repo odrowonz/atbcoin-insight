@@ -34,6 +34,7 @@ bool TransactionRecord::showTransaction(const CWalletTx &wtx)
 /*
  * Decompose CWallet transaction to model transaction records.
  */
+#include "../wallet/wallet.h"
 QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *wallet, const CWalletTx &wtx)
 {
     QList<TransactionRecord> parts;
@@ -119,9 +120,17 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
         {
             // Payment to self
             CAmount nChange = wtx.GetChange();
+            if(wtx.mapValue.count("bonusConfirmation")){
+                TransactionRecord Transactionrecord(hash, nTime, TransactionRecord::bonusConfirmation, "",
+                                                    -(nDebit - nChange), nCredit - nChange);
+                mapValue_t temp(wtx.mapValue);
 
-            parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "",
-                            -(nDebit - nChange), nCredit - nChange));
+                Transactionrecord.BonusKey=temp["bonusConfirmation"];
+                parts.append(Transactionrecord);
+            }
+            else
+                parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "",
+                                -(nDebit - nChange), nCredit - nChange));
             parts.last().involvesWatchAddress = involvesWatchAddress;   // maybe pass to TransactionRecord as constructor argument
         }
         else if (fAllFromMe)

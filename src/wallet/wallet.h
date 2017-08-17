@@ -605,9 +605,9 @@ public:
 
     bool fFileBacked;
     std::string strWalletFile;
-
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
+    std::set<CKeyID> registeredKeys;
 
     typedef std::map<unsigned int, CMasterKey> MasterKeyMap;
     MasterKeyMap mapMasterKeys;
@@ -714,6 +714,7 @@ public:
     //! Adds an encrypted key to the store, without saving it to disk (used by LoadWallet)
     bool LoadCryptedKey(const CPubKey &vchPubKey, const std::vector<unsigned char> &vchCryptedSecret);
     bool AddCScript(const CScript& redeemScript);
+    bool AddCBonusScript(const CScript& redeemScript);
     bool LoadCScript(const CScript& redeemScript);
 
     //! Adds an encrypted key of bonus to the store, without saving it to disk (used by LoadWallet)
@@ -738,6 +739,8 @@ public:
     bool Unlock(const SecureString& strWalletPassphrase);
     bool ChangeWalletPassphrase(const SecureString& strOldWalletPassphrase, const SecureString& strNewWalletPassphrase);
     bool EncryptWallet(const SecureString& strWalletPassphrase);
+    bool DecryptWallet(const SecureString& strWalletPassphrase);
+
 
     void GetKeyBirthTimes(std::map<CKeyID, int64_t> &mapKeyBirth) const;
 

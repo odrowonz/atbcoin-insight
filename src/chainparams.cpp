@@ -198,7 +198,7 @@ public:
     CTestNetParams() {
         strNetworkID = "test";
         
-        //consensus.nSubsidyHalvingInterval = 210000;
+        consensus.nSubsidyHalvingInterval = 420480;
         
         consensus.nMajorityEnforceBlockUpgrade = 51;
         consensus.nMajorityRejectBlockOutdated = 75;
@@ -298,7 +298,7 @@ public:
     CRegTestParams() {
         strNetworkID = "regtest";
         
-        //consensus.nSubsidyHalvingInterval = 150;
+        consensus.nSubsidyHalvingInterval = 420480;
         
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;

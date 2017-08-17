@@ -102,6 +102,8 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(accept()));
+
+    connect(ui->tableView->model(),SIGNAL(rowsRemoved(QModelIndex,int,int)),this,SLOT(Header_fix(QModelIndex,int,int)));
 }
 
 AddressBookPage::~AddressBookPage()
@@ -138,7 +140,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
 
 
     // Set column widths
-    Header_fix();
+    Header_fix(QModelIndex(),0,0);
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
         this, SLOT(selectionChanged()));
@@ -148,7 +150,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
 
     selectionChanged();
 }
-void AddressBookPage::Header_fix(){
+void AddressBookPage::Header_fix(QModelIndex,int,int){
     if(proxyModel->rowCount()>0){
 #if QT_VERSION < 0x050000
     ui->tableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
@@ -167,6 +169,7 @@ void AddressBookPage::Header_fix(){
 #endif
     ui->tableView->setColumnWidth(1,100);
     }
+    ui->tableView->repaint();
 }
 void AddressBookPage::on_copyAddress_clicked()
 {
@@ -214,8 +217,6 @@ void AddressBookPage::on_newAddress_clicked()
         newAddressToSelect = dlg.getAddress();
         ui->tableView->horizontalHeader()->setSectionResizeMode(AddressTableModel::Address, QHeaderView::ResizeToContents);
     }
-    Header_fix();
-    ui->tableView->repaint();
 }
 
 void AddressBookPage::on_deleteAddress_clicked()
@@ -229,8 +230,6 @@ void AddressBookPage::on_deleteAddress_clicked()
     {
         table->model()->removeRow(indexes.at(0).row());
     }
-    Header_fix();
-    ui->tableView->repaint();
 }
 
 void AddressBookPage::selectionChanged()

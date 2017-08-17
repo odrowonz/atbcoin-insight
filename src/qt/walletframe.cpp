@@ -166,7 +166,26 @@ void WalletFrame::backupWallet()
     if (walletView)
         walletView->backupWallet();
 }
-
+void WalletFrame::restoreWallet(){
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->restoreWallet();
+}
+void WalletFrame::LockWallet(){
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->LockWallet();
+}
+void WalletFrame::UnlockWallet(){
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->unlockWallet();
+}
+void WalletFrame::DecryptWallet(){
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->DecryptWallet();
+}
 void WalletFrame::changePassphrase()
 {
     WalletView *walletView = currentWalletView();

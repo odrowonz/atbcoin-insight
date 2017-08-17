@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QTableView>
-#include <QSortFilterProxyModel>
+#include <QAbstractItemModel>
 namespace Ui {
 class PreviewCodeDialog;
 }
@@ -13,11 +13,14 @@ class PreviewCodeDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PreviewCodeDialog(QSortFilterProxyModel* idx,int row,QWidget *parent = 0);
+    explicit PreviewCodeDialog(const QAbstractItemModel* idx,int row,QWidget *parent = 0);
     ~PreviewCodeDialog();
 
 private:
     Ui::PreviewCodeDialog *ui;
+private Q_SLOTS:
+    void onCopyClicked(bool);
+
 };
 
 #endif // PREVIEWCODEDIALOG_H
