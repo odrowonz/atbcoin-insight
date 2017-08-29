@@ -118,7 +118,7 @@ uint256 ComputeStakeModifierV2(const CBlockIndex* pindexPrev, const uint256& ker
 //
 static bool CheckStakeKernelHashV2(CBlockIndex* pindexPrev, unsigned int nBits, unsigned int nTimeBlockFrom, const CTransaction& txPrev, const COutPoint& prevout, unsigned int nTime, uint256& hashProofOfStake, uint256& targetProofOfStake, bool fPrintProofOfStake)
 {
-    uint32_t nStakeTime = pindexPrev->nTime & ~STAKE_TIMESTAMP_MASK;
+    uint32_t nStakeTime = nTimeBlockFrom & ~STAKE_TIMESTAMP_MASK;
 
     if (nTime < nStakeTime)
         return error("CheckStakeKernelHash() : nTime violation");
