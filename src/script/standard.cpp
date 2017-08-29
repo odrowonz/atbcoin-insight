@@ -33,7 +33,6 @@ const char* GetTxnOutputType(txnouttype t)
     case TX_NULL_DATA: return "nulldata";
     case TX_WITNESS_V0_KEYHASH: return "witness_v0_keyhash";
     case TX_WITNESS_V0_SCRIPTHASH: return "witness_v0_scripthash";
-    case TX_BONUS: return "bonus";
     }
     return NULL;
 }
@@ -65,14 +64,6 @@ bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, vector<vector<unsi
     {
         typeRet = TX_SCRIPTHASH;
         vector<unsigned char> hashBytes(scriptPubKey.begin()+2, scriptPubKey.begin()+22);
-        vSolutionsRet.push_back(hashBytes);
-        return true;
-    }
-
-    if (scriptPubKey.IsPayToHash())
-    {
-        typeRet = TX_BONUS;
-        vector<unsigned char> hashBytes(scriptPubKey.begin()+4, scriptPubKey.begin()+24);
         vSolutionsRet.push_back(hashBytes);
         return true;
     }
@@ -210,11 +201,6 @@ bool ExtractDestination(const CScript& scriptPubKey, CTxDestination& addressRet)
         return true;
     }
     else if (whichType == TX_SCRIPTHASH)
-    {
-        addressRet = CScriptID(uint160(vSolutions[0]));
-        return true;
-    }
-    else if (whichType == TX_BONUS)
     {
         addressRet = CScriptID(uint160(vSolutions[0]));
         return true;

@@ -52,8 +52,7 @@ enum txnouttype
     TX_MULTISIG,
     TX_NULL_DATA,
     TX_WITNESS_V0_SCRIPTHASH,
-    TX_WITNESS_V0_KEYHASH,
-    TX_BONUS,
+    TX_WITNESS_V0_KEYHASH
 };
 
 class CNoDestination {
