@@ -546,6 +546,9 @@ void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn 
     case WalletModel::TransactionCommitFailed:
         msgParams.first = tr("The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.");
         msgParams.second = CClientUIInterface::MSG_ERROR;
+        if(QMessageBox::Yes==QMessageBox::question(this,tr("Solution"),tr("In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?"))){
+            model->rescanWallet();
+        }
         break;
     case WalletModel::AbsurdFee:
         msgParams.first = tr("A fee higher than %1 is considered an absurdly high fee.").arg(BitcoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), maxTxFee));
@@ -595,18 +598,19 @@ void SendCoinsDialog::setMinimumFee()
 
 void SendCoinsDialog::updateFeeSectionControls()
 {
-    ui->sliderSmartFee          ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelSmartFee           ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelSmartFee2          ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelSmartFee3          ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelFeeEstimation      ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelSmartFeeNormal     ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->labelSmartFeeFast       ->setEnabled(ui->radioSmartFee->isChecked());
-    ui->checkBoxMinimumFee      ->setEnabled(ui->radioCustomFee->isChecked());
-    ui->labelMinFeeWarning      ->setEnabled(ui->radioCustomFee->isChecked());
-    ui->radioCustomPerKilobyte  ->setEnabled(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked());
-    ui->radioCustomAtLeast      ->setEnabled(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked() && CoinControlDialog::coinControl->HasSelected());
-    ui->customFee               ->setEnabled(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked());
+    ui->sliderSmartFee          ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelSmartFee           ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelSmartFee2          ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelSmartFee3          ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelFeeEstimation      ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelSmartFeeNormal     ->setVisible(ui->radioSmartFee->isChecked());
+    ui->labelSmartFeeFast       ->setVisible(ui->radioSmartFee->isChecked());
+    ui->checkBoxMinimumFee      ->setVisible(ui->radioCustomFee->isChecked());
+    ui->labelMinFeeWarning      ->setVisible(ui->radioCustomFee->isChecked());
+    ui->radioCustomPerKilobyte  ->setVisible(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked());
+    ui->radioCustomAtLeast      ->setVisible(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked() && CoinControlDialog::coinControl->HasSelected());
+    ui->customFee               ->setVisible(ui->radioCustomFee->isChecked() && !ui->checkBoxMinimumFee->isChecked());
+    updateSmartFeeLabel();
 }
 
 void SendCoinsDialog::updateGlobalFeeVariables()
@@ -760,7 +764,7 @@ void SendCoinsDialog::coinControlChangeChecked(int state)
         // use this to re-validate an already entered address
         coinControlChangeEdited(ui->lineEditCoinControlChange->text());
 
-    ui->lineEditCoinControlChange->setEnabled((state == Qt::Checked));
+    ui->lineEditCoinControlChange->setVisible((state == Qt::Checked));
 }
 
 // Coin Control: custom change address changed
@@ -819,7 +823,7 @@ void SendCoinsDialog::coinControlUpdateLabels()
         ui->radioCustomAtLeast->setVisible(true);
 
         // only enable the feature if inputs are selected
-        ui->radioCustomAtLeast->setEnabled(CoinControlDialog::coinControl->HasSelected());
+        ui->radioCustomAtLeast->setVisible(CoinControlDialog::coinControl->HasSelected());
     }
     else
     {

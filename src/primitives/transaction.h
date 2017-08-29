@@ -355,12 +355,6 @@ inline void SerializeTransaction(TxType& tx, Stream& s, Operation ser_action, in
         }
     }
     READWRITE(*const_cast<uint32_t*>(&tx.nLockTime));
-    
-    if(!(nType & SER_GETHASH))
-    {
-        READWRITE(*const_cast<uint32_t*>(&tx.nTime));
-    }
-    
 }
 
 /** The basic transaction that is broadcasted on the network and contained in
@@ -392,9 +386,7 @@ public:
     const std::vector<CTxOut> vout;
     CTxWitness wit; // Not const: can change without invalidating the txid cache
     const uint32_t nLockTime;
-    
-    const uint32_t nTime;
-    
+
 
     /** Construct a CTransaction that qualifies as IsNull() */
     CTransaction();
@@ -472,9 +464,7 @@ struct CMutableTransaction
     std::vector<CTxOut> vout;
     CTxWitness wit;
     uint32_t nLockTime;
-    
-    uint32_t nTime;
-    
+
 
     CMutableTransaction();
     CMutableTransaction(const CTransaction& tx);

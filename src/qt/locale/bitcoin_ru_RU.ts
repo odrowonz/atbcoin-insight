@@ -1465,10 +1465,6 @@
         <translation>Создать код</translation>
     </message>
     <message>
-        <source>This key is no longer valid.</source>
-        <translation>Этот ключ больше не действителен.</translation>
-    </message>
-    <message>
         <source>You do not have the right amount in your account.</source>
         <translation>У вас нет нужной суммы в вашем аккаунте.</translation>
     </message>
@@ -1551,6 +1547,31 @@
     <message>
         <source>Redeemed codes:</source>
         <translation>Погашенные коды:</translation>
+    </message>
+    <message>
+        <source>Bonus code is not available.</source>
+        <translation>Бонусный код недоступен.</translation>
+    </message>
+    <message>
+        <source>Error adding key to wallet.</source>
+        <translation>Ошибка добавления ключа в кошелек.</translation>
+    </message>
+    <message>
+        <source>Key create fail</source>
+        <translation>Ошибка создания ключа</translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Сделка была отклонена! Это может произойти, если некоторые из монет в вашем кошельке уже были потрачены, например, если вы использовали копию кошелька. Dat и монеты были потрачены в копии, но не отмечены как потраченные здесь.
+</translation>
+    </message>
+    <message>
+        <source>Solution</source>
+        <translation>Решение</translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, хотите продолжить?</translation>
     </message>
 </context>
 <context>
@@ -2436,6 +2457,10 @@
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
+    <message>
+        <source>Copy</source>
+        <translation>Копировать</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -3235,6 +3260,14 @@
     <message>
         <source>(no label)</source>
         <translation>(Нет метки)</translation>
+    </message>
+    <message>
+        <source>Solution</source>
+        <translation>Решение</translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, хотите продолжить?</translation>
     </message>
 </context>
 <context>

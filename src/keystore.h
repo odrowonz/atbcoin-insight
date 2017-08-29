@@ -40,7 +40,7 @@ public:
          }
          genHash();
     }
-    int getnVout(bool newKey=true)const{ return abs(nVout)-newKey;}    // number of vout;
+    int getnVout()const{ return abs(nVout)-1;}    // number of vout;
     bool isUsed()const{return nVout<0;}         // if nVout<0 then the bonus key is used else false
     uint160 getHash()const{return hash;}
     CBonusinfo& operator=(const CBonusinfo& right){

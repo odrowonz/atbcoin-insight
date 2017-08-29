@@ -96,14 +96,14 @@ void BonusCodeTab::updateBonusList(){
         if(tx){
             if(i->isUsed()){
                 usedmodel->insertRow(0);
-                if(coins!=NULL&&coins->IsAvailable(i->getnVout(tx->nTime>1501545600)))
+                if(coins!=NULL&&coins->IsAvailable(i->getnVout()))
                      usedmodel->setData(usedmodel->index(0,4),tr("Unconfirmed"),Qt::DisplayRole);
                 else
                      usedmodel->setData(usedmodel->index(0,4),tr("Used"),Qt::DisplayRole);
 
                 usedmodel->setData(usedmodel->index(0,3),QString::fromStdString(i->key));
                 usedmodel->setData(usedmodel->index(0,2),QString::fromStdString(tx->GetHash().ToString()));
-                usedmodel->setData(usedmodel->index(0,1),tx->vout[i->getnVout(tx->nTime>1501545600)].nValue/(double)CUSTOM_FACTOR);
+                usedmodel->setData(usedmodel->index(0,1),tx->vout[i->getnVout()].nValue/(double)CUSTOM_FACTOR);
                 usedmodel->setData(usedmodel->index(0,0),QDateTime::fromTime_t(tx->nTimeReceived));
 
                 usedmodel->setData(usedmodel->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
@@ -113,7 +113,7 @@ void BonusCodeTab::updateBonusList(){
                 usedmodel->setData(usedmodel->index(0,4),Qt::AlignCenter, Qt::TextAlignmentRole);
             }else{
                 model->insertRow(0);
-                if(coins!=NULL&&coins->IsAvailable(i->getnVout(tx->nTime>1501545600))){
+                if(coins!=NULL&&coins->IsAvailable(i->getnVout())){
                         model->setData(model->index(0,4),tr("Unused"),Qt::DisplayRole);
                 }else{
                     if(mempool.exists(tx->GetHash())){
@@ -124,8 +124,8 @@ void BonusCodeTab::updateBonusList(){
                 }
                 model->setData(model->index(0,3),QString::fromStdString(i->key));
                 model->setData(model->index(0,2),QString::fromStdString(tx->GetHash().ToString()));
-                model->setData(model->index(0,1),tx->vout[i->getnVout(tx->nTime>1501545600)].nValue/(double)CUSTOM_FACTOR);
-                model->setData(model->index(0,0),QDateTime::fromTime_t(tx->nTime));
+                model->setData(model->index(0,1),tx->vout[i->getnVout()].nValue/(double)CUSTOM_FACTOR);
+                model->setData(model->index(0,0),QDateTime::fromTime_t(tx->nTimeReceived));
 
                 model->setData(model->index(0,0),Qt::AlignCenter, Qt::TextAlignmentRole);
                 model->setData(model->index(0,1),Qt::AlignCenter, Qt::TextAlignmentRole);
@@ -152,17 +152,17 @@ void BonusCodeTab::getBonusClick(bool){
     key_text.erase(std::remove(key_text.begin(),key_text.end(),'-'), key_text.end());
     CBitcoinSecret vchSecret;
     bool fGood = vchSecret.SetString(key_text);
-    CKey key = vchSecret.GetKey();
-    if(!fGood||!key.IsValid()){
+    if(!fGood){
         InformationDialog msgBox(tr("Invalid key: Check the key and try again."),"","",this);
         msgBox.exec();
         ui->EKey->clear();
         return;
     }
-    CPubKey pubkey = key.GetPubKey();
-    COutPoint point=pwalletMain->isAvailableCode(GetScriptForRawPubKey(pubkey),chainActive.Genesis());
-    if(point.IsNull()){
-        InformationDialog(tr("Bonus code is not available."),"","",this).exec();
+    CKey key = vchSecret.GetKey();
+    if(!key.IsValid()){
+        InformationDialog msgBox(tr("Invalid key: Check the key and try again."),"","",this);
+        msgBox.exec();
+        ui->EKey->clear();
         return;
     }
     WalletModel::UnlockContext ctx(wmodel->requestUnlock());
@@ -171,31 +171,33 @@ void BonusCodeTab::getBonusClick(bool){
         // Unlock wallet was cancelled
         return;
     }
-    pwalletMain->nTimeFirstKey = 1; // 0 would be considered 'no value'
-    if (!pwalletMain->AddKeyPubKey(key, pubkey)){
-        InformationDialog(tr("Error adding key to wallet."),"","",this).exec();
+    CPubKey pubkey = key.GetPubKey();
+    std::pair<CBlockIndex*,COutPoint> point=pwalletMain->isAvailableCode(GetScriptForDestination(CTxDestination(pubkey.GetID())));
+    if(point.second.IsNull()){
+        InformationDialog(tr("Bonus code is not available."),"","",this).exec();
         return;
     }
-    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-    std::map<uint256, CWalletTx>::iterator i=pwalletMain->mapWallet.begin();
-    while(i!=pwalletMain->mapWallet.end()){
-        if(i->second.IsTrusted()&&i->second.GetAvailableCredit()>0){
-            int nvout=0;
-            for(CTxOut vout:i->second.vout){
-                if(vout.scriptPubKey==GetScriptForRawPubKey(pubkey)){
-                    InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),
-                                             QString::number((double)vout.nValue/COIN,'f'),
-                                             QString::fromStdString(ui->EKey->text().toStdString()),
-                                             this);
-                    msgBox.exec();
-                    confirmation(CBonusinfo(pubkey.GetHash().ToString(),i->first,nvout,true));
-                }
-                nvout++;
-            }
+    {
+        LOCK(pwalletMain->cs_wallet);
+        pwalletMain->nTimeFirstKey = 1; // 0 would be considered 'no value'
+        if (!pwalletMain->AddKeyPubKey(key, pubkey)){
+            InformationDialog(tr("Error adding key to wallet."),"","",this).exec();
+            return;
         }
-        i++;
     }
-    updateBonusList();
+
+    const CWalletTx *tx;
+
+    if(pwalletMain->ScanBonus(point.first, true)&&
+       (tx=pwalletMain->GetWalletTx(point.second.hash))){
+        InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),
+                                 QString::number((double)tx->vout[point.second.n].nValue/COIN,'f'),
+                                 QString::fromStdString(ui->EKey->text().toStdString()),
+                                 this);
+        msgBox.exec();
+        confirmation(CBonusinfo(ui->EKey->text().toStdString(),point.second.hash,point.second.n,true));
+        updateBonusList();
+    }
     ui->EKey->clear();
 }
 void BonusCodeTab::CreateClick(bool){
@@ -230,7 +232,7 @@ void BonusCodeTab::CreateClick(bool){
 /********************create a new transaction*************************/
     std::vector<CRecipient> Recipient;
     CRecipient rec;
-    rec.scriptPubKey=GetScriptForRawPubKey(Key.GetPubKey());
+    rec.scriptPubKey=GetScriptForDestination(CTxDestination(Key.GetPubKey().GetID()));
     rec.nAmount=round(ui->SAmount->value()*CUSTOM_FACTOR);
     rec.fSubtractFeeFromAmount=false;
     Recipient.push_back(rec);
@@ -239,17 +241,25 @@ void BonusCodeTab::CreateClick(bool){
     std::string fall;
     CAmount nFeeRet=1;
     int nChangePosInOut=0;
-    if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)&&wallet->CommitTransaction(wtx,Rkey)){
-        int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
-        if(i==wtx.vout.size()){
-            InformationDialog(tr("Code create fail"),"","",this).exec();
-            return;
-        }
-        wallet->AddBonusKey(CBonusinfo(showkey,wtx.GetHash(),i));
-        updateBonusList();
-        InformationDialog(tr("Your code is created. The code will be available after confirmation."),
-                          QString::number(ui->SAmount->value(),'f'),QString::fromStdString(showkey),this).exec();
+    if(wallet->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall)){
+        if(wallet->CommitTransaction(wtx,Rkey)){
+            unsigned int i=0;while(wtx.vout.size()!=i&&wtx.vout[i].scriptPubKey!=rec.scriptPubKey)++i;
+            if(i==wtx.vout.size()){
+                InformationDialog(tr("Code create fail"),"","",this).exec();
+                return;
+            }
+            wallet->AddBonusKey(CBonusinfo(showkey,wtx.GetHash(),i));
+            updateBonusList();
+            InformationDialog(tr("Your code is created. The code will be available after confirmation."),
+                              QString::number(ui->SAmount->value(),'f'),QString::fromStdString(showkey),this).exec();
+        }else{
+            InformationDialog(tr("The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here."),
+                              "","",this).exec();
 
+            if(QMessageBox::Yes==QMessageBox::question(this,tr("Solution"),tr("In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?"))){
+                pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
+            }
+        }
     }else{
         InformationDialog(tr("Code create fail"),"","",this).exec();
     }

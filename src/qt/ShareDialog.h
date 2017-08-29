@@ -15,10 +15,8 @@ public:
     ~ShareDialog();
 public Q_SLOTS:
     void sendClickedByKey();
-    void sendClickedByEmail();
 private:
     Ui::ShareDialog *ui;
-    void resizeEvent(QResizeEvent*);
 
 };
 

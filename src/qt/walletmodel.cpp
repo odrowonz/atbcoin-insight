@@ -482,7 +482,9 @@ bool WalletModel::backupWallet(const QString &filename)
 {
     return wallet->BackupWallet(filename.toLocal8Bit().data());
 }
-
+void WalletModel::rescanWallet(){
+    wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
+}
 // Handlers for core signals
 static void NotifyKeyStoreStatusChanged(WalletModel *walletmodel, CCryptoKeyStore *wallet)
 {

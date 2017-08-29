@@ -8,6 +8,7 @@
 #include "chainparams.h"
 #include "hash.h"
 #include "pow.h"
+#include "pos.h"
 #include "uint256.h"
 
 #include "main.h"
@@ -203,18 +204,16 @@ bool CBlockTreeDB::LoadBlockIndexGuts(boost::function<CBlockIndex*(const uint256
                 pindexNew->nTx               = diskindex.nTx;
                 
                 pindexNew->nFlags            = diskindex.nFlags;
-                pindexNew->nStakeModifier    = diskindex.nStakeModifier;
                 pindexNew->bnStakeModifierV2 = diskindex.bnStakeModifierV2;
                 pindexNew->vchBlockSig       = diskindex.vchBlockSig;
                 pindexNew->prevoutStake      = diskindex.prevoutStake;
-                pindexNew->nStakeTime        = diskindex.nStakeTime;
 
                 if (pindexNew->IsProofOfWork() && !CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits, Params().GetConsensus()))
                     return error("LoadBlockIndex(): CheckProofOfWork failed: %s", pindexNew->ToString());
 
                 // NovaCoin: build setStakeSeen
                 if (pindexNew->IsProofOfStake())
-                    setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
+                    setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nTime & ~STAKE_TIMESTAMP_MASK));
                 
 
                 pcursor->Next();

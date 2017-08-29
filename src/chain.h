@@ -219,15 +219,12 @@ public:
         BLOCK_STAKE_MODIFIER = (1 << 2), // regenerated stake modifier
     };
 
-    uint64_t nStakeModifier; // hash modifier for proof-of-stake
-    uint256 bnStakeModifierV2;
+    uint256 bnStakeModifierV2; // hash modifier for proof-of-stake
 
     // proof-of-stake specific fields
     COutPoint prevoutStake;
-    unsigned int nStakeTime;
 
     uint256 hashProof;
-   
 	
     void SetNull()
     {
@@ -249,12 +246,9 @@ public:
         
         vchBlockSig.clear();
         nFlags = 0;
-        nStakeModifier = 0;
         bnStakeModifierV2 = uint256();
         hashProof = uint256();
         prevoutStake.SetNull();
-        nStakeTime = 0;
-        
 
         nVersion       = 0;
         hashMerkleRoot = uint256();
@@ -274,19 +268,16 @@ public:
 
         
         nFlags = 0;
-        nStakeModifier = 0;
         bnStakeModifierV2 = uint256();
         hashProof = uint256(); 
         if (block.IsProofOfStake())
         {
             SetProofOfStake();
             prevoutStake = block.PrevoutStake();
-            nStakeTime = block.StakeTime();
         }
         else
         {
             prevoutStake.SetNull();
-            nStakeTime = 0;
         }
 
         vchBlockSig    = block.vchBlockSig;
@@ -330,7 +321,6 @@ public:
         block.vchBlockSig    = vchBlockSig;
         block.fStake         = IsProofOfStake();
         block.prevoutStake   = prevoutStake;
-        block.nStakeTime     = nStakeTime;
         
         return block;
     }
@@ -394,24 +384,15 @@ public:
     {
         return (nFlags & BLOCK_STAKE_MODIFIER);
     }
-
-    void SetStakeModifier(uint64_t nModifier, bool fGeneratedStakeModifier)
-    {
-        nStakeModifier = nModifier;
-        if (fGeneratedStakeModifier)
-            nFlags |= BLOCK_STAKE_MODIFIER;
-    }
-    
 	
     std::string ToString() const
     {
         
-        return strprintf("CBlockIndex(pprev=%p, pnext=%p, nHeight=%d, nFlags=(%s)(%d)(%s), nStakeModifier=%016x, hashProof=%s, prevoutStake=(%s), nStakeTime=%d, merkle=%s, hashBlock=%s)",
+        return strprintf("CBlockIndex(pprev=%p, pnext=%p, nHeight=%d, nFlags=(%s)(%d)(%s), hashProof=%s, prevoutStake=(%s), merkle=%s, hashBlock=%s)",
             pprev, pnext, nHeight,
             GeneratedStakeModifier() ? "MOD" : "-", GetStakeEntropyBit(), IsProofOfStake()? "PoS" : "PoW",
-            nStakeModifier,
             hashProof.ToString(),
-            prevoutStake.ToString(), nStakeTime,
+            prevoutStake.ToString(),
         
             hashMerkleRoot.ToString(),
             GetBlockHash().ToString());
@@ -484,17 +465,14 @@ public:
             READWRITE(VARINT(nUndoPos));
         
         READWRITE(nFlags);
-        READWRITE(nStakeModifier);
         READWRITE(bnStakeModifierV2);
         if (IsProofOfStake())
         {
             READWRITE(prevoutStake);
-            READWRITE(nStakeTime);
         }
         else if (ser_action.ForRead())
         {
             const_cast<CDiskBlockIndex*>(this)->prevoutStake.SetNull();
-            const_cast<CDiskBlockIndex*>(this)->nStakeTime = 0;
         }
         READWRITE(hashProof);
         READWRITE(vchBlockSig);

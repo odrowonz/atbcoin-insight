@@ -169,7 +169,7 @@ public:
     bool changePassphrase(const SecureString &oldPass, const SecureString &newPass);
     // Wallet backup
     bool backupWallet(const QString &filename);
-
+    void rescanWallet();
     // RAI object for unlocking wallet, returned by requestUnlock()
     class UnlockContext
     {

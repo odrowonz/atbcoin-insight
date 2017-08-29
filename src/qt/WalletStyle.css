@@ -296,7 +296,7 @@ QFrame[frameShape="5"]
 }
 #labelSmartFee2,
 #labelMinFeeWarning{
-    font-size:12px;
+    font-size:11px;
     margin-right:10px;
 }
 #frameFee #BalanceSend,#frameFee #labelBalance{
@@ -346,20 +346,25 @@ QFrame[frameShape="5"]
         color:#fff;
 	margin-left:5px;
 }
+.QRadioButton:disabled{
+        color:#4da49b;
+}
 .QRadioButton::indicator{
         width:                  8px;
         height:                 8px;
         border-radius:          4px;
+        border:                 4px solid white;
 }
 .QRadioButton::indicator::checked{
-	background-color:#49a37f;
-    border:          4px solid white;
-	
+    background-color:#49a37f;
 }
 .QRadioButton::indicator::unchecked{
-	background-color:#fff;
-    border:          4px solid white;
-	
+    background-color:#fff;
+}
+.QRadioButton::indicator::unchecked:disabled,
+.QRadioButton::indicator::checked:disabled{
+    background-color:#208b7d;
+    border:          4px solid #208b7d;
 }
 #radioCustomFee,#radioSmartFee{
     margin: 10px;
@@ -970,4 +975,6 @@ TransactionDescDialog #detailText,
     font-weight:600;
     color:#fff;
 }
-
+#widgetCoinControl QLabel{
+    font-size: 12px;
+}

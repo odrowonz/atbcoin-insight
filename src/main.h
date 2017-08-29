@@ -391,7 +391,7 @@ void UpdateCoins(const CTransaction& tx, CCoinsViewCache& inputs, int nHeight);
 bool CheckTransaction(const CTransaction& tx, CValidationState& state);
 
 
-bool GetCoinAge(const CTransaction& tx, CBlockTreeDB& txdb, const CBlockIndex* pindexPrev, uint64_t& nCoinAge);
+bool GetCoinAge(const CTransaction& tx, uint32_t nBlockTime, CBlockTreeDB& txdb, const CBlockIndex* pindexPrev, uint64_t& nCoinAge);
 
 
 /**

@@ -1118,11 +1118,6 @@ public:
              SerializeOutput(s, nOutput, nType, nVersion);
         // Serialize nLockTime
         ::Serialize(s, txTo.nLockTime, nType, nVersion);
-        // Serialize nTime
-        if(!(nType & SER_GETHASH))
-        {
-            ::Serialize(s, txTo.nTime, nType, nVersion);
-        }
     }
 };
 

@@ -45,7 +45,6 @@ public:
     bool fStake;
     // proof-of-stake specific fields
     COutPoint prevoutStake;
-    uint32_t nStakeTime;
     
 
     CBlockHeader()
@@ -66,13 +65,11 @@ public:
         
         fStake = IsProofOfStake();
         prevoutStake = PrevoutStake();
-        nStakeTime = StakeTime();
         if(!(nType & SER_GETHASH))
         {
             READWRITE(vchBlockSig);
             READWRITE(fStake);
             READWRITE(prevoutStake);
-            READWRITE(nStakeTime);
         }
         
     }
@@ -89,8 +86,6 @@ public:
         vchBlockSig.clear();
         fStake = 0;
         prevoutStake.SetNull();
-        nStakeTime = 0;
-        
     }
 
     bool IsNull() const
@@ -137,11 +132,6 @@ public:
         return prevoutStake;
     }
 
-    virtual uint32_t StakeTime() const
-    {
-        return nStakeTime;
-    }
-
     CBlockHeader& operator=(const CBlockHeader& other)
     {
         if (this != &other)
@@ -155,7 +145,6 @@ public:
             this->vchBlockSig    = other.vchBlockSig;
             this->fStake         = other.IsProofOfStake();
             this->prevoutStake   = other.PrevoutStake();
-            this->nStakeTime     = other.StakeTime();
         }
         return *this;
     }
@@ -219,21 +208,11 @@ public:
         return ret;
     }
     
-    uint32_t StakeTime() const
-    {
-        if(vtx.size() == 0) return nStakeTime;
-
-        uint32_t ret = 0;
-        if(IsProofOfStake())
-        {
-            ret = vtx[1].nTime;;
-        }
-        return ret;
-    }
-    
     std::pair<COutPoint, unsigned int> GetProofOfStake() const
     {
-        return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, vtx[1].nTime) : std::make_pair(COutPoint(), (unsigned int)0);
+        return IsProofOfStake()
+                ? std::make_pair(vtx[1].vin[0].prevout, nTime)
+                : std::make_pair(COutPoint(), (unsigned int)0);
     }
     
     
@@ -250,7 +229,6 @@ public:
         block.vchBlockSig    = vchBlockSig;
         block.fStake         = IsProofOfStake();
         block.prevoutStake   = PrevoutStake();
-        block.nStakeTime     = StakeTime();
         
         return block;
     }

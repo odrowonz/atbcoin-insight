@@ -20,6 +20,8 @@
 #include "walletmodel.h"
 #include "../util.h"
 #include "../wallet/wallet.h"
+#include "../main.h"
+
 
 #include "ui_interface.h"
 #include <QApplication>
@@ -289,7 +291,7 @@ void WalletView::restoreWallet(){
             if(file.copy(datadir+"/wallet.dat")){
                 QMessageBox::information(this,tr("Restore completed successfully."),
                                          tr("You must restart your wallet to continue working."));
-                QApplication::exit();
+                QApplication::quit();
             }else{
                 QMessageBox::warning(this,tr("Recovery failed."),tr("Recovery failed."));
             }

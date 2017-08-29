@@ -483,7 +483,10 @@ void BitcoinGUI::createToolBars()
 {
     if(walletFrame)
     {
-        QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
+        QToolBar *toolbar = new QToolBar(tr("Tabs toolbar"));
+        this->setContextMenuPolicy(Qt::NoContextMenu);
+        toolbar->setContextMenuPolicy(Qt::NoContextMenu);
+        addToolBar(toolbar);
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         toolbar->setMovable(false);
         QWidget * space;

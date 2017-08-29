@@ -253,8 +253,17 @@ UniValue getstakesubsidy(const UniValue& params, bool fHelp)
     catch (std::exception &e) {
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
     }
+
+    CTransaction _tx;
+    uint256 txBlockHash;
+    GetTransaction(tx.GetHash(), _tx, Params().GetConsensus(), txBlockHash, true);
+
+    CBlockIndex* txBlock = mapBlockIndex[txBlockHash];
+    if (!txBlock)
+        throw JSONRPCError(RPC_MISC_ERROR, "Tx Block not found");
+
     uint64_t nCoinAge;
-    if (!GetCoinAge(tx, *pblocktree, pindexBestHeader, nCoinAge))
+    if (!GetCoinAge(tx, txBlock->nTime, *pblocktree, pindexBestHeader, nCoinAge))
         throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
 
     return (uint64_t)GetProofOfStakeReward(chainActive.Height(), nCoinAge, 0);
@@ -451,10 +460,9 @@ UniValue checkkernel(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_INTERNAL_ERROR, "Couldn't create new block");
     CBlock *pblock = &pblocktemplate->block;
 	
-	CMutableTransaction txCoinBase(pblock->vtx[0]);
-	txCoinBase.nTime = nTime;
+    CMutableTransaction txCoinBase(pblock->vtx[0]);
 	pblock->vtx[0] = txCoinBase;
-    pblock->nTime = pblock->vtx[0].nTime;
+    pblock->nTime = nTime;
 
     CDataStream ss(SER_DISK, PROTOCOL_VERSION);
     ss << *pblock;

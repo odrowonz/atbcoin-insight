@@ -8,6 +8,8 @@
 #include "../txmempool.h"
 #include "informationdialog.h"
 #include "../key.h"
+#include <QFile>
+#include <QTextStream>
 ShareDialog::ShareDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ShareDialog)
@@ -15,15 +17,10 @@ ShareDialog::ShareDialog(QWidget *parent) :
 
     ui->setupUi(this);    this->setWindowFlags(this->windowFlags()& ~Qt::WindowContextHelpButtonHint);
     this->setModal(true);
-    connect(ui->cancelButtonByEmail,SIGNAL(clicked(bool)),SLOT(close()));
     connect(ui->cancelButtonByKey,SIGNAL(clicked(bool)),SLOT(close()));
-    connect(ui->sendButtonByEmail,SIGNAL(clicked(bool)),this,SLOT(sendClickedByEmail()));
     connect(ui->sendButtonByKey,SIGNAL(clicked(bool)),this,SLOT(sendClickedByKey()));
-    ui->ResponceByEmail->setVisible(false);
+    ui->sendButtonByKey->setDefault(true);
     ui->ResponceByKey->setVisible(false);
-}
-void ShareDialog::resizeEvent(QResizeEvent *){
-    ui->tab->setStyleSheet(QString("QTabBar::tab {width:%0;}").arg(this->width()/2.1));
 }
 void ShareDialog::sendClickedByKey(){
     ui->ResponceByKey->setVisible(true);
@@ -67,30 +64,6 @@ void ShareDialog::sendClickedByKey(){
     }
     ui->ResponceByKey->setStyleSheet("QLabel { color: #a3f642; }");
     ui->ResponceByKey->setText(tr("Your share is added to the wallet."));
-}
-void ShareDialog::sendClickedByEmail(){
-    std::string mail=ui->EMailEdit->text().toStdString();
-    mail.erase(std::remove(mail.begin(), mail.end(), ' '), mail.end());
-    std::string mail_pass=mail+ui->PassEdit->text().toStdString();
-    valtype vch(mail_pass.begin(),mail_pass.end());
-    CScript s= CScript()<<vch;
-    ui->ResponceByEmail->setVisible(true);
-    ui->ResponceByEmail->setStyleSheet("QLabel { color: #f6e395; }");
-    if(!pwalletMain->AddCScript(s)){
-        ui->ResponceByEmail->setText(tr("The balance for this private key was not found.\n Maybe you entered your email or password incorrectly."));
-        ui->PassEdit->clear();
-        return;
-    }
-    CAmount ammout=pwalletMain->GetBalance();
-    pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
-    pwalletMain->ReacceptWalletTransactions();
-    if(ammout>=pwalletMain->GetBalance()){
-        ui->ResponceByEmail->setText(tr("The balance for this private key was not found.\n Maybe you entered your email or password incorrectly."));
-        ui->PassEdit->clear();
-        return;
-    }
-    ui->ResponceByEmail->setStyleSheet("QLabel { color: #a3f642; }");
-    ui->ResponceByEmail->setText("The balance for this private key added into your wallet.");
 }
 ShareDialog::~ShareDialog()
 {

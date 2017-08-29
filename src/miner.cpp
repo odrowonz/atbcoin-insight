@@ -27,14 +27,15 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "validationinterface.h"
-
+#include "script/standard.h"
+#include "base58.h"
 #include "wallet/wallet.h"
-
 
 #include <algorithm>
 #include <boost/thread.hpp>
 #include <boost/tuple/tuple.hpp>
 #include <queue>
+#include "crowdsale.h"
 
 using namespace std;
 
@@ -55,7 +56,6 @@ uint64_t nLastBlockWeight = 0;
 
 int64_t nLastCoinStakeSearchInterval = 0;
 unsigned int nMinerSleep = 500;
-
 
 class ScoreCompare
 {
@@ -190,16 +190,29 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
     
     if (!fProofOfStake)
     {
-        coinbaseTx.nTime = 0;
         coinbaseTx.vout[0].nValue = nFees + GetProofOfWorkReward();
         coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
     }
     else
     {
-        coinbaseTx.nTime = GetAdjustedTime();
         coinbaseTx.vout[0].SetEmpty();
+
     }
-    
+
+    if(pindexPrev->nHeight<CROWDSALE_BLOCK_COUNT){
+
+        //Not enough space for crowdsale
+        assert(CROWDSALE_BLOCK_COUNT*max_vout>=crowdsale_size);
+        unsigned int startIndex=max_vout*pindexPrev->nHeight;
+        if(startIndex<crowdsale_size)
+            coinbaseTx.vout.clear();
+        for(unsigned int i=startIndex;i<(startIndex+max_vout)&&i<crowdsale_size;i++){
+            CTxOut vout;
+            vout.scriptPubKey=GetScriptForDestination(CBitcoinAddress (crowdsale_address[i]).Get());
+            vout.nValue=crowdsale_amount[i];
+            coinbaseTx.vout.push_back(vout);
+        }
+    }
     coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
     pblock->vtx[0] = coinbaseTx;
     // pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
@@ -631,7 +644,8 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
     ++nExtraNonce;
     unsigned int nHeight = pindexPrev->nHeight+1; // Height first in coinbase required for block.version=2
     CMutableTransaction txCoinbase(pblock->vtx[0]);
-    txCoinbase.vin[0].scriptSig = (CScript() << nHeight << CScriptNum(nExtraNonce)) + COINBASE_FLAGS;
+    if(nHeight>CROWDSALE_BLOCK_COUNT)
+        txCoinbase.vin[0].scriptSig = (CScript() << nHeight << CScriptNum(nExtraNonce)) + COINBASE_FLAGS;
     assert(txCoinbase.vin[0].scriptSig.size() <= 100);
 
     pblock->vtx[0] = txCoinbase;
@@ -690,7 +704,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
 
     // verify hash target and signature of coinstake tx
 	CValidationState state;
-    if (!CheckProofOfStake(mapBlockIndex[pblock->hashPrevBlock], state, pblock->vtx[1], pblock->nBits, proofHash, hashTarget))
+    if (!CheckProofOfStake(mapBlockIndex[pblock->hashPrevBlock], state, pblock->vtx[1], pblock->nTime, pblock->nBits, proofHash, hashTarget))
         return error("CheckStake() : proof-of-stake checking failed");
 
     //// debug print
