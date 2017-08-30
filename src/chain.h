@@ -273,7 +273,7 @@ public:
         if (block.IsProofOfStake())
         {
             SetProofOfStake();
-            prevoutStake = block.PrevoutStake();
+            prevoutStake = block.prevoutStake;
         }
         else
         {

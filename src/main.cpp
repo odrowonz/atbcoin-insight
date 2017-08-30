@@ -3534,7 +3534,7 @@ CBlockIndex* AddToBlockIndex(const CBlockHeader& block)
     }
 
     // ppcoin: compute stake modifier
-    pindexNew->bnStakeModifierV2 = ComputeStakeModifierV2(pindexNew->pprev, block.IsProofOfWork() ? hash : block.PrevoutStake().hash);
+    pindexNew->bnStakeModifierV2 = ComputeStakeModifierV2(pindexNew->pprev, block.IsProofOfWork() ? hash : block.prevoutStake.hash);
 
     pindexNew->RaiseValidity(BLOCK_VALID_TREE);
     if (pindexBestHeader == NULL)
@@ -3717,6 +3717,7 @@ bool SignBlock(CBlock& block, CWallet& wallet, CAmount& nFees)
             block.vtx.insert(block.vtx.begin() + 1, txCoinStake);
             GenerateCoinbaseCommitment(block, chainActive.Tip(), Params().GetConsensus());
             block.hashMerkleRoot = BlockMerkleRoot(block);
+            block.prevoutStake = block.vtx[1].vin[0].prevout;
 
             // append a signature to our block
             return key.Sign(block.GetHash(), block.vchBlockSig);

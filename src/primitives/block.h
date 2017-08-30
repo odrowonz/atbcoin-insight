@@ -60,8 +60,6 @@ public:
         READWRITE(nTime);
         READWRITE(nBits);
         READWRITE(nNonce);
-
-        prevoutStake = PrevoutStake();
         if(!(nType & SER_GETHASH))
         {
             READWRITE(vchBlockSig);
@@ -121,11 +119,6 @@ public:
     {
         return !IsProofOfStake();
     }
-    
-    virtual COutPoint PrevoutStake() const
-    {
-        return prevoutStake;
-    }
 
     CBlockHeader& operator=(const CBlockHeader& other)
     {
@@ -138,7 +131,7 @@ public:
             this->nBits          = other.nBits;
             this->nNonce         = other.nNonce;
             this->vchBlockSig    = other.vchBlockSig;
-            this->prevoutStake   = other.PrevoutStake();
+            this->prevoutStake   = other.prevoutStake;
         }
         return *this;
     }
@@ -212,7 +205,7 @@ public:
         block.nNonce         = nNonce;
         
         block.vchBlockSig    = vchBlockSig;
-        block.prevoutStake   = PrevoutStake();
+        block.prevoutStake   = prevoutStake;
         
         return block;
     }
