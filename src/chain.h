@@ -319,7 +319,6 @@ public:
         block.nNonce         = nNonce;
         
         block.vchBlockSig    = vchBlockSig;
-        block.fStake         = IsProofOfStake();
         block.prevoutStake   = prevoutStake;
         
         return block;

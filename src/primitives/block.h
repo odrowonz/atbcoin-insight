@@ -42,8 +42,6 @@ public:
      * updated from CBlock using virtual functions, the new parameters are intended to be used indirectly
      * by calling the virtual functions to read there content except in the constructions phase where will 
      * be used directly.*/
-    bool fStake;
-    // proof-of-stake specific fields
     COutPoint prevoutStake;
     
 
@@ -62,13 +60,11 @@ public:
         READWRITE(nTime);
         READWRITE(nBits);
         READWRITE(nNonce);
-        
-        fStake = IsProofOfStake();
+
         prevoutStake = PrevoutStake();
         if(!(nType & SER_GETHASH))
         {
             READWRITE(vchBlockSig);
-            READWRITE(fStake);
             READWRITE(prevoutStake);
         }
         
@@ -84,7 +80,6 @@ public:
         nNonce = 0;
         
         vchBlockSig.clear();
-        fStake = 0;
         prevoutStake.SetNull();
     }
 
@@ -119,7 +114,7 @@ public:
     // ppcoin: two types of block: proof-of-work or proof-of-stake
     virtual bool IsProofOfStake() const
     {
-        return fStake;
+        return !prevoutStake.IsNull();
     }
 
     virtual bool IsProofOfWork() const
@@ -143,7 +138,6 @@ public:
             this->nBits          = other.nBits;
             this->nNonce         = other.nNonce;
             this->vchBlockSig    = other.vchBlockSig;
-            this->fStake         = other.IsProofOfStake();
             this->prevoutStake   = other.PrevoutStake();
         }
         return *this;
@@ -191,21 +185,12 @@ public:
     // ppcoin: two types of block: proof-of-work or proof-of-stake
     bool IsProofOfStake() const
     {
-        if(vtx.size() == 0) return fStake;
-
-        return (vtx.size() > 1 && vtx[1].IsCoinStake());
+        return vtx.size() > 1 && vtx[1].IsCoinStake();
     }
 
     COutPoint PrevoutStake() const
     {
-        if(vtx.size() == 0) return prevoutStake;
-
-        COutPoint ret;
-        if(IsProofOfStake())
-        {
-            ret = vtx[1].vin[0].prevout;
-        }
-        return ret;
+        return IsProofOfStake() ? vtx[1].vin[0].prevout : COutPoint();
     }
     
     std::pair<COutPoint, unsigned int> GetProofOfStake() const
@@ -227,7 +212,6 @@ public:
         block.nNonce         = nNonce;
         
         block.vchBlockSig    = vchBlockSig;
-        block.fStake         = IsProofOfStake();
         block.prevoutStake   = PrevoutStake();
         
         return block;
