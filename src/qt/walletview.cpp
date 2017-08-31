@@ -69,7 +69,6 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     addWidget(BonusCode);
 
 
-    connect(BonusCode,SIGNAL(couponAdded(QString)),transactionView,SLOT(refreshList(QString)));
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
 

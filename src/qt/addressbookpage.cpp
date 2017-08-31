@@ -103,7 +103,6 @@ AddressBookPage::AddressBookPage(const PlatformStyle *platformStyle, Mode mode, 
 
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(accept()));
 
-    connect(ui->tableView->model(),SIGNAL(rowsRemoved(QModelIndex,int,int)),this,SLOT(Header_fix(QModelIndex,int,int)));
 }
 
 AddressBookPage::~AddressBookPage()
