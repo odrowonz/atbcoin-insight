@@ -290,6 +290,8 @@ void WalletView::restoreWallet(){
             if(file.copy(datadir+"/wallet.dat")){
                 QMessageBox::information(this,tr("Restore completed successfully."),
                                          tr("You must restart your wallet to continue working."));
+                CWallet::InitLoadWallet();
+                pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
                 QApplication::quit();
             }else{
                 QMessageBox::warning(this,tr("Recovery failed."),tr("Recovery failed."));
