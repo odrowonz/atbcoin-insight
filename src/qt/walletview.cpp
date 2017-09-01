@@ -21,6 +21,7 @@
 #include "../util.h"
 #include "../wallet/wallet.h"
 #include "../main.h"
+#include "ShareDialog.h"
 
 
 #include "ui_interface.h"
@@ -164,6 +165,11 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
     QString label = ttm->data(index, TransactionTableModel::LabelRole).toString();
 
     Q_EMIT incomingTransaction(date, BitcoinUnits::BTC, amount, type, address, label);
+}
+
+void WalletView::gotoShareDialog()
+{
+    (new ShareDialog(walletModel,this))->show();
 }
 
 void WalletView::gotoBonusCodes()

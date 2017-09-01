@@ -477,7 +477,7 @@ void BitcoinGUI::createMenuBar()
     help->setFont(GUIUtil::fixedPitchFont());
 }
 void BitcoinGUI::shareDialogClicked(){
-    (new ShareDialog(this))->show();
+    walletFrame->gotoShareDialog();
 }
 void BitcoinGUI::createToolBars()
 {

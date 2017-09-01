@@ -51,6 +51,9 @@ private:
     WalletView *currentWalletView();
 
 public Q_SLOTS:
+
+    /** goto shareDialog */
+    void gotoShareDialog();
     /** Switch to BonusCodes page */
     void gotoBonusCodes();
     /** Switch to overview (home) page */

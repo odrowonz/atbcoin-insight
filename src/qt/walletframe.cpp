@@ -105,6 +105,11 @@ void WalletFrame::showOutOfSyncWarning(bool fShow)
     for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
         i.value()->showOutOfSyncWarning(fShow);
 }
+void WalletFrame::gotoShareDialog(){
+    QMap<QString, WalletView*>::const_iterator i;
+    for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
+        i.value()->gotoShareDialog();
+}
 void WalletFrame::gotoBonusCodes()
 {
     QMap<QString, WalletView*>::const_iterator i;
