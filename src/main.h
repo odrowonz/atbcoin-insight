@@ -46,6 +46,8 @@ class CWallet;
 struct CNodeStateStats;
 struct LockPoints;
 
+/** Default for DEFAULT_CROWDSALE. */
+static const bool DEFAULT_CROWDSALE     = true;
 /** Default for DEFAULT_WHITELISTRELAY. */
 static const bool DEFAULT_WHITELISTRELAY = true;
 /** Default for DEFAULT_WHITELISTFORCERELAY. */

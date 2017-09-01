@@ -21,7 +21,6 @@
 #include "policy/fees.h"
 #include "policy/policy.h"
 #include "pow.h"
-
 #include "pos.h"
 
 #include "primitives/block.h"
@@ -2731,10 +2730,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     if (block.IsProofOfWork())
         {
             //is crowdsale block
-            if(CROWDSALE_BLOCK_COUNT > pindex->nHeight && pindex->nHeight &&pindex->hashMerkleRoot!=uint256()){
-
-                if(pindex->hashMerkleRoot.ToString()!=blockHashMerkleRoot[pindex->nHeight-1]){
-                    return  error("ConnectBlock(): Crowdsale: Invalid MerkleRoothash of block(actual=%d vs limit=%d)");
+            if(GetBoolArg("-crowdsale",DEFAULT_CROWDSALE) && CROWDSALE_BLOCK_COUNT > pindex->nHeight && pindex->nHeight){
+                if(block.vtx[0].GetHash()!=crowdsaleTxHashes[pindex->nHeight-1]){
+                    return  error("ConnectBlock(): Crowdsale: Invalid hash of crowdsale tx");
                 }
             }
 

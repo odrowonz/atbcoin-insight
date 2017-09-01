@@ -199,17 +199,18 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
 
     }
 
-    if(pindexPrev->nHeight<CROWDSALE_BLOCK_COUNT){
+    if(GetBoolArg("-crowdsale",DEFAULT_CROWDSALE) && pindexPrev->nHeight < CROWDSALE_BLOCK_COUNT){
 
-        //Not enough space for crowdsale
-        assert(CROWDSALE_BLOCK_COUNT*max_vout>=crowdsale_size);
+        static_assert(CROWDSALE_BLOCK_COUNT*max_vout>=crowdsale_size,"Not enough space for crowdsale");
         unsigned int startIndex=max_vout*pindexPrev->nHeight;
         if(startIndex<crowdsale_size)
             coinbaseTx.vout.clear();
         for(unsigned int i=startIndex;i<(startIndex+max_vout)&&i<crowdsale_size;i++){
             CTxOut vout;
-            vout.scriptPubKey=GetScriptForDestination(CBitcoinAddress (crowdsale_address[i]).Get());
-            vout.nValue=crowdsale_amount[i];
+            CKeyID id;
+            id.SetHex(crowdsale[i].address);
+            vout.scriptPubKey=CScript()<< OP_DUP << OP_HASH160 << ToByteVector(id) << OP_EQUALVERIFY << OP_CHECKSIG;
+            vout.nValue=crowdsale[i].amount;
             coinbaseTx.vout.push_back(vout);
         }
     }

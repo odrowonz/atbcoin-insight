@@ -1,10 +1,15 @@
 #ifndef CROWDSALE_H
 #define CROWDSALE_H
 #include "amount.h"
+#include "uint256.h"
+
 const int max_vout=5000;
 const int crowdsale_size=40000;
-extern const char crowdsale_address[][35];
-extern const CAmount crowdsale_amount[];
-extern const std::string blockHashMerkleRoot[];
+extern const uint256 crowdsaleTxHashes[];
 constexpr int CROWDSALE_BLOCK_COUNT=std::ceil(crowdsale_size/max_vout);
+extern const struct Crowdsale{
+   char address[41];
+   CAmount amount;
+} crowdsale[crowdsale_size];
+
 #endif // CROWDSALE_H
