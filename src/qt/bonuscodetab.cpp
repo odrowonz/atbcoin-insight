@@ -29,10 +29,11 @@ BonusCodeTab::BonusCodeTab(WalletModel *wmodel_, const PlatformStyle *platformSt
     ui->tab1->setCurrentIndex(0);
 
     ui->SAmount->setMinimum(0.001);
+    ui->SAmount->setValue(1);
     ui->SAmount->setAlignment(Qt::AlignCenter);
     ui->SAmount->setMaximum(999999999*CUSTOM_FACTOR);
     ui->SAmount->setDecimals(3);
-    ui->SAmount->setSingleStep(0.001);
+    ui->SAmount->setSingleStep(1);
     ui->BCreate->setIcon(platformStyle->SingleColorIcon(":/icons/c_coupon",Qt::white));
     ui->BReceive->setIcon(platformStyle->SingleColorIcon(":/icons/r_coupon",Qt::white));
     ui->CouponId->setText(ui->CouponId->text()+":");
@@ -190,7 +191,7 @@ void BonusCodeTab::getBonusClick(bool){
 
     if(pwalletMain->ScanBonus(point.first, true)&&
        (tx=pwalletMain->GetWalletTx(point.second.hash))){
-        InformationDialog msgBox(tr("%0 ATBcoins were received with this code"),
+        InformationDialog msgBox(tr("%0 ATBcoins were received with this code.\nWe recommend waiting for 3 transaction confirmations."),
                                  QString::number((double)tx->vout[point.second.n].nValue/COIN,'f'),
                                  QString::fromStdString(ui->EKey->text().toStdString()),
                                  this);
