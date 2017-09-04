@@ -66,6 +66,8 @@ class FeeFilterTest(BitcoinTestFramework):
         # Get out of IBD
         node1.generate(1)
         sync_blocks(self.nodes)
+        node0.generate(21)
+        sync_blocks(self.nodes)
 
         # Setup the p2p connections and start up the network thread.
         test_node = TestNode()
