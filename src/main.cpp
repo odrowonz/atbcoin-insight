@@ -3470,7 +3470,11 @@ bool GetCoinAge(const CTransaction& tx, uint32_t nTime, CBlockTreeDB& txdb, cons
         CDiskTxPos txindex;
         if (!ReadFromDisk(txPrev, txindex, txdb, txin.prevout))
             continue;  // previous transaction not in main chain
-
+        uint256 prewTxBlockHash;
+        if(!GetTransaction(txPrev.GetHash(),txPrev,Params().GetConsensus(),prewTxBlockHash)){
+            return false;
+        }
+        CBlockIndex * prewTxBlock = mapBlockIndex[prewTxBlockHash];
         int nSpendDepth;
         if (IsConfirmedInNPrevBlocks(txindex, pindexPrev, nStakeMinConfirmations - 1, nSpendDepth))
         {
@@ -3481,7 +3485,7 @@ bool GetCoinAge(const CTransaction& tx, uint32_t nTime, CBlockTreeDB& txdb, cons
             continue; // only count coins meeting min age requirement
 
         int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
-        bnCentSecond += uint64_t(nValueIn) * (nBlockStakeTime - pindexPrev->nTime) / CENT;
+        bnCentSecond += uint64_t(nValueIn) * (nBlockStakeTime - prewTxBlock->nTime) / CENT;
         LogPrint("coinage", "coin age nValueIn=%d nTimeDiff=%d", nValueIn, nBlockStakeTime - pindexPrev->nTime);
     }
 
