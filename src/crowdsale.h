@@ -2,11 +2,12 @@
 #define CROWDSALE_H
 #include "amount.h"
 #include "uint256.h"
+#include <cmath>
 
-const int max_vout=5000;
-const int crowdsale_size=40000;
+const float max_vout=7880;
+const int crowdsale_size=7890;
 extern const uint256 crowdsaleTxHashes[];
-constexpr int CROWDSALE_BLOCK_COUNT=std::ceil(crowdsale_size/max_vout);
+const int CROWDSALE_BLOCK_COUNT=std::ceil(crowdsale_size/max_vout);
 extern const struct Crowdsale{
    char address[41];
    CAmount amount;

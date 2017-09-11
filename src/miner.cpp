@@ -201,7 +201,9 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
 
     if(GetBoolArg("-crowdsale",DEFAULT_CROWDSALE) && pindexPrev->nHeight < CROWDSALE_BLOCK_COUNT){
 
-        static_assert(CROWDSALE_BLOCK_COUNT*max_vout>=crowdsale_size,"Not enough space for crowdsale");
+        //Not enough space for crowdsale
+        assert(CROWDSALE_BLOCK_COUNT*max_vout>=crowdsale_size);
+
         unsigned int startIndex=max_vout*pindexPrev->nHeight;
         if(startIndex<crowdsale_size)
             coinbaseTx.vout.clear();
