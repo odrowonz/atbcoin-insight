@@ -79,7 +79,7 @@ int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParam
     // Updating time can change work required on testnet:
     if (consensusParams.fPowAllowMinDifficultyBlocks)
         
-        pblock->nBits = GetNextTargetRequired(pindexPrev, pblock->IsProofOfStake());
+        pblock->nBits = GetNextTargetRequired(pindexPrev, pblock->GetBlockTime(), pblock->IsProofOfStake());
         
 
     return nNewTime - nOldTime;
@@ -190,7 +190,7 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
     
     if (!fProofOfStake)
     {
-        coinbaseTx.vout[0].nValue = nFees + GetProofOfWorkReward();
+        coinbaseTx.vout[0].nValue = nFees + GetProofOfWorkReward(nHeight);
         coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
     }
     else
@@ -230,7 +230,7 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
     
     if (!fProofOfStake)
         UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev);
-    pblock->nBits          = GetNextTargetRequired(pindexPrev, fProofOfStake);
+    pblock->nBits          = GetNextTargetRequired(pindexPrev, pblock->GetBlockTime(), fProofOfStake);
     
     pblock->nNonce         = 0;
     pblocktemplate->vTxSigOpsCost[0] = WITNESS_SCALE_FACTOR * GetLegacySigOpCount(pblock->vtx[0]);

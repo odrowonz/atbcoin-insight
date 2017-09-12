@@ -112,11 +112,12 @@ public:
         consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nTargetTimespan = 150;  // 16 mins
+        consensus.nTargetTimespan = 150 * 15;  // 16 mins
         consensus.nTargetSpacing = 150;
         
         consensus.fPowAllowMinDifficultyBlocks = false;
-        consensus.fPowNoRetargeting = false;
+        consensus.fPowNoRetargeting = true;
+        consensus.fPosNoRetargeting = false;
         
         consensus.nRuleChangeActivationThreshold = 14; // 95% of 15
         consensus.nMinerConfirmationWindow = 15; // nTargetTimespan / nTargetSpacing
@@ -161,10 +162,9 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("78.46.248.224", "78.46.248.224"));
-        vSeeds.push_back(CDNSSeedData("n1.aitibicoin.com", "n1.aitibicoin.com"));
-        vSeeds.push_back(CDNSSeedData("n2.aitibicoin.com", "n2.aitibicoin.com"));
-        vSeeds.push_back(CDNSSeedData("n3.aitibicoin.com", "n3.aitibicoin.com"));
+        vSeeds.push_back(CDNSSeedData("node1.atbcoin.com", "node1.atbcoin.com"));
+        vSeeds.push_back(CDNSSeedData("node2.atbcoin.com", "node2.atbcoin.com"));
+        vSeeds.push_back(CDNSSeedData("node3.atbcoin.com", "node3.atbcoin.com"));
 
 
         fMiningRequiresPeers = true;
@@ -183,8 +183,8 @@ public:
             0  // * estimated number of transactions per day after checkpoint
         };
 		
-        nLastPOWBlock = 100;
-        
+        nLastPOWBlock = 5002;
+
     }
 };
 static CMainParams mainParams;
@@ -210,11 +210,12 @@ public:
         
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nTargetTimespan = 150;  // 16 mins
+        consensus.nTargetTimespan = 150 * 15;  // 16 mins
         consensus.nTargetSpacing = 150;
         
         consensus.fPowAllowMinDifficultyBlocks = true;
-        consensus.fPowNoRetargeting = false;
+        consensus.fPowNoRetargeting = true;
+        consensus.fPosNoRetargeting = false;
         
         consensus.nRuleChangeActivationThreshold = 11; // 75% for testchains
         consensus.nMinerConfirmationWindow = 15; // nTargetTimespan / nTargetSpacing
@@ -283,7 +284,7 @@ public:
             0
         };
 		
-        nLastPOWBlock = 100;
+        nLastPOWBlock = 5000;
         
     }
 };
@@ -310,11 +311,12 @@ public:
         consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
         
         consensus.posLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nTargetTimespan = 16 * 60;  // 16 mins
-        consensus.nTargetSpacing = 64;
+        consensus.nTargetTimespan = 150 * 15;  // 16 mins
+        consensus.nTargetSpacing = 150;
         
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
+        consensus.fPosNoRetargeting = true;
         
         consensus.nRuleChangeActivationThreshold = 7; // 75% for testchains
         consensus.nMinerConfirmationWindow = 10; // Faster than normal for regtest (10 instead of 15)
@@ -366,7 +368,7 @@ public:
             0
         };
 
-        nLastPOWBlock = 100;
+        nLastPOWBlock = 0x7fffffff;
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);

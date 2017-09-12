@@ -232,7 +232,7 @@ UniValue getsubsidy(const UniValue& params, bool fHelp)
             "getsubsidy [nTarget]\n"
             "Returns proof-of-work subsidy value for the specified value of target.");
 
-    return (uint64_t)GetProofOfWorkReward();
+    return (uint64_t)GetProofOfWorkReward(5);
 }
 
 UniValue getstakesubsidy(const UniValue& params, bool fHelp)
@@ -313,7 +313,7 @@ UniValue getmininginfo(const UniValue& params, bool fHelp)
     diff.push_back(Pair("search-interval",      (int)nLastCoinStakeSearchInterval));
     obj.push_back(Pair("difficulty",    diff));
 
-    obj.push_back(Pair("blockvalue",    (uint64_t)GetProofOfWorkReward()));
+    obj.push_back(Pair("blockvalue",    (uint64_t)GetProofOfWorkReward(chainActive.Height())));
     obj.push_back(Pair("netmhashps",     GetPoWMHashPS()));
     obj.push_back(Pair("netstakeweight", GetPoSKernelPS()));
     obj.push_back(Pair("errors",        GetWarnings("statusbar")));
@@ -401,7 +401,7 @@ UniValue checkkernel(const UniValue& params, bool fHelp)
 
     COutPoint kernel;
     CBlockIndex* pindexPrev = chainActive.Tip();
-    unsigned int nBits = GetNextTargetRequired(pindexPrev, true);
+    unsigned int nBits = GetNextTargetRequired(pindexPrev, GetAdjustedTime(), true);
     int64_t nTime = GetAdjustedTime();
     nTime &= ~STAKE_TIMESTAMP_MASK;
 

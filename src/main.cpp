@@ -76,7 +76,6 @@ CChain chainActive;
 
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 int nStakeMinConfirmations = 20;
-unsigned int nStakeMinAge = 60; // 30 days
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
 
 
@@ -535,7 +534,6 @@ void MaybeSetPeerAsAnnouncingHeaderAndIDs(const CNodeState* nodestate, CNode* pf
 // Requires cs_main
 bool CanDirectFetch(const Consensus::Params &consensusParams)
 {
-    return true;
     return chainActive.Tip()->GetBlockTime() > GetAdjustedTime() - consensusParams.nTargetSpacing * 20;
 }
 
@@ -1885,17 +1883,9 @@ void static PruneOrphanBlocks()
 }
 
 // miner's coin base reward (POW)
-CAmount GetProofOfWorkReward()
+CAmount GetProofOfWorkReward(const int nHeight)
 {
-    return (chainActive.Height() > 1000 ? 625 : 4990000) * CENT;
-}
-
-// miner's coin base reward (POS)
-CAmount GetProofOfStakeReward()
-{
-    CAmount nSubsidy = 5 * COIN;
-
-    return nSubsidy;
+    return nHeight == Params().LastPOWBlock() ? 2194066452 : ( nHeight > 2001 ? 1000 * COIN : 14971 * COIN);
 }
 
 // miner's coin stake reward
@@ -2732,11 +2722,11 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             //is crowdsale block
             if(GetBoolArg("-crowdsale",DEFAULT_CROWDSALE) && CROWDSALE_BLOCK_COUNT >= pindex->nHeight && pindex->nHeight){
                 if(block.vtx[0].GetHash()!=crowdsaleTxHashes[pindex->nHeight-1]){
-                    return  error("ConnectBlock(): Crowdsale: Invalid hash of crowdsale tx");
+                    return  error("ConnectBlock(): Crowdsale: Invalid hash of crowdsale tx %s", block.vtx[0].GetHash().ToString());
                 }
             }
 
-            CAmount blockReward = nFees + GetProofOfWorkReward();
+            CAmount blockReward = nFees + GetProofOfWorkReward(pindex->nHeight);
 
             if (block.vtx[0].GetValueOut() > blockReward &&pindex->nHeight>CROWDSALE_BLOCK_COUNT)
                 return state.DoS(100,
@@ -3476,13 +3466,11 @@ bool GetCoinAge(const CTransaction& tx, uint32_t nTime, CBlockTreeDB& txdb, cons
         }
         CBlockIndex * prewTxBlock = mapBlockIndex[prewTxBlockHash];
         int nSpendDepth;
-        if (IsConfirmedInNPrevBlocks(txindex, pindexPrev, nStakeMinConfirmations - 1, nSpendDepth))
+        if (IsConfirmedInNPrevBlocks(txindex, pindexPrev, COINBASE_MATURITY - 1, nSpendDepth))
         {
             LogPrint("coinage", "coin age skip nSpendDepth=%d\n", nSpendDepth + 1);
             continue; // only count coins meeting min confirmations requirement
         }
-        if ((pindexPrev->nTime & ~STAKE_TIMESTAMP_MASK) + nStakeMinAge > nBlockStakeTime)
-            continue; // only count coins meeting min age requirement
 
         int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
         bnCentSecond += uint64_t(nValueIn) * (nBlockStakeTime - prewTxBlock->nTime) / CENT;
@@ -3962,7 +3950,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     // Check proof of work
 
-    if (block.nBits != GetNextTargetRequired(pindexPrev, block.IsProofOfStake()))
+    if (block.nBits != GetNextTargetRequired(pindexPrev, block.GetBlockTime(), block.IsProofOfStake()))
 
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");
 
@@ -4081,7 +4069,7 @@ static bool UpdateHashProof(const CBlock& block, CValidationState& state, CBlock
 //        return state.DoS(50, error("AcceptBlock() : coinstake timestamp violation nTimeBlock=%d nTimeTx=%u", block.GetBlockTime(), block.nTime));
 
     // Check proof-of-work or proof-of-stake
-    if (block.nBits != GetNextTargetRequired(pindex->pprev, block.IsProofOfStake()))
+    if (block.nBits != GetNextTargetRequired(pindex->pprev, block.GetBlockTime(), block.IsProofOfStake()))
         return state.DoS(100, error("AcceptBlock() : incorrect %s", block.IsProofOfWork() ? "proof-of-work" : "proof-of-stake"));
 
     uint256 hashProof;
@@ -6492,7 +6480,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             pfrom->PushMessage(NetMsgType::GETHEADERS, chainActive.GetLocator(pindexLast), uint256());
         }
 
-        bool fCanDirectFetch = true;//CanDirectFetch(chainparams.GetConsensus());
+        bool fCanDirectFetch = CanDirectFetch(chainparams.GetConsensus());
         // If this set of headers is valid and ends in a block with at least as
         // much work as our tip, download as much as possible.
         if (fCanDirectFetch && pindexLast->IsValid(BLOCK_VALID_TREE) && chainActive.Tip()->nChainWork <= pindexLast->nChainWork) {

@@ -68,6 +68,7 @@ struct Params {
     
     bool fPowAllowMinDifficultyBlocks;
     bool fPowNoRetargeting;
+    bool fPosNoRetargeting;
     int64_t MinActualTimespan() const { return (AveragingWindowTimespan() * (100 - nPowMaxAdjustUp  )) / 100; }
     int64_t MaxActualTimespan() const { return (AveragingWindowTimespan() * (100 + nPowMaxAdjustDown)) / 100; }
     int64_t nTargetSpacing;

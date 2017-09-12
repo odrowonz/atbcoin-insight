@@ -33,27 +33,26 @@ struct {
     {2, 0x0006bd07 }, {2, 0x00080f13 }, {1, 0x000eae7b }, {2, 0x000c9f81 },
     {2, 0x000d713b }, {1, 0x000d7b1d }, {1, 0x000ce3f8 }, {2, 0x000cd10e },
     {2, 0x000db75b }, {1, 0x001055a7 }, {2, 0x0011afca }, {2, 0x0012a5ec },
-    {1, 0x0012c0fb }, {2, 0x00125de5 }, {1, 0x0015a376 }, {1, 0x00157230 },
-    {3, 0x0017e147 }, {2, 0x00185db9 }, {2, 0x001c066b }, {1, 0x001ebb36 },
-    {2, 0x001edcca }, {1, 0x001fb671 }, {2, 0x00212f6c }, {2, 0x0020ab74 },
-    {2, 0x0022fb34 }, {2, 0x0024e77b }, {2, 0x00252f76 }, {2, 0x0029a3b6 },
-    {1, 0x0027eadc }, {2, 0x002ad58a }, {2, 0x002f0760 }, {1, 0x002c11c1 },
-    {2, 0x002be10e }, {1, 0x00303508 }, {2, 0x00313369 }, {1, 0x002f6d81 },
-    {1, 0x003108af }, {3, 0x0031eeff }, {2, 0x0035cb74 }, {5, 0x003641d4 },
-    {1, 0x003860e4 }, {5, 0x00379fff }, {1, 0x0038e0e3 }, {1, 0x004099bf },
-    {1, 0x003a5ae9 }, {2, 0x0039dac5 }, {1, 0x003e5978 }, {1, 0x003e1cd1 },
-    {1, 0x004286ec }, {1, 0x00406493 }, {5, 0x003f9529 }, {5, 0x003f6c91 },
-    {1, 0x0041d22d }, {1, 0x004403fc }, {6, 0x00454395 }, {2, 0x004519f3 },
-    {2, 0x004aabec }, {1, 0x004c158d }, {1, 0x004ee13e }, {1, 0x0050c91d },
-    {2, 0x0058bd4a }, {2, 0x005739f7 }, {1, 0x005d8228 }, {1, 0x00646274 },
-    {1, 0x00621944 }, {5, 0x0061b8c7 }, {5, 0x00652d32 }, {1, 0x006a73eb },
-    {1, 0x0073b6da }, {2, 0x00719afe }, {2, 0x006fecf6 }, {1, 0x00748cdd },
-    {2, 0x00753b87 }, {1, 0x007bcae2 }, {2, 0x007fbf48 }, {2, 0x00825cf1 },
-    {1, 0x0088d09f }, {1, 0x008cdc71 }, {1, 0x008fb14b }, {5, 0x00908324 },
-    {1, 0x00960b8a }, {1, 0x00a8db05 }, {1, 0x00a30c08 }, {1, 0x00a36452 },
-    {1, 0x00b12051 }, {1, 0x00a522ba }, {1, 0x00ad75a0 }, {2, 0x00ad05b7 },
-    {0, 0x00b57200 }, {1, 0x00bc0048 }, {2, 0x00b89cd1 }, {2, 0x00cd2888 },
-    {2, 0x00c21f6b }, {1, 0x00baa08e }, {1, 0x00c69e7d }, {1, 0x00d4a3a1 },
+    {1, 0x0012c0fb }, {2, 0x00148d96 }, {1, 0x0016b233 }, {1, 0x0015b382 },
+    {3, 0x00192f38 }, {2, 0x001a70d3 }, {2, 0x001d1506 }, {1, 0x0020137c },
+    {2, 0x001ef13d }, {1, 0x00201e52 }, {2, 0x002189ad }, {2, 0x0021ffa4 },
+    {2, 0x00242cb4 }, {2, 0x0024f341 }, {2, 0x002608cc }, {2, 0x002a1078 },
+    {1, 0x0028310f }, {2, 0x002b473e }, {2, 0x00318e50 }, {1, 0x002d5eea },
+    {2, 0x002c2aa5 }, {1, 0x003057bf }, {2, 0x00315f6b }, {1, 0x002f8aff },
+    {1, 0x0032c593 }, {3, 0x00320cc3 }, {2, 0x0037bbf2 }, {5, 0x0036482e },
+    {1, 0x0038bfab }, {5, 0x00381142 }, {1, 0x0039553e }, {1, 0x00411cd5 },
+    {1, 0x003a80ae }, {2, 0x003ad23a }, {1, 0x003ed01d }, {1, 0x003f08d4 },
+    {1, 0x00433335 }, {1, 0x0044f4eb }, {5, 0x00415475 }, {5, 0x00403f22 },
+    {1, 0x0042aea1 }, {1, 0x00450c02 }, {6, 0x0045cbff }, {2, 0x00468fdf },
+    {2, 0x004ae9ec }, {1, 0x004c7126 }, {1, 0x004f277b }, {1, 0x0051c542 },
+    {2, 0x0059a699 }, {2, 0x0057f35d }, {1, 0x005e28ac }, {1, 0x00653c55 },
+    {1, 0x006252f9 }, {5, 0x0062ea48 }, {5, 0x006955ed }, {1, 0x006bef49 },
+    {1, 0x00745134 }, {2, 0x007229d1 }, {2, 0x0070e338 }, {1, 0x00763f15 },
+    {2, 0x007588b0 }, {1, 0x007d58b4 }, {2, 0x007fe802 }, {2, 0x008371a8 },
+    {1, 0x008abfad }, {1, 0x008d876e }, {1, 0x008fe7f7 }, {5, 0x00910a43 },
+    {1, 0x009653e3 }, {1, 0x00a9df3d }, {1, 0x00a42064 }, {1, 0x00a3a791 },
+    {1, 0x00b24391 }, {1, 0x00a7fe55 }, {1, 0x00af0b9e }, {2, 0x00ad3342 },
+    {0, 0x00b60e76 }, {1, 0x00bc9536 }, {2, 0x00b8d323 }, {2, 0x00cd9990 },
 //    {1, 0x00cb3227 }, {1, 0x00cba3b3 }, {1, 0x00d532ec }, {5, 0x00ce9d09 },
 //    {2, 0x00d99d13 }, {1, 0x00dadfcc }, {1, 0x00d827c2 }, {1, 0x00ddccf3 },
 //    {2, 0x00e95696 }, {2, 0x00f89a72 },
@@ -238,7 +237,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         CBlock *pblock = &pblocktemplate->block; // pointer for convenience
         pblock->nVersion = 1;
         pblock->nTime = chainActive.Tip()->GetMedianTimePast()+1;
-        pblock->nBits = GetNextTargetRequired(chainActive.Tip(), false);
+        pblock->nBits = GetNextTargetRequired(chainActive.Tip(), pblock->GetBlockTime(), false);
         CMutableTransaction txCoinbase(pblock->vtx[0]);
         txCoinbase.nVersion = 1;
         txCoinbase.vin[0].scriptSig = CScript();
@@ -253,7 +252,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
         pblock->nNonce = blockinfo[i].nonce;
         CValidationState state;
-     //   ComputeGenesis(*pblock,i);
+    //    ComputeGenesis(*pblock,i);
         BOOST_CHECK(ProcessNewBlock(state, chainparams, NULL, pblock, true, NULL));
         BOOST_CHECK(state.IsValid());
         pblock->hashPrevBlock = pblock->GetHash();

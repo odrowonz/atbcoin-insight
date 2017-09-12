@@ -293,7 +293,7 @@ uint256 WantedByOrphan(const COrphanBlock* pblockOrphan);
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState& state, const CChainParams& chainparams, const CBlock* pblock = NULL);
 
-CAmount GetProofOfWorkReward();
+CAmount GetProofOfWorkReward(const int nHeight);
 CAmount GetProofOfStakeReward();
 int64_t GetProofOfStakeReward(const int, int64_t nCoinAge, int64_t nFees);
 
