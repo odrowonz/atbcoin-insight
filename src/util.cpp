@@ -455,13 +455,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ATBCoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ATBCoin
-    // Mac: ~/Library/Application Support/ATBCoin
-    // Unix: ~/.atbcoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ATBCoinWallet
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ATBCoinWallet
+    // Mac: ~/Library/Application Support/ATBCoinWallet
+    // Unix: ~/.ATBCoinWallet
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Atbcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "ATBCoinWallet";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -471,10 +471,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Atbcoin";
+    return pathRet / "Library/Application Support/ATBCoinWallet";
 #else
     // Unix
-    return pathRet / ".atbcoin";
+    return pathRet / ".ATBCoinWallet";
 #endif
 #endif
 }
