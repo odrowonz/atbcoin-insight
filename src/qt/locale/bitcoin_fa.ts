@@ -4,10 +4,6 @@
 <context>
     <name>ATBCoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The %s developers</source>
         <translation type="unfinished"></translation>
     </message>
@@ -867,6 +863,10 @@
         <source>ZeroMQ notification options:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>ATBCoin core</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddressBookPage</name>
@@ -1528,10 +1528,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%0 ATBcoins were received with this code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Redeemed codes:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1557,6 +1553,11 @@
     </message>
     <message>
         <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code.
+We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2432,15 +2433,15 @@
 <context>
     <name>PreviewCodeDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information about the bonus </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3331,23 +3332,7 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>by Email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>EMail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Response</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>by Private key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3371,11 +3356,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The balance for this private key was not found.
- Maybe you entered your email or password incorrectly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Invalid private key encoding.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3393,14 +3373,6 @@
     </message>
     <message>
         <source>Receipt of a cash share</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter your email and password to receive your share of ATBcoin.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

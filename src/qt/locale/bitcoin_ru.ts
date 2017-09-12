@@ -4,10 +4,6 @@
 <context>
     <name>ATBCoin-core</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>The %s developers</source>
         <translation>Разработчики %s</translation>
     </message>
@@ -867,6 +863,10 @@
         <source>ZeroMQ notification options:</source>
         <translation>ZeroMQ параметры оповещения:</translation>
     </message>
+    <message>
+        <source>ATBCoin core</source>
+        <translation>ATBCoin core</translation>
+    </message>
 </context>
 <context>
     <name>AddressBookPage</name>
@@ -1541,10 +1541,6 @@
         <translation>Ключ не подтвержден.</translation>
     </message>
     <message>
-        <source>%0 ATBcoins were received with this code</source>
-        <translation>Вы получили %0 ATB с помощью этого кода</translation>
-    </message>
-    <message>
         <source>Redeemed codes:</source>
         <translation>Погашенные коды:</translation>
     </message>
@@ -1572,6 +1568,11 @@
     <message>
         <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
         <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, хотите продолжить?</translation>
+    </message>
+    <message>
+        <source>%0 ATBcoins were received with this code.
+We recommend waiting for 3 transaction confirmations.</source>
+        <translation>С помощью этого кода было получено %0 ATBcoins. Рекомендуется подождаться 3х подтверждений транзакции.</translation>
     </message>
 </context>
 <context>
@@ -2450,16 +2451,16 @@
 <context>
     <name>PreviewCodeDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation>Диалог</translation>
-    </message>
-    <message>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
         <source>Copy</source>
         <translation>Копировать</translation>
+    </message>
+    <message>
+        <source>Information about the bonus </source>
+        <translation>Информация о бонусе</translation>
     </message>
 </context>
 <context>
@@ -3355,24 +3356,8 @@
 <context>
     <name>ShareDialog</name>
     <message>
-        <source>by Email</source>
-        <translation>Через Email</translation>
-    </message>
-    <message>
-        <source>EMail</source>
-        <translation>EMail</translation>
-    </message>
-    <message>
-        <source>Response</source>
-        <translation>Ответ</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Отмена</translation>
-    </message>
-    <message>
-        <source>by Private key</source>
-        <translation>Через Приватный ключ</translation>
     </message>
     <message>
         <source>Private key</source>
@@ -3395,11 +3380,6 @@
         <translation>Получить</translation>
     </message>
     <message>
-        <source>The balance for this private key was not found.
- Maybe you entered your email or password incorrectly.</source>
-        <translation>Баланс для этого закрытого ключа не найден. Возможно, вы неправильно указали свой адрес электронной почты или пароль.</translation>
-    </message>
-    <message>
         <source>Invalid private key encoding.</source>
         <translation>Недопустимая кодировка закрытого ключа.</translation>
     </message>
@@ -3418,14 +3398,6 @@
     <message>
         <source>Receipt of a cash share</source>
         <translation>Получение денежной доли</translation>
-    </message>
-    <message>
-        <source>Enter your email and password to receive your share of ATBcoin.</source>
-        <translation>Введите свой адрес электронной почты и пароль, чтобы получить свою долю ATBcoin.</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Пароль</translation>
     </message>
     <message>
         <source>Enter your private key to get your share of ATBcoin.</source>
@@ -3672,11 +3644,11 @@
     </message>
     <message>
         <source>From</source>
-        <translation>Из</translation>
+        <translation>От</translation>
     </message>
     <message>
         <source>To</source>
-        <translation>В</translation>
+        <translation>На</translation>
     </message>
     <message>
         <source>own address</source>
