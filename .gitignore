@@ -11,7 +11,7 @@ src/atbcoin_beta-cli
 src/atbcoin_beta-tx
 src/atbcoin_betad
 src/qt/atbcoin_beta-qt
-
+depends/translations/
 
 src/atbcoin
 src/atbcoind

@@ -5,7 +5,7 @@ define(_CLIENT_VERSION_MINOR, 13)
 define(_CLIENT_VERSION_REVISION, 0)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
-define(_COPYRIGHT_YEAR, 2016)
+define(_COPYRIGHT_YEAR, 2017)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[ATBcoin Core]])
 AC_INIT([ATBcoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/bitcoin/bitcoin/issues],[atbcoin],[https://bitcoincore.org/])
@@ -78,6 +78,13 @@ AC_PATH_TOOL(CPPFILT, c++filt)
 AC_PATH_TOOL(OBJCOPY, objcopy)
 
 AC_ARG_VAR(PYTHONPATH, Augments the default search path for python module files)
+
+# with-depends
+AC_ARG_ENABLE([qt-translations],
+  [AS_HELP_STRING([--enable-qt-translations],
+  [enable build with qt translations (disabbled by default)])],
+  [enable_qt_translations=$enableval],
+  [enable_qt_translations=no])
 
 # Enable wallet
 AC_ARG_ENABLE([wallet],
@@ -908,6 +915,16 @@ if test "x$use_ccache" = "xyes"; then
     AX_CHECK_PREPROC_FLAG([-Qunused-arguments],[CPPFLAGS="-Qunused-arguments $CPPFLAGS"])
 fi
 
+dnl with depends
+AC_MSG_CHECKING([if build with qt translations])
+if test x$enable_qt_translations != xno -a x$bitcoin_enable_qt != xno; then
+  AC_MSG_RESULT(yes)
+  AC_DEFINE_UNQUOTED([ENABLE_QT_TRANSLATIONS],[1],[build with qt translations (disabbled by default)])
+
+else
+  AC_MSG_RESULT(no)
+fi
+
 dnl enable wallet
 AC_MSG_CHECKING([if wallet should be enabled])
 if test x$enable_wallet != xno; then
@@ -1010,6 +1027,7 @@ fi
 AM_CONDITIONAL([TARGET_DARWIN], [test x$TARGET_OS = xdarwin])
 AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
 AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
+AM_CONDITIONAL([ENABLE_QT_TRANSLATIONS],[test x$enable_qt_translations = xyes])
 AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet = xyes])
 AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
 AM_CONDITIONAL([ENABLE_QT],[test x$bitcoin_enable_qt = xyes])

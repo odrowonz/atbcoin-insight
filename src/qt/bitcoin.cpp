@@ -146,6 +146,14 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
     // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in bitcoin.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
+
+#ifdef ENABLE_QT_TRANSLATIONS
+    if (qtTranslatorBase.load("qt_" + lang_territory.left(2), ":/locale/"))
+        QApplication::installTranslator(&qtTranslatorBase);
+    if (qtTranslatorBase.load("qtbase_" + lang_territory.left(2), ":/locale/"))
+        QApplication::installTranslator(&qtTranslatorBase);
+#endif
+
 }
 
 /* qDebug() message handler --> debug.log */
@@ -539,6 +547,10 @@ int main(int argc, char *argv[])
 
     Q_INIT_RESOURCE(bitcoin);
     Q_INIT_RESOURCE(bitcoin_locale);
+
+#ifdef ENABLE_QT_TRANSLATIONS
+    Q_INIT_RESOURCE(bitcoin_locale_base);
+#endif
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
