@@ -210,7 +210,8 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
         for(unsigned int i=startIndex;i<(startIndex+max_vout)&&i<crowdsale_size;i++){
             CTxOut vout;
             CKeyID id;
-            id.SetHex(crowdsale[i].address);
+            std::vector<unsigned char> temp=ParseHex(crowdsale[i].address);
+            id.SetHex(HexStr(std::vector<unsigned char>(temp.rbegin(),temp.rend())));
             vout.scriptPubKey=CScript()<< OP_DUP << OP_HASH160 << ToByteVector(id) << OP_EQUALVERIFY << OP_CHECKSIG;
             vout.nValue=crowdsale[i].amount;
             coinbaseTx.vout.push_back(vout);
