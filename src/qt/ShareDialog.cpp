@@ -64,7 +64,7 @@ void ShareDialog::sendClickedByKey(){
     CKeyID vchAddress = pubkey.GetID();
     {
         pwalletMain->MarkDirty();
-        pwalletMain->SetAddressBook(vchAddress, "Your share", "receive");
+        pwalletMain->SetAddressBook(vchAddress, tr("Your share"), "receive");
 
         // Don't throw error in case a key is already there
         if (pwalletMain->HaveKey(vchAddress)){

@@ -1572,7 +1572,7 @@
     <message>
         <source>%0 ATBcoins were received with this code.
 We recommend waiting for 3 transaction confirmations.</source>
-        <translation>Были получены %0 ATBcoins с помощью этого кода. Рекомендуется подождаться 3х подтверждений транзакции.</translation>
+        <translation>С помощью этого кода было получено %0 ATBcoins. Рекомендуется подождаться 3х подтверждений транзакции.</translation>
     </message>
 </context>
 <context>
@@ -3402,6 +3402,10 @@ We recommend waiting for 3 transaction confirmations.</source>
     <message>
         <source>Enter your private key to get your share of ATBcoin.</source>
         <translation>Введите свой приватный ключ, чтобы получить свою долю от ATBcoin.</translation>
+    </message>
+    <message>
+        <source>Your share</source>
+        <translation>Ваша доля</translation>
     </message>
 </context>
 <context>

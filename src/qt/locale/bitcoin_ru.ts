@@ -3403,6 +3403,10 @@ We recommend waiting for 3 transaction confirmations.</source>
         <source>Enter your private key to get your share of ATBcoin.</source>
         <translation>Введите свой приватный ключ, чтобы получить свою долю от ATBcoin.</translation>
     </message>
+    <message>
+        <source>Your share</source>
+        <translation>Ваша доля</translation>
+    </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
