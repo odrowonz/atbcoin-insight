@@ -1572,7 +1572,7 @@
     <message>
         <source>%0 ATBcoins were received with this code.
 We recommend waiting for 3 transaction confirmations.</source>
-        <translation>С помощью этого кода было получено %0 ATBcoins. Рекомендуется подождаться 3х подтверждений транзакции.</translation>
+        <translation>С помощью этого кода было получено %0 ATBcoins. Рекомендуется дождаться 3х подтверждений транзакции.</translation>
     </message>
 </context>
 <context>
@@ -3668,7 +3668,7 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>Credit</source>
-        <translation>кредит</translation>
+        <translation>Кредит</translation>
     </message>
     <message numerus="yes">
         <source>matures in %n more block(s)</source>
