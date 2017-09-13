@@ -164,7 +164,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <source>Prune: last wallet synchronization goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1085,7 +1085,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your  atbcoins from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet will not fully protect your atbcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1329,7 +1329,7 @@
         <translation>%1 behind</translation>
     </message>
     <message>
-        <source>Last received block was generated %1 ago.</source>
+        <source>Last received block has been generated %1 ago.</source>
         <translation>Last received block was generated %1 ago.</translation>
     </message>
     <message>
@@ -1545,7 +1545,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <source>The transaction is rejected! This might happen if some of the coins in your wallet have been already spent, such as if you used a copy of wallet.dat and coins were spent in the copy, but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3124,7 +3124,7 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>S&amp;end</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. Please be aware that this can end up in an unconfirmed transaction once there is more demand for bitcoin transactions than the network can process. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3208,7 +3208,7 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <source>The transaction is rejected! This might happen if some of the coins in your wallet have been already spent, such as if you used a copy of wallet.dat and coins were spent in the copy, but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
