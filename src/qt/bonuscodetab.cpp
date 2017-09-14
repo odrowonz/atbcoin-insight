@@ -173,8 +173,8 @@ void BonusCodeTab::getBonusClick(bool){
         return;
     }
     CPubKey pubkey = key.GetPubKey();
-    std::pair<CBlockIndex*,COutPoint> point=pwalletMain->isAvailableCode(GetScriptForDestination(CTxDestination(pubkey.GetID())));
-    if(point.second.IsNull()){
+    COutPoint point = pwalletMain->isAvailableCode(GetScriptForDestination(CTxDestination(pubkey.GetID())));
+    if(point.IsNull()){
         InformationDialog(tr("Bonus code is not available."),"","",this).exec();
         return;
     }
@@ -187,16 +187,19 @@ void BonusCodeTab::getBonusClick(bool){
         }
     }
 
-    const CWalletTx *tx;
-
-    if(pwalletMain->ScanBonus(point.first, true)&&
-       (tx=pwalletMain->GetWalletTx(point.second.hash))){
+    CBlock block;
+    CTransaction tx;
+    uint256 hashBlock;
+    if(GetTransaction(point.hash,tx,Params().GetConsensus(),hashBlock) &&
+       ReadBlockFromDisk(block, mapBlockIndex[hashBlock], Params().GetConsensus()) &&
+       pwalletMain->AddToWalletIfInvolvingMe(tx,&block,true))
+    {
         InformationDialog msgBox(tr("%0 ATBcoins were received with this code.\nWe recommend waiting for 3 transaction confirmations."),
-                                 QString::number((double)tx->vout[point.second.n].nValue/COIN,'f'),
+                                 QString::number((double)tx.vout[point.n].nValue/COIN,'f'),
                                  QString::fromStdString(ui->EKey->text().toStdString()),
                                  this);
         msgBox.exec();
-        confirmation(CBonusinfo(ui->EKey->text().toStdString(),point.second.hash,point.second.n,true));
+        confirmation(CBonusinfo(ui->EKey->text().toStdString(),tx.GetHash(),point.n,true),tx);
         updateBonusList();
     }
     ui->EKey->clear();
@@ -267,24 +270,23 @@ void BonusCodeTab::CreateClick(bool){
 }
 
 
-void BonusCodeTab::confirmation(const CBonusinfo& info){
+void BonusCodeTab::confirmation(const CBonusinfo& info,const CTransaction &prevtx){
+
     std::vector<CRecipient> Recipient;
     CRecipient rec;
     CPubKey key;
     CCoinControl control;
     control.Select(COutPoint(info.hashTx,info.getnVout()));
     pwalletMain->GetKeyFromPool(key);
-    CKeyID keyID = key.GetID();
-    CBitcoinAddress address(keyID);
-    rec.scriptPubKey=GetScriptForDestination(address.Get());
-    rec.nAmount=COIN*0.0001;
-    rec.fSubtractFeeFromAmount=false;
+    rec.scriptPubKey=GetScriptForDestination(CBitcoinAddress(key.GetID()).Get());
+    rec.nAmount=prevtx.vout[info.getnVout()].nValue;
+    rec.fSubtractFeeFromAmount=true;
     Recipient.push_back(rec);
     CWalletTx wtx;
     CReserveKey Rkey(pwalletMain);
     std::string fall;
-    CAmount nFeeRet=1;
-    int nChangePosInOut=0;
+    CAmount nFeeRet = 1;
+    int nChangePosInOut = 0;
     wtx.mapValue["comment"] = tr("Commission for the confirmation of the bonus code.").toStdString();
     wtx.mapValue["bonusConfirmation"] = info.key;
     if(!(pwalletMain->CreateTransaction(Recipient,wtx,Rkey,nFeeRet,nChangePosInOut,fall,&control)&&pwalletMain->CommitTransaction(wtx,Rkey))){
