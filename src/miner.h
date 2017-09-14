@@ -32,7 +32,7 @@ static const int DEFAULT_GENERATE_THREADS = 1;
 static const bool DEFAULT_PRINTPRIORITY = false;
 
 
-static const bool DEFAULT_STAKE = true;
+static const bool DEFAULT_STAKE = false;
 
 
 struct CBlockTemplate
