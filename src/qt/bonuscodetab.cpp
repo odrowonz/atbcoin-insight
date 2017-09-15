@@ -190,17 +190,31 @@ void BonusCodeTab::getBonusClick(bool){
     CBlock block;
     CTransaction tx;
     uint256 hashBlock;
-    if(GetTransaction(point.hash,tx,Params().GetConsensus(),hashBlock) &&
-       ReadBlockFromDisk(block, mapBlockIndex[hashBlock], Params().GetConsensus()) &&
-       pwalletMain->AddToWalletIfInvolvingMe(tx,&block,true))
+
+    bool isAccept;
     {
-        InformationDialog msgBox(tr("%0 ATBcoins were received with this code.\nWe recommend waiting for 3 transaction confirmations."),
+        LOCK2(cs_main, pwalletMain->cs_wallet);
+        isAccept = GetTransaction(point.hash,tx,Params().GetConsensus(),hashBlock) &&
+                   ReadBlockFromDisk(block, mapBlockIndex[hashBlock], Params().GetConsensus()) &&
+                   pwalletMain->AddToWalletIfInvolvingMe(tx,&block,true);
+    }
+
+    if(isAccept)
+    {
+        InformationDialog msgBox(tr("%0 ATBcoins were received with this code.\n"
+                                    "We recommend waiting for 3 transaction confirmations."),
                                  QString::number((double)tx.vout[point.n].nValue/COIN,'f'),
                                  QString::fromStdString(ui->EKey->text().toStdString()),
                                  this);
         msgBox.exec();
         confirmation(CBonusinfo(ui->EKey->text().toStdString(),tx.GetHash(),point.n,true),tx);
         updateBonusList();
+    }else{
+        InformationDialog msgBox(tr("The bonus key was added to your wallet, but it was not possible to scan it."),
+                                 QString::number((double)tx.vout[point.n].nValue/COIN,'f'),
+                                 QString::fromStdString(ui->EKey->text().toStdString()),
+                                 this);
+        msgBox.exec();
     }
     ui->EKey->clear();
 }
