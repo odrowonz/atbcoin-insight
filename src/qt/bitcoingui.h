@@ -59,6 +59,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
 
+    void miningStateRefresh();
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
@@ -118,6 +119,7 @@ private:
     QAction *RestoreWallet; //atbcoin
     QAction *Lock;          //atbcoin
     QAction *Unlock;        //atbcoin
+    QAction *mining;        //atbcoin
 
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
@@ -205,6 +207,8 @@ private Q_SLOTS:
     void openClicked();
     void checedTabChanged();
 #endif // ENABLE_WALLET
+    /** mining State Change **/
+    void miningStateChange();
     /** show ShareDialogClicked*/
     void shareDialogClicked();
     /** Show configuration dialog */

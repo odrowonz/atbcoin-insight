@@ -50,6 +50,9 @@ using namespace std;
 // pool, we select by highest priority or fee rate, so we might consider
 // transactions that depend on transactions that aren't yet in the block.
 
+
+bool fStakeRun = DEFAULT_STAKE;
+
 uint64_t nLastBlockTx = 0;
 uint64_t nLastBlockSize = 0;
 uint64_t nLastBlockWeight = 0;
@@ -748,7 +751,7 @@ void ThreadStakeMiner(CWallet *pwallet)
 
     bool fTryToSync = true;
 
-    while (true)
+    while (fStakeRun)
     {
         while (pwallet->IsLocked())
         {
@@ -820,6 +823,7 @@ void StakeBitcoins(bool fStake, CWallet *pwallet)
 	    stakeThread = new boost::thread_group();
 	    stakeThread->create_thread(boost::bind(&ThreadStakeMiner, pwallet));
 	}
+    fStakeRun = fStake;
 }
 
 //////////////////////////////////////////////////////////////////////////////

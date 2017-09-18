@@ -32,8 +32,10 @@
 
 #include "init.h"
 #include "ui_interface.h"
-#include "util.h"
+#include "../util.h"
 #include "css.h"
+#include "../miner.h"
+#include "../wallet/wallet.h"
 
 #include <iostream>
 
@@ -57,6 +59,7 @@
 #include <QToolBar>
 #include <QVBoxLayout>
 #include <QFontDatabase>
+#include <QSettings>
 #include "ShareDialog.h"
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
@@ -122,6 +125,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     RestoreWallet(0),
     Lock(0),
     Unlock(0),
+    mining(0),
     platformStyle(platformStyle)
 {
     QRect desctop=QApplication::desktop()->screenGeometry();
@@ -390,11 +394,14 @@ void BitcoinGUI::createActions()
     RestoreWallet=new QAction(platformStyle->SingleColorIcon(":/icons/editcopy"),tr("Restore Wallet"),this);
     Lock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"),tr("Lock Wallet"),this);
     Unlock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_open"),tr("Unlock Wallet"),this);
+    mining=new QAction(platformStyle->SingleColorIcon(":/icons/tx_mined"),"mining",this);
+
 /*****************************************************************************************************/
 
     showHelpMessageAction->setStatusTip(tr("Return to the previously made backup copy of the wallet.").arg(tr(PACKAGE_NAME)));
 
     connect(shareDialog,SIGNAL(triggered(bool)),this,SLOT(shareDialogClicked()));
+    connect(mining,SIGNAL(triggered(bool)),SLOT(miningStateChange()));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
@@ -456,6 +463,8 @@ void BitcoinGUI::createMenuBar()
     QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
     if(walletFrame)
     {
+        settings->addAction(mining);
+        settings->addSeparator();
         settings->addAction(encryptWalletAction);
         settings->addAction(changePassphraseAction);
         settings->addSeparator();
@@ -476,9 +485,27 @@ void BitcoinGUI::createMenuBar()
     file->setFont(GUIUtil::fixedPitchFont());
     help->setFont(GUIUtil::fixedPitchFont());
 }
+
 void BitcoinGUI::shareDialogClicked(){
     walletFrame->gotoShareDialog();
 }
+
+void BitcoinGUI::miningStateRefresh(){
+    mining->setText((fStakeRun)?tr("Stop minning"):tr("Start minning"));
+}
+
+void BitcoinGUI::miningStateChange(){
+
+    fStakeRun = !fStakeRun;
+
+    QSettings cfg;
+    cfg.setValue("Stake",fStakeRun);
+
+    StakeBitcoins(fStakeRun,pwalletMain);
+
+    miningStateRefresh();
+}
+
 void BitcoinGUI::createToolBars()
 {
     if(walletFrame)

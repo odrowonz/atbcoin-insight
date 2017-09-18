@@ -31,6 +31,7 @@
 #include "ui_interface.h"
 #include "util.h"
 #include "css.h"
+#include "miner.h"
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
@@ -277,6 +278,8 @@ void BitcoinCore::initialize()
     {
         qDebug() << __func__ << ": Running AppInit2 in thread";
         int rv = AppInit2(threadGroup, scheduler);
+        QSettings settings;
+        StakeBitcoins(settings.value("Stake",fStakeRun).toBool(),pwalletMain);
         Q_EMIT initializeResult(rv);
     } catch (const std::exception& e) {
         handleRunawayException(&e);
@@ -489,6 +492,7 @@ void BitcoinApplication::initializeResult(int retval)
         {
             window->show();
         }
+        window->miningStateRefresh();
         Q_EMIT splashFinished(window);
 
 #ifdef ENABLE_WALLET

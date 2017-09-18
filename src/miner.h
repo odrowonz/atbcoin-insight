@@ -34,6 +34,8 @@ static const bool DEFAULT_PRINTPRIORITY = false;
 
 static const bool DEFAULT_STAKE = false;
 
+extern bool fStakeRun;
+
 
 struct CBlockTemplate
 {
