@@ -122,9 +122,9 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     spinnerFrame(0),
     mainMenu(0),
     shareDialog(0),
-    RestoreWallet(0),
-    Lock(0),
-    Unlock(0),
+    restoreWallet(0),
+    lock(0),
+    unlock(0),
     mining(0),
     platformStyle(platformStyle)
 {
@@ -297,12 +297,12 @@ void BitcoinGUI::createActions()
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
 
-    BonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0xbc,0xe8,0xe5)),tr("Redeem codes"),this);
-    BonusCodeTab->setStatusTip(tr("Browse page of bonus codes"));
-    BonusCodeTab->setToolTip(BonusCodeTab->statusTip());
-    BonusCodeTab->setCheckable(true);
-    BonusCodeTab->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
-    tabGroup->addAction(BonusCodeTab);
+    bonusCodeTab= new QAction(platformStyle->SingleColorIcon(":/icons/r_coupon",QColor::fromRgb(0xbc,0xe8,0xe5)),tr("Redeem codes"),this);
+    bonusCodeTab->setStatusTip(tr("Browse page of bonus codes"));
+    bonusCodeTab->setToolTip(bonusCodeTab->statusTip());
+    bonusCodeTab->setCheckable(true);
+    bonusCodeTab->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(bonusCodeTab);
 
     sendCoinsMenuAction = new QAction(platformStyle->TextColorIcon(":/icons/send"), sendCoinsAction->text(), this);
     sendCoinsMenuAction->setStatusTip(sendCoinsAction->statusTip());
@@ -334,7 +334,7 @@ void BitcoinGUI::createActions()
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
     connect(mainMenu,SIGNAL(clicked(bool)),this,SLOT(callMenu()));
-    connect(BonusCodeTab,SIGNAL(triggered(bool)),this,SLOT(gotoBonusCodes()));
+    connect(bonusCodeTab,SIGNAL(triggered(bool)),this,SLOT(gotoBonusCodes()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -391,9 +391,9 @@ void BitcoinGUI::createActions()
 /********************************************ATB_COIN*************************************************/
 
     shareDialog=new QAction(platformStyle->SingleColorIcon(":/icons/new"), tr("&Money share"), this);
-    RestoreWallet=new QAction(platformStyle->SingleColorIcon(":/icons/editcopy"),tr("Restore Wallet"),this);
-    Lock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"),tr("Lock Wallet"),this);
-    Unlock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_open"),tr("Unlock Wallet"),this);
+    restoreWallet=new QAction(platformStyle->SingleColorIcon(":/icons/editcopy"),tr("Restore Wallet"),this);
+    lock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_closed"),tr("Lock Wallet"),this);
+    unlock=new QAction(platformStyle->SingleColorIcon(":/icons/lock_open"),tr("Unlock Wallet"),this);
     mining=new QAction(platformStyle->SingleColorIcon(":/icons/tx_mined"),"mining",this);
 
 /*****************************************************************************************************/
@@ -415,10 +415,10 @@ void BitcoinGUI::createActions()
     if(walletFrame)
     {
         connect(encryptWalletAction, SIGNAL(triggered(bool)), walletFrame, SLOT(encryptWallet(bool)));
-        connect(Lock, SIGNAL(triggered(bool)), walletFrame, SLOT(LockWallet()));
-        connect(Unlock, SIGNAL(triggered(bool)), walletFrame, SLOT(UnlockWallet()));
+        connect(lock, SIGNAL(triggered(bool)), walletFrame, SLOT(LockWallet()));
+        connect(unlock, SIGNAL(triggered(bool)), walletFrame, SLOT(UnlockWallet()));
         connect(backupWalletAction, SIGNAL(triggered()), walletFrame, SLOT(backupWallet()));
-        connect(RestoreWallet, SIGNAL(triggered()), walletFrame, SLOT(restoreWallet()));
+        connect(restoreWallet, SIGNAL(triggered()), walletFrame, SLOT(restoreWallet()));
         connect(changePassphraseAction, SIGNAL(triggered()), walletFrame, SLOT(changePassphrase()));
         connect(signMessageAction, SIGNAL(triggered()), this, SLOT(gotoSignMessageTab()));
         connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
@@ -450,7 +450,7 @@ void BitcoinGUI::createMenuBar()
     {
         file->addAction(openAction);
         file->addAction(backupWalletAction);
-        file->addAction(RestoreWallet);
+        file->addAction(restoreWallet);
         file->addAction(signMessageAction);
         file->addAction(verifyMessageAction);
         file->addAction(shareDialog);
@@ -468,8 +468,8 @@ void BitcoinGUI::createMenuBar()
         settings->addAction(encryptWalletAction);
         settings->addAction(changePassphraseAction);
         settings->addSeparator();
-        settings->addAction(Lock);
-        settings->addAction(Unlock);
+        settings->addAction(lock);
+        settings->addAction(unlock);
         settings->addSeparator();
     }
     settings->addAction(optionsAction);
@@ -542,7 +542,7 @@ void BitcoinGUI::createToolBars()
         line=new QFrame();
         line->setFrameShape(QFrame::VLine);
         toolbar->addWidget(line);
-        toolbar->addAction(BonusCodeTab);
+        toolbar->addAction(bonusCodeTab);
         space=new QWidget(this);
         space->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
         toolbar->addWidget(space);
@@ -636,7 +636,7 @@ void BitcoinGUI::removeAllWallets()
 
 void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 {
-    BonusCodeTab->setEnabled(enabled);
+    bonusCodeTab->setEnabled(enabled);
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
     sendCoinsMenuAction->setEnabled(enabled);
@@ -761,7 +761,7 @@ void BitcoinGUI::openClicked()
     }
 }
 void BitcoinGUI::checedTabChanged(){
-    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
+    bonusCodeTab->setIcon(platformStyle->SingleColorIcon(bonusCodeTab->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
     overviewAction->setIcon(platformStyle->SingleColorIcon(overviewAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
     historyAction->setIcon(platformStyle->SingleColorIcon(historyAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
     receiveCoinsAction->setIcon(platformStyle->SingleColorIcon(receiveCoinsAction->icon(),QColor::fromRgb(0xbc,0xe8,0xe5)));
@@ -770,8 +770,8 @@ void BitcoinGUI::checedTabChanged(){
 void BitcoinGUI::gotoBonusCodes()
 {
     checedTabChanged();
-    BonusCodeTab->setIcon(platformStyle->SingleColorIcon(BonusCodeTab->icon(),QColor::fromRgb(0xff,0xff,0xff)));
-    BonusCodeTab->setChecked(true);
+    bonusCodeTab->setIcon(platformStyle->SingleColorIcon(bonusCodeTab->icon(),QColor::fromRgb(0xff,0xff,0xff)));
+    bonusCodeTab->setChecked(true);
     if (walletFrame) walletFrame->gotoBonusCodes();
 }
 void BitcoinGUI::gotoOverviewPage()
@@ -1123,8 +1123,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(false);
         changePassphraseAction->setEnabled(false);
         encryptWalletAction->setEnabled(true);
-        Lock->setEnabled(false);
-        Unlock->setEnabled(false);
+        lock->setEnabled(false);
+        unlock->setEnabled(false);
         break;
     case WalletModel::Unlocked:
         labelEncryptionIcon->show();
@@ -1133,8 +1133,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
-        Lock->setEnabled(true);
-        Unlock->setEnabled(false);
+        lock->setEnabled(true);
+        unlock->setEnabled(false);
         break;
     case WalletModel::Locked:
         labelEncryptionIcon->show();
@@ -1143,8 +1143,8 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setChecked(true);
         changePassphraseAction->setEnabled(true);
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
-        Lock->setEnabled(false);
-        Unlock->setEnabled(true);
+        lock->setEnabled(false);
+        unlock->setEnabled(true);
         break;
     }
 }

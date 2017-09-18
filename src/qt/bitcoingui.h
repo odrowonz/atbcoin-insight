@@ -114,11 +114,11 @@ private:
     QAction *openRPCConsoleAction;
     QAction *openAction;
     QAction *showHelpMessageAction;
-    QAction *BonusCodeTab;  //atbcoin
+    QAction *bonusCodeTab;  //atbcoin
     QAction *shareDialog;   //atbcoin
-    QAction *RestoreWallet; //atbcoin
-    QAction *Lock;          //atbcoin
-    QAction *Unlock;        //atbcoin
+    QAction *restoreWallet; //atbcoin
+    QAction *lock;          //atbcoin
+    QAction *unlock;        //atbcoin
     QAction *mining;        //atbcoin
 
     QSystemTrayIcon *trayIcon;
