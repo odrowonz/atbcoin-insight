@@ -1453,6 +1453,18 @@
         <source>Unlock Wallet</source>
         <translation>Разблокировать Кошелек</translation>
     </message>
+    <message>
+        <source>Stop mining</source>
+        <translation>Прекратить майнинг</translation>
+    </message>
+    <message>
+        <source>Start mining</source>
+        <translation>Начать майнинг</translation>
+    </message>
+    <message>
+        <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
+        <translation>Кошелек должен быть разблокирован. Вы хотите разблокировать свой кошелек?</translation>
+    </message>
 </context>
 <context>
     <name>BonusCodeTab</name>
