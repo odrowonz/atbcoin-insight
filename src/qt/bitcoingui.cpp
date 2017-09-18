@@ -496,6 +496,17 @@ void BitcoinGUI::miningStateRefresh(){
 
 void BitcoinGUI::miningStateChange(){
 
+    if(walletModel->getEncryptionStatus() == WalletModel::Locked &&
+       QMessageBox::Yes == QMessageBox::question(this,tr("start mining"),
+                                                "for the purse the purse must be unlocked."
+                                                "Do you want to unlock your wallet?"))
+    {
+        walletFrame->UnlockWallet();
+    }
+
+    if(walletModel->getEncryptionStatus()==WalletModel::Locked)
+        return;
+
     fStakeRun = !fStakeRun;
 
     QSettings cfg;
