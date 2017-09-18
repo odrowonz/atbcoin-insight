@@ -1158,6 +1158,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
         unlock->setEnabled(true);
         break;
     }
+    miningStateRefresh();
 }
 #endif // ENABLE_WALLET
 

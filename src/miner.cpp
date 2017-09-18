@@ -818,7 +818,7 @@ void StakeBitcoins(bool fStake, CWallet *pwallet)
         stakeThread = NULL;
     }
 
-	if(fStake)
+    if(fStake && pwallet)
 	{
 	    stakeThread = new boost::thread_group();
 	    stakeThread->create_thread(boost::bind(&ThreadStakeMiner, pwallet));
