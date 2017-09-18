@@ -497,9 +497,9 @@ void BitcoinGUI::miningStateRefresh(){
 void BitcoinGUI::miningStateChange(){
 
     if(walletModel->getEncryptionStatus() == WalletModel::Locked &&
-       QMessageBox::Yes == QMessageBox::question(this,tr("Start mining"),
+       QMessageBox::Yes == QMessageBox::question(this,tr("Start mining"),tr(
                                                 "Wallet must be unlocked to stake. "
-                                                "Do you want to unlock your wallet?"))
+                                                "Do you want to unlock your wallet?")))
     {
         walletFrame->UnlockWallet();
     }
