@@ -491,7 +491,7 @@ void BitcoinGUI::shareDialogClicked(){
 }
 
 void BitcoinGUI::miningStateRefresh(){
-    mining->setText((fStakeRun)?tr("Stop minning"):tr("Start minning"));
+    mining->setText((fStakeRun)?tr("Stop mining"):tr("Start mining"));
 }
 
 void BitcoinGUI::miningStateChange(){
