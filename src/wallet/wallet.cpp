@@ -1497,26 +1497,10 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
     }
     return ret;
 }
-bool CWallet::ScanBonus(CBlockIndex* pindex, bool fUpdate)
-{
-    bool ret=false;
-    LOCK2(cs_main, cs_wallet);
-    if(pindex)
-    {
-        CBlock block;
-        ReadBlockFromDisk(block, pindex, Params().GetConsensus());
-        BOOST_FOREACH(CTransaction& tx, block.vtx)
-        {
-            if (AddToWalletIfInvolvingMe(tx, &block, fUpdate))
-                ret=true;
-        }
-    }
-    return ret;
-}
 /**
  * find transaction with script.
  */
-std::pair<CBlockIndex*,COutPoint> CWallet::isAvailableCode(const CScript& script)
+COutPoint CWallet::isAvailableCode(const CScript& script)
 {
     CBlockIndex* pindex =mapBlockIndex[chainActive.Tip()->GetBlockHash()];
     {
@@ -1530,14 +1514,14 @@ std::pair<CBlockIndex*,COutPoint> CWallet::isAvailableCode(const CScript& script
                 const CCoins* coins = pcoinsTip->AccessCoins(tx.GetHash());
                 for(unsigned int i=0;i<tx.vout.size();i++){
                     if(tx.vout[i].scriptPubKey==script&&coins&&coins->IsAvailable(i)){
-                       return std::make_pair(pindex,COutPoint(tx.GetHash(),i));
+                       return COutPoint(tx.GetHash(),i);
                     }
                 }
             }
             pindex = pindex->pprev;
         }
     }
-    return std::make_pair(pindex,COutPoint());
+    return COutPoint();
 }
 
 void CWallet::ReacceptWalletTransactions()

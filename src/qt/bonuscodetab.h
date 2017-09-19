@@ -27,7 +27,7 @@ public Q_SLOTS:
     void updateBonusList();
 private:
     void resizeEvent(QResizeEvent*);
-    void confirmation(const CBonusinfo &info);
+    void confirmation(const CBonusinfo &info, const CTransaction &prevtx);
     void tableInit(QTableView*);
     Ui::BonusCodeTab *ui;
     ClientModel *clientModel;
