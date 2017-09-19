@@ -164,10 +164,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prune: last wallet synchronization goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -867,6 +863,10 @@
         <source>ATBCoin core</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddressBookPage</name>
@@ -1085,7 +1085,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet will not fully protect your atbcoins from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your  atbcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1329,10 +1329,6 @@
         <translation>%1 behind</translation>
     </message>
     <message>
-        <source>Last received block has been generated %1 ago.</source>
-        <translation>Last received block was generated %1 ago.</translation>
-    </message>
-    <message>
         <source>Transactions after this will not yet be visible.</source>
         <translation>Transactions after this will not yet be visible.</translation>
     </message>
@@ -1441,6 +1437,22 @@
         <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last received block was generated %1 ago.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BonusCodeTab</name>
@@ -1545,20 +1557,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The transaction is rejected! This might happen if some of the coins in your wallet have been already spent, such as if you used a copy of wallet.dat and coins were spent in the copy, but not marked as spent here.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Solution</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%0 ATBcoins were received with this code.
 We recommend waiting for 3 transaction confirmations.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The bonus key was added to your wallet, but it was not possible to scan it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3124,10 +3140,6 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>S&amp;end</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. Please be aware that this can end up in an unconfirmed transaction once there is more demand for bitcoin transactions than the network can process. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy quantity</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3208,10 +3220,6 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The transaction is rejected! This might happen if some of the coins in your wallet have been already spent, such as if you used a copy of wallet.dat and coins were spent in the copy, but not marked as spent here.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3247,7 +3255,15 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3381,6 +3397,10 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>Enter your private key to get your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your share</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4112,7 +4132,7 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <source>With a blocked wallet, you can not participate in the mining. Do you want block the wallet?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

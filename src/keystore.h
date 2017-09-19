@@ -29,7 +29,7 @@ public:
     std::string key;          //the users sicret key;
     /*  The number is stored 1 unit more,
      *  this is done so that there is no situation when the number is zero,
-     *  which leads to the inability to determine whether the code is used on this purse or not.
+     *  which leads to the inability to determine whether the code is used on this wallet or not.
     */
     explicit CBonusinfo(std::string Key="",uint256 HashTx=uint256(), int NVout=0,bool isUsed=false){
          hashTx=HashTx;

@@ -1463,7 +1463,7 @@
     </message>
     <message>
         <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
-        <translation>Для участия в майнинге кошелек должен быть разблокирован. Вы хотите разблокировать свой кошелек?</translation>
+        <translation>Кошелек должен быть разблокирован. Вы хотите разблокировать свой кошелек?</translation>
     </message>
 </context>
 <context>
@@ -1578,13 +1578,18 @@
         <translation>Решение</translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
-        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, хотите продолжить?</translation>
-    </message>
-    <message>
         <source>%0 ATBcoins were received with this code.
 We recommend waiting for 3 transaction confirmations.</source>
         <translation>С помощью этого кода было получено %0 ATBcoins. Рекомендуется дождаться 3х подтверждений транзакции.</translation>
+    </message>
+    <message>
+        <source>The bonus key was added to your wallet, but it was not possible to scan it.</source>
+        <translation>Бонусный ключ был добавлен в ваш кошелек, но его не удалось отсканировать.</translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, желаете продолжить?
+</translation>
     </message>
 </context>
 <context>
@@ -3279,8 +3284,8 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>Решение</translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
-        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, хотите продолжить?</translation>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, желаете продолжить?</translation>
     </message>
 </context>
 <context>
@@ -4154,7 +4159,8 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>With a blocked wallet, you can not participate in the mining. Do you want block the wallet?</source>
-        <translation>С заблокированным кошельком вы не можете участвовать в майнинге. Вы хотите заблокировать кошелек?</translation>
+        <translation>С заблокированным кошельком вы не можете участвовать в майнинге. Вы хотите заблокировать кошелек?
+</translation>
     </message>
 </context>
 </TS>

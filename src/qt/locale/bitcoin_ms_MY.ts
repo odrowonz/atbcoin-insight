@@ -1436,6 +1436,18 @@ Alihkan fail data ke dalam tab semasa</translation>
         <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BonusCodeTab</name>
@@ -1548,12 +1560,16 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <source>%0 ATBcoins were received with this code.
+We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%0 ATBcoins were received with this code.
-We recommend waiting for 3 transaction confirmations.</source>
+        <source>The bonus key was added to your wallet, but it was not possible to scan it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3239,7 +3255,7 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3373,6 +3389,10 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>Enter your private key to get your share of ATBcoin.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your share</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4101,7 +4121,7 @@ Alihkan fail data ke dalam tab semasa</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <source>With a blocked wallet, you can not participate in the mining. Do you want block the wallet?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

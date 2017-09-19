@@ -72,10 +72,6 @@
         <translation>&lt;n&gt;  घंटे से अधिक समय मेम्पुल में लेनदेन न रखें (default: %u)</translation>
     </message>
     <message>
-        <source>रिले और माइनिंग के लिए लेन-देन में  bytes इक्विवेलेंट प्रति sigop (default: %u)</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Error loading %s: You can&apos;t enable HD on a already existing non-HD wallet</source>
         <translation>%s लोड करने में त्रुटि: आप पहले से मौजूद गैर-HD वॉलेट पर HD को सक्षम नहीं कर सकते</translation>
     </message>
@@ -458,10 +454,6 @@
     <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>भूल: एक घातक आंतरिक त्रुटि हुई, विवरण के लिए debug.log देखें</translation>
-    </message>
-    <message>
-        <source>भूल: Disk space is low!</source>
-        <translation>डिस्क स्थान कम है!</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
@@ -866,6 +858,14 @@
     <message>
         <source>ATBCoin core</source>
         <translation>ATBCoin कोर</translation>
+    </message>
+    <message>
+        <source>Equivalent bytes per sigop in transactions for relay and mining (default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1325,6 +1325,8 @@
     <message numerus="yes">
         <source>%n active connection(s) to ATBcoin network</source>
         <translation>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -1348,7 +1350,6 @@
         <translation>
             <numerusform>ब्लॉक</numerusform>
             <numerusform>ब्लॉक</numerusform>
-            <numerusform>ब्लॉक</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -1356,13 +1357,11 @@
         <translation>
             <numerusform>घंटा (घंटे)</numerusform>
             <numerusform>घंटा (घंटे)</numerusform>
-            <numerusform>घंटा (घंटे)</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
         <translation>
-            <numerusform>दिन</numerusform>
             <numerusform>दिन</numerusform>
             <numerusform>दिन</numerusform>
         </translation>
@@ -1381,7 +1380,6 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation>
-            <numerusform>साल</numerusform>
             <numerusform>साल</numerusform>
             <numerusform>साल</numerusform>
         </translation>
@@ -1442,6 +1440,18 @@
     <message>
         <source>Unlock Wallet</source>
         <translation>वॉलेट अनलॉक करें</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start mining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1555,13 +1565,17 @@
         <translation>समाधान</translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
-        <translation>इस समस्या को हल करने के लिए, आपको अपने वॉलेट को फिर से रिस्कैन होगा।</translation>
-    </message>
-    <message>
         <source>%0 ATBcoins were received with this code.
 We recommend waiting for 3 transaction confirmations.</source>
         <translation>% 0 इस कोड के साथ ATBcoins प्राप्त किए गए थे। हम आपको 3 लेनदेन पुष्टिकरणों की प्रतीक्षा करने की सलाह देते हैं।</translation>
+    </message>
+    <message>
+        <source>The bonus key was added to your wallet, but it was not possible to scan it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1970,13 +1984,11 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>
             <numerusform>मुफ्त स्थान के % n GB  उपलब्ध हैं</numerusform>
             <numerusform>मुफ्त स्थान के % n GB  उपलब्ध हैं</numerusform>
-            <numerusform>मुफ्त स्थान के % n GB  उपलब्ध हैं</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>(of %n GB needed)</source>
         <translation>
-            <numerusform>(%n GB की आवश्यकता है)</numerusform>
             <numerusform>(%n GB की आवश्यकता है)</numerusform>
             <numerusform>(%n GB की आवश्यकता है)</numerusform>
         </translation>
@@ -2210,7 +2222,7 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>&amp;Reset Options</source>
-        <translation>>&amp;विकल्पों को रीसेट करें</translation>
+        <translation>&gt;&amp;विकल्पों को रीसेट करें</translation>
     </message>
     <message>
         <source>default</source>
@@ -2647,7 +2659,7 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>&amp;Clear</source>
-        <translation>>&amp;साफ़ करें</translation>
+        <translation>&gt;&amp;साफ़ करें</translation>
     </message>
     <message>
         <source>&amp;Peers</source>
@@ -3257,8 +3269,8 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>समाधान</translation>
     </message>
     <message>
-        <source>In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?</source>
-        <translation>इस समस्या को हल करने के लिए, आपको अपने वॉलेट को रीस्कैन करना चाहिए। वॉलेट को स्कैन करने में कुछ समय लगेगा, जारी रखना चाहते हैं?</translation>
+        <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3392,6 +3404,10 @@ We recommend waiting for 3 transaction confirmations.</source>
     <message>
         <source>Enter your private key to get your share of ATBcoin.</source>
         <translation>ATBcoin का अपना शेयर प्राप्त करने के लिए अपनी निजी कुंजी दर्ज करें।</translation>
+    </message>
+    <message>
+        <source>Your share</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4122,8 +4138,8 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>वॉलेट लॉक करें</translation>
     </message>
     <message>
-        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
-        <translation>ब्लॉक किए वॉलेटों के साथ, आप माइनिंग में भाग नहीं ले सकते। क्या आप वॉलेट को ब्लॉक करना चाहते हैं?</translation>
+        <source>With a blocked wallet, you can not participate in the mining. Do you want block the wallet?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

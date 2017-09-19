@@ -274,7 +274,7 @@ void BonusCodeTab::CreateClick(bool){
             InformationDialog(tr("The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here."),
                               "","",this).exec();
 
-            if(QMessageBox::Yes==QMessageBox::question(this,tr("Solution"),tr("In order to solve this problem, you need to rescan your wallet. Scanning a purse will take some time want to continue?"))){
+            if(QMessageBox::Yes==QMessageBox::question(this,tr("Solution"),tr("In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?"))){
                 pwalletMain->ScanForWalletTransactions(chainActive.Genesis(), true);
             }
         }
