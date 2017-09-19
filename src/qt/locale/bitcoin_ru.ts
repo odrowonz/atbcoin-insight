@@ -1588,7 +1588,7 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
-        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, желаете продолжить?
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время. Желаете продолжить?
 </translation>
     </message>
 </context>
@@ -3285,7 +3285,7 @@ We recommend waiting for 3 transaction confirmations.</source>
     </message>
     <message>
         <source>In order to solve this problem, you need to rescan your wallet. Scanning a wallet will take some time want to continue?</source>
-        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое время, желаете продолжить?</translation>
+        <translation>Чтобы решить эту проблему, вам нужно перепроверить свой кошелек. Сканирование кошелька займет некоторое времяю. Желаете продолжить?</translation>
     </message>
 </context>
 <context>
