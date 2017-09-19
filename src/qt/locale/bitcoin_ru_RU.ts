@@ -1463,7 +1463,7 @@
     </message>
     <message>
         <source>Wallet must be unlocked to stake. Do you want to unlock your wallet?</source>
-        <translation>Кошелек должен быть разблокирован. Вы хотите разблокировать свой кошелек?</translation>
+        <translation>Для участия в майнинге кошелек должен быть разблокирован. Вы хотите разблокировать свой кошелек?</translation>
     </message>
 </context>
 <context>
@@ -4153,7 +4153,7 @@ We recommend waiting for 3 transaction confirmations.</source>
         <translation>Блокировать кошелек</translation>
     </message>
     <message>
-        <source>With the purses blocked, you can not participate in the mining.Do you want block the wallet?</source>
+        <source>With a blocked wallet, you can not participate in the mining. Do you want block the wallet?</source>
         <translation>С заблокированным кошельком вы не можете участвовать в майнинге. Вы хотите заблокировать кошелек?</translation>
     </message>
 </context>
