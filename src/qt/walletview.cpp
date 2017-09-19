@@ -308,8 +308,8 @@ void WalletView::restoreWallet(){
 }
 void WalletView::LockWallet(){
     int result;
-    result=QMessageBox::information(this,tr("Lock wallet"),tr("With the purses blocked, you can not participate in the mining."
-                                                       "Do you want block the wallet?"),QMessageBox::Yes,QMessageBox::No);
+    result=QMessageBox::information(this,tr("Lock wallet"),tr("With a blocked wallet, you can not participate in the mining. "
+                                                              "Do you want block the wallet?"),QMessageBox::Yes,QMessageBox::No);
     if(result==QMessageBox::Yes){
         walletModel->setWalletLocked(true);
     }
