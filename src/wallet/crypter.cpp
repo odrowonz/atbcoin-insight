@@ -9,6 +9,7 @@
 #include "script/script.h"
 #include "script/standard.h"
 #include "util.h"
+#include "../miner.h"
 
 #include <string>
 #include <vector>
@@ -165,6 +166,7 @@ bool CCryptoKeyStore::Lock()
     }
 
     NotifyStatusChanged(this);
+    StakeBitcoins(false,NULL);
     return true;
 }
 

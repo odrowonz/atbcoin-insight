@@ -278,8 +278,6 @@ void BitcoinCore::initialize()
     {
         qDebug() << __func__ << ": Running AppInit2 in thread";
         int rv = AppInit2(threadGroup, scheduler);
-        QSettings settings;
-        StakeBitcoins(settings.value("Stake",fStakeRun).toBool(),pwalletMain);
         Q_EMIT initializeResult(rv);
     } catch (const std::exception& e) {
         handleRunawayException(&e);
@@ -480,6 +478,9 @@ void BitcoinApplication::initializeResult(int retval)
 
             connect(walletModel, SIGNAL(coinsSent(CWallet*,SendCoinsRecipient,QByteArray)),
                              paymentServer, SLOT(fetchPaymentACK(CWallet*,const SendCoinsRecipient&,QByteArray)));
+
+            QSettings settings;
+            StakeBitcoins(settings.value("Stake",fStakeRun).toBool() && walletModel->getEncryptionStatus()!=WalletModel::Locked,pwalletMain);
         }
 #endif
 
