@@ -225,21 +225,22 @@ UniValue generatetoaddress(const UniValue& params, bool fHelp)
 }
 
 
-UniValue getsubsidy(const UniValue& params, bool fHelp)
+UniValue getworksubsidy(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() > 1)
+    if (fHelp || params.size() != 1  || Params().LastPOWBlock() < params[0].get_int())
         throw runtime_error(
-            "getsubsidy [nTarget]\n"
-            "Returns proof-of-work subsidy value for the specified value of target.");
+            "getworksubsidy <nTarget>\n"
+            "nTarget = 0.." + std::to_string(Params().LastPOWBlock()) +
+            "\nReturns proof-of-work subsidy value for the specified value of target.");
 
-    return (uint64_t)GetProofOfWorkReward(5);
+    return (uint64_t)GetProofOfWorkReward(params[0].get_int());
 }
 
 UniValue getstakesubsidy(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 1)
+    if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getstakesubsidy <hex string>\n"
+            "getstakesubsidy <hex string> [nHeight]\n"
             "Returns proof-of-stake subsidy value for the specified coinstake.");
 
     RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR));
@@ -263,7 +264,7 @@ UniValue getstakesubsidy(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_MISC_ERROR, "Tx Block not found");
 
     uint64_t nCoinAge;
-    if (!GetCoinAge(tx, txBlock->nTime, *pblocktree, pindexBestHeader, nCoinAge))
+    if (!GetCoinAge(tx, txBlock->nTime, *pblocktree, (params.size() != 2)? pindexBestHeader: chainActive[params[1].get_int()], nCoinAge))
         throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
 
     return (uint64_t)GetProofOfStakeReward(chainActive.Height(), nCoinAge, 0);
@@ -1143,7 +1144,7 @@ static const CRPCCommand commands[] =
     { "mining",             "getblocktemplate",       &getblocktemplate,       true  },
     { "mining",             "submitblock",            &submitblock,            true  },
     
-    { "mining",             "getsubsidy",             &getsubsidy,             true  },
+    { "mining",             "getworksubsidy",         &getworksubsidy,         true  },
     { "mining",             "getstakesubsidy",        &getstakesubsidy,        true  },
     { "mining",             "getstakinginfo",         &getstakinginfo,         true  },
     { "mining",             "checkkernel",            &checkkernel,            true  },
