@@ -248,7 +248,7 @@ UniValue getsubsidy(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getsubsidy <nTarget>\n"
-            "\nReturns subsidy value for the specified value of target.");
+            "\nReturns subsidy value for the block on specified height.");
 
     if(chainActive.Height() < params[0].get_int() ||  params[0].get_int() < 0){
         throw runtime_error(
