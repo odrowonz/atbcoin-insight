@@ -227,23 +227,34 @@ UniValue generatetoaddress(const UniValue& params, bool fHelp)
 
 UniValue getworksubsidy(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 1  || Params().LastPOWBlock() < params[0].get_int())
+    if (fHelp || params.size() != 1  ||
+        Params().LastPOWBlock() < params[0].get_int() || params[0].get_int() < 0)
         throw runtime_error(
             "getworksubsidy <nTarget>\n"
             "nTarget = 0.." + std::to_string(Params().LastPOWBlock()) +
             "\nReturns proof-of-work subsidy value for the specified value of target.");
+
+    if(Params().LastPOWBlock() < params[0].get_int() || params[0].get_int() < 0){
+        throw runtime_error(
+             "nTarget is wrong"
+             "nTarget = 0.." + std::to_string(Params().LastPOWBlock()) +"\n");
+    }
 
     return (uint64_t)GetProofOfWorkReward(params[0].get_int());
 }
 
 UniValue getsubsidy(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 1  || chainActive.Height() < params[0].get_int() ||  params[0].get_int() < 0)
+    if (fHelp || params.size() != 1)
         throw runtime_error(
             "getsubsidy <nTarget>\n"
-            "nTarget = 0.." + std::to_string(chainActive.Height()) +
             "\nReturns subsidy value for the specified value of target.");
 
+    if(chainActive.Height() < params[0].get_int() ||  params[0].get_int() < 0){
+        throw runtime_error(
+             "nTarget is wrong"
+             "nTarget = 0.." + std::to_string(chainActive.Height()) +"\n");
+    }
     CBlockIndex* BlockIndex = chainActive[params[0].get_int()];
 
     CBlock block;
@@ -290,7 +301,8 @@ UniValue getstakesubsidy(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_MISC_ERROR, "Tx Block not found");
 
     CBlockIndex* pindexHeader = pindexBestHeader;
-    if(params.size() == 2 && params[1].get_int() <= chainActive.Height() && params[1].get_int() >= 0)
+    if(params.size() == 2 &&
+       params[1].get_int() <= chainActive.Height() && params[1].get_int() >= 0)
         pindexHeader = chainActive[params[1].get_int()];
 
     uint64_t nCoinAge;
