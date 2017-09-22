@@ -263,11 +263,15 @@ UniValue getstakesubsidy(const UniValue& params, bool fHelp)
     if (!txBlock)
         throw JSONRPCError(RPC_MISC_ERROR, "Tx Block not found");
 
+    CBlockIndex* pindexHeader = pindexBestHeader;
+    if(params.size() == 2 && params[1].get_int() <= chainActive.Height())
+        pindexHeader = chainActive[params[1].get_int()];
+
     uint64_t nCoinAge;
-    if (!GetCoinAge(tx, txBlock->nTime, *pblocktree, (params.size() != 2)? pindexBestHeader: chainActive[params[1].get_int()], nCoinAge))
+    if (!GetCoinAge(tx, txBlock->nTime, *pblocktree, pindexHeader , nCoinAge))
         throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
 
-    return (uint64_t)GetProofOfStakeReward(chainActive.Height(), nCoinAge, 0);
+    return (uint64_t)GetProofOfStakeReward(pindexHeader->nHeight, nCoinAge, 0);
 }
 
 
