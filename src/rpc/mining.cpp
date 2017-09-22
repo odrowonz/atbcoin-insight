@@ -247,13 +247,13 @@ UniValue getsubsidy(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getsubsidy <nTarget>\n"
+            "getsubsidy <nHeight>\n"
             "\nReturns subsidy value for the block on specified height.");
 
     if(chainActive.Height() < params[0].get_int() ||  params[0].get_int() < 0){
         throw runtime_error(
-             "nTarget is wrong"
-             "nTarget = 0.." + std::to_string(chainActive.Height()) +"\n");
+             "nHeight is wrong"
+             "current height is " + std::to_string(chainActive.Height()) +"\n");
     }
     CBlockIndex* BlockIndex = chainActive[params[0].get_int()];
 
