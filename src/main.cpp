@@ -1885,7 +1885,9 @@ void static PruneOrphanBlocks()
 // miner's coin base reward (POW)
 CAmount GetProofOfWorkReward(const int nHeight)
 {
-    return nHeight == Params().LastPOWBlock() ? 2194066452 : ( nHeight > 2001 ? 1000 * COIN : 14971 * COIN);
+    if(nHeight > CROWDSALE_BLOCK_COUNT)
+        return nHeight == Params().LastPOWBlock() ? 2194066452 : ( nHeight > 2001 ? 1000 * COIN : 14971 * COIN);
+    return 0;
 }
 
 // miner's coin stake reward

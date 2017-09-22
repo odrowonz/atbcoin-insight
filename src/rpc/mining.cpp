@@ -238,7 +238,7 @@ UniValue getworksubsidy(const UniValue& params, bool fHelp)
 
 UniValue getsubsidy(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() != 1  || chainActive.Height() < params[0].get_int())
+    if (fHelp || params.size() != 1  || chainActive.Height() < params[0].get_int() ||  params[0].get_int() < 0)
         throw runtime_error(
             "getsubsidy <nTarget>\n"
             "nTarget = 0.." + std::to_string(chainActive.Height()) +
@@ -290,7 +290,7 @@ UniValue getstakesubsidy(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_MISC_ERROR, "Tx Block not found");
 
     CBlockIndex* pindexHeader = pindexBestHeader;
-    if(params.size() == 2 && params[1].get_int() <= chainActive.Height())
+    if(params.size() == 2 && params[1].get_int() <= chainActive.Height() && params[1].get_int() >= 0)
         pindexHeader = chainActive[params[1].get_int()];
 
     uint64_t nCoinAge;
