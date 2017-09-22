@@ -106,6 +106,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "getmempooldescendants", 1 },
     { "getworksubsidy", 0 },
     { "getstakesubsidy", 1 },
+    { "getsubsidy", 0 },
+
 
 };
 
